@@ -15,6 +15,7 @@ namespace TO
         public String segundo_nombre { get; set; }
         public String primer_apellido { get; set; }
         public String segundo_apellido { get; set; }
+
         public DateTime fecha_nacimiento { get; set; }
         public int edad { get; set; }
         public String num_telefono { get; set; }
