@@ -20,7 +20,6 @@
             <img src="img/clinic.png" width="30" height="30" class="d-inline-block align-top" alt="">
             Clinica T-Atiende
           </a>
-            
         </nav>
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
