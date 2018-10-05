@@ -46,6 +46,7 @@
     <Compile Include="BLConsulta.cs" />
     <Compile Include="BLDireccion.cs" />
     <Compile Include="BLFichaDoctor.cs" />
+    <Compile Include="BLHistoriaClinica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
