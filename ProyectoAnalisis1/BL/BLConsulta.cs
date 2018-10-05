@@ -15,6 +15,7 @@ namespace BL
 
         public BLConsulta(int idConsulta) {
 
+
         }
     }
 }
