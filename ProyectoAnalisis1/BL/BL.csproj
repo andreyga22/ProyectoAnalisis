@@ -44,6 +44,9 @@
     <Compile Include="BLExpediente.cs" />
     <Compile Include="BLFichaParamedico.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="BLConsulta.cs" />
+    <Compile Include="BLDireccion.cs" />
+    <Compile Include="BLFichaDoctor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
