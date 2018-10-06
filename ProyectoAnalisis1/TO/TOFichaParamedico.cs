@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TO
 {
-    class TOFichaParamedico
+    public class TOFichaParamedico
     {
         public int id_Paramedico { get; set; }
         public String presionArterial { get; set; }

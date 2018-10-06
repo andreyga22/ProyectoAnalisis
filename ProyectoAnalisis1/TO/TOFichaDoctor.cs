@@ -13,7 +13,7 @@ namespace TO
         public string examenFisico { get; set; }
         public string plan { get; set; }
 
-        public BLFichaDoctor(int idDoctor, string motivoConsulta, string examenFisico, string plan)
+        public TOFichaDoctor(int idDoctor, string motivoConsulta, string examenFisico, string plan)
         {
             this.idDoctor = idDoctor;
             this.motivoConsulta = motivoConsulta;
