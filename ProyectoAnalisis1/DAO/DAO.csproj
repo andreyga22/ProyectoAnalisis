@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAODireccion.cs" />
+    <Compile Include="DAOExpediente.cs" />
     <Compile Include="DAOConsulta.cs" />
     <Compile Include="DAOHistoriaClinica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

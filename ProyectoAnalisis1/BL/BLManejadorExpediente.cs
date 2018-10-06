@@ -40,5 +40,10 @@ namespace BL
                 exp.fecha_nacimiento, exp.edad, exp.num_telefono, exp.religion, exp.estado_civil,
                 exp.tipo_trabajo, exp.sexo);
         }
+
+        public void prueba() {
+            DAOExpediente dao = new DAOExpediente();
+            dao.pruebaConexion();
+        }
     }
 }
