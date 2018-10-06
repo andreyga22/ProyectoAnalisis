@@ -14,7 +14,7 @@ namespace TO
         public string distrito { get; set; }
         public string otrasSenas { get; set; }
 
-        public BLDireccion(int idDireccion, string provincia, string canton, string distrito, string otrasSenas)
+        public TODireccion(int idDireccion, string provincia, string canton, string distrito, string otrasSenas)
         {
             this.idDireccion = idDireccion;
             this.provincia = provincia;

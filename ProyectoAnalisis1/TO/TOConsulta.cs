@@ -9,9 +9,9 @@ namespace TO
     public class TOConsulta
     {
         public int idConsulta { get; set; }
-        public BLExpediente expediente { get; set; }
-        public BLFichaParamedico fichaParam { get; set; }
-        public BLFichaDoctor fichaDoctor { get; set; }
+        public TOExpediente expediente { get; set; }
+        public TOFichaParamedico fichaParam { get; set; }
+        public TOFichaDoctor fichaDoctor { get; set; }
 
         public TOConsulta(int idConsulta)
         {

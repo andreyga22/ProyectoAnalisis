@@ -5,7 +5,7 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Expediente</title>
+    <title>Clinica T_Asiste | Expediente</title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
         <script src="Scripts/jquery-3.3.1.min.js"></script>
         <script src="Scripts/bootstrap.min.js"></script>
@@ -17,8 +17,8 @@
     <form id="form1" runat="server">
         <nav class="navbar navbar-light bg-info">
           <a class="navbar-brand" href="#">
-            <img src="img/clinic.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            Clinica T-Atiende
+            <img src="img/logo.png"  height="50" class="d-inline-block align-top" alt="">
+            Clinica T-Asiste
           </a>
         </nav>
         <div>
