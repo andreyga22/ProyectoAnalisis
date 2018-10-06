@@ -15,7 +15,16 @@ namespace DAO
         }
 
         public void pruebaConexion() {
-            SqlCommand comando = new SqlCommand("insert into Direccion values () ");
+            
+                SqlCommand insertar = new SqlCommand("Insert into DIRECCION values (2, 'alajuela', 'san ramon', 'san ramon', 'porahi')", conexion);
+                //insertar.Parameters.AddWithValue("@Id", direccion.idDireccion);
+                //insertar.Parameters.AddWithValue("@Prov", direccion.provincia);
+                //insertar.Parameters.AddWithValue("@Cant", direccion.canton);
+                //insertar.Parameters.AddWithValue("@Dist", direccion.distrito);
+                //insertar.Parameters.AddWithValue("@Otras", direccion.otrasSenas);
+                conexion.Open();
+                insertar.ExecuteNonQuery();
+                conexion.Close();
         }
     }
 }

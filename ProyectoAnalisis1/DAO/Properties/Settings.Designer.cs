@@ -26,8 +26,8 @@ namespace DAO.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=.\\SQLEXPRESS;Integrated Security=SSPI;tasisteo_db1=|DataDirectory|asp" +
-            "netdb.mdf;User = tasisteo_db_user Password = Claveunica1234 Instance=true")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ws9.win.arvixe.com;Initial Catalog=tasisteo_db1;User Id=tasisteo_db_u" +
+            "ser;Password=Claveunica1234;")]
         public string conection {
             get {
                 return ((string)(this["conection"]));
