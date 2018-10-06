@@ -15,7 +15,7 @@ namespace DAO
         public Boolean registrarDireccion(TODireccion direccion) {
             try
             {
-                SqlCommand insertar = new SqlCommand("Insert into DIRECCION values (@Id, @Prov, @Cant, @Dist, @Otras)", connection);
+                SqlCommand insertar = new SqlCommand("Insert into DIRECCION values (@Id, @Prov, @Cant, @Dist, @Otras)", conexion);
                 insertar.Parameters.AddWithValue("@Id", direccion.idDireccion);
                 insertar.Parameters.AddWithValue("@Prov", direccion.provincia);
                 insertar.Parameters.AddWithValue("@Cant", direccion.canton);
