@@ -9,12 +9,24 @@ namespace BL
     public class BLConsulta
     {
         public int idConsulta { get; set; }
-        public BLExpediente expediente{ get; set; }
-        public BLFichaParamedico fichaParam { get; set; }
-        public BLFichaDoctor fichaDoctor { get; set; }
+        public DateTime fecha { get; set; }
+        public String cedula{ get; set; }
+        public int idParamedico { get; set; }
+        public int idDoctor { get; set; }
+        public int precio_Consulta { get; set; }
 
-        public BLConsulta(int idConsulta) {
+        public BLConsulta(int idConsulta, DateTime fecha, String cedula, int idParamedico, 
+            int idDoctor, int precio_Consulta) {
+            this.idConsulta = idConsulta;
+            this.fecha = fecha;
+            this.cedula = cedula;
+            this.idParamedico = idParamedico;
+            this.idDoctor = idDoctor;
+            this.precio_Consulta = precio_Consulta;
+        }
 
+        public BLConsulta()
+        {
 
         }
     }
