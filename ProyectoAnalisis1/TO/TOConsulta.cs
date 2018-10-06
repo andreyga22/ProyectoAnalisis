@@ -9,11 +9,24 @@ namespace TO
     public class TOConsulta
     {
         public int idConsulta { get; set; }
-        public TOExpediente expediente { get; set; }
-        public TOFichaParamedico fichaParam { get; set; }
-        public TOFichaDoctor fichaDoctor { get; set; }
+        public DateTime fecha { get; set; }
+        public String cedula { get; set; }
+        public int idParamedico { get; set; }
+        public int idDoctor { get; set; }
+        public int precio_Consulta { get; set; }
 
-        public TOConsulta(int idConsulta)
+        public TOConsulta(int idConsulta, DateTime fecha, String cedula, int idParamedico,
+            int idDoctor, int precio_Consulta)
+        {
+            this.idConsulta = idConsulta;
+            this.fecha = fecha;
+            this.cedula = cedula;
+            this.idParamedico = idParamedico;
+            this.idDoctor = idDoctor;
+            this.precio_Consulta = precio_Consulta;
+        }
+
+        public TOConsulta()
         {
 
         }
