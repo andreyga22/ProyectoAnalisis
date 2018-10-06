@@ -96,6 +96,10 @@
             </asp:DropDownList>
         </div>
 
+        <div class="form-group offset-sm-6">
+            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" />
+        </div>
+
         <br />
 
         <div class="form-row">
