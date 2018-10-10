@@ -12,11 +12,10 @@ namespace DAO
     public class DAODireccion
     {
         SqlConnection conexion = new SqlConnection();
-        public Boolean registrarDireccion(TODireccion direccion) {
+        public void insertarDireccion(TODireccion direccion) {
             try
             {
-                SqlCommand insertar = new SqlCommand("Insert into DIRECCION values (@Id, @Prov, @Cant, @Dist, @Otras)", conexion);
-                insertar.Parameters.AddWithValue("@Id", direccion.idDireccion);
+                SqlCommand insertar = new SqlCommand("Insert into DIRECCION ( provincia, canton, distrito, otras_senas) values ( @Prov, @Cant, @Dist, @Otras)", conexion);
                 insertar.Parameters.AddWithValue("@Prov", direccion.provincia);
                 insertar.Parameters.AddWithValue("@Cant", direccion.canton);
                 insertar.Parameters.AddWithValue("@Dist", direccion.distrito);
@@ -24,12 +23,10 @@ namespace DAO
                 conexion.Open();
                 insertar.ExecuteNonQuery();
                 conexion.Close();
-                return true;
             }
             catch (Exception ex)
             {
                 ex.ToString();
-                return false;
             }
 
         }

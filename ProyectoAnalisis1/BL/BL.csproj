@@ -47,6 +47,7 @@
     <Compile Include="BLDireccion.cs" />
     <Compile Include="BLFichaDoctor.cs" />
     <Compile Include="BLHistoriaClinica.cs" />
+    <Compile Include="BLManejadorDireccion.cs" />
     <Compile Include="BLManejadorExpediente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

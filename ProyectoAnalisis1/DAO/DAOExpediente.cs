@@ -11,8 +11,37 @@ namespace DAO
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
         public void insertar(TOExpediente to) {
+            string insert = "insert into expediente (cedula," +
+                " nombre1, nombre2, apellido1, apellido2, fecha_Nacimiento, numero_telefono, religion," +
+                " estado_civil, tipo_trabajo, sexo) values (@cedula, @nombre1," +
+                " @nombre2, @apellido1, @apellido2, @fecha_Nacimiento, @numero_telefono, @religion," +
+                " @estado_civil, @tipo_trabajo, @sexo)";
+            SqlCommand insertar = new SqlCommand(insert, conexion);
+            insertar.Parameters.AddWithValue("@cedula", to.cedula);
+            insertar.Parameters.AddWithValue("@nombre1", to.primer_nombre);
+            insertar.Parameters.AddWithValue("@nombre2", to.segundo_nombre);
+            insertar.Parameters.AddWithValue("@apellido1", to.primer_apellido);
+            insertar.Parameters.AddWithValue("@apellido2", to.segundo_apellido);
+            insertar.Parameters.AddWithValue("@fecha_nacimiento", to.fecha_nacimiento);
+            insertar.Parameters.AddWithValue("@numero_telefono", to.num_telefono);
+            insertar.Parameters.AddWithValue("@religion", to.religion);
+            insertar.Parameters.AddWithValue("@estado_civil", to.estado_civil);
+            insertar.Parameters.AddWithValue("@tipo_trabajo", to.tipo_trabajo);
+            insertar.Parameters.AddWithValue("@sexo", to.sexo);
 
+            if (conexion.State != System.Data.ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+
+            insertar.ExecuteNonQuery();
+
+            if (conexion.State != System.Data.ConnectionState.Closed)
+            {
+                conexion.Close();
+            }
         }
+        
 
         public void pruebaConexion() {
             
