@@ -11,6 +11,25 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BLManejadorExpediente man = new BLManejadorExpediente();
+            BLExpediente exp = man.consultarExpediente("101230546");
+            idText.Text = exp.cedula;
+            firstNameText.Text = exp.primer_nombre;
+            secondNameText.Text = exp.segundo_nombre;
+            lastNameText.Text = exp.primer_apellido;
+            lastNameText2.Text = exp.segundo_apellido;
+            fechaNacimiento.SelectedDate = exp.fecha_nacimiento;
+            phoneText.Text = exp.num_telefono;
+            religionText.Text = exp.religion;
+            estadoCivilText.Text = exp.estado_civil;
+            trabajoText.Text = exp.tipo_trabajo;
+            sexoText.Text = exp.sexo;
+            BLManejadorDireccion dir = new BLManejadorDireccion();
+            BLDireccion bl = dir.consultar("101230546");
+            provinciaText.Text = bl.provincia;
+            cantonText.Text = bl.canton;
+            distritoText.Text = bl.distrito;
+            otrasText.Text = bl.otrasSenas;
 
         }
 
@@ -23,7 +42,7 @@ namespace UI
                 religionText.Text.Trim(), estadoCivilText.Text.Trim(), trabajoText.Text.Trim(), 
                 sexoText.SelectedValue));
 
-            new BLManejadorDireccion().insertarDireccion(new BLDireccion(0, provinciaText.Text.Trim(), 
+            new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(),provinciaText.Text.Trim(), 
                 cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
         }
 

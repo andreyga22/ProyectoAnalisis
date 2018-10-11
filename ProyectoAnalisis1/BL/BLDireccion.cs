@@ -9,13 +9,15 @@ namespace BL
     public class BLDireccion
     {
         public int idDireccion { get; set; }
+        public string cedula { get; set; }
         public string provincia { get; set; }
         public string canton { get; set; }
         public string distrito { get; set; }
         public string otrasSenas { get; set; }
 
-        public BLDireccion(int idDireccion, string provincia, string canton, string distrito, string otrasSenas) {
+        public BLDireccion(int idDireccion, string cedula, string provincia, string canton, string distrito, string otrasSenas) {
             this.idDireccion = idDireccion;
+            this.cedula = cedula;
             this.provincia = provincia;
             this.canton = canton;
             this.distrito = distrito;

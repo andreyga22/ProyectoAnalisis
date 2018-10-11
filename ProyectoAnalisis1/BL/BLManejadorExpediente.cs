@@ -22,8 +22,9 @@ namespace BL
 
         }
 
-        public void consultarExpediente(string cedula) {
-
+        public BLExpediente consultarExpediente(string cedula) {
+            DAOExpediente dao = new DAOExpediente();
+            return convert(dao.consultar(cedula));
         }
 
         private TOExpediente convert(BLExpediente exp) {

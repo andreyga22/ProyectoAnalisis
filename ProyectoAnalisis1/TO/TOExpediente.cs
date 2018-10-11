@@ -35,6 +35,10 @@ namespace TO
             this.tipo_trabajo = tipo_trabajo;
             this.sexo = sexo;
         }
+
+        public TOExpediente()
+        {
+        }
     }
 
 }
