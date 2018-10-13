@@ -74,6 +74,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="expediente.aspx" />
+    <Content Include="FichaDoctor.aspx" />
+    <Content Include="FichaParamedico.aspx" />
+    <Content Include="HistorialClinico.aspx" />
     <Content Include="img\logo.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -119,6 +122,27 @@
     </Compile>
     <Compile Include="expediente.aspx.designer.cs">
       <DependentUpon>expediente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FichaDoctor.aspx.cs">
+      <DependentUpon>FichaDoctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FichaDoctor.aspx.designer.cs">
+      <DependentUpon>FichaDoctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FichaParamedico.aspx.cs">
+      <DependentUpon>FichaParamedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FichaParamedico.aspx.designer.cs">
+      <DependentUpon>FichaParamedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialClinico.aspx.cs">
+      <DependentUpon>HistorialClinico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistorialClinico.aspx.designer.cs">
+      <DependentUpon>HistorialClinico.aspx</DependentUpon>
     </Compile>
     <Compile Include="mainMaster.Master.cs">
       <DependentUpon>mainMaster.Master</DependentUpon>
