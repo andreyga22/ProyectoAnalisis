@@ -139,139 +139,220 @@ namespace UI {
         protected global::System.Web.UI.WebControls.CheckBox apendiceCheck;
         
         /// <summary>
-        /// firstNameText control.
+        /// cardiacaText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox firstNameText;
+        protected global::System.Web.UI.WebControls.TextBox cardiacaText;
         
         /// <summary>
-        /// secondNameText control.
+        /// otrasPatologicasText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox secondNameText;
+        protected global::System.Web.UI.WebControls.TextBox otrasPatologicasText;
         
         /// <summary>
-        /// lastNameText control.
+        /// alergiasText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastNameText;
+        protected global::System.Web.UI.WebControls.TextBox alergiasText;
         
         /// <summary>
-        /// lastNameText2 control.
+        /// otrasNoPatologicasText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastNameText2;
+        protected global::System.Web.UI.WebControls.TextBox otrasNoPatologicasText;
         
         /// <summary>
-        /// idText control.
+        /// furText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idText;
+        protected global::System.Web.UI.WebControls.Calendar furText;
         
         /// <summary>
-        /// phoneText control.
+        /// embarazosText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox phoneText;
+        protected global::System.Web.UI.WebControls.TextBox embarazosText;
         
         /// <summary>
-        /// provinciaText control.
+        /// abortosText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox provinciaText;
+        protected global::System.Web.UI.WebControls.TextBox abortosText;
         
         /// <summary>
-        /// cantonText control.
+        /// quistesOvaricosText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox cantonText;
+        protected global::System.Web.UI.WebControls.TextBox quistesOvaricosText;
         
         /// <summary>
-        /// distritoText control.
+        /// otrosGinecobstetricoText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox distritoText;
+        protected global::System.Web.UI.WebControls.TextBox otrosGinecobstetricoText;
         
         /// <summary>
-        /// otrasText control.
+        /// medicamentosText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox otrasText;
+        protected global::System.Web.UI.WebControls.TextBox medicamentosText;
         
         /// <summary>
-        /// fechaNacimiento control.
+        /// otrosMedicamentosText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar fechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox otrosMedicamentosText;
         
         /// <summary>
-        /// religionText control.
+        /// fracturasText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox religionText;
+        protected global::System.Web.UI.WebControls.TextBox fracturasText;
         
         /// <summary>
-        /// estadoCivilText control.
+        /// vesiculaText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox estadoCivilText;
+        protected global::System.Web.UI.WebControls.TextBox vesiculaText;
         
         /// <summary>
-        /// trabajoText control.
+        /// litiasisText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox trabajoText;
+        protected global::System.Web.UI.WebControls.TextBox litiasisText;
         
         /// <summary>
-        /// sexoText control.
+        /// columnaText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList sexoText;
+        protected global::System.Web.UI.WebControls.TextBox columnaText;
+        
+        /// <summary>
+        /// otrosQuirugicosText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox otrosQuirugicosText;
+        
+        /// <summary>
+        /// dMFamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox dMFamText;
+        
+        /// <summary>
+        /// HTAFamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox HTAFamText;
+        
+        /// <summary>
+        /// asmaFamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox asmaFamText;
+        
+        /// <summary>
+        /// cancerFamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox cancerFamText;
+        
+        /// <summary>
+        /// epilepsiaFamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox epilepsiaFamText;
+        
+        /// <summary>
+        /// demenciasFamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox demenciasFamText;
+        
+        /// <summary>
+        /// psicofamiliaresText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox psicofamiliaresText;
+        
+        /// <summary>
+        /// otrosFamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox otrosFamText;
         
         /// <summary>
         /// guardarBtn control.
@@ -281,23 +362,5 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button guardarBtn;
-        
-        /// <summary>
-        /// historialBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button historialBtn;
-        
-        /// <summary>
-        /// agregarBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button agregarBtn;
     }
 }

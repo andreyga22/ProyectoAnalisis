@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BL;
 
 namespace UI
 {
@@ -11,7 +12,17 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
+            BLFichaDoctor doc = blm.consultar(1); //id consultaa porque solo hay una por consulta
+            motivoText.Text = doc.motivoConsulta;
+            examenText.Text = doc.examenFisico;
+            planText.Text = doc.plan;
+        }
 
+        protected void guardarBtn_Click(object sender, EventArgs e)
+        {
+            BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
+            blm.insertar(new BLFichaDoctor(0, 1, motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
         }
     }
 }

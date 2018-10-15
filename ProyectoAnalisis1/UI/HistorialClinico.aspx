@@ -77,109 +77,153 @@
 
         <div class="form-row">
             <div class="form-group col-sm-6">
-                <label for="firstNameText">Primer nombre</label>
+                <label for="cardiacaText">Enfermedades cardíacas</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="firstNameText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="cardiacaText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-6">
-                <label for="secondNameText">Segundo nombre</label>
+                <label for="otrasPatologicasText">Otras enfermedades personales patológicas</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="secondNameText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="otrasPatologicasText" runat="server"></asp:TextBox>
             </div>
 
         </div>
         <div class="form-row">
             <div class="form-group col-sm-6">
-                <label for="lastNameText">Primer apellido</label>
+                <label for="alergiasText">Alergias</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="lastNameText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="alergiasText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-6">
-                <label for="lastNameText2">Segundo apellido</label>
+                <label for="otrasNoPatologicasText">Otras enfermedades personales no patologicas</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="lastNameText2"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="lastNameText2" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="otrasNoPatologicasText" runat="server"></asp:TextBox>
             </div>
         </div>
 
+        <div class="form-group offset-md-4 col-sm-4">
+            <label for="furText">FUR</label>
+            <asp:Calendar ID="furText" runat="server"></asp:Calendar>
+        </div>
+
         <div class="form-group">
-            <label for="idText">Cedula</label>
+            <label for="embarazos">Embarazos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="idText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="idText" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="embarazosText" runat="server"></asp:TextBox>
         </div>
 
 
 
 
         <div class="form-group">
-            <label for="phoneText">Telefono</label>
+            <label for="abortosText">Abortos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="phoneText" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="abortosText" runat="server"></asp:TextBox>
         </div>
 
         <div class="form-row">
             <div class="form-group col-sm-4">
-                <label for="provinciaText">Provincia</label>
+                <label for="quistesOvaricosText">Quistes Ováricos</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="provinciaText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="provinciaText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="quistesOvaricosText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-4">
-                <label for="cantonText">Canton</label>
+                <label for="otrosGinecobstetricoText">Otras enfermedades ginecobstetricos</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="cantonText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="cantonText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="otrosGinecobstetricoText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-4">
-                <label for="distritoText">Distrito</label>
+                <label for="medicamentosText">Medicamentos</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="distritoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="distritoText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="medicamentosText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-4">
-                <label for="otrasText">Otras Señas</label>
+                <label for="otrosMedicamentosText">Otros Medicamentos</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="otrasText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="otrasText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="otrosMedicamentosText" runat="server"></asp:TextBox>
             </div>
         </div>
-        <div class="form-group offset-md-4 col-sm-4">
-            <label for="fechaNacimiento">Fecha de Nacimiento</label>
-            <asp:Calendar ID="fechaNacimiento" runat="server"></asp:Calendar>
-        </div>
+        
 
         <div class="form-group">
-            <label for="religionText">Religion</label>
+            <label for="fracturasText">Fracturas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="religionText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="religionText" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="fracturasText" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="estadoCivilText">Estado Civil</label>
+            <label for="vesiculaText">Vesícula</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="estadoCivilText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="estadoCivilText" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="vesiculaText" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="trabajoText">Tipo de trabajo</label>
+            <label for="litiasisText">Litiásis</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="trabajoText" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="litiasisText" runat="server"></asp:TextBox>
         </div>
 
-        <div class="form-group col-sm-4">
-            <label for="sexoText">Sexo</label>
-            <asp:DropDownList ID="sexoText" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" runat="server">
-                <asp:ListItem>M</asp:ListItem>
-                <asp:ListItem>F</asp:ListItem>
-            </asp:DropDownList>
+        <div class="form-group">
+            <label for="columnaText">Columna</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="columnaText" runat="server"></asp:TextBox>
         </div>
+
+        <div class="form-group">
+            <label for="otrosQuirugicosText">Otros Quirugicos</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="otrosQuirugicosText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="dMFamText">DM Familiar</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="dMFamText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="HTAFamText">HTA Familiar</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="HTAFamText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="asmaFamText">Asma Familiar</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="asmaFamText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="cancerFamText">Cancer Familiar</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="cancerFamText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="epilepsiaFamText">Epilepsia Familiar</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="epilepsiaFamText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="demenciasFamText">Demencias Familiar</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="demenciasFamText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="psicofamiliaresText">Enfermedades Psicofamiliares</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="psicofamiliaresText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="otrosFamText">Otras enfermedades Familiares</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="otrosFamText" runat="server"></asp:TextBox>
+        </div>
+
 
         <div class="form-group offset-sm-6">
             <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" />
-        </div>
-
-        <br />
-
-        <div class="form-row">
-            <div class="form-group col-sm-10">
-                <asp:Button type="button" class="btn btn-light" ID="historialBtn" runat="server" Text="Historial de consultas" />
-            </div>
-            <div class="form-group col-sm-2">
-                <asp:Button type="button" class="btn btn-info" ID="agregarBtn" runat="server" Text="Agregar consulta" />
-            </div>
         </div>
 
         <br />
