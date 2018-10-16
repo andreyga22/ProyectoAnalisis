@@ -69,7 +69,7 @@
         
 
         <div class="form-group offset-sm-6">
-            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" />
+            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" />
         </div>
 
         <br />

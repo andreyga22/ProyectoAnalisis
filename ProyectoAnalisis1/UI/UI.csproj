@@ -67,6 +67,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Consulta.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -77,7 +78,11 @@
     <Content Include="FichaDoctor.aspx" />
     <Content Include="FichaParamedico.aspx" />
     <Content Include="HistorialClinico.aspx" />
+    <Content Include="img\doctor.jpg" />
+    <Content Include="img\doctor.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\paramedicos.jpg" />
+    <Content Include="img\paramedicos.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -116,6 +121,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consulta.aspx.cs">
+      <DependentUpon>Consulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consulta.aspx.designer.cs">
+      <DependentUpon>Consulta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="expediente.aspx.cs">
       <DependentUpon>expediente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
