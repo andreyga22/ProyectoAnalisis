@@ -11,7 +11,12 @@
         <br />
 
         <div class="form-row">
-            <asp:Button ID="hoyBtn" type="button" class="btn btn-info" runat="server" Text="Hoy" />
+            <div class="form-group col-sm-11">
+                <asp:Button ID="ultimaBtn" type="button" class="btn btn-info" runat="server" Text="Ultima Consulta" />
+            </div>
+            <div class="form-group col-sm-1">
+                <asp:Button type="button" class="btn btn-light" ID="historialBtn" runat="server" Text="Consultas" OnClick="historialBtn_Click" />
+            </div>
         </div>
         <br />
         <div class="form-row">
@@ -120,14 +125,6 @@
 
         <br />
 
-        <div class="form-row">
-            <div class="form-group col-sm-10">
-                <asp:Button type="button" class="btn btn-light" ID="historialBtn" runat="server" Text="Historial de consultas" />
-            </div>
-            <div class="form-group col-sm-2">
-                <asp:Button type="button" class="btn btn-info" ID="agregarBtn" runat="server" Text="Agregar consulta" />
-            </div>
-        </div>
 
         <br />
         <br />

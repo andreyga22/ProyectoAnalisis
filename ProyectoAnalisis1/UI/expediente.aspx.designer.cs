@@ -13,13 +13,22 @@ namespace UI {
     public partial class expediente {
         
         /// <summary>
-        /// hoyBtn control.
+        /// ultimaBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button hoyBtn;
+        protected global::System.Web.UI.WebControls.Button ultimaBtn;
+        
+        /// <summary>
+        /// historialBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button historialBtn;
         
         /// <summary>
         /// titulo control.
@@ -182,23 +191,5 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button guardarBtn;
-        
-        /// <summary>
-        /// historialBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button historialBtn;
-        
-        /// <summary>
-        /// agregarBtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button agregarBtn;
     }
 }

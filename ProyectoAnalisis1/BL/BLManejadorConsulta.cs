@@ -20,6 +20,17 @@ namespace BL
             return convert( new DAOConsulta().consultar(idConsulta));
         }
 
+        public List<BLConsulta> listaConsultas() {
+            DAOConsulta dao = new DAOConsulta();
+            List<TOConsulta> listaTO = dao.listaConsulta();
+            List<BLConsulta> listaBL = new List<BLConsulta>();
+            foreach (TOConsulta consulta in listaTO)
+            {
+                listaBL.Add(convert(consulta));
+            }
+            return listaBL;
+        }
+
         public BLConsulta convert(TOConsulta to)
         {
             return new BLConsulta(to.idConsulta, to.fecha, to.cedula, to.precio_Consulta);

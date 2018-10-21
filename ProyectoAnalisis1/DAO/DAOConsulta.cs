@@ -85,5 +85,43 @@ namespace DAO
             //    conexion.Close();
             //}
         }
+
+        public List<TOConsulta> listaConsulta() {
+            //try
+            //{
+                string select = "select * from Consulta;";
+                SqlCommand sentencia = new SqlCommand(select, conexion);
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(table);
+                List<TOConsulta> lista = new List<TOConsulta>();
+
+                for (int x = 0; x < table.Rows.Count; x++)
+                {
+                    TOConsulta consulta = new TOConsulta();
+                    consulta.fecha = Convert.ToDateTime(table.Rows[x]["FECHA"]);
+                    consulta.idConsulta = Convert.ToInt32(table.Rows[x]["ID_CONSULTA"]);
+                    consulta.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
+                    consulta.precio_Consulta = Convert.ToInt32(table.Rows[x]["PRECIO_CONSULTA"]);
+                    lista.Add(consulta);
+                }
+
+                return lista;
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
+            //catch (Exception ex2)
+            //{
+            //    throw ex2;
+            //}
+            //finally
+            //{
+            //    conexion.Close();
+            //}
+        }
+
     }
 }

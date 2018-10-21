@@ -83,6 +83,7 @@
     <Content Include="img\logo.png" />
     <Content Include="img\paramedicos.jpg" />
     <Content Include="img\paramedicos.png" />
+    <Content Include="ListaConsultas.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -155,6 +156,13 @@
     </Compile>
     <Compile Include="HistorialClinico.aspx.designer.cs">
       <DependentUpon>HistorialClinico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaConsultas.aspx.cs">
+      <DependentUpon>ListaConsultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaConsultas.aspx.designer.cs">
+      <DependentUpon>ListaConsultas.aspx</DependentUpon>
     </Compile>
     <Compile Include="mainMaster.Master.cs">
       <DependentUpon>mainMaster.Master</DependentUpon>
