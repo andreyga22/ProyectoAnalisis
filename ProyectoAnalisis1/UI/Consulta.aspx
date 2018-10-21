@@ -25,10 +25,25 @@
 
         <div class="form-row">
             <div class="form-group col-sm-6">
-                <asp:Literal ID="fichaDoctor" runat="server"></asp:Literal>
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/doctor.jpg" alt="Doctor">
+                    <div class="card-body">
+                        <h5 class="card-title">Ficha Doctor</h5>
+                        <p class="card-text">Ficha con el formulario del doctor(a).</p>
+                        <asp:Button ID="entrarDoctor" class="btn btn-primary" runat="server" Text="Entrar" OnClick="entrarDoctor_Click" />
+                    </div>
+                </div>
             </div>
             <div class="form-group col-sm-6">
-                <asp:Literal ID="fichaParam" runat="server"></asp:Literal>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="img/paramedicos.jpg" alt="Paramedicos">
+                    <div class="card-body">
+                        <h5 class="card-title">Ficha Paramedicos</h5>
+                        <p class="card-text">Ficha con el formulario del paramedico(a).</p>
+                        <asp:Button ID="entrarParamedico" class="btn btn-primary" runat="server" Text="Entrar" OnClick="entrarParamedico_Click" />
+                    </div>
+                </div>
             </div>
         </div>
 

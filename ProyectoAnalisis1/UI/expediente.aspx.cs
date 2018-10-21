@@ -12,7 +12,7 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             BLManejadorExpediente man = new BLManejadorExpediente();
-            BLExpediente exp = man.consultarExpediente("101230546");
+            BLExpediente exp = man.consultarExpediente("504060873");
             idText.Text = exp.cedula;
             firstNameText.Text = exp.primer_nombre;
             secondNameText.Text = exp.segundo_nombre;
@@ -53,6 +53,7 @@ namespace UI
 
         protected void historialBtn_Click(object sender, EventArgs e)
         {
+            Session["cedula"] = idText.Text.Trim();
             Response.Redirect("ListaConsultas.aspx");
         }
     }

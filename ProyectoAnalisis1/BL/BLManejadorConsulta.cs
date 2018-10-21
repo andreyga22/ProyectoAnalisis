@@ -20,9 +20,9 @@ namespace BL
             return convert( new DAOConsulta().consultar(idConsulta));
         }
 
-        public List<BLConsulta> listaConsultas() {
+        public List<BLConsulta> listaConsultas(String cedula) {
             DAOConsulta dao = new DAOConsulta();
-            List<TOConsulta> listaTO = dao.listaConsulta();
+            List<TOConsulta> listaTO = dao.listaConsulta(cedula);
             List<BLConsulta> listaBL = new List<BLConsulta>();
             foreach (TOConsulta consulta in listaTO)
             {

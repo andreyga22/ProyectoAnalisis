@@ -13,7 +13,7 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
-            BLFichaParamedico param = blm.consultar(1);
+            BLFichaParamedico param = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
             presionText.Text = param.presionArterial;
             temperaturaText.Text = Convert.ToString( param.temperatura);
             estaturaText.Text = Convert.ToString(param.estatura);

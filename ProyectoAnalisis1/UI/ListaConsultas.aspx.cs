@@ -13,11 +13,11 @@ namespace UI
         {
             cargarGrid();
         }
-
+        
 
         private void cargarGrid() {
             BLManejadorConsulta manejador = new BLManejadorConsulta();
-            List<BLConsulta> lista = manejador.listaConsultas();
+            List<BLConsulta> lista = manejador.listaConsultas(Convert.ToString(Session["cedula"]));
             listaConsultaGV.DataSource = lista;
             listaConsultaGV.DataBind();
         }
@@ -25,7 +25,8 @@ namespace UI
         protected void listaConsultaGV_SelectedIndexChanged(object sender, EventArgs e)
         {
             string id= listaConsultaGV.SelectedRow.Cells[1].Text;
-            //hacer viewstate y abrir pagina de consulta
+            Session["idConsulta"] = id;
+            Response.Redirect("Consulta.aspx");
         }
     }
 }

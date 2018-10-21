@@ -86,11 +86,12 @@ namespace DAO
             //}
         }
 
-        public List<TOConsulta> listaConsulta() {
+        public List<TOConsulta> listaConsulta(String cedula) {
             //try
             //{
-                string select = "select * from Consulta;";
+                string select = "select * from Consulta where cedula = @id;";
                 SqlCommand sentencia = new SqlCommand(select, conexion);
+            sentencia.Parameters.AddWithValue("@id", cedula);
                 DataTable table = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = sentencia;

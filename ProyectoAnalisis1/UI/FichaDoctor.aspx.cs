@@ -13,7 +13,7 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
-            BLFichaDoctor doc = blm.consultar(1); //id consultaa porque solo hay una por consulta
+            BLFichaDoctor doc = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
             motivoText.Text = doc.motivoConsulta;
             examenText.Text = doc.examenFisico;
             planText.Text = doc.plan;
