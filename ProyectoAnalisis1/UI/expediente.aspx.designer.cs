@@ -139,13 +139,31 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox otrasText;
         
         /// <summary>
-        /// fechaNacimiento control.
+        /// diaText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar fechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox diaText;
+        
+        /// <summary>
+        /// mesText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox mesText;
+        
+        /// <summary>
+        /// AnnoText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox AnnoText;
         
         /// <summary>
         /// religionText control.

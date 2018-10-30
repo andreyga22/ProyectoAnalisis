@@ -27,6 +27,11 @@ namespace BL
             return convert(dao.consultar(cedula));
         }
 
+        public void actualizarExpediente(BLExpediente bl) {
+            DAOExpediente dao = new DAOExpediente();
+            dao.actualizar(convert(bl));
+        }
+
         private TOExpediente convert(BLExpediente exp) {
             return new TOExpediente(exp.cedula, 
                 exp.primer_nombre, exp.segundo_nombre, exp.primer_apellido, exp.segundo_apellido, 

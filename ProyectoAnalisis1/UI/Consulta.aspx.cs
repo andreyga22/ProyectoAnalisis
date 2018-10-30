@@ -13,6 +13,7 @@ namespace UI
         private DateTime fecha1 = DateTime.Now;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Write(Convert.ToInt32(Session["idConsulta"]));
             BLManejadorConsulta blm = new BLManejadorConsulta();
             BLConsulta con =  blm.consultar(Convert.ToInt32(Session["idConsulta"]));
             fecha.Text = Convert.ToString(con.fecha);
@@ -23,7 +24,7 @@ namespace UI
         protected void guardarBtn_Click(object sender, EventArgs e)
         {
             BLManejadorConsulta blm = new BLManejadorConsulta();
-            blm.insertar(new BLConsulta(0, fecha1, "504060873", Convert.ToInt32( precioText.Text.Trim())));
+            blm.insertar(new BLConsulta(0, fecha1, Convert.ToString(Session["cedula"]), Convert.ToInt32( precioText.Text.Trim())));
         }
 
         protected void entrarDoctor_Click(object sender, EventArgs e)

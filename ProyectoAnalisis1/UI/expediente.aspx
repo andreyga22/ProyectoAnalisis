@@ -12,7 +12,7 @@
 
         <div class="form-row">
             <div class="form-group col-sm-11">
-                <asp:Button ID="ultimaBtn" type="button" class="btn btn-info" runat="server" Text="Ultima Consulta" />
+                <asp:Button ID="ultimaBtn" type="button" class="btn btn-info" runat="server" Text="Ultima Consulta" OnClick="ultimaBtn_Click" />
             </div>
             <div class="form-group col-sm-1">
                 <asp:Button type="button" class="btn btn-light" ID="historialBtn" runat="server" Text="Consultas" OnClick="historialBtn_Click" />
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group offset-sm-11">
-            <asp:Button type="button" class="btn btn-light" ID="modificarBtn" runat="server" Text="Modificar" />
+            <asp:Button type="button" class="btn btn-light" ID="modificarBtn" runat="server" Text="Modificar" OnClick="modificarBtn_Click" />
         </div>
 
         <div class="form-row">
@@ -90,11 +90,22 @@
                 <asp:TextBox type="text" class="form-control" ID="otrasText" runat="server"></asp:TextBox>
             </div>
         </div>
-        <div class="form-group offset-md-4 col-sm-4">
-            <label for="fechaNacimiento">Fecha de Nacimiento</label>
-            <asp:Calendar ID="fechaNacimiento" runat="server"></asp:Calendar>
+
+        <div class="form-row">
+        <div class="form-group col-sm-4">
+            <label for="diaText">Dia</label>
+            <asp:TextBox type="text" class="form-control" ID="diaText"  runat="server"> </asp:TextBox>
         </div>
 
+        <div class="form-group col-sm-4">
+            <label for="mesText">Mes</label>
+            <asp:TextBox type="text" class="form-control" ID="mesText"  runat="server"> </asp:TextBox>
+        </div>
+        <div class="form-group col-sm-4">
+            <label for="annoText">Año</label>
+            <asp:TextBox type="text" class="form-control" ID="AnnoText" runat="server"> </asp:TextBox>
+        </div>
+            </div>
         <div class="form-group">
             <label for="religionText">Religion</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="religionText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>

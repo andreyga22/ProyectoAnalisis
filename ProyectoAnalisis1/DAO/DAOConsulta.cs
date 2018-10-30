@@ -40,6 +40,49 @@ namespace DAO
             //}
         }
 
+        public int consultarUltimo(int v)
+        {
+            //try
+            //{
+
+            string select = "select id_consulta from consulta where cedula = @cedula;";
+            SqlCommand sentencia = new SqlCommand(select, conexion);
+            sentencia.Parameters.AddWithValue("@cedula", v);
+            int to = -1;
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+
+            SqlDataReader reader = sentencia.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    to = reader.GetInt32(0);
+                }
+            }
+
+            if (conexion.State != ConnectionState.Closed)
+            {
+                conexion.Close();
+            }
+            return to;
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
+            //catch (Exception ex2)
+            //{
+            //    throw ex2;
+            //}
+            //finally
+            //{
+            //    conexion.Close();
+            //}
+        }
+
         public TOConsulta consultar(int idConsulta) {
             //try
             //{

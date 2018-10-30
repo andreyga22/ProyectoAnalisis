@@ -20,6 +20,11 @@ namespace BL
             return convert( new DAOConsulta().consultar(idConsulta));
         }
 
+        public int consultarUltimo(int v)
+        {
+            return new DAOConsulta().consultarUltimo(v);
+        }
+
         public List<BLConsulta> listaConsultas(String cedula) {
             DAOConsulta dao = new DAOConsulta();
             List<TOConsulta> listaTO = dao.listaConsulta(cedula);
@@ -40,5 +45,7 @@ namespace BL
         {
             return new TOConsulta(bl.idConsulta, bl.fecha, bl.cedula, bl.precio_Consulta);
         }
+
+        
     }
 }
