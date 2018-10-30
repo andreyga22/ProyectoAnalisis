@@ -24,14 +24,16 @@ namespace BL
         {
             return new TOFichaParamedico(exp.id_Paramedico,
                 exp.idConsulta, exp.presionArterial, exp.temperatura, exp.estatura,
-                exp.peso, exp.glicemia, exp.oximetria_Pulso, exp.observacion);
+                exp.peso, exp.glicemia, exp.oximetria_Pulso, exp.observacion, exp.glasgow, 
+                exp.frec_card, exp.frec_resp, exp.pupilas, exp.piel, exp.nota_param);
         }
 
         private BLFichaParamedico convert(TOFichaParamedico exp)
         {
             return new BLFichaParamedico(exp.id_Paramedico,
                 exp.idConsulta, exp.presionArterial, exp.temperatura, exp.estatura,
-                exp.peso, exp.glicemia, exp.oximetria_Pulso, exp.observacion);
+                exp.peso, exp.glicemia, exp.oximetria_Pulso, exp.observacion, exp.glasgow,
+                exp.frec_card, exp.frec_resp, exp.pupilas, exp.piel, exp.nota_param);
         }
     }
 }

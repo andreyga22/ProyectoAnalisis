@@ -16,9 +16,9 @@ namespace DAO
         public void insertar(TOFichaParamedico ficha)
         {
             string insert = "insert into FICHA_PARAMEDICO (id_consulta, presion_arterial, " +
-                "temperatura, estatura, peso, glicemia, oximetria_pulso, observaciones) " +
+                "temperatura, estatura, peso, glicemia, oximetria_pulso, observaciones, glasgow, pupilas, piel, frec_card, frec_resp, notas_param) " +
                 "values (@id_consulta, @presion, @temperatura, @estatura, @peso, @glicemia, @oximetria_pulso, " +
-                "@observaciones)";
+                "@observaciones, @glasgow, @pupilas, @piel, @frec_card, @frec_resp, @notas)";
 
             SqlCommand insertar = new SqlCommand(insert, conexion);
             insertar.Parameters.AddWithValue("@presion", ficha.presionArterial);
@@ -29,6 +29,12 @@ namespace DAO
             insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
             insertar.Parameters.AddWithValue("@oximetria_pulso", ficha.oximetria_Pulso);
             insertar.Parameters.AddWithValue("@observaciones", ficha.observacion);
+            insertar.Parameters.AddWithValue("@glasgow", ficha.glasgow);
+            insertar.Parameters.AddWithValue("@pupilas", ficha.pupilas);
+            insertar.Parameters.AddWithValue("@piel", ficha.piel);
+            insertar.Parameters.AddWithValue("@frec_card", ficha.frec_card);
+            insertar.Parameters.AddWithValue("@frec_resp", ficha.frec_resp);
+            insertar.Parameters.AddWithValue("@notas", ficha.nota_param);
 
             if (conexion.State != System.Data.ConnectionState.Open)
             {

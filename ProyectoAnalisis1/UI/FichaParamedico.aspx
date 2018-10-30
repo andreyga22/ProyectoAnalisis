@@ -51,12 +51,40 @@
         </div>
 
 
-
-
         <div class="form-group">
-            <label for="oximetriaText">Oximetria de pulso</label>
+            <label for="oximetriaText">Oximetria</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="oximetriaText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="GlasgowText">Glasgow</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="GlasgowText" runat="server"></asp:TextBox> <label> /15 </label>
+        </div>
+
+        <div class="form-group">
+            <label for="Frec_CardText">Frecuencia Cardiaca</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="Frec_CardText" runat="server"></asp:TextBox> <label> LPM </label>
+        </div>
+
+        <div class="form-group">
+            <label for="Frec_RespText">Frecuencia Respiratoria</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="Frec_RespText" runat="server"></asp:TextBox> <label> RPM </label>
+        </div>
+
+        <div class="form-group">
+            <label for="PupilasText">Pupilas</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="PupilasText" runat="server"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="PielText">Piel</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="PielText" runat="server"></asp:TextBox>
         </div>
 
         <div class="form-row">
@@ -65,9 +93,14 @@
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="provinciaText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
                 <asp:TextBox type="text" class="form-control" ID="observacionesText" runat="server" TextMode="MultiLine"></asp:TextBox>
             </div>
+
+            <div class="form-group col-sm-4">
+                <label for="notasParamText">Nota de paramédicos</label>
+                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="provinciaText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <asp:TextBox type="text" class="form-control" ID="NotasParamText" runat="server" TextMode="MultiLine"></asp:TextBox>
+            </div>
         </div>
         
-
         <div class="form-group offset-sm-6">
             <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" />
         </div>

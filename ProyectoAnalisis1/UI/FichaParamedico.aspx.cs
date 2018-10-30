@@ -27,7 +27,8 @@ namespace UI
         {
             BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
             blm.insertar(new BLFichaParamedico(0, 1, presionText.Text.Trim(), Convert.ToInt32( temperaturaText.Text.Trim()), Convert.ToInt32(estaturaText.Text.Trim()), 
-                Convert.ToInt32(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(), observacionesText.Text.Trim()));
+                Convert.ToInt32(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(), observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
+                Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()), PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
         }
     }
 }

@@ -85,6 +85,51 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox oximetriaText;
         
         /// <summary>
+        /// GlasgowText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox GlasgowText;
+        
+        /// <summary>
+        /// Frec_CardText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Frec_CardText;
+        
+        /// <summary>
+        /// Frec_RespText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Frec_RespText;
+        
+        /// <summary>
+        /// PupilasText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PupilasText;
+        
+        /// <summary>
+        /// PielText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PielText;
+        
+        /// <summary>
         /// observacionesText control.
         /// </summary>
         /// <remarks>
@@ -92,6 +137,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox observacionesText;
+        
+        /// <summary>
+        /// NotasParamText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NotasParamText;
         
         /// <summary>
         /// guardarBtn control.
