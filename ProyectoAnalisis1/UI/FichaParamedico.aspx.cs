@@ -12,8 +12,10 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Response.Write(Session["idConsulta"]);
             BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
             BLFichaParamedico param = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
+            NotasParamText.Text = param.nota_param;
             presionText.Text = param.presionArterial;
             temperaturaText.Text = Convert.ToString( param.temperatura);
             estaturaText.Text = Convert.ToString(param.estatura);
@@ -26,7 +28,7 @@ namespace UI
         protected void guardarBtn_Click(object sender, EventArgs e)
         {
             BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
-            blm.insertar(new BLFichaParamedico(0, 1, presionText.Text.Trim(), Convert.ToInt32( temperaturaText.Text.Trim()), Convert.ToInt32(estaturaText.Text.Trim()), 
+            blm.insertar(new BLFichaParamedico(0, Convert.ToInt32(Session["idConsulta"]), presionText.Text.Trim(), Convert.ToInt32( temperaturaText.Text.Trim()), Convert.ToInt32(estaturaText.Text.Trim()), 
                 Convert.ToInt32(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(), observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
                 Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()), PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
         }
