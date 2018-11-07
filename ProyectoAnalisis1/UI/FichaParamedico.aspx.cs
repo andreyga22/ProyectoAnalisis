@@ -28,6 +28,7 @@ namespace UI
             Frec_RespText.Text = Convert.ToString(param.frec_resp);
             PupilasText.Text = param.pupilas;
             PielText.Text = param.piel;
+            //holaaaaa
             NotasParamText.Text = param.nota_param;
         }
 
