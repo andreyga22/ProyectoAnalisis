@@ -20,6 +20,11 @@ namespace BL
             this.precio_Consulta = precio_Consulta;
         }
 
+        public BLConsulta(int idConsulta)
+        {
+            this.idConsulta = idConsulta;
+        }
+
         public BLConsulta()
         {
 
