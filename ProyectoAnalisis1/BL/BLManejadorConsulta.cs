@@ -25,6 +25,11 @@ namespace BL
             return new DAOConsulta().consultarUltimo(cedula);
         }
 
+        public void modificar(int idConsulta, int precio) {
+            DAOConsulta dao = new DAOConsulta();
+            dao.modificar(idConsulta, precio);
+        }
+
         public List<BLConsulta> listaConsultas(String cedula) {
             DAOConsulta dao = new DAOConsulta();
             List<TOConsulta> listaTO = dao.listaConsulta(cedula);

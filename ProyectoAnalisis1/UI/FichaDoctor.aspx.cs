@@ -12,17 +12,19 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) { 
             BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
             BLFichaDoctor doc = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
             motivoText.Text = doc.motivoConsulta;
             examenText.Text = doc.examenFisico;
             planText.Text = doc.plan;
+            }
         }
 
         protected void guardarBtn_Click(object sender, EventArgs e)
         {
             BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
-            blm.insertar(new BLFichaDoctor(0, 1, "IDEmpleado",motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
+            blm.insertar(new BLFichaDoctor(0, Convert.ToInt32(Session["idConsulta"]), "IDEmpleado", motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
         }
     }
 }

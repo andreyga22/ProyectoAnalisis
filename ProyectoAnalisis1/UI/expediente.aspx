@@ -137,6 +137,9 @@
         <div class="form-group offset-sm-6">
             <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardar" />
         </div>
+        <%--<div class="form-group offset-sm-6">
+            <asp:Button ID="actualizarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardar" />
+        </div>--%>
 
         <br />
 

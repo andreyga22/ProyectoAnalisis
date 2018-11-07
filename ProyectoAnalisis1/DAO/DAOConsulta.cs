@@ -154,5 +154,38 @@ namespace DAO
             //}
         }
 
+        public void modificar(int idConsulta, int precio) {
+            //try
+            //{
+                string update = "update consulta set precio_consulta=@precio where id_consulta=@idConsulta;";
+                SqlCommand sentencia = new SqlCommand(update, conexion);
+                sentencia.Parameters.AddWithValue("@precio", precio);
+                sentencia.Parameters.AddWithValue("@idConsulta", idConsulta);
+
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                sentencia.ExecuteNonQuery();
+
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
+            //catch (Exception ex2)
+            //{
+            //    throw ex2;
+            //}
+            //finally
+            //{
+            //    conexion.Close();
+            //}
+        }
     }
 }
