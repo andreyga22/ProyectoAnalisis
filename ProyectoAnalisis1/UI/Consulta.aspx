@@ -39,8 +39,8 @@
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="img/paramedicos.jpg" alt="Paramedicos">
                     <div class="card-body">
-                        <h5 class="card-title">Ficha Paramedicos</h5>
-                        <p class="card-text">Ficha con el formulario del paramedico(a).</p>
+                        <h5 class="card-title">Ficha Paramédicos</h5>
+                        <p class="card-text">Ficha con el formulario del paramédico(a).</p>
                         <asp:Button ID="entrarParamedico" class="btn btn-primary" runat="server" Text="Entrar" OnClick="entrarParamedico_Click" />
                     </div>
                 </div>

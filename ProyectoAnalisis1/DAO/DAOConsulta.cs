@@ -40,14 +40,14 @@ namespace DAO
             //}
         }
 
-        public int consultarUltimo(int v)
+        public int consultarUltimo(String cedula)
         {
             //try
             //{
 
             string select = "select id_consulta from consulta where cedula = @cedula;";
             SqlCommand sentencia = new SqlCommand(select, conexion);
-            sentencia.Parameters.AddWithValue("@cedula", v);
+            sentencia.Parameters.AddWithValue("@cedula", cedula);
             int to = -1;
             if (conexion.State != ConnectionState.Open)
             {
@@ -68,19 +68,6 @@ namespace DAO
                 conexion.Close();
             }
             return to;
-            //}
-            //catch (SqlException ex)
-            //{
-            //    throw ex;
-            //}
-            //catch (Exception ex2)
-            //{
-            //    throw ex2;
-            //}
-            //finally
-            //{
-            //    conexion.Close();
-            //}
         }
 
         public TOConsulta consultar(int idConsulta) {

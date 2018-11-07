@@ -141,7 +141,7 @@ namespace UI
         {
             Session["cedula"] = idText.Text.Trim();
             BLManejadorConsulta man = new BLManejadorConsulta();
-            Session["idConsulta"] = man.consultarUltimo(Convert.ToInt32( idText.Text.Trim()));
+            Session["idConsulta"] = man.consultarUltimo(Convert.ToString( idText.Text.Trim()));
             Response.Redirect("Consulta.aspx");
         }
 

@@ -20,9 +20,9 @@ namespace BL
             return convert( new DAOConsulta().consultar(idConsulta));
         }
 
-        public int consultarUltimo(int v)
+        public int consultarUltimo(String cedula)
         {
-            return new DAOConsulta().consultarUltimo(v);
+            return new DAOConsulta().consultarUltimo(cedula);
         }
 
         public List<BLConsulta> listaConsultas(String cedula) {

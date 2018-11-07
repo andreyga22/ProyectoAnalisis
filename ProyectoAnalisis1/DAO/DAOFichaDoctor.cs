@@ -17,13 +17,14 @@ namespace DAO
         public void insertar(TOFichaDoctor ficha)
         {
             string insert = "insert into ficha_doctor (id_consulta, motivo_consulta, " +
-                "examen_fisico, recomendacion) values (@id_consulta, @motivo, @examen, @plan)";
+                "examen_fisico, recomendacion, id_cuenta) values (@id_consulta, @motivo, @examen, @plan, @idEmpleado)";
 
             SqlCommand insertar = new SqlCommand(insert, conexion);
             insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
             insertar.Parameters.AddWithValue("@motivo", ficha.motivoConsulta);
             insertar.Parameters.AddWithValue("@examen", ficha.examenFisico);
             insertar.Parameters.AddWithValue("@plan", ficha.plan);
+            insertar.Parameters.AddWithValue("@idEmpleado", ficha.idEmpleado);
 
 
             if (conexion.State != System.Data.ConnectionState.Open)
@@ -63,6 +64,7 @@ namespace DAO
                     to.motivoConsulta = reader.GetString(2);
                     to.examenFisico = reader.GetString(3);
                     to.plan = reader.GetString(4);
+                    to.idEmpleado = reader.GetString(5);
                 }
             }
 

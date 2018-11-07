@@ -24,13 +24,13 @@ namespace BL
         private TOFichaDoctor convert(BLFichaDoctor exp)
         {
             return new TOFichaDoctor(exp.idDoctor,
-                exp.idConsulta, exp.motivoConsulta, exp.examenFisico, exp.plan);
+                exp.idConsulta, "IDEmpleado",exp.motivoConsulta, exp.examenFisico, exp.plan);
         }
 
         private BLFichaDoctor convert(TOFichaDoctor exp)
         {
             return new BLFichaDoctor(exp.idDoctor,
-                exp.idConsulta, exp.motivoConsulta, exp.examenFisico, exp.plan);
+                exp.idConsulta, "IDEmpleado",exp.motivoConsulta, exp.examenFisico, exp.plan);
         }
     }
 }

@@ -10,9 +10,9 @@ namespace BL
 {
     public class BLManejadorFichaParamedico
     {
-        public void insertar(BLFichaParamedico bl) {
+        public Boolean insertar(BLFichaParamedico bl) {
             DAOFichaParamedico dao = new DAOFichaParamedico();
-            dao.insertar(convert(bl));
+            return dao.insertar(convert(bl));
         }
 
         public BLFichaParamedico consultar(int idConsulta) {
@@ -23,7 +23,7 @@ namespace BL
         private TOFichaParamedico convert(BLFichaParamedico exp)
         {
             return new TOFichaParamedico(exp.id_Paramedico,
-                exp.idConsulta, exp.presionArterial, exp.temperatura, exp.estatura,
+                exp.idConsulta, "IDEmpleado",exp.presionArterial, exp.temperatura, exp.estatura,
                 exp.peso, exp.glicemia, exp.oximetria_Pulso, exp.observacion, exp.glasgow, 
                 exp.frec_card, exp.frec_resp, exp.pupilas, exp.piel, exp.nota_param);
         }
@@ -31,7 +31,7 @@ namespace BL
         private BLFichaParamedico convert(TOFichaParamedico exp)
         {
             return new BLFichaParamedico(exp.id_Paramedico,
-                exp.idConsulta, exp.presionArterial, exp.temperatura, exp.estatura,
+                exp.idConsulta, "IDEmpleado", exp.presionArterial, exp.temperatura, exp.estatura,
                 exp.peso, exp.glicemia, exp.oximetria_Pulso, exp.observacion, exp.glasgow,
                 exp.frec_card, exp.frec_resp, exp.pupilas, exp.piel, exp.nota_param);
         }

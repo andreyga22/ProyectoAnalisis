@@ -13,40 +13,52 @@ namespace DAO
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
 
-        public void insertar(TOFichaParamedico ficha)
+        public Boolean insertar(TOFichaParamedico ficha)
         {
-            string insert = "insert into FICHA_PARAMEDICO (id_consulta, presion_arterial, " +
-                "temperatura, estatura, peso, glicemia, oximetria_pulso, observaciones, glasgow, pupilas, piel, frec_card, frec_resp, notas_param) " +
-                "values (@id_consulta, @presion, @temperatura, @estatura, @peso, @glicemia, @oximetria_pulso, " +
-                "@observaciones, @glasgow, @pupilas, @piel, @frec_card, @frec_resp, @notas)";
+            //try
+            //{
+                string insert = "insert into FICHA_PARAMEDICO (id_consulta, presion_arterial, " +
+                    "temperatura, estatura, peso, glicemia, oximetria_pulso, observaciones, glasgow, pupilas, piel, frec_card, frec_resp, notas_param, id_cuenta) " +
+                    "values (@id_consulta, @presion, @temperatura, @estatura, @peso, @glicemia, @oximetria_pulso, " +
+                    "@observaciones, @glasgow, @pupilas, @piel, @frec_card, @frec_resp, @notas, @idEmpleado)";
 
-            SqlCommand insertar = new SqlCommand(insert, conexion);
-            insertar.Parameters.AddWithValue("@presion", ficha.presionArterial);
-            insertar.Parameters.AddWithValue("@glicemia", ficha.glicemia);
-            insertar.Parameters.AddWithValue("@temperatura", ficha.temperatura);
-            insertar.Parameters.AddWithValue("@estatura", ficha.estatura);
-            insertar.Parameters.AddWithValue("@peso", ficha.peso);
-            insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
-            insertar.Parameters.AddWithValue("@oximetria_pulso", ficha.oximetria_Pulso);
-            insertar.Parameters.AddWithValue("@observaciones", ficha.observacion);
-            insertar.Parameters.AddWithValue("@glasgow", ficha.glasgow);
-            insertar.Parameters.AddWithValue("@pupilas", ficha.pupilas);
-            insertar.Parameters.AddWithValue("@piel", ficha.piel);
-            insertar.Parameters.AddWithValue("@frec_card", ficha.frec_card);
-            insertar.Parameters.AddWithValue("@frec_resp", ficha.frec_resp);
-            insertar.Parameters.AddWithValue("@notas", ficha.nota_param);
+                SqlCommand insertar = new SqlCommand(insert, conexion);
+                insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
+                insertar.Parameters.AddWithValue("@presion", ficha.presionArterial);
+                insertar.Parameters.AddWithValue("@glicemia", ficha.glicemia);
+                insertar.Parameters.AddWithValue("@temperatura", ficha.temperatura);
+                insertar.Parameters.AddWithValue("@estatura", ficha.estatura);
+                insertar.Parameters.AddWithValue("@peso", ficha.peso);
+                insertar.Parameters.AddWithValue("@oximetria_pulso", ficha.oximetria_Pulso);
+                insertar.Parameters.AddWithValue("@observaciones", ficha.observacion);
+                insertar.Parameters.AddWithValue("@glasgow", ficha.glasgow);
+                insertar.Parameters.AddWithValue("@pupilas", ficha.pupilas);
+                insertar.Parameters.AddWithValue("@piel", ficha.piel);
+                insertar.Parameters.AddWithValue("@frec_card", ficha.frec_card);
+                insertar.Parameters.AddWithValue("@frec_resp", ficha.frec_resp);
+                insertar.Parameters.AddWithValue("@notas", ficha.nota_param);
+                insertar.Parameters.AddWithValue("@idEmpleado", ficha.idEmpleado);
 
-            if (conexion.State != System.Data.ConnectionState.Open)
-            {
-                conexion.Open();
-            }
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
 
-            insertar.ExecuteNonQuery();
+                insertar.ExecuteNonQuery();
 
-            if (conexion.State != System.Data.ConnectionState.Closed)
-            {
-                conexion.Close();
-            }
+                if (conexion.State != System.Data.ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+                return true;
+            //} catch
+            //{
+            //    if(conexion.State != System.Data.ConnectionState.Closed)
+            //    {
+            //        conexion.Close();
+            //    }
+            //    return false;
+            //}
         }
 
         public TOFichaParamedico consultar(int idConsulta) {
@@ -83,6 +95,7 @@ namespace DAO
                     to.frec_card = reader.GetInt32(12);
                     to.frec_resp = reader.GetInt32(13);
                     to.nota_param = reader.GetString(14);
+                    to.idEmpleado = reader.GetString(15);
                 }
             }
 
@@ -105,6 +118,5 @@ namespace DAO
             //    conexion.Close();
             //}
         }
-        
     }
 }

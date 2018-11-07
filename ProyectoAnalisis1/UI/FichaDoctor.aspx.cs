@@ -22,7 +22,7 @@ namespace UI
         protected void guardarBtn_Click(object sender, EventArgs e)
         {
             BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
-            blm.insertar(new BLFichaDoctor(0, 1, motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
+            blm.insertar(new BLFichaDoctor(0, 1, "IDEmpleado",motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
         }
     }
 }

@@ -23,19 +23,20 @@ namespace BL
         public String pupilas { get; set; }
         public String piel { get; set; }
         public String nota_param { get; set; }
-
+        public String idEmpleado { get; set; }
 
         public BLFichaParamedico()
         {
 
         }
 
-        public BLFichaParamedico(int id_Paramedico, int idConsulta,String presionArterial, int temperatura, int estatura,
+        public BLFichaParamedico(int id_Paramedico, int idConsulta, String idEmpleado, String presionArterial, int temperatura, int estatura,
             int peso, String glicemia, String oximetria_Pulso, String observacion, int glasgow, int frec_card, int frec_resp, 
             String pupilas, String piel, String nota_param)
         {
             this.id_Paramedico = id_Paramedico;
             this.idConsulta = idConsulta;
+            this.idEmpleado = idEmpleado;
             this.presionArterial = presionArterial;
             this.temperatura = temperatura;
             this.estatura = estatura;
