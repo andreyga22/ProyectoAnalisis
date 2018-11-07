@@ -23,14 +23,23 @@ namespace UI
             glicemiaText.Text = param.glicemia;
             oximetriaText.Text = param.oximetria_Pulso;
             observacionesText.Text = param.observacion;
+            GlasgowText.Text = Convert.ToString(param.glasgow);
+            Frec_CardText.Text = Convert.ToString(param.frec_card);
+            Frec_RespText.Text = Convert.ToString(param.frec_resp);
+            PupilasText.Text = param.pupilas;
+            PielText.Text = param.piel;
+            NotasParamText.Text = param.nota_param;
         }
 
         protected void guardarBtn_Click(object sender, EventArgs e)
         {
             BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
-            blm.insertar(new BLFichaParamedico(0, Convert.ToInt32(Session["idConsulta"]), presionText.Text.Trim(), Convert.ToInt32( temperaturaText.Text.Trim()), Convert.ToInt32(estaturaText.Text.Trim()), 
-                Convert.ToInt32(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(), observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
-                Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()), PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
+            blm.insertar(new BLFichaParamedico(0, Convert.ToInt32(Session["idConsulta"]), presionText.Text.Trim(), 
+                Convert.ToInt32( temperaturaText.Text.Trim()), Convert.ToInt32(estaturaText.Text.Trim()), 
+                Convert.ToInt32(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(),
+                observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
+                Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()), 
+                PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
         }
     }
 }

@@ -11,7 +11,7 @@
 
         <br />
         <div class="form-row">
-            <asp:Label ID="titulo" runat="server" Text="Ficha Paramedicos" Font-Bold="True" Font-Size="Larger"></asp:Label>
+            <asp:Label ID="titulo" runat="server" Text="Ficha Paramédicos" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
 
         <div class="form-group offset-sm-11">
@@ -20,7 +20,7 @@
 
         <div class="form-row">
             <div class="form-group col-sm-6">
-                <label for="presionText">Presion Arterial</label>
+                <label for="presionText">Presión Arterial</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
                 <asp:TextBox type="text" class="form-control" ID="presionText" runat="server"></asp:TextBox>
             </div>
@@ -52,7 +52,7 @@
 
 
         <div class="form-group">
-            <label for="oximetriaText">Oximetria</label>
+            <label for="oximetriaText">Oximetría</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="oximetriaText" runat="server"></asp:TextBox>
         </div>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            <label for="Frec_CardText">Frecuencia Cardiaca</label>
+            <label for="Frec_CardText">Frecuencia Cardíaca</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="Frec_CardText" runat="server"></asp:TextBox> <label> LPM </label>
         </div>
@@ -89,7 +89,7 @@
 
         <div class="form-row">
             <div class="form-group col-sm-4">
-                <label for="observacionesText">Observaciónes de Doctor</label>
+                <label for="observacionesText">Observaciones de Doctor</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="provinciaText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
                 <asp:TextBox type="text" class="form-control" ID="observacionesText" runat="server" TextMode="MultiLine"></asp:TextBox>
             </div>
@@ -102,7 +102,7 @@
         </div>
         
         <div class="form-group offset-sm-6">
-            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" />
+            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" style="height: 40px" />
         </div>
 
         <br />

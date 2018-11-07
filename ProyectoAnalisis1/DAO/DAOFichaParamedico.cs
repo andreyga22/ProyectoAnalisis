@@ -77,6 +77,12 @@ namespace DAO
                     to.id_Paramedico = reader.GetInt32(6);
                     to.idConsulta = reader.GetInt32(7);
                     to.observacion = reader.GetString(8);
+                    to.glasgow = reader.GetInt32(9);
+                    to.pupilas = reader.GetString(10);
+                    to.piel = reader.GetString(11);
+                    to.frec_card = reader.GetInt32(12);
+                    to.frec_resp = reader.GetInt32(13);
+                    to.nota_param = reader.GetString(14);
                 }
             }
 

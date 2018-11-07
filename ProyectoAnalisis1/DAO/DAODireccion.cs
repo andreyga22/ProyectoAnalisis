@@ -12,11 +12,11 @@ namespace DAO
     public class DAODireccion
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
-        public void insertarDireccion(TODireccion direccion)
+        public Boolean insertarDireccion(TODireccion direccion)
         {
-            //try
-            //{
-            SqlCommand insertar = new SqlCommand("Insert into DIRECCION (cedula, provincia, canton, distrito, otras_senas) values (@ced, @Prov, @Cant, @Dist, @Otras)", conexion);
+            try
+            {
+                SqlCommand insertar = new SqlCommand("Insert into DIRECCION (cedula, provincia, canton, distrito, otras_senas) values (@ced, @Prov, @Cant, @Dist, @Otras)", conexion);
             insertar.Parameters.AddWithValue("@ced", direccion.cedula);
             insertar.Parameters.AddWithValue("@Prov", direccion.provincia);
             insertar.Parameters.AddWithValue("@Cant", direccion.canton);
@@ -27,18 +27,21 @@ namespace DAO
             {
                 conexion.Open();
             }
-
             insertar.ExecuteNonQuery();
-
             if (conexion.State != System.Data.ConnectionState.Closed)
             {
                 conexion.Close();
             }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ex.ToString();
-            //}
+                return true;
+            }
+            catch 
+            {
+                if (conexion.State != System.Data.ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+                return false;
+            }
 
         }
 

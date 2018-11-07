@@ -21,7 +21,7 @@ namespace UI
                 lastNameText.Text = exp.primer_apellido;
                 lastNameText2.Text = exp.segundo_apellido;
 
-                diaText.Text = Convert.ToString( exp.fecha_nacimiento.Day);
+                diaText.Text = Convert.ToString(exp.fecha_nacimiento.Day);
                 mesText.Text = Convert.ToString(exp.fecha_nacimiento.Month);
                 AnnoText.Text = Convert.ToString(exp.fecha_nacimiento.Year);
                 phoneText.Text = exp.num_telefono;
@@ -75,7 +75,7 @@ namespace UI
                 secondNameText.Enabled = true;
                 lastNameText.Enabled = true;
                 lastNameText2.Enabled = true;
-                diaText.Enabled = true;
+            diaText.Enabled = true;
                 mesText.Enabled = true;
             AnnoText.Enabled = true;
             phoneText.Enabled = true;
@@ -96,8 +96,12 @@ namespace UI
 
             new BLManejadorExpediente().insertarExpediente(createBl());
 
-            new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(),provinciaText.Text.Trim(), 
-                cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
+            if (!new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(),provinciaText.Text.Trim(), 
+                cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim())))
+            {
+                Response.Write("<script>alert('ERROR! Dirección no ha sido almacenada exitosamente')</script>");
+            }
+          
         }
 
         protected void cantonText_TextChanged(object sender, EventArgs e)
@@ -139,6 +143,11 @@ namespace UI
             BLManejadorConsulta man = new BLManejadorConsulta();
             Session["idConsulta"] = man.consultarUltimo(Convert.ToInt32( idText.Text.Trim()));
             Response.Redirect("Consulta.aspx");
+        }
+
+        protected void mesTextt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

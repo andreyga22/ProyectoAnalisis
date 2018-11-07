@@ -10,11 +10,9 @@ namespace BL
 {
     public class BLManejadorDireccion
     {
-        public void insertar(BLDireccion bl) {
+        public Boolean insertar(BLDireccion bl) {
             DAODireccion dao = new DAODireccion();
-            dao.insertarDireccion(convert(bl));
-
-            
+            return dao.insertarDireccion(convert(bl));
         }
 
         public BLDireccion consultar(String ced) {

@@ -29,33 +29,37 @@
 
         <div class="form-row">
             <div class="form-group col-sm-6">
-                <label for="firstNameText">Primer nombre</label>
-                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <label for="firstNameText">Primer Nombre</label>                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="firstNameText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-6">
-                <label for="secondNameText">Segundo nombre</label>
-                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <label for="secondNameText">Segundo Nombre</label>                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="secondNameText" runat="server"></asp:TextBox>
             </div>
 
         </div>
         <div class="form-row">
             <div class="form-group col-sm-6">
-                <label for="lastNameText">Primer apellido</label>
-                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <label for="lastNameText">Primer Apellido</label>                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="lastNameText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-6">
-                <label for="lastNameText2">Segundo apellido</label>
-                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="lastNameText2"></asp:RequiredFieldValidator>--%>
+                <label for="lastNameText2">Segundo Apellido</label>                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="lastNameText2"></asp:RequiredFieldValidator>--%>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="lastNameText2" ErrorMessage="Campo obligatorio" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="secondNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="lastNameText2" runat="server"></asp:TextBox>
             </div>
         </div>
 
         <div class="form-group">
-            <label for="idText">Cedula</label>
+            <label for="idText">Cédula</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="idText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="idText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar"></asp:RequiredFieldValidator>
             <asp:TextBox type="text" class="form-control" ID="idText" runat="server"></asp:TextBox>
         </div>
 
@@ -63,7 +67,7 @@
 
 
         <div class="form-group">
-            <label for="phoneText">Telefono</label>
+            <label for="phoneText">Teléfono</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="phoneText" runat="server"></asp:TextBox>
         </div>
@@ -75,7 +79,7 @@
                 <asp:TextBox type="text" class="form-control" ID="provinciaText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-4">
-                <label for="cantonText">Canton</label>
+                <label for="cantonText">Cantón</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="cantonText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
                 <asp:TextBox type="text" class="form-control" ID="cantonText" runat="server" OnTextChanged="cantonText_TextChanged"></asp:TextBox>
             </div>
@@ -93,21 +97,21 @@
 
         <div class="form-row">
         <div class="form-group col-sm-4">
-            <label for="diaText">Dia</label>
-            <asp:TextBox type="text" class="form-control" ID="diaText"  runat="server"> </asp:TextBox>
+            <label for="diaText">Día</label><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="diaText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox type="text" class="form-control" ID="diaText"  runat="server"> </asp:TextBox>
         </div>
 
         <div class="form-group col-sm-4">
-            <label for="mesText">Mes</label>
-            <asp:TextBox type="text" class="form-control" ID="mesText"  runat="server"> </asp:TextBox>
+            <label for="mesText">Mes</label><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="mesText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox type="text" class="form-control" ID="mesText"  runat="server"> </asp:TextBox>
         </div>
         <div class="form-group col-sm-4">
-            <label for="annoText">Año</label>
-            <asp:TextBox type="text" class="form-control" ID="AnnoText" runat="server"> </asp:TextBox>
+            <label for="annoText">Año</label><asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="AnnoText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox type="text" class="form-control" ID="AnnoText" runat="server"> </asp:TextBox>
         </div>
             </div>
         <div class="form-group">
-            <label for="religionText">Religion</label>
+            <label for="religionText">Religión</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="religionText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="religionText" runat="server"></asp:TextBox>
         </div>
@@ -131,7 +135,7 @@
         </div>
 
         <div class="form-group offset-sm-6">
-            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" />
+            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardar" />
         </div>
 
         <br />
