@@ -27,6 +27,9 @@
             <div class="form-group col-sm-6">
                 <label for="temperaturaText">Temperatura</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <label for="presionText">
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="temperaturaText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam"></asp:RegularExpressionValidator>
+                </label>
                 <asp:TextBox type="text" class="form-control" ID="temperaturaText" runat="server"></asp:TextBox>
             </div>
 
@@ -35,11 +38,13 @@
             <div class="form-group col-sm-6">
                 <label for="estaturaText">Estatura</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="estaturaText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="estaturaText" runat="server"></asp:TextBox>
             </div>
             <div class="form-group col-sm-6">
                 <label for="pesoText">Peso</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="lastNameText2"></asp:RequiredFieldValidator>--%>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="pesoText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="pesoText" runat="server"></asp:TextBox>
             </div>
         </div>
@@ -60,19 +65,20 @@
         <div class="form-group">
             <label for="GlasgowText">Glasgow</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="GlasgowText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam"></asp:RegularExpressionValidator>
             <asp:TextBox type="text" class="form-control" ID="GlasgowText" runat="server"></asp:TextBox> <label> /15 </label>
         </div>
 
         <div class="form-group">
-            <label for="Frec_CardText">Frecuencia Cardíaca</label>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="Frec_CardText" runat="server"></asp:TextBox> <label> LPM </label>
+            <label for="Frec_CardText">Frecuencia Cardíaca<asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="Frec_CardText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam"></asp:RegularExpressionValidator>
+            </label>
+            &nbsp;<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%><asp:TextBox type="text" class="form-control" ID="Frec_CardText" runat="server"></asp:TextBox> <label> LPM </label>
         </div>
 
         <div class="form-group">
-            <label for="Frec_RespText">Frecuencia Respiratoria</label>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="Frec_RespText" runat="server"></asp:TextBox> <label> RPM </label>
+            <label for="Frec_RespText">Frecuencia Respiratoria<asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="Frec_RespText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam"></asp:RegularExpressionValidator>
+            </label>
+            &nbsp;<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%><asp:TextBox type="text" class="form-control" ID="Frec_RespText" runat="server"></asp:TextBox> <label> RPM </label>
         </div>
 
         <div class="form-group">
@@ -102,7 +108,7 @@
         </div>
         
         <div class="form-group offset-sm-6">
-            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" style="height: 40px" />
+            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" style="height: 40px" ValidationGroup="guardarParam" />
         </div>
 
         <br />
