@@ -12,7 +12,8 @@ namespace BL
     {
         public Boolean insertar(BLFichaParamedico bl) {
             DAOFichaParamedico dao = new DAOFichaParamedico();
-            return dao.insertar(convert(bl));
+            //return dao.insertar(convert(bl));
+            return dao.guardarModificar(convert(bl));
         }
 
         public BLFichaParamedico consultar(int idConsulta) {

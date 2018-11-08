@@ -12,7 +12,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Convert.ToBoolean(Session["nuevaConsulta"]))
+            if (!IsPostBack)
             {
                 Response.Write(Session["idConsulta"]);
                 BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
