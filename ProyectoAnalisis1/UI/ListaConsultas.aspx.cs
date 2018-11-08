@@ -39,7 +39,7 @@ namespace UI
 
         protected void agregarBtn_Click(object sender, EventArgs e)
         {
-            Session["nuevaConsulta"] = true;
+            //Session["nuevaConsulta"] = true;
             BLManejadorConsulta manejador = new BLManejadorConsulta();
             BLConsulta consulta = new BLConsulta();
             consulta.fecha = DateTime.Now;

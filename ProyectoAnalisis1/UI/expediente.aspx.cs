@@ -65,6 +65,8 @@ namespace UI
                 ultimaBtn.Enabled = false;
                 historialBtn.Visible = false;
                 historialBtn.Enabled = false;
+                btnHistorialClinico.Visible = false;
+                btnHistorialClinico.Enabled = false;
             }
                 //}
             }
@@ -219,6 +221,12 @@ namespace UI
         protected void mesTextt_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnHistorialClinico_Click(object sender, EventArgs e)
+        {
+            Session["cedula"] = idText.Text.Trim();
+            Response.Redirect("HistorialClinico.aspx");
         }
     }
 }
