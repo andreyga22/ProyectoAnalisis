@@ -20,7 +20,6 @@ namespace UI
                 secondNameText.Text = exp.segundo_nombre;
                 lastNameText.Text = exp.primer_apellido;
                 lastNameText2.Text = exp.segundo_apellido;
-
                 diaText.Text = Convert.ToString(exp.fecha_nacimiento.Day);
                 mesText.Text = Convert.ToString(exp.fecha_nacimiento.Month);
                 AnnoText.Text = Convert.ToString(exp.fecha_nacimiento.Year);
@@ -29,12 +28,32 @@ namespace UI
                 estadoCivilText.Text = exp.estado_civil;
                 trabajoText.Text = exp.tipo_trabajo;
                 sexoText.Text = exp.sexo;
+
+                idLabel.Text = exp.cedula;
+                firstNameLabel.Text = exp.primer_nombre;
+                secondNameLabel.Text = exp.segundo_nombre;
+                lastNameLabel.Text = exp.primer_apellido;
+                lastNameLabel2.Text = exp.segundo_apellido;
+                diaLabel.Text = Convert.ToString(exp.fecha_nacimiento.Day);
+                mesLabel.Text = Convert.ToString(exp.fecha_nacimiento.Month);
+                AnnoLabel.Text = Convert.ToString(exp.fecha_nacimiento.Year);
+                phoneLabel.Text = exp.num_telefono;
+                religionLabel.Text = exp.religion;
+                estadoCivilLabel.Text = exp.estado_civil;
+                trabajoLabel.Text = exp.tipo_trabajo;
+                sexoLabel.Text = exp.sexo;
+
                 BLManejadorDireccion dir = new BLManejadorDireccion();
                 BLDireccion bl = dir.consultar("504060873");
                 provinciaText.Text = bl.provincia;
                 cantonText.Text = bl.canton;
                 distritoText.Text = bl.distrito;
                 otrasText.Text = bl.otrasSenas;
+
+                provinciaLabel.Text = bl.provincia;
+                cantonLabel.Text = bl.canton;
+                distritoLabel.Text = bl.distrito;
+                otrasLabel.Text = bl.otrasSenas;
             }
             //if (!IsPostBack) {
             desactivarCampos();
@@ -56,51 +75,89 @@ namespace UI
             if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text)))
             {
 
-                idText.Enabled = false;
-                firstNameText.Enabled = false;
-                secondNameText.Enabled = false;
-                lastNameText.Enabled = false;
-                lastNameText2.Enabled = false;
-                diaText.Enabled = false;
-                mesText.Enabled = false;
-                AnnoText.Enabled = false;
-                phoneText.Enabled = false;
-                religionText.Enabled = false;
-                estadoCivilText.Enabled = false;
-                trabajoText.Enabled = false;
-                sexoText.Enabled = false;
-                provinciaText.Enabled = false;
-                cantonText.Enabled = false;
-                distritoText.Enabled = false;
-                otrasText.Enabled = false;
-                guardarBtn.Enabled = false;
+                idText.Visible = false;
+                firstNameText.Visible = false;
+                secondNameText.Visible = false;
+                lastNameText.Visible = false;
+                lastNameText2.Visible = false;
+                diaText.Visible = false;
+                mesText.Visible = false;
+                AnnoText.Visible = false;
+                phoneText.Visible = false;
+                religionText.Visible = false;
+                estadoCivilText.Visible = false;
+                trabajoText.Visible = false;
+                sexoText.Visible = false;
+                provinciaText.Visible = false;
+                cantonText.Visible = false;
+                distritoText.Visible = false;
+                otrasText.Visible = false;
+                guardarBtn.Visible = false;
                 guardarBtn.Visible = false;
                 modificarBtn.Visible = true;
-                modificarBtn.Enabled = true;
+                modificarBtn.Visible = true;
+
+                idLabel.Visible = true;
+                firstNameLabel.Visible = true;
+                secondNameLabel.Visible = true;
+                lastNameLabel.Visible = true;
+                lastNameLabel2.Visible = true;
+                diaLabel.Visible = true;
+                mesLabel.Visible = true;
+                AnnoLabel.Visible = true;
+                phoneLabel.Visible = true;
+                religionLabel.Visible = true;
+                estadoCivilLabel.Visible = true;
+                trabajoLabel.Visible = true;
+                sexoLabel.Visible = true;
+                provinciaLabel.Visible = true;
+                cantonLabel.Visible = true;
+                distritoLabel.Visible = true;
+                otrasLabel.Visible = true;
             }
         }
 
         private void activarCampos()
         {
-            firstNameText.Enabled = true;
-            secondNameText.Enabled = true;
-            lastNameText.Enabled = true;
-            lastNameText2.Enabled = true;
-            diaText.Enabled = true;
-            mesText.Enabled = true;
-            AnnoText.Enabled = true;
-            phoneText.Enabled = true;
-            religionText.Enabled = true;
-            estadoCivilText.Enabled = true;
-            trabajoText.Enabled = true;
-            sexoText.Enabled = true;
-            provinciaText.Enabled = true;
-            cantonText.Enabled = true;
-            distritoText.Enabled = true;
-            otrasText.Enabled = true;
+            idText.Visible = true;
+            idText.Enabled = false;
+            firstNameText.Visible = true;
+            secondNameText.Visible = true;
+            lastNameText.Visible = true;
+            lastNameText2.Visible = true;
+            diaText.Visible = true;
+            mesText.Visible = true;
+            AnnoText.Visible = true;
+            phoneText.Visible = true;
+            religionText.Visible = true;
+            estadoCivilText.Visible = true;
+            trabajoText.Visible = true;
+            sexoText.Visible = true;
+            provinciaText.Visible = true;
+            cantonText.Visible = true;
+            distritoText.Visible = true;
+            otrasText.Visible = true;
             guardarBtn.Visible = true;
-            guardarBtn.Enabled = true;
-            modificarBtn.Enabled = false;
+            guardarBtn.Visible = true;
+            modificarBtn.Visible = false;
+
+            idLabel.Visible = false;
+            firstNameLabel.Visible = false;
+            secondNameLabel.Visible = false;
+            lastNameLabel.Visible = false;
+            lastNameLabel2.Visible = false;
+            diaLabel.Visible = false;
+            mesLabel.Visible = false;
+            AnnoLabel.Visible = false;
+            phoneLabel.Visible = false;
+            religionLabel.Visible = false;
+            estadoCivilLabel.Visible = false;
+            trabajoLabel.Visible = false;
+            sexoLabel.Visible = false;
+            provinciaLabel.Visible = false;
+            cantonLabel.Visible = false;
+            distritoLabel.Visible = false;
+            otrasLabel.Visible = false;
         }
 
         protected void guardarBtn_Click(object sender, EventArgs e)
