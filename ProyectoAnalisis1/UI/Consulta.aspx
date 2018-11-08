@@ -50,7 +50,7 @@
         <div class="form-group">
                 <label for="precioText">Precio de consulta</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="precioText" ErrorMessage="**Solo números permitidos en este campo**" ForeColor="Red" ValidationExpression="\d*\.?\d*"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="precioText" ErrorMessage="**Solo números permitidos en este campo**" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarPrecioVal"></asp:RegularExpressionValidator>
                 <asp:RequiredFieldValidator ID="priceFieldRequiredValidator" runat="server" ControlToValidate="precioText" ErrorMessage="**Informacion incompleta**" ForeColor="Red" ValidationGroup="guardarPrecioVal"></asp:RequiredFieldValidator>
                 <asp:TextBox type="text" class="form-control" ID="precioText" runat="server"></asp:TextBox>
             </div>
