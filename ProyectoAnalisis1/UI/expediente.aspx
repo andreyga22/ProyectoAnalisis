@@ -88,12 +88,13 @@
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="distritoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
                 <asp:TextBox type="text" class="form-control" ID="distritoText" runat="server"></asp:TextBox>
             </div>
-            <div class="form-group col-sm-4">
+        </div>
+
+        <div class="form-group ">
                 <label for="otrasText">Otras Señas</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="otrasText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="otrasText" runat="server"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="otrasText" runat="server" TextMode="MultiLine"></asp:TextBox>
             </div>
-        </div>
 
         <div class="form-row">
         <div class="form-group col-sm-4">
@@ -137,9 +138,6 @@
         <div class="form-group offset-sm-6">
             <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardar" />
         </div>
-        <%--<div class="form-group offset-sm-6">
-            <asp:Button ID="actualizarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardar" />
-        </div>--%>
 
         <br />
 
