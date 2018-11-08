@@ -9,6 +9,7 @@ namespace BL
     public class BLHistoriaClinica
     {
         public int Id_Historial { get; set; }
+        public string grupo_Sanguineo { get; set; }
         public bool HTA { get; set; }
         public bool DM { get; set; }
         public bool Asma { get; set; }
@@ -52,54 +53,54 @@ namespace BL
 
         }
 
-        public BLHistoriaClinica(int id_Historial, bool hTA, bool dM, bool asma, bool epilepsia, 
+        public BLHistoriaClinica(int id_Historial, string grupo_Sanguineo, bool hTA, bool dM, bool asma, bool epilepsia, 
             string enferm_Cardiacas, bool displidemias, string enferm_Psiquiatricas, string otros_Person_Patologic,
             bool fuma, bool licor, bool drogas, string alergias, string otros_Person_No_Patologic, bool menarca, 
             DateTime fUR, int embarazos, int abortos, int quistesOvaricos, bool endometriosis, 
             string otros_Ginecobstetrico, string medicamentos, string indicacionesMedicamentos, string fracturas, 
-            
             string vesicula, bool apendice, bool cordales, string litiasis, string columna, string otros_Quirurgico,
             string dM_Fam, string hTA_Fam, string asma_Fam, string cancer_Fam, string epilepsia_Fam,
             string demencias_Fam, string enferm_Psiq_Fam, string otros_Fam)
         {
-            Id_Historial = id_Historial;
-            HTA = hTA;
-            DM = dM;
-            Asma = asma;
-            Epilepsia = epilepsia;
-            Enferm_Cardiacas = enferm_Cardiacas;
-            Displidemias = displidemias;
-            Enferm_Psiquiatricas = enferm_Psiquiatricas;
-            Otros_Person_Patologic = otros_Person_Patologic;
-            Fuma = fuma;
-            Licor = licor;
-            Drogas = drogas;
-            Alergias = alergias;
-            Otros_Person_No_Patologic = otros_Person_No_Patologic;
-            Menarca = menarca;
-            FUR = fUR;
-            Embarazos = embarazos;
-            Abortos = abortos;
-            QuistesOvaricos = quistesOvaricos;
-            Endometriosis = endometriosis;
-            Otros_Ginecobstetrico = otros_Ginecobstetrico;
-            Medicamentos = medicamentos;
-            IndicacionesMedicamentos = indicacionesMedicamentos;
-            Fracturas = fracturas;
-            Vesicula = vesicula;
-            Apendice = apendice;
-            Cordales = cordales;
-            Litiasis = litiasis;
-            Columna = columna;
-            Otros_Quirurgico = otros_Quirurgico;
-            DM_Fam = dM_Fam;
-            HTA_Fam = hTA_Fam;
-            Asma_Fam = asma_Fam;
-            Cancer_Fam = cancer_Fam;
-            Epilepsia_Fam = epilepsia_Fam;
-            Demencias_Fam = demencias_Fam;
-            Enferm_Psiq_Fam = enferm_Psiq_Fam;
-            Otros_Fam = otros_Fam;
+            this.Id_Historial = id_Historial;
+            this.grupo_Sanguineo = grupo_Sanguineo;
+            this.HTA = hTA;
+            this.DM = dM;
+            this.Asma = asma;
+            this.Epilepsia = epilepsia;
+            this.Enferm_Cardiacas = enferm_Cardiacas;
+            this.Displidemias = displidemias;
+            this.Enferm_Psiquiatricas = enferm_Psiquiatricas;
+            this.Otros_Person_Patologic = otros_Person_Patologic;
+            this.Fuma = fuma;
+            this.Licor = licor;
+            this.Drogas = drogas;
+            this.Alergias = alergias;
+            this.Otros_Person_No_Patologic = otros_Person_No_Patologic;
+            this.Menarca = menarca;
+            this.FUR = fUR;
+            this.Embarazos = embarazos;
+            this.Abortos = abortos;
+            this.QuistesOvaricos = quistesOvaricos;
+            this.Endometriosis = endometriosis;
+            this.Otros_Ginecobstetrico = otros_Ginecobstetrico;
+            this.Medicamentos = medicamentos;
+            this.IndicacionesMedicamentos = indicacionesMedicamentos;
+            this.Fracturas = fracturas;
+            this.Vesicula = vesicula;
+            this.Apendice = apendice;
+            this.Cordales = cordales;
+            this.Litiasis = litiasis;
+            this.Columna = columna;
+            this.Otros_Quirurgico = otros_Quirurgico;
+            this.DM_Fam = dM_Fam;
+            this.HTA_Fam = hTA_Fam;
+            this.Asma_Fam = asma_Fam;
+            this.Cancer_Fam = cancer_Fam;
+            this.Epilepsia_Fam = epilepsia_Fam;
+            this.Demencias_Fam = demencias_Fam;
+            this.Enferm_Psiq_Fam = enferm_Psiq_Fam;
+            this.Otros_Fam = otros_Fam;
         }
 
     }

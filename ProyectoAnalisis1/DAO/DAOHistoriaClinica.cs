@@ -11,7 +11,7 @@ namespace DAO
 {
     public class DAOHistoriaClinica
     {
-        SqlConnection conexion = new SqlConnection(/*Properties.Settings.Default.conexion*/);
+        SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
 
         public Boolean insertarHistoriaClinica(TOHistoriaClinica historialClinica)
         {
@@ -22,7 +22,7 @@ namespace DAO
                     "@licor, @drogas, @alergias, @otros_pers_no_patolg, @menarca, @fur, @embaraz, @abort, @quistOvaric, @endometriosis, " +
                     "@otros_ginecoobstet, @medicam, @otros_Medic, @fracturas, @vesicula, @apendice, @cordales, @litiasis, " +
                     "@columna, @otros_quirurg, @dm_fam, @hta_fam, @asma_fam, @cancerfam, @epilepsiaFam, @demenciasFam, " +
-                    "@enfPsquitrFam, @otrosFam)", conexion);
+                    "@enfPsquitrFam, @otrosFam, @grupoSanguineo)", conexion);
                 insertar.Parameters.AddWithValue("@idhist", historialClinica.Id_Historial);
                 insertar.Parameters.AddWithValue("@hta", historialClinica.HTA);
                 insertar.Parameters.AddWithValue("@dm", historialClinica.DM);
@@ -61,6 +61,7 @@ namespace DAO
                 insertar.Parameters.AddWithValue("@demenciasFam", historialClinica.Demencias_Fam);
                 insertar.Parameters.AddWithValue("@enfPsquitrFam", historialClinica.Enferm_Psiq_Fam);
                 insertar.Parameters.AddWithValue("@otrosFam", historialClinica.Otros_Fam);
+                insertar.Parameters.AddWithValue("@grupoSanguineo", historialClinica.grupo_Sanguineo);
 
                 conexion.Open();
                 insertar.ExecuteNonQuery();
