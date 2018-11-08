@@ -45,6 +45,41 @@ namespace DAO
 
         }
 
+        public void guardarModificar(TODireccion direccion) {
+            try
+            {
+                SqlCommand insertar = new SqlCommand("begin tran if exists(select * from direccion with (updlock, serializable) where cedula = @ced) begin update direccion set provincia = @Prov, canton= @Cant, distrito = @Dist, otras_senas = @Otras where cedula = @ced; end else begin insert into direccion(cedula, provincia, canton, distrito, otras_senas) values(@ced, @Prov, @Cant, @Dist, @Otras); end commit tran", conexion);
+                //insertar.Parameters.AddWithValue("@idDireccion", direccion.idDireccion);
+                insertar.Parameters.AddWithValue("@ced", direccion.cedula);
+                insertar.Parameters.AddWithValue("@Prov", direccion.provincia);
+                insertar.Parameters.AddWithValue("@Cant", direccion.canton);
+                insertar.Parameters.AddWithValue("@Dist", direccion.distrito);
+                insertar.Parameters.AddWithValue("@Otras", direccion.otrasSenas);
+
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+                insertar.ExecuteNonQuery();
+                if (conexion.State != System.Data.ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex2)
+            {
+                throw ex2;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
 
         public TODireccion consultar(String ced) {
             //try

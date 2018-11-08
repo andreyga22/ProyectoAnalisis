@@ -30,21 +30,32 @@ namespace UI
                 trabajoText.Text = exp.tipo_trabajo;
                 sexoText.Text = exp.sexo;
                 BLManejadorDireccion dir = new BLManejadorDireccion();
-                BLDireccion bl = dir.consultar("101230546");
+                BLDireccion bl = dir.consultar("504060873");
                 provinciaText.Text = bl.provincia;
                 cantonText.Text = bl.canton;
                 distritoText.Text = bl.distrito;
                 otrasText.Text = bl.otrasSenas;
             }
             //if (!IsPostBack) {
-                desactivarCampos();
-            //}
-        }
+            desactivarCampos();
+            if (String.IsNullOrEmpty(idText.Text) || (String.IsNullOrWhiteSpace(idText.Text)))
+            {
+                modificarBtn.Visible = false;
+                modificarBtn.Enabled = false;
+                ultimaBtn.Visible = false;
+                ultimaBtn.Enabled = false;
+                historialBtn.Visible = false;
+                historialBtn.Enabled = false;
+            }
+                //}
+            }
 
 
-        private void desactivarCampos() {
-            if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text))) {
-                
+        private void desactivarCampos()
+        {
+            if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text)))
+            {
+
                 idText.Enabled = false;
                 firstNameText.Enabled = false;
                 secondNameText.Enabled = false;
@@ -64,44 +75,45 @@ namespace UI
                 otrasText.Enabled = false;
                 guardarBtn.Enabled = false;
                 guardarBtn.Visible = false;
-
+                modificarBtn.Visible = true;
                 modificarBtn.Enabled = true;
             }
         }
 
         private void activarCampos()
         {
-                firstNameText.Enabled = true;
-                secondNameText.Enabled = true;
-                lastNameText.Enabled = true;
-                lastNameText2.Enabled = true;
+            firstNameText.Enabled = true;
+            secondNameText.Enabled = true;
+            lastNameText.Enabled = true;
+            lastNameText2.Enabled = true;
             diaText.Enabled = true;
-                mesText.Enabled = true;
+            mesText.Enabled = true;
             AnnoText.Enabled = true;
             phoneText.Enabled = true;
-                religionText.Enabled = true;
-                estadoCivilText.Enabled = true;
-                trabajoText.Enabled = true;
-                sexoText.Enabled = true;
-                provinciaText.Enabled = true;
-                cantonText.Enabled = true;
-                distritoText.Enabled = true;
-                otrasText.Enabled = true;
-
-                modificarBtn.Enabled = true;
+            religionText.Enabled = true;
+            estadoCivilText.Enabled = true;
+            trabajoText.Enabled = true;
+            sexoText.Enabled = true;
+            provinciaText.Enabled = true;
+            cantonText.Enabled = true;
+            distritoText.Enabled = true;
+            otrasText.Enabled = true;
+            guardarBtn.Visible = true;
+            guardarBtn.Enabled = true;
+            modificarBtn.Enabled = false;
         }
 
         protected void guardarBtn_Click(object sender, EventArgs e)
         {
+            
+            new BLManejadorExpediente().insertarModificar(createBl());
+            new BLManejadorDireccion().guardarModificar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(), cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
+            //if (!new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(),
+            //    cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim())))
+            //{
+            //    Response.Write("<script>alert('ERROR! Dirección no ha sido almacenada exitosamente')</script>");
+            //}
 
-            new BLManejadorExpediente().insertarExpediente(createBl());
-
-            if (!new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(),provinciaText.Text.Trim(), 
-                cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim())))
-            {
-                Response.Write("<script>alert('ERROR! Dirección no ha sido almacenada exitosamente')</script>");
-            }
-          
         }
 
         protected void cantonText_TextChanged(object sender, EventArgs e)
@@ -117,19 +129,21 @@ namespace UI
 
         protected void modificarBtn_Click(object sender, EventArgs e)
         {
-            if (Convert.ToBoolean(ViewState["listoParaGuardar"]) == true)
-            {
-                new BLManejadorExpediente().actualizarExpediente(createBl());
-                ViewState["listoParaGuardar"] = false;
-            }
-            else {
+            //if (Convert.ToBoolean(ViewState["listoParaGuardar"]) == true)
+            //{
+            //    new BLManejadorExpediente().actualizarExpediente(createBl());
+            //    ViewState["listoParaGuardar"] = false;
+            //}
+            //else
+            //{
                 activarCampos();
-                ViewState["listoParaGuardar"] = true;
-                modificarBtn.Text = "Guardar";
-            }
+            //    ViewState["listoParaGuardar"] = true;
+            //    modificarBtn.Text = "Guardar";
+            //}
         }
 
-        private BLExpediente createBl() {
+        private BLExpediente createBl()
+        {
             return new BLExpediente(idText.Text.Trim(),
                 firstNameText.Text.Trim(), secondNameText.Text.Trim(), lastNameText.Text.Trim(),
                 lastNameText2.Text.Trim(), new DateTime(Convert.ToInt32(AnnoText.Text.Trim()), Convert.ToInt32(mesText.Text.Trim()), Convert.ToInt32(diaText.Text.Trim())), phoneText.Text.Trim(),
@@ -141,7 +155,7 @@ namespace UI
         {
             Session["cedula"] = idText.Text.Trim();
             BLManejadorConsulta man = new BLManejadorConsulta();
-            Session["idConsulta"] = man.consultarUltimo(Convert.ToString( idText.Text.Trim()));
+            Session["idConsulta"] = man.consultarUltimo(Convert.ToString(idText.Text.Trim()));
             Response.Redirect("Consulta.aspx");
         }
 

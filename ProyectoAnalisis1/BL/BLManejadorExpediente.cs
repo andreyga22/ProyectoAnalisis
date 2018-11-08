@@ -18,6 +18,11 @@ namespace BL
             dao.insertar(convert(bl));
         }
 
+        public void insertarModificar(BLExpediente bl) {
+            DAOExpediente dao = new DAOExpediente();
+            dao.guardarActualizar(convert(bl));
+        }
+
         public void borrarExpediente() {
 
         }

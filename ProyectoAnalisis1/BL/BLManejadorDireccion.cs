@@ -20,6 +20,11 @@ namespace BL
             return convert(dao.consultar(ced));
         }
 
+        public void guardarModificar(BLDireccion bl) {
+            DAODireccion dao = new DAODireccion();
+            dao.guardarModificar(convert(bl));
+        }
+
         public BLDireccion convert(TODireccion to)
         {
             return new BLDireccion(to.idDireccion, to.cedula ,to.provincia, to.canton, to.distrito, to.otrasSenas);
