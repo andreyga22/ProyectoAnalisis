@@ -81,11 +81,22 @@ namespace UI
 
                 idText.Enabled = false;
                 btnHistorialClinico.Visible = true;
-                ultimaBtn.Visible = true;
-                btnHistorialClinico.Enabled = true;
-                ultimaBtn.Enabled = true;
-                historialBtn.Visible = true;
-                historialBtn.Enabled = true;
+                BLManejadorConsulta man = new BLManejadorConsulta();
+                List<BLConsulta> bl =  man.listaConsultas(idText.Text.Trim());
+                if (bl.Count > 0)
+                {
+                    ultimaBtn.Visible = true;
+                    btnHistorialClinico.Enabled = true;
+                    ultimaBtn.Enabled = true;
+                    historialBtn.Visible = true;
+                    historialBtn.Enabled = true;
+                }
+                else {
+                    btnHistorialClinico.Enabled = true;
+                    historialBtn.Visible = true;
+                    historialBtn.Enabled = true;
+                }
+                
                 //firstNameText.Visible = false;
                 //secondNameText.Visible = false;
                 //lastNameText.Visible = false;

@@ -12,6 +12,8 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["cedula"] = "";
+            Session["idConsulta"] = "";
             lblNoBusqCedula.Visible = false;
             lblNoBusqNombre.Visible = false;
         }
@@ -28,6 +30,7 @@ namespace UI
             if (String.IsNullOrEmpty(expediente.cedula) || (String.IsNullOrWhiteSpace(expediente.cedula)))
             {
                 lblNoBusqCedula.Visible = true;
+                tblBuscar.Visible = false;
             }
             else
             {
@@ -35,6 +38,7 @@ namespace UI
                 lista.Add(expediente);
                 tblBuscar.DataSource = lista;
                 tblBuscar.DataBind();
+                tblBuscar.Visible = true;
             }
         }
 
@@ -50,15 +54,17 @@ namespace UI
         {
             BLManejadorExpediente manejador = new BLManejadorExpediente();
             List<BLExpediente> listaExpediente = manejador.consultarListaExpedNombre(txtbusqNombre.Text);
-            //if (String.IsNullOrEmpty(listaExpediente.First().cedula))
-            //{
-            //    lblBuscNombre.Visible = true;
-            //}
-            //else
-            //{
+            if (listaExpediente.Count > 0)
+            {
+                tblBuscar.Visible = true;
                 tblBuscar.DataSource = listaExpediente;
                 tblBuscar.DataBind();
-            //}
+            }
+            else
+            {
+                lblNoBusqNombre.Visible = true;
+                tblBuscar.Visible = false;
+            }
         }
     }
 }

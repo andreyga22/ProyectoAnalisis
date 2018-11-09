@@ -34,7 +34,7 @@ namespace UI
         {
             string id = listaConsultaGV.SelectedRow.Cells[1].Text;
             Session["idConsulta"] = id;
-            Session["nuevaConsulta"] = false;
+            //Session["nuevaConsulta"] = false;
             Response.Redirect("Consulta.aspx");
         }
 
