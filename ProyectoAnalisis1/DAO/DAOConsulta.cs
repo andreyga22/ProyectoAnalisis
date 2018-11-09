@@ -70,7 +70,8 @@ namespace DAO
             return to;
         }
 
-        public TOConsulta consultar(int idConsulta) {
+        public TOConsulta consultar(int idConsulta)
+        {
             //try
             //{
             TOConsulta to = new TOConsulta();
@@ -116,29 +117,30 @@ namespace DAO
             //}
         }
 
-        public List<TOConsulta> listaConsulta(String cedula) {
+        public List<TOConsulta> listaConsulta(String cedula)
+        {
             //try
             //{
-                string select = "select * from Consulta where cedula = @id;";
-                SqlCommand sentencia = new SqlCommand(select, conexion);
+            string select = "select * from Consulta where cedula = @id;";
+            SqlCommand sentencia = new SqlCommand(select, conexion);
             sentencia.Parameters.AddWithValue("@id", cedula);
-                DataTable table = new DataTable();
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = sentencia;
-                adapter.Fill(table);
-                List<TOConsulta> lista = new List<TOConsulta>();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sentencia;
+            adapter.Fill(table);
+            List<TOConsulta> lista = new List<TOConsulta>();
 
-                for (int x = 0; x < table.Rows.Count; x++)
-                {
-                    TOConsulta consulta = new TOConsulta();
-                    consulta.fecha = Convert.ToDateTime(table.Rows[x]["FECHA"]);
-                    consulta.idConsulta = Convert.ToInt32(table.Rows[x]["ID_CONSULTA"]);
-                    consulta.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
-                    consulta.precio_Consulta = Convert.ToInt32(table.Rows[x]["PRECIO_CONSULTA"]);
-                    lista.Add(consulta);
-                }
+            for (int x = 0; x < table.Rows.Count; x++)
+            {
+                TOConsulta consulta = new TOConsulta();
+                consulta.fecha = Convert.ToDateTime(table.Rows[x]["FECHA"]);
+                consulta.idConsulta = Convert.ToInt32(table.Rows[x]["ID_CONSULTA"]);
+                consulta.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
+                consulta.precio_Consulta = Convert.ToInt32(table.Rows[x]["PRECIO_CONSULTA"]);
+                lista.Add(consulta);
+            }
 
-                return lista;
+            return lista;
             //}
             //catch (SqlException ex)
             //{
@@ -154,25 +156,50 @@ namespace DAO
             //}
         }
 
-        public void modificar(int idConsulta, int precio) {
+        public List<TOConsulta> listaConsultaOrdenada(String cedula)
+        {
+            string select = "select * from Consulta where cedula = @id order by fecha desc;";
+            SqlCommand sentencia = new SqlCommand(select, conexion);
+            sentencia.Parameters.AddWithValue("@id", cedula);
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = sentencia;
+            adapter.Fill(table);
+            List<TOConsulta> lista = new List<TOConsulta>();
+
+            for (int x = 0; x < table.Rows.Count; x++)
+            {
+                TOConsulta consulta = new TOConsulta();
+                consulta.fecha = Convert.ToDateTime(table.Rows[x]["FECHA"]);
+                consulta.idConsulta = Convert.ToInt32(table.Rows[x]["ID_CONSULTA"]);
+                consulta.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
+                consulta.precio_Consulta = Convert.ToInt32(table.Rows[x]["PRECIO_CONSULTA"]);
+                lista.Add(consulta);
+            }
+
+            return lista;
+        }
+
+        public void modificar(int idConsulta, int precio)
+        {
             //try
             //{
-                string update = "update consulta set precio_consulta=@precio where id_consulta=@idConsulta;";
-                SqlCommand sentencia = new SqlCommand(update, conexion);
-                sentencia.Parameters.AddWithValue("@precio", precio);
-                sentencia.Parameters.AddWithValue("@idConsulta", idConsulta);
+            string update = "update consulta set precio_consulta=@precio where id_consulta=@idConsulta;";
+            SqlCommand sentencia = new SqlCommand(update, conexion);
+            sentencia.Parameters.AddWithValue("@precio", precio);
+            sentencia.Parameters.AddWithValue("@idConsulta", idConsulta);
 
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
-                }
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
 
-                sentencia.ExecuteNonQuery();
+            sentencia.ExecuteNonQuery();
 
-                if (conexion.State != ConnectionState.Closed)
-                {
-                    conexion.Close();
-                }
+            if (conexion.State != ConnectionState.Closed)
+            {
+                conexion.Close();
+            }
             //}
             //catch (SqlException ex)
             //{
@@ -187,5 +214,8 @@ namespace DAO
             //    conexion.Close();
             //}
         }
+
+
+       
     }
 }

@@ -41,6 +41,18 @@ namespace BL
             return listaBL;
         }
 
+        public List<BLConsulta> listaConsultasOrdenado(String cedula)
+        {
+            DAOConsulta dao = new DAOConsulta();
+            List<TOConsulta> listaTO = dao.listaConsultaOrdenada(cedula);
+            List<BLConsulta> listaBL = new List<BLConsulta>();
+            foreach (TOConsulta consulta in listaTO)
+            {
+                listaBL.Add(convert(consulta));
+            }
+            return listaBL;
+        }
+
         public BLConsulta convert(TOConsulta to)
         {
             return new BLConsulta(to.idConsulta, to.fecha, to.cedula, to.precio_Consulta);
