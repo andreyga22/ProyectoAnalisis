@@ -11,6 +11,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Response.Write(Convert.ToString(Session["cedula"]).Trim());
             cargarGrid();
         }
 
@@ -44,6 +45,7 @@ namespace UI
             BLConsulta consulta = new BLConsulta();
             consulta.fecha = DateTime.Now;
             consulta.cedula = Convert.ToString(Session["cedula"]);
+            //Response.Write(Convert.ToString(Session["cedula"]) + "hola");
             consulta.precio_Consulta = 0;
             manejador.insertar(consulta);
             int idConsultaNueva = manejador.consultarUltimo(Convert.ToString(Session["cedula"]));

@@ -13,8 +13,9 @@ namespace UI
         {
             if (!IsPostBack)
             {
+                if (!Convert.ToString(Session["cedula"]).Equals("")) { 
                 BLManejadorExpediente man = new BLManejadorExpediente();
-                BLExpediente exp = man.consultarExpediente("504060873");
+                BLExpediente exp = man.consultarExpediente(Convert.ToString(Session["cedula"]));
                 idText.Text = exp.cedula;
                 firstNameText.Text = exp.primer_nombre;
                 secondNameText.Text = exp.segundo_nombre;
@@ -29,38 +30,39 @@ namespace UI
                 trabajoText.Text = exp.tipo_trabajo;
                 sexoText.Text = exp.sexo;
 
-                idLabel.Text = exp.cedula;
-                firstNameLabel.Text = exp.primer_nombre;
-                secondNameLabel.Text = exp.segundo_nombre;
-                lastNameLabel.Text = exp.primer_apellido;
-                lastNameLabel2.Text = exp.segundo_apellido;
-                diaLabel.Text = Convert.ToString(exp.fecha_nacimiento.Day);
-                mesLabel.Text = Convert.ToString(exp.fecha_nacimiento.Month);
-                AnnoLabel.Text = Convert.ToString(exp.fecha_nacimiento.Year);
-                phoneLabel.Text = exp.num_telefono;
-                religionLabel.Text = exp.religion;
-                estadoCivilLabel.Text = exp.estado_civil;
-                trabajoLabel.Text = exp.tipo_trabajo;
-                sexoLabel.Text = exp.sexo;
+                //idLabel.Text = exp.cedula;
+                //firstNameLabel.Text = exp.primer_nombre;
+                //secondNameLabel.Text = exp.segundo_nombre;
+                //lastNameLabel.Text = exp.primer_apellido;
+                //lastNameLabel2.Text = exp.segundo_apellido;
+                //diaLabel.Text = Convert.ToString(exp.fecha_nacimiento.Day);
+                //mesLabel.Text = Convert.ToString(exp.fecha_nacimiento.Month);
+                //AnnoLabel.Text = Convert.ToString(exp.fecha_nacimiento.Year);
+                //phoneLabel.Text = exp.num_telefono;
+                //religionLabel.Text = exp.religion;
+                //estadoCivilLabel.Text = exp.estado_civil;
+                //trabajoLabel.Text = exp.tipo_trabajo;
+                //sexoLabel.Text = exp.sexo;
 
                 BLManejadorDireccion dir = new BLManejadorDireccion();
-                BLDireccion bl = dir.consultar("504060873");
+                BLDireccion bl = dir.consultar(Convert.ToString(Session["cedula"]));
                 provinciaText.Text = bl.provincia;
                 cantonText.Text = bl.canton;
                 distritoText.Text = bl.distrito;
                 otrasText.Text = bl.otrasSenas;
 
-                provinciaLabel.Text = bl.provincia;
-                cantonLabel.Text = bl.canton;
-                distritoLabel.Text = bl.distrito;
-                otrasLabel.Text = bl.otrasSenas;
+                //provinciaLabel.Text = bl.provincia;
+                //cantonLabel.Text = bl.canton;
+                //distritoLabel.Text = bl.distrito;
+                //otrasLabel.Text = bl.otrasSenas;
+                }
             }
             //if (!IsPostBack) {
             desactivarCampos();
             if (String.IsNullOrEmpty(idText.Text) || (String.IsNullOrWhiteSpace(idText.Text)))
             {
-                modificarBtn.Visible = false;
-                modificarBtn.Enabled = false;
+                //modificarBtn.Visible = false;
+                //modificarBtn.Enabled = false;
                 ultimaBtn.Visible = false;
                 ultimaBtn.Enabled = false;
                 historialBtn.Visible = false;
@@ -77,45 +79,51 @@ namespace UI
             if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text)))
             {
 
-                idText.Visible = false;
-                firstNameText.Visible = false;
-                secondNameText.Visible = false;
-                lastNameText.Visible = false;
-                lastNameText2.Visible = false;
-                diaText.Visible = false;
-                mesText.Visible = false;
-                AnnoText.Visible = false;
-                phoneText.Visible = false;
-                religionText.Visible = false;
-                estadoCivilText.Visible = false;
-                trabajoText.Visible = false;
-                sexoText.Visible = false;
-                provinciaText.Visible = false;
-                cantonText.Visible = false;
-                distritoText.Visible = false;
-                otrasText.Visible = false;
-                guardarBtn.Visible = false;
-                guardarBtn.Visible = false;
-                modificarBtn.Visible = true;
-                modificarBtn.Visible = true;
+                idText.Enabled = false;
+                btnHistorialClinico.Visible = true;
+                ultimaBtn.Visible = true;
+                btnHistorialClinico.Enabled = true;
+                ultimaBtn.Enabled = true;
+                historialBtn.Visible = true;
+                historialBtn.Enabled = true;
+                //firstNameText.Visible = false;
+                //secondNameText.Visible = false;
+                //lastNameText.Visible = false;
+                //lastNameText2.Visible = false;
+                //diaText.Visible = false;
+                //mesText.Visible = false;
+                //AnnoText.Visible = false;
+                //phoneText.Visible = false;
+                //religionText.Visible = false;
+                //estadoCivilText.Visible = false;
+                //trabajoText.Visible = false;
+                //sexoText.Visible = false;
+                //provinciaText.Visible = false;
+                //cantonText.Visible = false;
+                //distritoText.Visible = false;
+                //otrasText.Visible = false;
+                //guardarBtn.Visible = false;
+                //guardarBtn.Visible = false;
+                //modificarBtn.Visible = true;
+                //modificarBtn.Visible = true;
 
-                idLabel.Visible = true;
-                firstNameLabel.Visible = true;
-                secondNameLabel.Visible = true;
-                lastNameLabel.Visible = true;
-                lastNameLabel2.Visible = true;
-                diaLabel.Visible = true;
-                mesLabel.Visible = true;
-                AnnoLabel.Visible = true;
-                phoneLabel.Visible = true;
-                religionLabel.Visible = true;
-                estadoCivilLabel.Visible = true;
-                trabajoLabel.Visible = true;
-                sexoLabel.Visible = true;
-                provinciaLabel.Visible = true;
-                cantonLabel.Visible = true;
-                distritoLabel.Visible = true;
-                otrasLabel.Visible = true;
+                //idLabel.Visible = true;
+                //firstNameLabel.Visible = true;
+                //secondNameLabel.Visible = true;
+                //lastNameLabel.Visible = true;
+                //lastNameLabel2.Visible = true;
+                //diaLabel.Visible = true;
+                //mesLabel.Visible = true;
+                //AnnoLabel.Visible = true;
+                //phoneLabel.Visible = true;
+                //religionLabel.Visible = true;
+                //estadoCivilLabel.Visible = true;
+                //trabajoLabel.Visible = true;
+                //sexoLabel.Visible = true;
+                //provinciaLabel.Visible = true;
+                //cantonLabel.Visible = true;
+                //distritoLabel.Visible = true;
+                //otrasLabel.Visible = true;
             }
         }
 
@@ -141,25 +149,25 @@ namespace UI
             otrasText.Visible = true;
             guardarBtn.Visible = true;
             guardarBtn.Visible = true;
-            modificarBtn.Visible = false;
+            //modificarBtn.Visible = false;
 
-            idLabel.Visible = false;
-            firstNameLabel.Visible = false;
-            secondNameLabel.Visible = false;
-            lastNameLabel.Visible = false;
-            lastNameLabel2.Visible = false;
-            diaLabel.Visible = false;
-            mesLabel.Visible = false;
-            AnnoLabel.Visible = false;
-            phoneLabel.Visible = false;
-            religionLabel.Visible = false;
-            estadoCivilLabel.Visible = false;
-            trabajoLabel.Visible = false;
-            sexoLabel.Visible = false;
-            provinciaLabel.Visible = false;
-            cantonLabel.Visible = false;
-            distritoLabel.Visible = false;
-            otrasLabel.Visible = false;
+            //idLabel.Visible = false;
+            //firstNameLabel.Visible = false;
+            //secondNameLabel.Visible = false;
+            //lastNameLabel.Visible = false;
+            //lastNameLabel2.Visible = false;
+            //diaLabel.Visible = false;
+            //mesLabel.Visible = false;
+            //AnnoLabel.Visible = false;
+            //phoneLabel.Visible = false;
+            //religionLabel.Visible = false;
+            //estadoCivilLabel.Visible = false;
+            //trabajoLabel.Visible = false;
+            //sexoLabel.Visible = false;
+            //provinciaLabel.Visible = false;
+            //cantonLabel.Visible = false;
+            //distritoLabel.Visible = false;
+            //otrasLabel.Visible = false;
         }
 
         protected void guardarBtn_Click(object sender, EventArgs e)

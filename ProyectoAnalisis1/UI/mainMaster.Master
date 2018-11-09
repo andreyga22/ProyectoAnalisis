@@ -16,7 +16,7 @@
 <body>
     <form id="form1" runat="server">
         <nav class="navbar navbar-light bg-info">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="PaginaPrincipal.aspx">
             <img src="img/logo.png"  height="50" class="d-inline-block align-top" alt="">
           </a>
         </nav>

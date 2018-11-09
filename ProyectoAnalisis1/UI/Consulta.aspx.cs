@@ -14,7 +14,7 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack) {
-                Response.Write(Convert.ToInt32(Session["idConsulta"]));
+                //Response.Write(Convert.ToInt32(Session["idConsulta"]));
                 BLManejadorConsulta blm = new BLManejadorConsulta();
                 BLConsulta con = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
                 fecha.Text = Convert.ToString(con.fecha);
