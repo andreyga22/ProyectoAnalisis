@@ -8,7 +8,7 @@
         <br />
         <br />
         <br />
-
+        <asp:Label ID="errorLbl" runat="server" Text="" Visible="False" ForeColor="Red"></asp:Label>
         <br />
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Ficha Paramédicos" Font-Bold="True" Font-Size="Larger"></asp:Label>

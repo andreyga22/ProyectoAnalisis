@@ -9,7 +9,8 @@
         <br />
         <br />
         <br />
-
+        <asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
+        <br />
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Ficha Doctor" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>

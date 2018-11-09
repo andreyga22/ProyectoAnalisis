@@ -16,34 +16,48 @@ namespace DAO
 
         public void insertar(TOFichaDoctor ficha)
         {
-            string insert = "insert into ficha_doctor (id_consulta, motivo_consulta, " +
-                "examen_fisico, recomendacion, id_cuenta) values (@id_consulta, @motivo, @examen, @plan, @idEmpleado)";
-
-            SqlCommand insertar = new SqlCommand(insert, conexion);
-            insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
-            insertar.Parameters.AddWithValue("@motivo", ficha.motivoConsulta);
-            insertar.Parameters.AddWithValue("@examen", ficha.examenFisico);
-            insertar.Parameters.AddWithValue("@plan", ficha.plan);
-            insertar.Parameters.AddWithValue("@idEmpleado", ficha.idEmpleado);
-
-
-            if (conexion.State != System.Data.ConnectionState.Open)
+            try
             {
-                conexion.Open();
+                string insert = "insert into ficha_doctor (id_consulta, motivo_consulta, " +
+                    "examen_fisico, recomendacion, id_cuenta) values (@id_consulta, @motivo, @examen, @plan, @idEmpleado)";
+
+                SqlCommand insertar = new SqlCommand(insert, conexion);
+                insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
+                insertar.Parameters.AddWithValue("@motivo", ficha.motivoConsulta);
+                insertar.Parameters.AddWithValue("@examen", ficha.examenFisico);
+                insertar.Parameters.AddWithValue("@plan", ficha.plan);
+                insertar.Parameters.AddWithValue("@idEmpleado", ficha.idEmpleado);
+
+
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                insertar.ExecuteNonQuery();
+
+                if (conexion.State != System.Data.ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
             }
-
-            insertar.ExecuteNonQuery();
-
-            if (conexion.State != System.Data.ConnectionState.Closed)
+            catch (SqlException)
             {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally {
                 conexion.Close();
             }
         }
 
         public TOFichaDoctor consultar(int idConsulta) {
-            //try
-            //{
-            TOFichaDoctor to = new TOFichaDoctor();
+            try
+            {
+                TOFichaDoctor to = new TOFichaDoctor();
 
             string select = "select * from ficha_doctor where id_Consulta = @idConsulta;";
             SqlCommand sentencia = new SqlCommand(select, conexion);
@@ -73,19 +87,19 @@ namespace DAO
                 conexion.Close();
             }
             return to;
-            //}
-            //catch (SqlException ex)
-            //{
-            //    throw ex;
-            //}
-            //catch (Exception ex2)
-            //{
-            //    throw ex2;
-            //}
-            //finally
-            //{
-            //    conexion.Close();
-            //}
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
     }
 }
