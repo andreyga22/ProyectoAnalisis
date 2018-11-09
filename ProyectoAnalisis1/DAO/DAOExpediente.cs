@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using TO;
 using System.Data.SqlClient;
 using System.Data;
+using System.Text.RegularExpressions;
+
 namespace DAO
 {
     public class DAOExpediente
@@ -185,19 +187,61 @@ namespace DAO
             }
         }
 
+        public List<TOExpediente> consultarListaExpedNombre(String nombre)
+        {
+            String[] vectorNombreCompleto = Regex.Split(nombre, " ");
+            List<TOExpediente> lista = new List<TOExpediente>();
+            string select;
+            SqlCommand sentencia;
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            for (int i = 0; i < vectorNombreCompleto.Length; i++)
+            {
+                select = "select * from expediente where lower(Nombre1) like @nomb or lower(Nombre2) like @nomb or lower(Apellido1) like @nomb or " +
+                  "lower(Apellido2) like @nomb;";
+                sentencia = new SqlCommand(select, conexion);
+                sentencia.Parameters.AddWithValue("@nomb", vectorNombreCompleto[i]);
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(table);
+
+                for (int x = 0; x < table.Rows.Count; x++)
+                {
+                    TOExpediente expediente = new TOExpediente();
+                    expediente.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
+                    expediente.primer_nombre = Convert.ToString(table.Rows[x]["Nombre1"]);
+                    expediente.segundo_nombre = Convert.ToString(table.Rows[x]["Nombre2"]);
+                    expediente.primer_apellido = Convert.ToString(table.Rows[x]["Apellido1"]);
+                    expediente.segundo_apellido = Convert.ToString(table.Rows[x]["Apellido2"]);
+                    expediente.fecha_nacimiento = Convert.ToDateTime(table.Rows[x]["FECHA_NACIMIENTO"]);
+                    expediente.num_telefono = Convert.ToString(table.Rows[x]["NUMERO_TELEFONO"]);
+                    expediente.religion = Convert.ToString(table.Rows[x]["RELIGION"]);
+                    expediente.estado_civil = Convert.ToString(table.Rows[x]["ESTADO_CIVIL"]);
+                    expediente.tipo_trabajo = Convert.ToString(table.Rows[x]["TIPO_TRABAJO"]);
+                    expediente.sexo = Convert.ToString(table.Rows[x]["SEXO"]);
 
 
+                    if (lista.Count == 0)
+                    {
+                        lista.Add(expediente);
+                    }
+                    else
+                    {
+                        for (int j = 0; j < lista.Count; j++)
+                        {
+                            if (!lista[j].cedula.Equals(expediente.cedula))
+                            {
+                                lista.Add(expediente);
+                            }
+                        }
+                    }
+                }
+            }
+            return lista;
 
+        }
+        
 
-
-
-
-
-
-
-
-
-        public void pruebaConexion() {
+            public void pruebaConexion() {
             
                 SqlCommand insertar = new SqlCommand("Insert into DIRECCION values (2, 'alajuela', 'san ramon', 'san ramon', 'porahi')", conexion);
                 //insertar.Parameters.AddWithValue("@Id", direccion.idDireccion);

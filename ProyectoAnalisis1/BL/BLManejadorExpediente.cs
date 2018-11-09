@@ -56,5 +56,18 @@ namespace BL
             DAOExpediente dao = new DAOExpediente();
             dao.pruebaConexion();
         }
+
+
+        public List<BLExpediente> consultarListaExpedNombre(string nombre)
+        {
+            DAOExpediente dao = new DAOExpediente();
+            List<TOExpediente> listaTO = dao.consultarListaExpedNombre(nombre);
+            List<BLExpediente> listaBL = new List<BLExpediente>();
+            foreach (TOExpediente consulta in listaTO)
+            {
+                listaBL.Add(convert(consulta));
+            }
+            return listaBL;
+        }
     }
 }

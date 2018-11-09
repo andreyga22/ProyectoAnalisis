@@ -24,7 +24,7 @@ namespace UI
         private void cargarGrid()
         {
             BLManejadorConsulta manejador = new BLManejadorConsulta();
-            List<BLConsulta> lista = manejador.listaConsultas(Convert.ToString(Session["cedula"]));
+            List<BLConsulta> lista = manejador.listaConsultasOrdenado(Convert.ToString(Session["cedula"]));
             listaConsultaGV.DataSource = lista;
             listaConsultaGV.DataBind();
         }

@@ -103,25 +103,25 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox secondNameText;
         
         /// <summary>
-        /// firstNameLabel control.
+        /// Control firstNameLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label firstNameLabel;
         
         /// <summary>
-        /// secondNameLabel control.
+        /// Control secondNameLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label secondNameLabel;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// Control RequiredFieldValidator2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -175,25 +175,24 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox lastNameText2;
         
         /// <summary>
-        /// lastNameLabel control.
+        /// Control lastNameLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lastNameLabel;
         
         /// <summary>
-        /// lastNameLabel2 control.
+        /// Control lastNameLabel2.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lastNameLabel2;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
         /// Control RequiredFieldValidator3.
         /// </summary>
         /// <remarks>
@@ -212,16 +211,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox idText;
         
         /// <summary>
-        /// idLabel control.
+        /// Control idLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label idLabel;
         
         /// <summary>
-        /// phoneText control.
         /// Control phoneText.
         /// </summary>
         /// <remarks>
@@ -231,16 +229,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox phoneText;
         
         /// <summary>
-        /// phoneLabel control.
+        /// Control phoneLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label phoneLabel;
         
         /// <summary>
-        /// provinciaText control.
         /// Control provinciaText.
         /// </summary>
         /// <remarks>
@@ -268,34 +265,33 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox distritoText;
         
         /// <summary>
-        /// provinciaLabel control.
+        /// Control provinciaLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label provinciaLabel;
         
         /// <summary>
-        /// cantonLabel control.
+        /// Control cantonLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label cantonLabel;
         
         /// <summary>
-        /// distritoLabel control.
+        /// Control distritoLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label distritoLabel;
         
         /// <summary>
-        /// otrasText control.
         /// Control otrasText.
         /// </summary>
         /// <remarks>
@@ -305,16 +301,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox otrasText;
         
         /// <summary>
-        /// otrasLabel control.
+        /// Control otrasLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label otrasLabel;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
         /// Control RequiredFieldValidator4.
         /// </summary>
         /// <remarks>
@@ -369,34 +364,33 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox AnnoText;
         
         /// <summary>
-        /// diaLabel control.
+        /// Control diaLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label diaLabel;
         
         /// <summary>
-        /// mesLabel control.
+        /// Control mesLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label mesLabel;
         
         /// <summary>
-        /// AnnoLabel control.
+        /// Control AnnoLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label AnnoLabel;
         
         /// <summary>
-        /// religionText control.
         /// Control religionText.
         /// </summary>
         /// <remarks>
@@ -406,16 +400,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox religionText;
         
         /// <summary>
-        /// religionLabel control.
+        /// Control religionLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label religionLabel;
         
         /// <summary>
-        /// estadoCivilText control.
         /// Control estadoCivilText.
         /// </summary>
         /// <remarks>
@@ -425,16 +418,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox estadoCivilText;
         
         /// <summary>
-        /// estadoCivilLabel control.
+        /// Control estadoCivilLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label estadoCivilLabel;
         
         /// <summary>
-        /// trabajoText control.
         /// Control trabajoText.
         /// </summary>
         /// <remarks>
@@ -444,16 +436,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox trabajoText;
         
         /// <summary>
-        /// trabajoLabel control.
+        /// Control trabajoLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label trabajoLabel;
         
         /// <summary>
-        /// sexoText control.
         /// Control sexoText.
         /// </summary>
         /// <remarks>
@@ -463,16 +454,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.DropDownList sexoText;
         
         /// <summary>
-        /// sexoLabel control.
+        /// Control sexoLabel.
         /// </summary>
         /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label sexoLabel;
         
         /// <summary>
-        /// guardarBtn control.
         /// Control guardarBtn.
         /// </summary>
         /// <remarks>
