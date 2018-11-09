@@ -8,7 +8,9 @@
         <br />
         <br />
         <br />
+        <asp:Label ID="errorLbl" runat="server" Text="" Visible="false" ForeColor="Red"></asp:Label>
         <div class="row">
+            
             <div class="offset-sm-5">
                 <asp:Button ID="agregarBtn" type="button" class="btn btn-danger" runat="server" Text="Agregar" OnClick="agregarBtn_Click" />
             </div>

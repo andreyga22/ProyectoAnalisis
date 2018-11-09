@@ -14,42 +14,56 @@ namespace UI
             //Response.Write(Convert.ToString(Session["cedula"]).Trim());
             cargarGrid();
         }
-
-
-        public void selecc (int idConsulta)
-        {
-            Session["idConsulta"] = idConsulta;
-            Response.Redirect("Consulta.aspx");
-        }
-
+        
         private void cargarGrid()
         {
-            BLManejadorConsulta manejador = new BLManejadorConsulta();
-            List<BLConsulta> lista = manejador.listaConsultasOrdenado(Convert.ToString(Session["cedula"]));
-            listaConsultaGV.DataSource = lista;
-            listaConsultaGV.DataBind();
+            try
+            {
+                BLManejadorConsulta manejador = new BLManejadorConsulta();
+                List<BLConsulta> lista = manejador.listaConsultasOrdenado(Convert.ToString(Session["cedula"]));
+                listaConsultaGV.DataSource = lista;
+                listaConsultaGV.DataBind();
+            } catch (Exception) {
+                errorLbl.Visible = true;
+                errorLbl.Text = "Error al cargar los datos de la lista. Por favor recargue la página o vuelva a la página principal";
+            }
         }
 
         protected void listaConsultaGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string id = listaConsultaGV.SelectedRow.Cells[1].Text;
-            Session["idConsulta"] = id;
-            //Session["nuevaConsulta"] = false;
-            Response.Redirect("Consulta.aspx");
+                string id = listaConsultaGV.SelectedRow.Cells[1].Text;
+                Session["idConsulta"] = id;
+                //Session["nuevaConsulta"] = false;
+                Response.Redirect("Consulta.aspx");
         }
 
         protected void agregarBtn_Click(object sender, EventArgs e)
         {
-            //Session["nuevaConsulta"] = true;
-            BLManejadorConsulta manejador = new BLManejadorConsulta();
-            BLConsulta consulta = new BLConsulta();
-            consulta.fecha = DateTime.Now;
-            consulta.cedula = Convert.ToString(Session["cedula"]);
-            //Response.Write(Convert.ToString(Session["cedula"]) + "hola");
-            consulta.precio_Consulta = 0;
-            manejador.insertar(consulta);
-            int idConsultaNueva = manejador.consultarUltimo(Convert.ToString(Session["cedula"]));
-            Session["idConsulta"] = idConsultaNueva;
+            try
+            {
+                //Session["nuevaConsulta"] = true;
+                BLManejadorConsulta manejador = new BLManejadorConsulta();
+                BLConsulta consulta = new BLConsulta();
+                consulta.fecha = DateTime.Now;
+                consulta.cedula = Convert.ToString(Session["cedula"]);
+                //Response.Write(Convert.ToString(Session["cedula"]) + "hola");
+                consulta.precio_Consulta = 0;
+                manejador.insertar(consulta);
+                int idConsultaNueva = manejador.consultarUltimo(Convert.ToString(Session["cedula"]));
+                Session["idConsulta"] = idConsultaNueva;
+                Response.Redirect("Consulta.aspx");
+            } catch (Exception) {
+                errorLbl.Visible = true;
+                errorLbl.Text = "Error al guardar los datos de la consulta. Verifique que los datos sean correctos.";
+            }
+        }
+
+
+
+
+        public void select(int idConsulta)
+        {
+            Session["idConsulta"] = idConsulta;
             Response.Redirect("Consulta.aspx");
         }
     }

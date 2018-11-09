@@ -10,6 +10,8 @@
         <br />
         <br />
 
+        
+
         <div class="form-row">
             <div class="form-group col-sm-11">
                 <asp:Button ID="ultimaBtn" type="button" class="btn btn-info" runat="server" Text="Ultima Consulta" OnClick="ultimaBtn_Click" />
@@ -22,6 +24,10 @@
             </div>
         </div>
         <br />
+
+        <asp:Label ID="errorlbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
+        <br />
+
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Datos Personales" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
@@ -44,7 +50,6 @@
                 <asp:TextBox type="text" class="form-control" ID="secondNameText" runat="server"></asp:TextBox>
             </div>
         </div>
-
         <%--<div class="form-row">
             <div class="form-group col-sm-6">
                 <asp:Label ID="firstNameLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>

@@ -61,10 +61,9 @@ namespace DAO
         //    }
         //}
 
-            public Boolean guardarModificar(TOFichaParamedico ficha)
-        {
-            //try
-            //{
+            public void guardarModificar(TOFichaParamedico ficha) {
+            try
+            {
 
                 SqlCommand insertar = new SqlCommand("begin tran if exists(select * from ficha_paramedico with (updlock, serializable) " +
                     "where id_paramedico = @idParamedico) begin update ficha_paramedico set presion_arterial = @presion, temperatura = @temperatura, estatura = @estatura, peso = @peso, glicemia = @glicemia, oximetria_pulso = @oximetria_pulso, id_consulta = @id_consulta, " +
@@ -73,8 +72,8 @@ namespace DAO
              "temperatura, estatura, peso, glicemia, oximetria_pulso, observaciones, glasgow, pupilas, piel, frec_card, frec_resp, notas_param, id_cuenta) " +
              "values (@id_consulta, @presion, @temperatura, @estatura, @peso, @glicemia, @oximetria_pulso, " +
              "@observaciones, @glasgow, @pupilas, @piel, @frec_card, @frec_resp, @notas, @idEmpleado); end commit tran", conexion);
-            insertar.Parameters.AddWithValue("@idParamedico", ficha.id_Paramedico);
-            insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
+                insertar.Parameters.AddWithValue("@idParamedico", ficha.id_Paramedico);
+                insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
                 insertar.Parameters.AddWithValue("@presion", ficha.presionArterial);
                 insertar.Parameters.AddWithValue("@glicemia", ficha.glicemia);
                 insertar.Parameters.AddWithValue("@temperatura", ficha.temperatura);
@@ -89,9 +88,9 @@ namespace DAO
                 insertar.Parameters.AddWithValue("@frec_resp", ficha.frec_resp);
                 insertar.Parameters.AddWithValue("@notas", ficha.nota_param);
                 insertar.Parameters.AddWithValue("@idEmpleado", ficha.idEmpleado);
-                
 
-            if (conexion.State != System.Data.ConnectionState.Open)
+
+                if (conexion.State != System.Data.ConnectionState.Open)
                 {
                     conexion.Open();
                 }
@@ -100,21 +99,19 @@ namespace DAO
                 {
                     conexion.Close();
                 }
-            return true;
-        //} catch
-        //    {
-        //        if (conexion.State != System.Data.ConnectionState.Closed)
-        //        {
-        //            conexion.Close();
-        //        }
-        //    return false;
-        //    }
+            }
+            catch (SqlException)
+            {
+                throw;
+            } catch (Exception) {
+                throw;
+            }
         }
 
         public TOFichaParamedico consultar(int idConsulta) {
-            //try
-            //{
-            TOFichaParamedico to = new TOFichaParamedico();
+            try
+            {
+                TOFichaParamedico to = new TOFichaParamedico();
 
             string select = "select * from ficha_paramedico where id_consulta = @idConsulta;";
             SqlCommand sentencia = new SqlCommand(select, conexion);
@@ -154,19 +151,19 @@ namespace DAO
                 conexion.Close();
             }
             return to;
-            //}
-            //catch (SqlException ex)
-            //{
-            //    throw ex;
-            //}
-            //catch (Exception ex2)
-            //{
-            //    throw ex2;
-            //}
-            //finally
-            //{
-            //    conexion.Close();
-            //}
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
     }
 }

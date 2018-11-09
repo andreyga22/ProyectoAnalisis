@@ -12,6 +12,9 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            errorLbl.Visible = true;
+            errorLbl.Text = "Error al cargar los datos del historial clinico. Regrese a la pagina principal.";
+            errorLbl.Text = "Error al guardar los datos del historial clinico. Verifique que los datos sean correctos.";
             if (!IsPostBack)
             {
                 if (!Convert.ToString(Session["cedula"]).Equals(""))

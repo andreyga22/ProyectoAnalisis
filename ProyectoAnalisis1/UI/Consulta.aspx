@@ -10,7 +10,7 @@
         <br />
         <br />
         <br />
-
+        <asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
         <div class="form-row">
             <div class="form-group col-sm-6">
                 <asp:Label ID="titulo" runat="server" Text="Consulta" Font-Bold="True" Font-Size="Larger"></asp:Label>

@@ -12,14 +12,24 @@ namespace BL
     {
 
         public void insertar(BLFichaDoctor bl) {
-            DAOFichaDoctor dao = new DAOFichaDoctor();
-            dao.insertar(convert(bl));
+            try
+            {
+                DAOFichaDoctor dao = new DAOFichaDoctor();
+                dao.insertar(convert(bl));
+            } catch (Exception) {
+                throw;
+            }
         }
 
         public BLFichaDoctor consultar(int idConsulta) {
-            DAOFichaDoctor dao = new DAOFichaDoctor();
-            return convert(dao.consultar(idConsulta));
-        }
+            try
+            {
+                DAOFichaDoctor dao = new DAOFichaDoctor();
+                return convert(dao.consultar(idConsulta));
+            } catch (Exception) {
+                throw;
+            }
+}
 
         private TOFichaDoctor convert(BLFichaDoctor exp)
         {

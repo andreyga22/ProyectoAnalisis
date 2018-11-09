@@ -25,20 +25,23 @@ namespace UI
 
         protected void buscarCedula_Click(object sender, EventArgs e)
         {
-            BLManejadorExpediente manejador = new BLManejadorExpediente();
-            BLExpediente expediente = manejador.consultarExpediente(txtbusqCedula.Text);
-            if (String.IsNullOrEmpty(expediente.cedula) || (String.IsNullOrWhiteSpace(expediente.cedula)))
+            if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim())))
             {
-                lblNoBusqCedula.Visible = true;
-                tblBuscar.Visible = false;
-            }
-            else
-            {
-                List<BLExpediente> lista = new List<BLExpediente>();
-                lista.Add(expediente);
-                tblBuscar.DataSource = lista;
-                tblBuscar.DataBind();
-                tblBuscar.Visible = true;
+                BLManejadorExpediente manejador = new BLManejadorExpediente();
+                BLExpediente expediente = manejador.consultarExpediente(txtbusqCedula.Text);
+                if (String.IsNullOrEmpty(expediente.cedula) || (String.IsNullOrWhiteSpace(expediente.cedula)))
+                {
+                    lblNoBusqCedula.Visible = true;
+                    tblBuscar.Visible = false;
+                }
+                else
+                {
+                    List<BLExpediente> lista = new List<BLExpediente>();
+                    lista.Add(expediente);
+                    tblBuscar.DataSource = lista;
+                    tblBuscar.DataBind();
+                    tblBuscar.Visible = true;
+                }
             }
         }
 
@@ -52,18 +55,21 @@ namespace UI
 
         protected void buscarNombre_Click(object sender, EventArgs e)
         {
-            BLManejadorExpediente manejador = new BLManejadorExpediente();
-            List<BLExpediente> listaExpediente = manejador.consultarListaExpedNombre(txtbusqNombre.Text);
-            if (listaExpediente.Count > 0)
+            if (!String.IsNullOrEmpty(txtbusqNombre.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqNombre.Text.Trim())))
             {
-                tblBuscar.Visible = true;
-                tblBuscar.DataSource = listaExpediente;
-                tblBuscar.DataBind();
-            }
-            else
-            {
-                lblNoBusqNombre.Visible = true;
-                tblBuscar.Visible = false;
+                BLManejadorExpediente manejador = new BLManejadorExpediente();
+                List<BLExpediente> listaExpediente = manejador.consultarListaExpedNombre(txtbusqNombre.Text);
+                if (listaExpediente.Count > 0)
+                {
+                    tblBuscar.Visible = true;
+                    tblBuscar.DataSource = listaExpediente;
+                    tblBuscar.DataBind();
+                }
+                else
+                {
+                    lblNoBusqNombre.Visible = true;
+                    tblBuscar.Visible = false;
+                }
             }
         }
     }

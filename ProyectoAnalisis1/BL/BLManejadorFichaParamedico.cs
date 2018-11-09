@@ -10,15 +10,25 @@ namespace BL
 {
     public class BLManejadorFichaParamedico
     {
-        public Boolean insertar(BLFichaParamedico bl) {
-            DAOFichaParamedico dao = new DAOFichaParamedico();
-            //return dao.insertar(convert(bl));
-            return dao.guardarModificar(convert(bl));
+        public void insertar(BLFichaParamedico bl) {
+            try
+            {
+                DAOFichaParamedico dao = new DAOFichaParamedico();
+                //return dao.insertar(convert(bl));
+                dao.guardarModificar(convert(bl));
+            } catch (Exception) {
+                throw;
+            }
         }
 
         public BLFichaParamedico consultar(int idConsulta) {
-            DAOFichaParamedico dao = new DAOFichaParamedico();
-            return convert(dao.consultar(idConsulta));
+            try
+            {
+                DAOFichaParamedico dao = new DAOFichaParamedico();
+                return convert(dao.consultar(idConsulta));
+            } catch (Exception) {
+                throw;
+            }
         }
 
         private TOFichaParamedico convert(BLFichaParamedico exp)

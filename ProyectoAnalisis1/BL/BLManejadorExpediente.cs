@@ -20,22 +20,41 @@ namespace BL
 
         public void insertarModificar(BLExpediente bl) {
             DAOExpediente dao = new DAOExpediente();
-            dao.guardarActualizar(convert(bl));
+            try
+            {
+                dao.guardarActualizar(convert(bl));
+            } catch (Exception) {
+                throw;
+            }
         }
 
-        public void borrarExpediente() {
-
+        public List<BLExpediente> consultarListaExpedNombre(string nombre)
+        {
+            try
+            {
+                DAOExpediente dao = new DAOExpediente();
+                List<TOExpediente> listaTO = dao.consultarListaExpedNombre(nombre);
+                List<BLExpediente> listaBL = new List<BLExpediente>();
+                foreach (TOExpediente consulta in listaTO)
+                {
+                    listaBL.Add(convert(consulta));
+                }
+                return listaBL;
+            } catch (Exception) {
+                throw;
+            }
         }
 
         public BLExpediente consultarExpediente(string cedula) {
-            DAOExpediente dao = new DAOExpediente();
-            return convert(dao.consultar(cedula));
+            try {
+                DAOExpediente dao = new DAOExpediente();
+                return convert(dao.consultar(cedula));
+            } catch (Exception) {
+                throw;
+            }
         }
 
-        public void actualizarExpediente(BLExpediente bl) {
-            DAOExpediente dao = new DAOExpediente();
-            dao.actualizar(convert(bl));
-        }
+        
 
         private TOExpediente convert(BLExpediente exp) {
             return new TOExpediente(exp.cedula, 
@@ -57,17 +76,12 @@ namespace BL
             dao.pruebaConexion();
         }
 
-
-        public List<BLExpediente> consultarListaExpedNombre(string nombre)
+        public void actualizarExpediente(BLExpediente bl)
         {
             DAOExpediente dao = new DAOExpediente();
-            List<TOExpediente> listaTO = dao.consultarListaExpedNombre(nombre);
-            List<BLExpediente> listaBL = new List<BLExpediente>();
-            foreach (TOExpediente consulta in listaTO)
-            {
-                listaBL.Add(convert(consulta));
-            }
-            return listaBL;
+            dao.actualizar(convert(bl));
         }
+
+        
     }
 }
