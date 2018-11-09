@@ -9,6 +9,7 @@ namespace BL
     public class BLHistoriaClinica
     {
         public int Id_Historial { get; set; }
+        public string cedula { get; set; }
         public string grupo_Sanguineo { get; set; }
         public bool HTA { get; set; }
         public bool DM { get; set; }
@@ -53,7 +54,7 @@ namespace BL
 
         }
 
-        public BLHistoriaClinica(int id_Historial, string grupo_Sanguineo, bool hTA, bool dM, bool asma, bool epilepsia, 
+        public BLHistoriaClinica(int id_Historial, string cedula, string grupo_Sanguineo, bool hTA, bool dM, bool asma, bool epilepsia, 
             string enferm_Cardiacas, bool displidemias, string enferm_Psiquiatricas, string otros_Person_Patologic,
             bool fuma, bool licor, bool drogas, string alergias, string otros_Person_No_Patologic, bool menarca, 
             DateTime fUR, int embarazos, int abortos, int quistesOvaricos, bool endometriosis, 
@@ -63,6 +64,7 @@ namespace BL
             string demencias_Fam, string enferm_Psiq_Fam, string otros_Fam)
         {
             this.Id_Historial = id_Historial;
+            this.cedula = cedula;
             this.grupo_Sanguineo = grupo_Sanguineo;
             this.HTA = hTA;
             this.DM = dM;

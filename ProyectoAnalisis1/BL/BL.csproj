@@ -53,6 +53,7 @@
     <Compile Include="BLManejadorExpediente.cs" />
     <Compile Include="BLManejadorFichaDoctor.cs" />
     <Compile Include="BLManejadorFichaParamedico.cs" />
+    <Compile Include="BLManejadorHistoriaClinica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -73,5 +73,73 @@ namespace DAO
                 return false;
             }
         }
+
+        public TOHistoriaClinica consultarHistorialClinico(String cedula)
+        {
+            TOHistoriaClinica to = new TOHistoriaClinica();
+
+            string select = "select * from HISTORIAL_CLINICO where cedula = @ced;";
+            SqlCommand sentencia = new SqlCommand(select, conexion);
+            sentencia.Parameters.AddWithValue("@ced", cedula);
+
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+
+            SqlDataReader reader = sentencia.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    to.Id_Historial = reader.GetInt32(0);
+                    to.cedula = reader.GetString(1); 
+                    to.HTA = reader.GetBoolean(2); 
+                    to.DM = reader.GetBoolean(3); 
+                    to.Asma = reader.GetBoolean(4); 
+                    to.Epilepsia = reader.GetBoolean(5); 
+                    to.Enferm_Cardiacas = reader.GetString(6); 
+                    to.Displidemias = reader.GetBoolean(7); 
+                    to.Enferm_Psiquiatricas = reader.GetString(8);
+                    to.Otros_Person_Patologic = reader.GetString(9);
+                    to.Fuma = reader.GetBoolean(10);
+                    to.Licor = reader.GetBoolean(11);
+                    to.Drogas = reader.GetBoolean(12);
+                    to.Alergias = reader.GetString(13);
+                    to.Otros_Person_No_Patologic = reader.GetString(14);
+                    to.Menarca = reader.GetBoolean(15);
+                    to.FUR = reader.GetDateTime(16);
+                    to.Embarazos = reader.GetInt32(17);
+                    to.Abortos = reader.GetInt32(18);
+                    to.QuistesOvaricos = reader.GetInt32(19);
+                    to.Endometriosis = reader.GetBoolean(20);
+                    to.Otros_Ginecobstetrico = reader.GetString(21);
+                    to.Medicamentos = reader.GetString(22);
+                    to.IndicacionesMedicamentos = reader.GetString(23);
+                    to.Fracturas = reader.GetString(24);
+                    to.Vesicula = reader.GetString(25);
+                    to.Apendice = reader.GetBoolean(26);
+                    to.Cordales = reader.GetBoolean(27);
+                    to.Litiasis = reader.GetString(28);
+                    to.Columna = reader.GetString(30);
+                    to.Otros_Quirurgico = reader.GetString(31);
+                    to.DM_Fam = reader.GetString(32);
+                    to.HTA = reader.GetBoolean(33);
+                    to.Asma_Fam = reader.GetString(34);
+                    to.Cancer_Fam = reader.GetString(35);
+                    to.Epilepsia_Fam = reader.GetString(36);
+                    to.Demencias_Fam = reader.GetString(37);
+                    to.Enferm_Psiq_Fam = reader.GetString(38);
+                    to.Otros_Fam = reader.GetString(39);
+                    to.grupo_Sanguineo = reader.GetString(40);
+    }
+            }
+
+            if (conexion.State != ConnectionState.Closed)
+            {
+                conexion.Close();
+            }
+            return to;
+        }
     }
 }

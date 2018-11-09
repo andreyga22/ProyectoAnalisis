@@ -16,7 +16,9 @@
         </div>
 
         <div class="form-group offset-sm-11">
-            <asp:Button type="button" class="btn btn-light" ID="modificarBtn" runat="server" Text="Modificar" />
+            <asp:Label ID="lblGrupoSanguineo" runat="server" Text="Grupo Sanguíneo"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtGrupoSanguineo" runat="server"></asp:TextBox>
         </div>
 
         <div class="form-row">
@@ -53,17 +55,17 @@
         <div class="form-group">
             <label for="cardiacaText">Enfermedades cardíacas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="txtenfCardiacas" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="psiquiatricasText">Enfermedades psiquiátricas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="psiquiatricasText" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="txtpsiquiatricas" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="otrasPatologicasText">Otras enfermedades personales patológicas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="TextBox2" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="txtOtraspatolog" runat="server"></asp:TextBox>
         </div>
 
         <br />
@@ -88,13 +90,12 @@
         <div class="form-group">
             <label for="alergiasText">Alergias</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="alergiasText" runat="server"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="Textalergias" runat="server"></asp:TextBox>
         </div>
 
         <div class="form-group">
-            <label for="otrasPatologicasText">Otras enfermedades personales no patológicas</label>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="otrasPatologicasText" runat="server"></asp:TextBox>
+            <label for="otrasPatologicasText">Otras enfermedades personales no patológicas</label>            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:TextBox type="text" class="form-control" ID="TextotrasNoPatologicas" runat="server"></asp:TextBox>
         </div>
 
 
@@ -151,7 +152,7 @@
         </div>
         <div class="form-group offset-md-4 col-sm-4">
             <label for="furText">FUR</label>
-            <asp:Calendar ID="furText" runat="server"></asp:Calendar>
+            <asp:Calendar ID="furCalend" runat="server"></asp:Calendar>
         </div>
 
 
@@ -278,7 +279,7 @@
 
 
     <div class="form-group offset-sm-6">
-        <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" />
+        <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" />
     </div>
 
     <br />
