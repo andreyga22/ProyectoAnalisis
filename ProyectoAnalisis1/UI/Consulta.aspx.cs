@@ -22,7 +22,7 @@ namespace UI
                     precioText.Text = Convert.ToString(con.precio_Consulta);
                 } catch (Exception) {
                     errorLbl.Visible = true;
-                    errorLbl.Text = "Error al cargar los datos de la consulta. Regrese a la pagina principal";
+                    errorLbl.Text = "Error al cargar los datos de la consulta. Regrese a la página principal";
                 }
             }
         }

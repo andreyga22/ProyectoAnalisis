@@ -119,7 +119,7 @@
                 <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="menarcaCheck" runat="server" Text="Menarca" />
             </div>
             <div class="form-group col-sm-4">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="endometriosisCheck" runat="server" Text="Endometriósis" />
+                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="endometriosisCheck" runat="server" Text="Endometriosis" />
             </div>
         </div>
 
@@ -128,6 +128,7 @@
         <div class="form-group">
             <label for="embarazos">Embarazos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="idText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="embarazosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
             <asp:TextBox type="text" class="form-control" ID="embarazosText" runat="server"></asp:TextBox>
         </div>
 
@@ -137,16 +138,18 @@
         <div class="form-group">
             <label for="abortosText">Abortos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="abortosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
             <asp:TextBox type="text" class="form-control" ID="abortosText" runat="server"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="quistesOvaricosText">Quistes Ováricos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="provinciaText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="quistesOvaricosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
             <asp:TextBox type="text" class="form-control" ID="quistesOvaricosText" runat="server"></asp:TextBox>
         </div>
         <div class="form-group">
-            <label for="otrosGinecobstetricoText">Otras enfermedades ginecobstetricos</label>
+            <label for="otrosGinecobstetricoText">Otras enfermedades ginecobstétricos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="cantonText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="otrosGinecobstetricoText" runat="server"></asp:TextBox>
         </div>
@@ -197,7 +200,7 @@
         </div>
 
         <div class="form-group">
-            <label for="otrosQuirugicosText">Otros Quirugicos</label>
+            <label for="otrosQuirugicosText">Otros Quirúgicos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="otrosQuirugicosText" runat="server"></asp:TextBox>
         </div>
@@ -226,7 +229,7 @@
         </div>
 
         <div class="form-group">
-            <label for="cancerFamText">Cancer Familiar</label>
+            <label for="cancerFamText">Cáncer Familiar</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="cancerFamText" runat="server"></asp:TextBox>
         </div>
@@ -279,7 +282,7 @@
 
 
     <div class="form-group offset-sm-6">
-        <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" />
+        <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardarHist" />
     </div>
 
     <br />
