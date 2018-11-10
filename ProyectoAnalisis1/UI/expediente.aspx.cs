@@ -11,66 +11,73 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
-                if (!Convert.ToString(Session["cedula"]).Equals("")) { 
-                BLManejadorExpediente man = new BLManejadorExpediente();
-                BLExpediente exp = man.consultarExpediente(Convert.ToString(Session["cedula"]));
-                idText.Text = exp.cedula;
-                firstNameText.Text = exp.primer_nombre;
-                secondNameText.Text = exp.segundo_nombre;
-                lastNameText.Text = exp.primer_apellido;
-                lastNameText2.Text = exp.segundo_apellido;
-                diaText.Text = Convert.ToString(exp.fecha_nacimiento.Day);
-                mesText.Text = Convert.ToString(exp.fecha_nacimiento.Month);
-                AnnoText.Text = Convert.ToString(exp.fecha_nacimiento.Year);
-                phoneText.Text = exp.num_telefono;
-                religionText.Text = exp.religion;
-                estadoCivilText.Text = exp.estado_civil;
-                trabajoText.Text = exp.tipo_trabajo;
-                sexoText.Text = exp.sexo;
+                if (!IsPostBack)
+                {
+                    if (!Convert.ToString(Session["cedula"]).Equals(""))
+                    {
+                        BLManejadorExpediente man = new BLManejadorExpediente();
+                        BLExpediente exp = man.consultarExpediente(Convert.ToString(Session["cedula"]));
+                        idText.Text = exp.cedula;
+                        firstNameText.Text = exp.primer_nombre;
+                        secondNameText.Text = exp.segundo_nombre;
+                        lastNameText.Text = exp.primer_apellido;
+                        lastNameText2.Text = exp.segundo_apellido;
+                        diaText.Text = Convert.ToString(exp.fecha_nacimiento.Day);
+                        mesText.Text = Convert.ToString(exp.fecha_nacimiento.Month);
+                        AnnoText.Text = Convert.ToString(exp.fecha_nacimiento.Year);
+                        phoneText.Text = exp.num_telefono;
+                        religionText.Text = exp.religion;
+                        estadoCivilText.Text = exp.estado_civil;
+                        trabajoText.Text = exp.tipo_trabajo;
+                        sexoText.Text = exp.sexo;
 
-                //idLabel.Text = exp.cedula;
-                //firstNameLabel.Text = exp.primer_nombre;
-                //secondNameLabel.Text = exp.segundo_nombre;
-                //lastNameLabel.Text = exp.primer_apellido;
-                //lastNameLabel2.Text = exp.segundo_apellido;
-                //diaLabel.Text = Convert.ToString(exp.fecha_nacimiento.Day);
-                //mesLabel.Text = Convert.ToString(exp.fecha_nacimiento.Month);
-                //AnnoLabel.Text = Convert.ToString(exp.fecha_nacimiento.Year);
-                //phoneLabel.Text = exp.num_telefono;
-                //religionLabel.Text = exp.religion;
-                //estadoCivilLabel.Text = exp.estado_civil;
-                //trabajoLabel.Text = exp.tipo_trabajo;
-                //sexoLabel.Text = exp.sexo;
+                        //idLabel.Text = exp.cedula;
+                        //firstNameLabel.Text = exp.primer_nombre;
+                        //secondNameLabel.Text = exp.segundo_nombre;
+                        //lastNameLabel.Text = exp.primer_apellido;
+                        //lastNameLabel2.Text = exp.segundo_apellido;
+                        //diaLabel.Text = Convert.ToString(exp.fecha_nacimiento.Day);
+                        //mesLabel.Text = Convert.ToString(exp.fecha_nacimiento.Month);
+                        //AnnoLabel.Text = Convert.ToString(exp.fecha_nacimiento.Year);
+                        //phoneLabel.Text = exp.num_telefono;
+                        //religionLabel.Text = exp.religion;
+                        //estadoCivilLabel.Text = exp.estado_civil;
+                        //trabajoLabel.Text = exp.tipo_trabajo;
+                        //sexoLabel.Text = exp.sexo;
 
-                BLManejadorDireccion dir = new BLManejadorDireccion();
-                BLDireccion bl = dir.consultar(Convert.ToString(Session["cedula"]));
-                provinciaText.Text = bl.provincia;
-                cantonText.Text = bl.canton;
-                distritoText.Text = bl.distrito;
-                otrasText.Text = bl.otrasSenas;
+                        BLManejadorDireccion dir = new BLManejadorDireccion();
+                        BLDireccion bl = dir.consultar(Convert.ToString(Session["cedula"]));
+                        provinciaText.Text = bl.provincia;
+                        cantonText.Text = bl.canton;
+                        distritoText.Text = bl.distrito;
+                        otrasText.Text = bl.otrasSenas;
 
-                //provinciaLabel.Text = bl.provincia;
-                //cantonLabel.Text = bl.canton;
-                //distritoLabel.Text = bl.distrito;
-                //otrasLabel.Text = bl.otrasSenas;
+                        //provinciaLabel.Text = bl.provincia;
+                        //cantonLabel.Text = bl.canton;
+                        //distritoLabel.Text = bl.distrito;
+                        //otrasLabel.Text = bl.otrasSenas;
+                    }
                 }
-            }
-            //if (!IsPostBack) {
-            desactivarCampos();
-            if (String.IsNullOrEmpty(idText.Text) || (String.IsNullOrWhiteSpace(idText.Text)))
-            {
-                //modificarBtn.Visible = false;
-                //modificarBtn.Enabled = false;
-                ultimaBtn.Visible = false;
-                ultimaBtn.Enabled = false;
-                historialBtn.Visible = false;
-                historialBtn.Enabled = false;
-                btnHistorialClinico.Visible = false;
-                btnHistorialClinico.Enabled = false;
-            }
+                //if (!IsPostBack) {
+                desactivarCampos();
+                if (String.IsNullOrEmpty(idText.Text) || (String.IsNullOrWhiteSpace(idText.Text)))
+                {
+                    //modificarBtn.Visible = false;
+                    //modificarBtn.Enabled = false;
+                    ultimaBtn.Visible = false;
+                    ultimaBtn.Enabled = false;
+                    historialBtn.Visible = false;
+                    historialBtn.Enabled = false;
+                    btnHistorialClinico.Visible = false;
+                    btnHistorialClinico.Enabled = false;
+                }
                 //}
+            } catch (Exception) {
+                errorlbl.Visible = true;
+                errorlbl.Text = "Error al cargar los datos del expediente. Verifique su conexion a internet y regrese a la página principal";
+            }
             }
 
 

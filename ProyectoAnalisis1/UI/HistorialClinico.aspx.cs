@@ -12,10 +12,11 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-        
-            if (!IsPostBack)
+            try
             {
-                try {
+                if (!IsPostBack)
+                {
+
                     if (!Convert.ToString(Session["cedula"]).Equals(""))
                     {
                         BLManejadorHistoriaClinica manej = new BLManejadorHistoriaClinica();
@@ -59,11 +60,13 @@ namespace UI
                         psicofamiliaresText.Text = histClinica.Enferm_Psiq_Fam;
                         psicofamiliaresText.Text = histClinica.Otros_Fam;
                     }
-                }  catch (Exception)
-                {
-                    errorLbl.Visible = true;
-                    errorLbl.Text = "Error al cargar los datos del historial clínico. Regrese a la página principal";
+
                 }
+            }
+            catch (Exception)
+            {
+                errorLbl.Visible = true;
+                errorLbl.Text = "Error al cargar los datos del historial clínico. Regrese a la página principal";
             }
         }
 
@@ -72,7 +75,8 @@ namespace UI
             try
             {
                 new BLManejadorHistoriaClinica().insertarActualizarHistorialClinico(createBl());
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 errorLbl.Visible = true;
                 errorLbl.Text = "Error al guardar los datos del historial clínico. Verifique su conexión y que los datos sean correctos.";
@@ -81,7 +85,7 @@ namespace UI
 
         private BLHistoriaClinica createBl()
         {
-            if(furCalend.SelectedDate.Year == 0001 && furCalend.SelectedDate.Month == 1 && furCalend.SelectedDate.Year == 1)
+            if (furCalend.SelectedDate.Year == 0001 && furCalend.SelectedDate.Month == 1 && furCalend.SelectedDate.Year == 1)
             {
                 furCalend.SelectedDate = new DateTime(1800, 01, 01);
             }
