@@ -14,10 +14,14 @@
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Historial Clínico" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
-
-        <div class="form-group offset-sm-11">
+        <br />
+        <br />
+        <div class="form-row">
+            <asp:Label ID="subGeneral" runat="server" Text="General" Font-Bold="True" Font-Size="Larger"></asp:Label>
+        </div>
+        <br />
+        <div class="form-group">
             <asp:Label ID="lblGrupoSanguineo" runat="server" Text="Grupo Sanguíneo"></asp:Label>
-            <br />
             <asp:TextBox ID="txtGrupoSanguineo" runat="server"></asp:TextBox>
         </div>
 
@@ -25,30 +29,37 @@
             <asp:Label ID="Label1" runat="server" Text="Antecedentes Personales Patológicos" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
         <br />
-        <div class="form-row">
-            <div class="form-group col-sm-6">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="htaCheck" runat="server" Text="HTA" />
+        <div class="container">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="htaCheck" runat="server" Text="HTA" />
+                </div>
+                <br />
+                <br />
+                <div class="form-group col-sm-6">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="dMCheck" runat="server" Text="DM" />
+                </div>
             </div>
-            <div class="form-group col-sm-6">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="dMCheck" runat="server" Text="DM" />
+            <br />
+                <br />
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="asmaCheck" runat="server" Text="Asma" />
+                </div>
+                <br />
+                <br />
+                <div class="form-group col-sm-6">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="epilepsiaCheck" runat="server" Text="Epilepsia" />
+                </div>
+            </div>
+            <br />
+                <br />
+            <div class="form-row">
+                <div class="form-group">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="displidemiaCheck" runat="server" Text="Displidemias" />
+                </div>
             </div>
         </div>
-        <br />
-        <div class="form-row">
-            <div class="form-group col-sm-6">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="asmaCheck" runat="server" Text="Asma" />
-            </div>
-            <div class="form-group col-sm-6">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="epilepsiaCheck" runat="server" Text="Epilepsia" />
-            </div>
-        </div>
-        <br />
-        <div class="form-row">
-            <div class="form-group">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="displidemiaCheck" runat="server" Text="Displidemias" />
-            </div>
-        </div>
-
         <br />
 
         <br />
@@ -74,16 +85,21 @@
             <asp:Label ID="Label2" runat="server" Text="Antecedentes Personales No Patológicos" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
         <br />
-
-        <div class="form-row">
-            <div class="form-group col-sm-4">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="licorCheck" runat="server" Text="Licor" />
-            </div>
-            <div class="form-group col-sm-4">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="drogasCheck" runat="server" Text="Drogas" />
-            </div>
-            <div class="form-group col-sm-4">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="fumaCheck" runat="server" Text="Fuma" />
+        <div class="container">
+            <div class="form-row">
+                <div class="form-group col-sm-4">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="licorCheck" runat="server" Text="Licor" />
+                </div>
+                <br />
+                <br />
+                <div class="form-group col-sm-4">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="drogasCheck" runat="server" Text="Drogas" />
+                </div>
+                <br />
+                <br />
+                <div class="form-group col-sm-4">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="fumaCheck" runat="server" Text="Fuma" />
+                </div>
             </div>
         </div>
         <br />
@@ -94,7 +110,8 @@
         </div>
 
         <div class="form-group">
-            <label for="otrasPatologicasText">Otras enfermedades personales no patológicas</label>            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <label for="otrasPatologicasText">Otras enfermedades personales no patológicas</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="TextotrasNoPatologicas" runat="server"></asp:TextBox>
         </div>
 
@@ -112,17 +129,19 @@
 
 
         <br />
+        <div class="container">
 
-
-        <div class="form-row">
-            <div class="form-group col-sm-4">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="menarcaCheck" runat="server" Text="Menarca" />
-            </div>
-            <div class="form-group col-sm-4">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="endometriosisCheck" runat="server" Text="Endometriosis" />
+            <div class="form-row">
+                <div class="form-group col-sm-4">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="menarcaCheck" runat="server" Text="Menarca" />
+                </div>
+                <br />
+                <br />
+                <div class="form-group col-sm-4">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="endometriosisCheck" runat="server" Text="Endometriosis" />
+                </div>
             </div>
         </div>
-
         <br />
 
         <div class="form-group">
@@ -168,12 +187,16 @@
             <asp:Label ID="Label4" runat="server" Text="Antecedentes Quirúrgicos" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
         <br />
-        <div class="form-row">
-            <div class="form-group col-sm-6">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="cordalesCheck" runat="server" Text="Cordales" />
-            </div>
-            <div class="form-group col-sm-6">
-                <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="apendiceCheck" runat="server" Text="Apéndice" />
+        <div class="container">
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="cordalesCheck" runat="server" Text="Cordales" />
+                </div>
+                <br />
+                <br />
+                <div class="form-group col-sm-6">
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="apendiceCheck" runat="server" Text="Apéndice" />
+                </div>
             </div>
         </div>
         <br />
@@ -273,21 +296,20 @@
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="otrasText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:TextBox type="text" class="form-control" ID="otrosMedicamentosText" runat="server" TextMode="MultiLine"></asp:TextBox>
         </div>
-    </div>
 
-    <br />
-
+        <br />
 
 
 
 
-    <div class="form-group offset-sm-6">
-        <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardarHist" />
-    </div>
 
-    <br />
-    <br />
-    <br />
+        <div class="form-group offset-sm-6">
+            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardarHist" />
+        </div>
+
+        <br />
+        <br />
+        <br />
 
     </div>
 
