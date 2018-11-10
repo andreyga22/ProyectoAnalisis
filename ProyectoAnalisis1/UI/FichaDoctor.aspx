@@ -2,7 +2,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+        <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
+    <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
+         <li class="breadcrumb-item"><a href="ListaConsultas.aspx">Lista Consultas</a></li>
+      <li class="breadcrumb-item"><a href="Consulta.aspx">Consulta</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Ficha Doctor</li>
+  </ol>
+</nav>
     
     <div class="container">
 
@@ -12,26 +20,25 @@
         <asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
         <br />
         <div class="form-row">
-            <asp:Label ID="titulo" runat="server" Text="Ficha Doctor" Font-Bold="True" Font-Size="Larger"></asp:Label>
+            <asp:Label ID="titulo" runat="server" Text="Ficha Doctor" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
         </div>
 
         <div class="form-group offset-sm-11">
-            <asp:Button type="button" class="btn btn-light" ID="modificarBtn" runat="server" Text="Modificar" />
         </div>
 
             <div class="form-group">
                 <label for="motivoText">Motivo de la consulta</label>
-                <asp:TextBox type="text" class="form-control" ID="motivoText" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="motivoText" runat="server" TextMode="MultiLine" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
             </div>
 
             <div class="form-group">
-                <label for="examenText">Examen Fisico</label>
-                <asp:TextBox type="text" class="form-control" ID="examenText" runat="server" TextMode="MultiLine"></asp:TextBox>
+                <label for="examenText">Examen Físico</label>
+                <asp:TextBox type="text" class="form-control" ID="examenText" runat="server" TextMode="MultiLine" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
             </div>
 
         <div class="form-group">
             <label for="planText">Plan</label>
-            <asp:TextBox type="text" class="form-control" ID="planText" runat="server" TextMode="MultiLine"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="planText" runat="server" TextMode="MultiLine" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
         </div>
 
         <div class="form-group offset-sm-6">

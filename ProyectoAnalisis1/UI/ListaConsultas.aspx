@@ -4,6 +4,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="Principal.aspx">Principal</a></li>
+       <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Consultas</li>
+  </ol>
+</nav>
+
     <div class="container">
         <br />
         <br />

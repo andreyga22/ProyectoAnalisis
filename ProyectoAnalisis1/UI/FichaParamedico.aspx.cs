@@ -59,5 +59,6 @@ namespace UI
                 errorLbl.Text = "Error al guardar los datos de la ficha paramédico. Verifique que los datos sean correctos.";
             }
         }
+
     }
 }
