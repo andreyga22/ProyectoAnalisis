@@ -10,7 +10,9 @@
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <asp:ContentPlaceHolder ID="head" runat="server">
+        <%--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--%>
     </asp:ContentPlaceHolder>
 </head>
 <body>
