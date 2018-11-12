@@ -110,10 +110,14 @@
 
         </div>
 
+        <div>
+            <asp:Label ID="Label3" runat="server" Font-Bold="True" Text="Dirección"></asp:Label>
+        </div>
+
         <%--<div class="form-group">
             <asp:Label ID="phoneLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
-
+        <div>
         <div class="form-row">
             <div class="form-group col-sm-4">
                 <label for="provinciaText">Provincia</label>
@@ -153,11 +157,13 @@
         <%--<div class="form-group">
             <asp:Label ID="otrasLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
-
+        <div>
+            <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Fecha de Nacimiento"></asp:Label>
+        </div>
         <div class="form-row">
             <div class="form-group col-sm-4">
                 <label for="diaText">Día</label><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="diaText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                &nbsp;<asp:TextBox type="text" class="form-control" ID="diaText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+                &nbsp;<asp:TextBox type="text" class="form-control" ID="diaText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid" OnTextChanged="diaText_TextChanged"></asp:TextBox>
 
             </div>
 

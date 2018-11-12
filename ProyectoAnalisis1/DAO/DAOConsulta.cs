@@ -13,7 +13,7 @@ namespace DAO
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
 
-        public void insertar(TOConsulta consulta)
+        public Boolean insertar(TOConsulta consulta)
         {
             try
             {
@@ -33,6 +33,7 @@ namespace DAO
                 {
                     conexion.Close();
                 }
+                return true;
             } catch (SqlException) {
                 throw;
             } catch (Exception) {

@@ -263,5 +263,10 @@ namespace UI
             Session["cedula"] = idText.Text.Trim();
             Response.Redirect("HistorialClinico.aspx");
         }
+
+        protected void diaText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

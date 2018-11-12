@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
         <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
@@ -11,11 +10,10 @@
     <li class="breadcrumb-item active" aria-current="page">Historial Clínico</li>
   </ol>
 </nav>
+ 
 
     <div class="container">
 
-        <br />
-        <br />
         <br />
         <asp:Label ID="errorLbl" runat="server" Text="" Visible="False" ForeColor="Red"></asp:Label>
         <div class="form-row">
@@ -183,7 +181,6 @@
             <label for="furText">FUR</label>
             <asp:Calendar ID="furCalend" runat="server"></asp:Calendar>
         </div>
-
 
         <br />
 

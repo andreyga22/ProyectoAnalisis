@@ -75,6 +75,7 @@ namespace UI
             try
             {
                 new BLManejadorHistoriaClinica().insertarActualizarHistorialClinico(createBl());
+                Response.Write("<script>alert('Cambio Realizado')</script>");
             }
             catch (Exception)
             {
