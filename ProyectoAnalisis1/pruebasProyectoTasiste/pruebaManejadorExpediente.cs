@@ -28,6 +28,7 @@ namespace pruebasProyectoTasiste
             BLManejadorExpediente manejExp = new BLManejadorExpediente();
 
             manejExp.insertarModificar(exped);
+
         }
 
 
@@ -38,6 +39,8 @@ namespace pruebasProyectoTasiste
             BLManejadorExpediente manejExp = new BLManejadorExpediente();
 
             manejExp.insertarModificar(exped);
+
+            Assert.AreEqual(exped.cedula, (manejExp.consultarExpediente(exped.cedula).cedula));
         }
     }
 }
