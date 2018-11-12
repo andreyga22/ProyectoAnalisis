@@ -1,11 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="FichaParamedico.aspx.cs" Inherits="UI.FichaParamedico" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            height: 30px;
-        }
-    </style>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
@@ -80,17 +75,16 @@
 
         <div class="form-row">
             <div class="form-group col-sm-6">
-            <label for="GlasgowText">Glasgow</label>
+            <label for="GlasgowText">Glasgow/15</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="GlasgowText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam" ForeColor="Red"></asp:RegularExpressionValidator>
             <asp:TextBox type="text" class="form-control" ID="GlasgowText" runat="server" Width="300px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox> 
-                <label class="auto-style1"> /15 </label>
         </div>
 
         <div class="form-group col-sm-6">
             <label for="Frec_CardText">Frecuencia Cardíaca<asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="Frec_CardText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam" ForeColor="Red"></asp:RegularExpressionValidator>
             </label>
-            &nbsp;<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%><asp:TextBox type="text" class="form-control" ID="Frec_CardText" runat="server" Width="300px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox> <label> LPM </label>
+            &nbsp;<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%><asp:TextBox type="text" class="form-control" ID="Frec_CardText" runat="server" Width="300px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox> 
         </div>
         </div>
 
@@ -98,7 +92,7 @@
         <div class="form-group col-sm-6">
             <label for="Frec_RespText">Frecuencia Respiratoria<asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="Frec_RespText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam" ForeColor="Red"></asp:RegularExpressionValidator>
             </label>
-            &nbsp;<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%><asp:TextBox type="text" class="form-control" ID="Frec_RespText" runat="server" Width="300px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox> <label> RPM </label>
+            &nbsp;<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%><asp:TextBox type="text" class="form-control" ID="Frec_RespText" runat="server" Width="300px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox> 
         </div>
 
         <div class="form-group col-sm-6">
