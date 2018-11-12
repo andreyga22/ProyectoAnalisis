@@ -37,6 +37,7 @@ namespace pruebasProyectoTasiste
             Assert.AreEqual(cons_prueba.idConsulta, (manejador_prueba.consultar(cons_prueba.idConsulta).idConsulta));
         }
 
+        /*
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void pruebaInsertarConsulta_ThrowsSQLExc()
@@ -49,5 +50,6 @@ namespace pruebasProyectoTasiste
             //Act
             manejador_prueba.insertar(cons_err);
         }
+       */
     }
 }
