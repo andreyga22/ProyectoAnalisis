@@ -1,6 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BL;
+using System.Data.SqlClient;
+using System.Data;
+
 namespace pruebasProyectoTasiste
 {
     [TestClass]
@@ -20,9 +23,19 @@ namespace pruebasProyectoTasiste
         }
 
         [TestMethod]
-        public void pruebaInsertarFicha_Param()
+        [ExpectedException(typeof(SqlException))]
+        public void pruebaInsertarFicha_Param_ThrowsSqlException()
         {
-            //Arrange
+
+            BLFichaParamedico ficha_prueba = new BLFichaParamedico(1, 1, "120/60", "1", 1, 1, 1, "ddddddddddd", "f", "1", 2, 3, 1, "d", "f", "g");
+            BLManejadorFichaParamedico manejador_prueba = new BLManejadorFichaParamedico();
+
+            manejador_prueba.insertar(ficha_prueba);
+        }
+
+        [TestMethod]
+        public void pruebaInsertarFicha_Param()
+        { 
 
             BLFichaParamedico ficha_prueba = new BLFichaParamedico(1, 1, "120/60", "1", 1, 1, 1, "d", "f", "1", 2, 3, 1, "d", "f", "g");
             BLManejadorFichaParamedico manejador_prueba = new BLManejadorFichaParamedico();
