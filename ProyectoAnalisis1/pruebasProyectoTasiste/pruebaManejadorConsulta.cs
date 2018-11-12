@@ -25,7 +25,7 @@ namespace pruebasProyectoTasiste
         {
             //Arrange
 
-            BLConsulta cons_prueba = new BLConsulta(33, new DateTime(2018, 02, 03), "394857283", 7);
+            BLConsulta cons_prueba = new BLConsulta(33, new DateTime(2018, 02, 03), "32165", 7);
             BLManejadorConsulta manejador_prueba = new BLManejadorConsulta();
 
 
@@ -34,22 +34,20 @@ namespace pruebasProyectoTasiste
 
             //Assert
 
-            Assert.AreEqual(cons_prueba, manejador_prueba.consultar(cons_prueba.idConsulta));
+            Assert.AreEqual(cons_prueba.idConsulta, (manejador_prueba.consultar(cons_prueba.idConsulta).idConsulta));
         }
 
-        /*
         [TestMethod]
         [ExpectedException(typeof(Exception))]
         public void pruebaInsertarConsulta_ThrowsSQLExc()
         {
             //Arrange
 
-            BLConsulta cons_err = new BLConsulta (10, new DateTime (1400, 20, 3), "394857283", 7);
+            BLConsulta cons_err = new BLConsulta (10, new DateTime (1400, 04, 03), "32165", 7);
             BLManejadorConsulta manejador_prueba = new BLManejadorConsulta();
 
             //Act
             manejador_prueba.insertar(cons_err);
         }
-        */
     }
 }
