@@ -51,6 +51,9 @@
   <ItemGroup>
     <Compile Include="pruebaManejadorConsulta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="pruebaManejadorDireccion.cs" />
+    <Compile Include="pruebaManejadorFichaDoctor.cs" />
+    <Compile Include="pruebaManejadorFichaParamedico.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
