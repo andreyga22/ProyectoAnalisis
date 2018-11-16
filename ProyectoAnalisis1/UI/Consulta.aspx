@@ -4,13 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
-    <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
-         <li class="breadcrumb-item"><a href="ListaConsultas.aspx">Lista Consultas</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Consulta</li>
-  </ol>
-</nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
+            <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
+            <li class="breadcrumb-item"><a href="ListaConsultas.aspx">Lista Consultas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Consulta</li>
+        </ol>
+    </nav>
 
     <div class="container">
 
@@ -18,13 +18,13 @@
         <br />
         <br />
         <asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
-        <div class="form-row">
-            <div class="form-group col-sm-6">
-                <asp:Label ID="titulo" runat="server" Text="Consulta" Font-Bold="True" Font-Size="Larger"></asp:Label>
-            </div>
-            <div class="form-group col-sm-6">
-                <asp:Label ID="fecha" runat="server" Text="15-10-2018" Font-Bold="True" Font-Size="Larger"></asp:Label>
-            </div>
+        <%--<div class="form-row">--%>
+        <div class="form-group col-sm-6">
+            <asp:Label ID="titulo" runat="server" Text="Consulta" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+        </div>
+        <%--</div>--%>
+        <div class="form-group col-sm-6">
+            <asp:Label ID="fecha" runat="server" Text="15-10-2018" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
 
         <br />
@@ -55,18 +55,18 @@
         </div>
 
         <div class="form-group">
-                <label for="precioText">Precio de consulta</label>
-                <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="precioText" ErrorMessage="**Solo números permitidos en este campo**" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarPrecioVal"></asp:RegularExpressionValidator>
-                <asp:RequiredFieldValidator ID="priceFieldRequiredValidator" runat="server" ControlToValidate="precioText" ErrorMessage="**Informacion incompleta**" ForeColor="Red" ValidationGroup="guardarPrecioVal"></asp:RequiredFieldValidator>
-                <asp:TextBox type="text" class="form-control" ID="precioText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
-            </div>
+            <label for="precioText">Precio de consulta</label>
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="precioText" ErrorMessage="**Solo números permitidos en este campo**" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarPrecioVal"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="priceFieldRequiredValidator" runat="server" ControlToValidate="precioText" ErrorMessage="**Informacion incompleta**" ForeColor="Red" ValidationGroup="guardarPrecioVal"></asp:RequiredFieldValidator>
+            <asp:TextBox type="text" class="form-control" ID="precioText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+        </div>
 
-            <div class="form-group col-sm-6">
-                <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardarPrecioVal" />
-            </div>
+        <div class="form-group col-sm-6">
+            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardarPrecioVal" />
+        </div>
 
-        
+
 
         <br />
         <br />

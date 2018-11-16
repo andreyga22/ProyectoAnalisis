@@ -8,10 +8,11 @@ using BL;
 
 namespace UI
 {
-    public partial class IniciarSesion : System.Web.UI.Page
+    public partial class InicioDeSesion : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Page.Master.FindControl("linkCerrarSesion").Visible = false;
             Session["iEmpleado"] = "";
             Session["rolEmpleado"] = "";
             Session["cedula"] = "";
@@ -45,7 +46,8 @@ namespace UI
                 {
                     lblError.Visible = true;
                 }
-            } catch (Exception)
+            }
+            catch (Exception)
             {
                 lblError.Text = "Error. Recargue la página";
                 lblError.Visible = true;
