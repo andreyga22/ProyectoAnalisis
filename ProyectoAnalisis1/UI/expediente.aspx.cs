@@ -13,6 +13,12 @@ namespace UI
         {
             try
             {
+                //Session["nombreEmpleado"] = "";
+                //Session["rolEmpleado"] = "";
+                if ((Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria")))
+                {
+                    btnHistorialClinico.Visible = false;
+                }
                 if (!IsPostBack)
                 {
                     if (!Convert.ToString(Session["cedula"]).Equals(""))
@@ -87,7 +93,9 @@ namespace UI
             {
 
                 idText.Enabled = false;
-                btnHistorialClinico.Visible = true;
+                if((!Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria"))) {
+                    btnHistorialClinico.Visible = true;
+                }
                 BLManejadorConsulta man = new BLManejadorConsulta();
                 List<BLConsulta> bl =  man.listaConsultas(idText.Text.Trim());
                 if (bl.Count > 0)

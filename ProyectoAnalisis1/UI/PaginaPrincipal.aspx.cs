@@ -42,6 +42,7 @@ namespace UI
                         lista.Add(expediente);
                         tblBuscar.DataSource = lista;
                         tblBuscar.DataBind();
+                        crearTabla();
                         tblBuscar.Visible = true;
                     }
                 }
@@ -73,6 +74,8 @@ namespace UI
                         tblBuscar.Visible = true;
                         tblBuscar.DataSource = listaExpediente;
                         tblBuscar.DataBind();
+                        crearTabla();
+
                     }
                     else
                     {
@@ -85,6 +88,27 @@ namespace UI
                 lblError.Visible = true;
                 lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
             }
+        }
+
+        private void crearTabla()
+        {
+            tblBuscar.HeaderRow.Cells[1].Text = "Cédula";
+            tblBuscar.HeaderRow.Cells[2].Text = "Primer Nombre";
+            tblBuscar.HeaderRow.Cells[3].Text = "Segundo Nombre";
+            tblBuscar.HeaderRow.Cells[4].Text = "Primer Apellido";
+            tblBuscar.HeaderRow.Cells[5].Text = "Segundo Apellido";
+            tblBuscar.HeaderRow.Cells[6].Text = "Fecha Nacimiento";
+            tblBuscar.HeaderRow.Cells[7].Text = "Teléfono";
+            tblBuscar.HeaderRow.Cells[8].Text = "Religión";
+            tblBuscar.HeaderRow.Cells[9].Text = "Estado Civil";
+            tblBuscar.HeaderRow.Cells[10].Text = "Trabajo";
+            tblBuscar.HeaderRow.Cells[11].Text = "Sexo";
+
+            //listaContblBuscarsultaGV.HeaderRow.Cells[1].Visible = false;
+            //for (int i = 0; i < listaConsultaGV.Rows.Count; i++)
+            //{
+            //    listaConsultaGV.Rows[i].Cells[1].Visible = false;
+            //}
         }
     }
 }

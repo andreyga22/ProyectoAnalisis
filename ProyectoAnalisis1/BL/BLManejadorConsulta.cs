@@ -42,6 +42,18 @@ namespace BL
             }
         }
 
+        public int consultarUltimoConsultaID()
+        {
+            try
+            {
+                return new DAOConsulta().consultarUltimaConsultaId();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void modificar(int idConsulta, int precio) {
             try { 
             DAOConsulta dao = new DAOConsulta();
@@ -87,6 +99,7 @@ namespace BL
                 throw;
             }
         }
+
 
         public BLConsulta convert(TOConsulta to)
         {

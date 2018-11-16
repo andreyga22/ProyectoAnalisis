@@ -50,6 +50,7 @@
     <Compile Include="BLHistoriaClinica.cs" />
     <Compile Include="BLManejadorConsulta.cs" />
     <Compile Include="BLManejadorDireccion.cs" />
+    <Compile Include="BLManejadorEmpleado.cs" />
     <Compile Include="BLManejadorExpediente.cs" />
     <Compile Include="BLManejadorFichaDoctor.cs" />
     <Compile Include="BLManejadorFichaParamedico.cs" />

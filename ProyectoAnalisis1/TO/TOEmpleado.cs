@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BL
+namespace TO
 {
-    public class BLEmpleado
+    public class TOEmpleado
     {
         public String id { get; set; }
         public String contrasenna { get; set; }
@@ -14,11 +14,13 @@ namespace BL
         public String rol { get; set; }
         public Boolean estado { get; set; }
 
-        public BLEmpleado() {
+
+        public TOEmpleado()
+        {
 
         }
 
-        public BLEmpleado(String id, String contra, String rol, String nombreEmpleado, Boolean estado)
+        public TOEmpleado(String id, String contra, String rol, String nombreEmpleado, Boolean estado)
         {
             this.id = id;
             this.contrasenna = contra;

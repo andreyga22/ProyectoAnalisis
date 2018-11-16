@@ -16,15 +16,16 @@
 
         <br />
         <br />
-        <br />
         <asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
         <br />
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Ficha Doctor" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
         </div>
 
-        <div class="form-group offset-sm-11">
+        <div class="form-row">
+            <asp:Label ID="lblEmpleado" runat="server" Text="Label" Font-Bold="True"></asp:Label>
         </div>
+        <br /><br /><br />
 
             <div class="form-group">
                 <label for="motivoText">Motivo de la consulta</label>

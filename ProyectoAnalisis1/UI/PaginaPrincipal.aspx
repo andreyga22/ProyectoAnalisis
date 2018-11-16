@@ -15,7 +15,7 @@
 
         <div class="form-group offset-sm-4">
             <asp:Button type="button" class="btn btn-info" ID="btnNuevoExp" runat="server" Text="Crear Nuevo Expediente" OnClick="btnNuevoExp_Click" />
-        </div>
+            <%--<a href="PaginaPrincipal.aspx">PaginaPrincipal.aspx</a>--%></div>
 
         <br />
         <br />

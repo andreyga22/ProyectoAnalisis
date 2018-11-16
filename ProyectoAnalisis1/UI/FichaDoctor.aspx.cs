@@ -14,6 +14,8 @@ namespace UI
         {
             try
             {
+                //BLManejadorEmpleado blEmplea = new BLManejadorEmpleado();
+                
                 if (!IsPostBack)
                 {
                     BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
@@ -21,6 +23,10 @@ namespace UI
                     motivoText.Text = doc.motivoConsulta;
                     examenText.Text = doc.examenFisico;
                     planText.Text = doc.plan;
+                    //lblEmpleado.Text = "Doctor Encargado: " + blEmplea.obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
+                } else
+                {
+                    //lblEmpleado.Text = "Doctor Encargado: " + blEmplea.obtenerEmpleado(Convert.ToString(Session["iEmpleado"])).nombreEmpleado;
                 }
             }
             catch (Exception)
@@ -35,7 +41,7 @@ namespace UI
             try
             {
                 BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
-                blm.insertar(new BLFichaDoctor(0, Convert.ToInt32(Session["idConsulta"]), "IDEmpleado", motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
+                blm.insertar(new BLFichaDoctor(0, Convert.ToInt32(Session["idConsulta"]), Convert.ToString(Session["iEmpleado"]), motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
             }
             catch (Exception)
             {

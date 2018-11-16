@@ -13,7 +13,15 @@ namespace UI
         private DateTime fecha1 = DateTime.Now;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack) {
+            if ((Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria")) || (Convert.ToString(Session["rolEmpleado"]).Equals("Paramedico")))
+            {
+                entrarDoctor.Visible = false;
+            }
+            if ((Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria")))
+            {
+                entrarParamedico.Visible = false;
+            }
+            if (!IsPostBack) {
                 try
                 {
                     BLManejadorConsulta blm = new BLManejadorConsulta();

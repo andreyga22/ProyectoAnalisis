@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAODireccion.cs" />
+    <Compile Include="DAOEmpleado.cs" />
     <Compile Include="DAOExpediente.cs" />
     <Compile Include="DAOConsulta.cs" />
     <Compile Include="DAOFichaDoctor.cs" />
