@@ -13,5 +13,10 @@ namespace UI
         {
             
         }
+
+        protected void linkCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("InicioDeSesion.aspx");
+        }
     }
 }
