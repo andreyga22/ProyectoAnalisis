@@ -31,6 +31,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox txtId;
         
         /// <summary>
+        /// Control lblContra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContra;
+        
+        /// <summary>
         /// Control contraText.
         /// </summary>
         /// <remarks>
@@ -94,12 +103,12 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// Control tblEmpleados.
+        /// Control gridEmpl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblEmpleados;
+        protected global::System.Web.UI.WebControls.GridView gridEmpl;
     }
 }

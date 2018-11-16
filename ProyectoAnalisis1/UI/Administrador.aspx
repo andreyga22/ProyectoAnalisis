@@ -15,11 +15,12 @@
             <div class="form-group col-sm-6" style="left: 95px; top: 3px">
                 <label for="Identificador">Identificador</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-              
+              <br />
                 <asp:TextBox type="text" class="form-control" ID="txtId" runat="server" Width="350px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
             </div>
             <div class="form-group col-sm-6" style="left: 35px; top: -2px">
-                <label for="Contrasenna">Contraseña</label>
+                <asp:Label ID="lblContra" runat="server" Text="Contraseña"></asp:Label>
+                <%--<label for="Contrasenna">Contraseña</label>--%>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="lastNameText2"></asp:RequiredFieldValidator>--%>
                
                 <asp:TextBox type="text" class="form-control" ID="contraText" runat="server" Width="350px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
@@ -30,7 +31,7 @@
          <div class="form-group col-sm-6" style="left: 95px; top: 3px">
              <label for="nombre">Nombre</label>
               <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="nombreText" ErrorMessage="Solo se permiten letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="admin" ForeColor="Red"></asp:RegularExpressionValidator>
-               <asp:TextBox type="text" class="form-control" ID="nombreText" runat="server" Width="350px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+              <br /> <asp:TextBox type="text" class="form-control" ID="nombreText" runat="server" Width="350px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
              </div>
 
         <div class="form-group col-sm-6" style="left: 95px; top: 3px">
@@ -49,6 +50,7 @@
                  <asp:ListItem>Doctor</asp:ListItem>
                  <asp:ListItem>Secretaria</asp:ListItem>
                  <asp:ListItem>Paramédico</asp:ListItem>
+                 <asp:ListItem>Admin</asp:ListItem>
               </asp:DropDownList>
              </div>
              </div>
@@ -60,5 +62,10 @@
         <div class="form-group col-sm-6" style="left: 150px; top: -2px">
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8" Text="Empleados"></asp:Label>
         </div>
-    <asp:Table ID="tblEmpleados" runat="server"></asp:Table>
+      <div class="table-responsive">
+          <asp:GridView ID="gridEmpl" class="table table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gridEmpl_SelectedIndexChanged"></asp:GridView>
+    <%--<asp:Table ID="" runat="server"></asp:Table>--%>
+        <%--<asp:GridView ID="gridEmpl" runat="server" AutoGenerateSelectButton="True">
+        </asp:GridView>--%>
+             </div>
 </asp:Content>
