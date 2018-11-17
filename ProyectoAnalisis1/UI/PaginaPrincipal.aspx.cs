@@ -25,8 +25,8 @@ namespace UI
 
         protected void buscarCedula_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim())))
                 {
                     BLManejadorExpediente manejador = new BLManejadorExpediente();
@@ -46,11 +46,11 @@ namespace UI
                         tblBuscar.Visible = true;
                     }
                 }
-            } catch (Exception)
-            {
-                lblError.Visible = true;
-                lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
-            }
+            //} catch (Exception)
+            //{
+            //    lblError.Visible = true;
+            //    lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
+            //}
         }
 
         protected void listaBusq_SelectedIndexChanged(object sender, EventArgs e)

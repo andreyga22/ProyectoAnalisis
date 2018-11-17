@@ -26,7 +26,6 @@
         <div class="form-group col-sm-6">
             <asp:Label ID="fecha" runat="server" Text="15-10-2018" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
-
         <br />
         <br />
 

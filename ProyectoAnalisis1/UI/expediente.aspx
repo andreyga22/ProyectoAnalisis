@@ -112,7 +112,26 @@
         <div class="form-group">
             <label for="phoneText">Teléfono</label>
             <asp:TextBox type="text" class="form-control" ID="phoneText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+        </div>
 
+        <div class="form-group">
+            <label for="tel2">Teléfono 2</label>
+            <asp:TextBox type="text" class="form-control" ID="tel2" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcionTel2">Descripción teléfono 2</label>
+            <asp:TextBox type="text" class="form-control" ID="descripcionTel2" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="tel2">Teléfono 3</label>
+            <asp:TextBox type="text" class="form-control" ID="tel3" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcionTel3">Descripción teléfono 3</label>
+            <asp:TextBox type="text" class="form-control" ID="descripcionTel3" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
         </div>
 
         <div>

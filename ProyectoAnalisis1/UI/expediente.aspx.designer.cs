@@ -193,6 +193,43 @@ namespace UI {
         protected global::System.Web.UI.WebControls.TextBox phoneText;
         
         /// <summary>
+        /// tel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tel2;
+        
+        /// <summary>
+        /// descripcionTel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox descripcionTel2;
+        
+        /// <summary>
+        /// tel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tel3;
+        
+        /// <summary>
+        /// descripcionTel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox descripcionTel3;
+        
+        /// <summary>
+        /// Label3 control.
         /// Control Label3.
         /// </summary>
         /// <remarks>
