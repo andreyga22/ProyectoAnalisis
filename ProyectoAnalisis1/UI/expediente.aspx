@@ -92,11 +92,16 @@
             </div>
         </div>--%>
 
-        <div class="form-group">
+          <div class="form-row">
+                  <div class="form-group col-sm-6">
             <label for="idText">Cédula</label>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="idText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-            <asp:TextBox type="text" class="form-control" ID="idText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
-
+           <br /> <asp:TextBox type="text" class="form-control" ID="idText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+                      </div>
+                  <div class="form-group col-sm-6">
+                      <label for="edadTxt">Edad</label>
+             <asp:TextBox type="text" class="form-control" ID="txtEdad" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+                      </div>
         </div>
 
         <%--<div class="form-group">
@@ -182,18 +187,21 @@
         <div class="form-row">
             <div class="form-group col-sm-4">
                 <label for="diaText">Día</label><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="diaText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="diaText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
                 &nbsp;<asp:TextBox type="text" class="form-control" ID="diaText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid" OnTextChanged="diaText_TextChanged"></asp:TextBox>
 
             </div>
 
             <div class="form-group col-sm-4">
                 <label for="mesText">Mes</label><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="mesText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                &nbsp;<asp:TextBox type="text" class="form-control" ID="mesText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+                &nbsp;<label for="mesText"><asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="mesText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
+                </label><asp:TextBox type="text" class="form-control" ID="mesText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
             </div>
             <div class="form-group col-sm-4">
                 <label for="annoText">Año</label><asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="AnnoText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                &nbsp;<asp:TextBox type="text" class="form-control" ID="AnnoText" runat="server" MaxLength="4" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+                &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="AnnoText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
+                <asp:TextBox type="text" class="form-control" ID="AnnoText" runat="server" MaxLength="4" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
             </div>
         </div>

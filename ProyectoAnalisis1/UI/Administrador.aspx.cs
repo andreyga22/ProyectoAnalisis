@@ -18,14 +18,68 @@ namespace UI
             //{
             //    agregarFilaEmpleado(blEmp.id, blEmp.contrasenna, blEmp.rol, blEmp.nombreEmpleado, blEmp.estado);
             //}
+            cargarGrid();
+        }
+
+        private void cargarGrid()
+        {
+            try
+            {
+                List<BLEmpleado> listEmpleado = new BLManejadorEmpleado().listaEmpleado();
+
+                //listaConsultaGV.Columns[1].Visible = false;
+                gridEmpl.DataSource = listEmpleado;
+
+                gridEmpl.DataBind();
+                gridEmpl.HeaderRow.Cells[1].Text = "Identificador";
+                gridEmpl.HeaderRow.Cells[2].Text = "Contraseña";
+                gridEmpl.HeaderRow.Cells[3].Text = "Rol";
+                gridEmpl.HeaderRow.Cells[4].Text = "Nombre";
+                gridEmpl.HeaderRow.Cells[5].Text = "Estado";
+
+                foreach (GridViewRow row in gridEmpl.Rows)
+                {
+                    LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
+                    lb.Text = "Modificar";
+                }
+
+                gridEmpl.HeaderRow.Cells[2].Visible = false;
+                for (int i = 0; i < gridEmpl.Rows.Count; i++)
+                {
+                    gridEmpl.Rows[i].Cells[2].Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                //errorLbl.Visible = true;
+                //errorLbl.Text = "Error al cargar los datos de la lista. Por favor recargue la página o vuelva a la página principal";
+            }
+
         }
 
         protected void idGuardar_Click(object sender, EventArgs e)
         {
-            
             BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
-            manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue.ToString(), nombreText.Text.Trim(), chckEstado.Checked));
+            manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
 
+            Response.Redirect("Administrador.aspx");
+        }
+
+        protected void gridEmpl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string id = gridEmpl.SelectedRow.Cells[1].Text;
+            BLEmpleado empleado = new BLManejadorEmpleado().obtenerEmpleado(id);
+            txtId.Text = empleado.id;
+            //Response.Write(empleado.id);
+            contraText.Text = empleado.contrasenna;
+            listRol.SelectedValue = empleado.rol;
+            chckEstado.Checked = empleado.estado;
+            nombreText.Text = empleado.nombreEmpleado;
+            txtId.Enabled = false;
+            listRol.Enabled = false;
+            nombreText.Enabled = false;
+            contraText.Visible = false;
+            lblContra.Visible = false;
         }
 
         //    public void crearEncabezado()
@@ -69,7 +123,7 @@ namespace UI
         //    fila.Cells.Add(rolEmp);
         //    TableCell estadoCuenta = new TableCell();
         //    chckEstado.Checked = estado;
-        //    if(estado == true)
+        //    if(estado)
         //    {
         //        estadoCuenta.Text = "Habilitado";
         //    } else
