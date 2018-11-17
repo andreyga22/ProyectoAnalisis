@@ -124,8 +124,8 @@ namespace DAO
 
         public List<TOExpediente> consultarListaExpedNombre(String nombre)
         {
-            //try
-            //{
+            try
+            {
                 String[] vectorNombreCompleto = Regex.Split(nombre, " ");
                 List<TOExpediente> lista = new List<TOExpediente>();
                 string select;
@@ -178,11 +178,15 @@ namespace DAO
                     }
                 }
                 return lista;
-            //} catch (SqlException) {
-            //    throw;
-            //} catch (Exception) {
-            //    throw;
-            //}
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
 

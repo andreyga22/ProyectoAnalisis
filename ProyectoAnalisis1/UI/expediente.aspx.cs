@@ -162,6 +162,7 @@ namespace UI
         {
             idText.Visible = true;
             idText.Enabled = false;
+            //txtEdad.Enabled = false;
             firstNameText.Visible = true;
             secondNameText.Visible = true;
             lastNameText.Visible = true;
