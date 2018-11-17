@@ -45,13 +45,13 @@
             <div class="form-group col-sm-6">
                 <label for="firstNameText">Primer Nombre</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar" ForeColor="#FF3131"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Únicamente letras" ValidationExpression="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" ValidationGroup="guardar" ForeColor="#FF3131"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="firstNameText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
             </div>
             <div class="form-group col-sm-6">
                 <label for="secondNameText">Segundo Nombre</label>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar" ForeColor="Red"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Únicamente letras" ValidationExpression="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" ValidationGroup="guardar" ForeColor="Red"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="secondNameText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
             </div>
         </div>
@@ -68,14 +68,14 @@
             <div class="form-group col-sm-6">
                 <label for="lastNameText">Primer Apellido</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar" ForeColor="Red"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Únicamente letras" ValidationExpression="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" ValidationGroup="guardar" ForeColor="Red"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="lastNameText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
             </div>
             <div class="form-group col-sm-6">
                 <label for="lastNameText2">Segundo Apellido</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="lastNameText2" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="secondNameText" ErrorMessage="Únicamente letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="guardar" ForeColor="Red"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="secondNameText" ErrorMessage="Únicamente letras" ValidationExpression="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" ValidationGroup="guardar" ForeColor="Red"></asp:RegularExpressionValidator>
                 <asp:TextBox type="text" class="form-control" ID="lastNameText2" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
             </div>

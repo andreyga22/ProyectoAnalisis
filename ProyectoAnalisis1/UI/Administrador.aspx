@@ -30,7 +30,7 @@
     <div class="form-row">
          <div class="form-group col-sm-6" style="left: 95px; top: 3px">
              <label for="nombre">Nombre</label>
-              <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="nombreText" ErrorMessage="Solo se permiten letras" ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="admin" ForeColor="Red"></asp:RegularExpressionValidator>
+              <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="nombreText" ErrorMessage="Solo se permiten letras" ValidationExpression="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" ValidationGroup="admin" ForeColor="Red"></asp:RegularExpressionValidator>
               <br /> <asp:TextBox type="text" class="form-control" ID="nombreText" runat="server" Width="350px" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
              </div>
 
