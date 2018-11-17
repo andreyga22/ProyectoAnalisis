@@ -38,6 +38,7 @@ namespace UI
                         estadoCivilText.Text = exp.estado_civil;
                         trabajoText.Text = exp.tipo_trabajo;
                         sexoText.Text = exp.sexo;
+                        txtEdad.Text = Convert.ToString(calcularEdad(exp.fecha_nacimiento));
 
                         //idLabel.Text = exp.cedula;
                         //firstNameLabel.Text = exp.primer_nombre;
@@ -173,6 +174,7 @@ namespace UI
             cantonText.Visible = true;
             distritoText.Visible = true;
             otrasText.Visible = true;
+            txtEdad.Visible = true;
             guardarBtn.Visible = true;
             guardarBtn.Visible = true;
             //modificarBtn.Visible = false;
@@ -275,6 +277,11 @@ namespace UI
         protected void diaText_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected int calcularEdad(DateTime fechaNacimiento)
+        {
+            return DateTime.Today.AddTicks(-fechaNacimiento.Ticks).Year - 1;
         }
     }
 }

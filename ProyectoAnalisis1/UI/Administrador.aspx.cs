@@ -37,6 +37,12 @@ namespace UI
                 gridEmpl.HeaderRow.Cells[4].Text = "Nombre";
                 gridEmpl.HeaderRow.Cells[5].Text = "Estado";
 
+                foreach (GridViewRow row in gridEmpl.Rows)
+                {
+                    LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
+                    lb.Text = "Modificar";
+                }
+
                 gridEmpl.HeaderRow.Cells[2].Visible = false;
                 for (int i = 0; i < gridEmpl.Rows.Count; i++)
                 {

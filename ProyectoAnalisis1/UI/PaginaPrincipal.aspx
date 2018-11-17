@@ -38,7 +38,7 @@
         </div>
 
         <div class="table-responsive">
-            <asp:GridView ID="tblBuscar" class="table table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged"></asp:GridView>
+            <asp:GridView ID="tblBuscar" class="table table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged"  AutoGenerateEditButton="True" OnEditIndexChanged="listaBusq_EditIndexChanged"></asp:GridView>
         </div>
     </div>
 

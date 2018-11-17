@@ -31,7 +31,13 @@ namespace UI
             listaConsultaGV.HeaderRow.Cells[3].Text = "Cédula";
             listaConsultaGV.HeaderRow.Cells[4].Text = "Precio";
 
-            listaConsultaGV.HeaderRow.Cells[1].Visible = false;
+                foreach (GridViewRow row in listaConsultaGV.Rows)
+                {
+                    LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
+                    lb.Text = "Seleccionar";
+                }
+
+                listaConsultaGV.HeaderRow.Cells[1].Visible = false;
             for (int i = 0; i < listaConsultaGV.Rows.Count; i++)
             {
                 listaConsultaGV.Rows[i].Cells[1].Visible = false;

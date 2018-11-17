@@ -104,6 +104,12 @@ namespace UI
             tblBuscar.HeaderRow.Cells[10].Text = "Trabajo";
             tblBuscar.HeaderRow.Cells[11].Text = "Sexo";
 
+            foreach (GridViewRow row in tblBuscar.Rows)
+            {
+                LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
+                lb.Text = "Agregar";
+            }
+
             //listaContblBuscarsultaGV.HeaderRow.Cells[1].Visible = false;
             //for (int i = 0; i < listaConsultaGV.Rows.Count; i++)
             //{
