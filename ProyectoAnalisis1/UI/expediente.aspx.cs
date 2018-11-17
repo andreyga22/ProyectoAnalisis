@@ -38,6 +38,10 @@ namespace UI
                         estadoCivilText.Text = exp.estado_civil;
                         trabajoText.Text = exp.tipo_trabajo;
                         sexoText.Text = exp.sexo;
+                        tel2.Text = exp.tel2;
+                        tel3.Text = exp.tel3;
+                        descripcionTel2.Text = exp.descripcion_tel2;
+                        descripcionTel3.Text = exp.descripcion_tel3;
 
                         //idLabel.Text = exp.cedula;
                         //firstNameLabel.Text = exp.primer_nombre;
@@ -250,7 +254,7 @@ namespace UI
                 firstNameText.Text.Trim(), secondNameText.Text.Trim(), lastNameText.Text.Trim(),
                 lastNameText2.Text.Trim(), new DateTime(Convert.ToInt32(AnnoText.Text.Trim()), Convert.ToInt32(mesText.Text.Trim()), Convert.ToInt32(diaText.Text.Trim())), phoneText.Text.Trim(),
                 religionText.Text.Trim(), estadoCivilText.Text.Trim(), trabajoText.Text.Trim(),
-                sexoText.SelectedValue);
+                sexoText.SelectedValue, tel2.Text.Trim(), tel3.Text.Trim(), descripcionTel3.Text.Trim(), descripcionTel2.Text.Trim());
         }
 
         protected void ultimaBtn_Click(object sender, EventArgs e)
