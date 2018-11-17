@@ -47,12 +47,15 @@
     <Compile Include="BLConsulta.cs" />
     <Compile Include="BLDireccion.cs" />
     <Compile Include="BLFichaDoctor.cs" />
+    <Compile Include="BLFoto.cs" />
     <Compile Include="BLHistoriaClinica.cs" />
     <Compile Include="BLManejadorConsulta.cs" />
     <Compile Include="BLManejadorDireccion.cs" />
+    <Compile Include="BLManejadorEmpleado.cs" />
     <Compile Include="BLManejadorExpediente.cs" />
     <Compile Include="BLManejadorFichaDoctor.cs" />
     <Compile Include="BLManejadorFichaParamedico.cs" />
+    <Compile Include="BLManejadorFoto.cs" />
     <Compile Include="BLManejadorHistoriaClinica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

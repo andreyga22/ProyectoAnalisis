@@ -15,7 +15,7 @@ namespace BL
             try
             {
                 DAOFichaDoctor dao = new DAOFichaDoctor();
-                dao.insertar(convert(bl));
+                dao.insertarMod(convert(bl));
             } catch (Exception) {
                 throw;
             }

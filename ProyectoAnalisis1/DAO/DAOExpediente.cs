@@ -46,7 +46,12 @@ namespace DAO
                     to.estado_civil = reader.GetString(8);
                     to.tipo_trabajo = reader.GetString(9);
                     to.sexo = reader.GetString(10);
-                }
+                        to.descripcion_tel2 = reader.GetString(11);
+                        to.descripcion_tel3 = reader.GetString(12);
+                        to.tel2 = reader.GetString(13);
+                        to.tel3 = reader.GetString(14);
+                        
+                    }
             }
 
             if (conexion.State != ConnectionState.Closed)
@@ -73,7 +78,7 @@ namespace DAO
         {
             try
             {
-                string update = "begin tran if exists(select * from EXPEDIENTE with (updlock, serializable) where CEDULA = @cedula) begin update expediente set nombre1 = @nombre1, nombre2 = @nombre2, apellido1 = @apellido1, apellido2 = @apellido2, FECHA_NACIMIENTO = @fecha_nacimiento, numero_telefono = @numero_telefono, religion = @religion, estado_civil = @estado_civil, tipo_trabajo = @tipo_trabajo, sexo = @sexo where cedula = @cedula; end else begin insert into expediente(cedula, nombre1, nombre2, apellido1, apellido2, fecha_Nacimiento, numero_telefono, religion, estado_civil, tipo_trabajo, sexo) values(@cedula, @nombre1, @nombre2, @apellido1, @apellido2, @fecha_nacimiento, @numero_telefono, @religion, @estado_civil, @tipo_trabajo, @sexo); end commit tran";
+                string update = "begin tran if exists(select * from EXPEDIENTE with (updlock, serializable) where CEDULA = @cedula) begin update expediente set nombre1 = @nombre1, nombre2 = @nombre2, apellido1 = @apellido1, apellido2 = @apellido2, FECHA_NACIMIENTO = @fecha_nacimiento, numero_telefono = @numero_telefono, religion = @religion, estado_civil = @estado_civil, tipo_trabajo = @tipo_trabajo, sexo = @sexo, tel2 = @tel2, tel3 = @tel3, descripcion_tel2 = @descripcion_tel2, descripcion_tel3 = @descripcion_tel3 where cedula = @cedula; end else begin insert into expediente(cedula, nombre1, nombre2, apellido1, apellido2, fecha_Nacimiento, numero_telefono, religion, estado_civil, tipo_trabajo, sexo, tel2, tel3, descripcion_tel2, descripcion_tel3) values(@cedula, @nombre1, @nombre2, @apellido1, @apellido2, @fecha_nacimiento, @numero_telefono, @religion, @estado_civil, @tipo_trabajo, @sexo, @tel2, @tel3, @descripcion_tel2, @descripcion_tel3); end commit tran";
 
                 SqlCommand sentencia = new SqlCommand(update, conexion);
                 sentencia.Parameters.AddWithValue("@cedula", to.cedula);
@@ -87,7 +92,10 @@ namespace DAO
                 sentencia.Parameters.AddWithValue("@estado_civil", to.estado_civil);
                 sentencia.Parameters.AddWithValue("@tipo_trabajo", to.tipo_trabajo);
                 sentencia.Parameters.AddWithValue("@sexo", to.sexo);
-
+                sentencia.Parameters.AddWithValue("@tel2", to.tel2);
+                sentencia.Parameters.AddWithValue("@tel3", to.tel3);
+                sentencia.Parameters.AddWithValue("@descripcion_tel2", to.descripcion_tel2);
+                sentencia.Parameters.AddWithValue("@descripcion_tel3", to.descripcion_tel3);
                 if (conexion.State != ConnectionState.Open)
                 {
                     conexion.Open();
@@ -147,7 +155,11 @@ namespace DAO
                         expediente.estado_civil = Convert.ToString(table.Rows[x]["ESTADO_CIVIL"]);
                         expediente.tipo_trabajo = Convert.ToString(table.Rows[x]["TIPO_TRABAJO"]);
                         expediente.sexo = Convert.ToString(table.Rows[x]["SEXO"]);
-
+                    expediente.descripcion_tel2 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL2"]);
+                    expediente.descripcion_tel3 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL3"]);
+                    expediente.tel2 = Convert.ToString(table.Rows[x]["TEL2"]);
+                        expediente.tel3 = Convert.ToString(table.Rows[x]["TEL3"]);
+                        
 
                         if (lista.Count == 0)
                         {
@@ -166,9 +178,13 @@ namespace DAO
                     }
                 }
                 return lista;
-            } catch (SqlException) {
+            }
+            catch (SqlException)
+            {
                 throw;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 throw;
             }
         }

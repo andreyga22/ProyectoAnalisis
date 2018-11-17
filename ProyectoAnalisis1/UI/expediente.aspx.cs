@@ -13,6 +13,12 @@ namespace UI
         {
             try
             {
+                //Session["nombreEmpleado"] = "";
+                //Session["rolEmpleado"] = "";
+                if ((Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria")))
+                {
+                    btnHistorialClinico.Visible = false;
+                }
                 if (!IsPostBack)
                 {
                     if (!Convert.ToString(Session["cedula"]).Equals(""))
@@ -32,6 +38,11 @@ namespace UI
                         estadoCivilText.Text = exp.estado_civil;
                         trabajoText.Text = exp.tipo_trabajo;
                         sexoText.Text = exp.sexo;
+                        tel2.Text = exp.tel2;
+                        tel3.Text = exp.tel3;
+                        descripcionTel2.Text = exp.descripcion_tel2;
+                        descripcionTel3.Text = exp.descripcion_tel3;
+                        txtEdad.Text = Convert.ToString(calcularEdad(exp.fecha_nacimiento));
 
                         //idLabel.Text = exp.cedula;
                         //firstNameLabel.Text = exp.primer_nombre;
@@ -87,7 +98,9 @@ namespace UI
             {
 
                 idText.Enabled = false;
-                btnHistorialClinico.Visible = true;
+                if((!Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria"))) {
+                    btnHistorialClinico.Visible = true;
+                }
                 BLManejadorConsulta man = new BLManejadorConsulta();
                 List<BLConsulta> bl =  man.listaConsultas(idText.Text.Trim());
                 if (bl.Count > 0)
@@ -149,6 +162,7 @@ namespace UI
         {
             idText.Visible = true;
             idText.Enabled = false;
+            //txtEdad.Enabled = false;
             firstNameText.Visible = true;
             secondNameText.Visible = true;
             lastNameText.Visible = true;
@@ -165,6 +179,7 @@ namespace UI
             cantonText.Visible = true;
             distritoText.Visible = true;
             otrasText.Visible = true;
+            txtEdad.Visible = true;
             guardarBtn.Visible = true;
             guardarBtn.Visible = true;
             //modificarBtn.Visible = false;
@@ -242,7 +257,7 @@ namespace UI
                 firstNameText.Text.Trim(), secondNameText.Text.Trim(), lastNameText.Text.Trim(),
                 lastNameText2.Text.Trim(), new DateTime(Convert.ToInt32(AnnoText.Text.Trim()), Convert.ToInt32(mesText.Text.Trim()), Convert.ToInt32(diaText.Text.Trim())), phoneText.Text.Trim(),
                 religionText.Text.Trim(), estadoCivilText.Text.Trim(), trabajoText.Text.Trim(),
-                sexoText.SelectedValue);
+                sexoText.SelectedValue, tel2.Text.Trim(), tel3.Text.Trim(), descripcionTel3.Text.Trim(), descripcionTel2.Text.Trim());
         }
 
         protected void ultimaBtn_Click(object sender, EventArgs e)
@@ -267,6 +282,11 @@ namespace UI
         protected void diaText_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected int calcularEdad(DateTime fechaNacimiento)
+        {
+            return DateTime.Today.AddTicks(-fechaNacimiento.Ticks).Year - 1;
         }
     }
 }

@@ -60,7 +60,7 @@ namespace BL
             return new TOExpediente(exp.cedula, 
                 exp.primer_nombre, exp.segundo_nombre, exp.primer_apellido, exp.segundo_apellido, 
                 exp.fecha_nacimiento, exp.num_telefono, exp.religion, exp.estado_civil, 
-                exp.tipo_trabajo, exp.sexo);
+                exp.tipo_trabajo, exp.sexo, exp.tel2, exp.tel3, exp.descripcion_tel2, exp.descripcion_tel3);
         }
 
         private BLExpediente convert(TOExpediente exp)
@@ -68,7 +68,7 @@ namespace BL
             return new BLExpediente(exp.cedula,
                 exp.primer_nombre, exp.segundo_nombre, exp.primer_apellido, exp.segundo_apellido,
                 exp.fecha_nacimiento, exp.num_telefono, exp.religion, exp.estado_civil,
-                exp.tipo_trabajo, exp.sexo);
+                exp.tipo_trabajo, exp.sexo, exp.tel2, exp.tel3, exp.descripcion_tel2, exp.descripcion_tel3);
         }
 
         public void prueba() {

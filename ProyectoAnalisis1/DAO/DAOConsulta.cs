@@ -76,6 +76,38 @@ namespace DAO
             }
         }
 
+        public int consultarUltimaConsultaId()
+        {
+            try { 
+            string select = "  select id_consulta from CONSULTA order by id_consulta;";
+            SqlCommand sentencia = new SqlCommand(select, conexion);
+            int to = -1;
+            if (conexion.State != ConnectionState.Open)
+            {
+                conexion.Open();
+            }
+
+            SqlDataReader reader = sentencia.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    to = reader.GetInt32(0);
+                }
+            }
+
+            if (conexion.State != ConnectionState.Closed)
+            {
+                conexion.Close();
+            }
+            return to;
+        } catch (SqlException) {
+                throw;
+            } catch (Exception) {
+                throw;
+            }
+        }
+
         public TOConsulta consultar(int idConsulta)
         {
             try
@@ -231,6 +263,8 @@ namespace DAO
                 conexion.Close();
             }
         }
+
+      
 
 
 
