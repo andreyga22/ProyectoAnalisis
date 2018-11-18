@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item active" aria-current="page">Principal</li>
-  </ol>
-</nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">Principal</li>
+        </ol>
+    </nav>
     <div class="container">
         <br />
         <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
@@ -15,7 +15,8 @@
 
         <div class="form-group offset-sm-4">
             <asp:Button type="button" class="btn btn-info" ID="btnNuevoExp" runat="server" Text="Crear Nuevo Expediente" OnClick="btnNuevoExp_Click" />
-            <%--<a href="PaginaPrincipal.aspx">PaginaPrincipal.aspx</a>--%></div>
+            <%--<a href="PaginaPrincipal.aspx">PaginaPrincipal.aspx</a>--%>
+        </div>
 
         <br />
         <br />
@@ -38,7 +39,7 @@
         </div>
 
         <div class="table-responsive">
-            <asp:GridView ID="tblBuscar" class="table table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged"  AutoGenerateEditButton="True" OnEditIndexChanged="listaBusq_EditIndexChanged"></asp:GridView>
+            <asp:GridView ID="tblBuscar" class="table table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged" AutoGenerateEditButton="True" OnEditIndexChanged="listaBusq_EditIndexChanged"></asp:GridView>
         </div>
     </div>
 

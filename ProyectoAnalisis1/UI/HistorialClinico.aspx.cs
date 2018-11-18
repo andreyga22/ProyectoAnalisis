@@ -6,19 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
-namespace UI
-{
-    public partial class HistorialClinico1 : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!IsPostBack)
-                {
+namespace UI {
+    public partial class HistorialClinico1 : System.Web.UI.Page {
+        protected void Page_Load(object sender, EventArgs e) {
+            revisarLogin();
 
-                    if (!Convert.ToString(Session["cedula"]).Equals(""))
-                    {
+            try {
+                if (!IsPostBack) {
+
+                    if (!Convert.ToString(Session["cedula"]).Equals("")) {
                         BLManejadorHistoriaClinica manej = new BLManejadorHistoriaClinica();
                         BLHistoriaClinica histClinica = manej.consultarHistorialClinico(Convert.ToString(Session["cedula"]));
                         txtGrupoSanguineo.Text = histClinica.grupo_Sanguineo;
@@ -62,32 +58,35 @@ namespace UI
                     }
 
                 }
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 errorLbl.Visible = true;
                 errorLbl.Text = "Error al cargar los datos del historial clínico. Regrese a la página principal";
             }
         }
 
-        protected void guardarBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void revisarLogin() {
+            BLEmpleado emp = (BLEmpleado)Session["empleado"];
+            if (emp == null) {
+                Response.Redirect("InicioDeSesion.aspx");
+            } else {
+                if ((!emp.rol.Equals("Doctor")) && (!emp.rol.Equals("Paramedico"))) {
+                    Response.Redirect("InicioDeSesion.aspx");
+                }
+            }
+        }
+
+        protected void guardarBtn_Click(object sender, EventArgs e) {
+            try {
                 new BLManejadorHistoriaClinica().insertarActualizarHistorialClinico(createBl());
                 Response.Write("<script>alert('Cambio Realizado')</script>");
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 errorLbl.Visible = true;
                 errorLbl.Text = "Error al guardar los datos del historial clínico. Verifique su conexión y que los datos sean correctos.";
             }
         }
 
-        private BLHistoriaClinica createBl()
-        {
-            if (furCalend.SelectedDate.Year == 0001 && furCalend.SelectedDate.Month == 1 && furCalend.SelectedDate.Year == 1)
-            {
+        private BLHistoriaClinica createBl() {
+            if (furCalend.SelectedDate.Year == 0001 && furCalend.SelectedDate.Month == 1 && furCalend.SelectedDate.Year == 1) {
                 furCalend.SelectedDate = new DateTime(1800, 01, 01);
             }
             return new BLHistoriaClinica(0, Convert.ToString(Session["cedula"]), txtGrupoSanguineo.Text.Trim(), htaCheck.Checked, dMCheck.Checked, asmaCheck.Checked,

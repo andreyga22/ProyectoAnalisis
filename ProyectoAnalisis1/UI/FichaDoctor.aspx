@@ -45,12 +45,12 @@
             <asp:TextBox type="text" class="form-control" ID="planText" runat="server" TextMode="MultiLine" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
         </div>
 
-        
+
 
         <div class="form-group">
             <asp:Image ID="image" runat="server" Visible="False" Height="200" Width="200" />
             <label for="foto">Foto</label>
-            <asp:FileUpload ID="foto" runat="server"/>
+            <asp:FileUpload ID="foto" runat="server" />
         </div>
 
         <div class="form-group offset-sm-6">

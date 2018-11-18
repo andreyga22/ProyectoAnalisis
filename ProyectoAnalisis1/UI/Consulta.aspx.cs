@@ -6,24 +6,28 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
-namespace UI
-{
-    public partial class Consulta : System.Web.UI.Page
-    {
+namespace UI {
+    public partial class Consulta : System.Web.UI.Page {
         private DateTime fecha1 = DateTime.Now;
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if ((Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria")) || (Convert.ToString(Session["rolEmpleado"]).Equals("Paramedico")))
-            {
+        protected void Page_Load(object sender, EventArgs e) {
+            revisarLogin();
+
+            BLEmpleado emp = (BLEmpleado)(Session["empleado"]);
+            if ((emp.rol.Equals("Secretaria")) || (emp.rol.Equals("Paramedico"))) {
                 entrarDoctor.Visible = false;
             }
-            if ((Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria")))
-            {
+            if ((emp.rol.Equals("Secretaria"))) {
                 entrarParamedico.Visible = false;
+                guardarBtn.Visible = false;
+                precioText.Enabled = false;
+            }
+
+            if ((emp.rol.Equals("Paramedico"))) {
+                guardarBtn.Visible = false;
+                precioText.Enabled = false;
             }
             if (!IsPostBack) {
-                try
-                {
+                try {
                     BLManejadorConsulta blm = new BLManejadorConsulta();
                     BLConsulta con = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
                     fecha.Text = Convert.ToString(con.fecha);
@@ -34,12 +38,21 @@ namespace UI
                 }
             }
         }
-        
 
-        protected void guardarBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        private void revisarLogin() {
+            BLEmpleado emp = (BLEmpleado)Session["empleado"];
+            if (emp == null) {
+                Response.Redirect("InicioDeSesion.aspx");
+            } else {
+                if ( (!emp.rol.Equals("Secretaria")) && (!emp.rol.Equals("Doctor")) && (!emp.rol.Equals("Paramedico"))) {
+                    Response.Redirect("InicioDeSesion.aspx");
+                }
+            }
+        }
+
+
+        protected void guardarBtn_Click(object sender, EventArgs e) {
+            try {
                 BLManejadorConsulta blm = new BLManejadorConsulta();
                 string precio = precioText.Text.Trim();
                 blm.modificar(Convert.ToInt32(Session["idConsulta"]), Convert.ToInt32(precioText.Text.Trim()));
@@ -49,13 +62,11 @@ namespace UI
             }
         }
 
-        protected void entrarDoctor_Click(object sender, EventArgs e)
-        {
+        protected void entrarDoctor_Click(object sender, EventArgs e) {
             Response.Redirect("FichaDoctor.aspx");
         }
 
-        protected void entrarParamedico_Click(object sender, EventArgs e)
-        {
+        protected void entrarParamedico_Click(object sender, EventArgs e) {
             Response.Redirect("FichaParamedico.aspx");
         }
     }

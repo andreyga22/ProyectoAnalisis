@@ -5,24 +5,18 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
-namespace UI
-{
-    public partial class expediente : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                //Session["nombreEmpleado"] = "";
-                //Session["rolEmpleado"] = "";
-                if ((Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria")))
-                {
+namespace UI {
+    public partial class expediente : System.Web.UI.Page {
+        protected void Page_Load(object sender, EventArgs e) {
+            try {
+                revisarLogin();
+
+                BLEmpleado emp = (BLEmpleado)(Session["empleado"]);
+                if ((emp.rol.Equals("Secretaria"))) {
                     btnHistorialClinico.Visible = false;
                 }
-                if (!IsPostBack)
-                {
-                    if (!Convert.ToString(Session["cedula"]).Equals(""))
-                    {
+                if (!IsPostBack) {
+                    if (!Convert.ToString(Session["cedula"]).Equals("")) {
                         BLManejadorExpediente man = new BLManejadorExpediente();
                         BLExpediente exp = man.consultarExpediente(Convert.ToString(Session["cedula"]));
                         idText.Text = exp.cedula;
@@ -73,8 +67,7 @@ namespace UI
                 }
                 //if (!IsPostBack) {
                 desactivarCampos();
-                if (String.IsNullOrEmpty(idText.Text) || (String.IsNullOrWhiteSpace(idText.Text)))
-                {
+                if (String.IsNullOrEmpty(idText.Text) || (String.IsNullOrWhiteSpace(idText.Text))) {
                     //modificarBtn.Visible = false;
                     //modificarBtn.Enabled = false;
                     ultimaBtn.Visible = false;
@@ -89,34 +82,41 @@ namespace UI
                 errorlbl.Visible = true;
                 errorlbl.Text = "Error al cargar los datos del expediente. Verifique su conexion a internet y regrese a la página principal";
             }
+
+
+        }
+        private void revisarLogin() {
+            BLEmpleado emp = (BLEmpleado)Session["empleado"];
+            if (emp == null) {
+                Response.Redirect("InicioDeSesion.aspx");
+            } else {
+                if ((!emp.rol.Equals("Secretaria")) && (!emp.rol.Equals("Doctor")) && (!emp.rol.Equals("Paramedico"))) {
+                    Response.Redirect("InicioDeSesion.aspx");
+                }
             }
+        }
 
-
-        private void desactivarCampos()
-        {
-            if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text)))
-            {
-
+        private void desactivarCampos() {
+            if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text))) {
+                BLEmpleado emp = (BLEmpleado)(Session["empleado"]);
                 idText.Enabled = false;
-                if((!Convert.ToString(Session["rolEmpleado"]).Equals("Secretaria"))) {
+                if ((!emp.rol.Equals("Secretaria"))) {
                     btnHistorialClinico.Visible = true;
                 }
                 BLManejadorConsulta man = new BLManejadorConsulta();
-                List<BLConsulta> bl =  man.listaConsultas(idText.Text.Trim());
-                if (bl.Count > 0)
-                {
+                List<BLConsulta> bl = man.listaConsultas(idText.Text.Trim());
+                if (bl.Count > 0) {
                     ultimaBtn.Visible = true;
                     btnHistorialClinico.Enabled = true;
                     ultimaBtn.Enabled = true;
                     historialBtn.Visible = true;
                     historialBtn.Enabled = true;
-                }
-                else {
+                } else {
                     btnHistorialClinico.Enabled = true;
                     historialBtn.Visible = true;
                     historialBtn.Enabled = true;
                 }
-                
+
                 //firstNameText.Visible = false;
                 //secondNameText.Visible = false;
                 //lastNameText.Visible = false;
@@ -158,8 +158,7 @@ namespace UI
             }
         }
 
-        private void activarCampos()
-        {
+        private void activarCampos() {
             idText.Visible = true;
             idText.Enabled = false;
             //txtEdad.Enabled = false;
@@ -203,10 +202,8 @@ namespace UI
             //otrasLabel.Visible = false;
         }
 
-        protected void guardarBtn_Click(object sender, EventArgs e)
-        {
-            try
-            {
+        protected void guardarBtn_Click(object sender, EventArgs e) {
+            try {
                 new BLManejadorExpediente().insertarModificar(createBl());
                 new BLManejadorDireccion().guardarModificar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(), cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
             } catch (System.ArgumentOutOfRangeException) {
@@ -217,7 +214,7 @@ namespace UI
                 errorlbl.Visible = true;
                 errorlbl.Text = "Error al ingresar los datos de expediente. Verifique que los datos ingresados sean correctos";
             }
-                //if (!new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(),
+            //if (!new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(),
             //    cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim())))
             //{
             //    Response.Write("<script>alert('ERROR! Dirección no ha sido almacenada exitosamente')</script>");
@@ -225,19 +222,16 @@ namespace UI
 
         }
 
-        protected void cantonText_TextChanged(object sender, EventArgs e)
-        {
+        protected void cantonText_TextChanged(object sender, EventArgs e) {
 
         }
 
-        protected void historialBtn_Click(object sender, EventArgs e)
-        {
+        protected void historialBtn_Click(object sender, EventArgs e) {
             Session["cedula"] = idText.Text.Trim();
             Response.Redirect("ListaConsultas.aspx");
         }
 
-        protected void modificarBtn_Click(object sender, EventArgs e)
-        {
+        protected void modificarBtn_Click(object sender, EventArgs e) {
             //if (Convert.ToBoolean(ViewState["listoParaGuardar"]) == true)
             //{
             //    new BLManejadorExpediente().actualizarExpediente(createBl());
@@ -245,14 +239,13 @@ namespace UI
             //}
             //else
             //{
-                activarCampos();
+            activarCampos();
             //    ViewState["listoParaGuardar"] = true;
             //    modificarBtn.Text = "Guardar";
             //}
         }
 
-        private BLExpediente createBl()
-        {
+        private BLExpediente createBl() {
             return new BLExpediente(idText.Text.Trim(),
                 firstNameText.Text.Trim(), secondNameText.Text.Trim(), lastNameText.Text.Trim(),
                 lastNameText2.Text.Trim(), new DateTime(Convert.ToInt32(AnnoText.Text.Trim()), Convert.ToInt32(mesText.Text.Trim()), Convert.ToInt32(diaText.Text.Trim())), phoneText.Text.Trim(),
@@ -260,32 +253,27 @@ namespace UI
                 sexoText.SelectedValue, tel2.Text.Trim(), tel3.Text.Trim(), descripcionTel3.Text.Trim(), descripcionTel2.Text.Trim());
         }
 
-        protected void ultimaBtn_Click(object sender, EventArgs e)
-        {
+        protected void ultimaBtn_Click(object sender, EventArgs e) {
             Session["cedula"] = idText.Text.Trim();
             BLManejadorConsulta man = new BLManejadorConsulta();
             Session["idConsulta"] = man.consultarUltimo(Convert.ToString(idText.Text.Trim()));
             Response.Redirect("Consulta.aspx");
         }
 
-        protected void mesTextt_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        protected void mesTextt_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
 
-        protected void btnHistorialClinico_Click(object sender, EventArgs e)
-        {
+        protected void btnHistorialClinico_Click(object sender, EventArgs e) {
             Session["cedula"] = idText.Text.Trim();
             Response.Redirect("HistorialClinico.aspx");
         }
 
-        protected void diaText_TextChanged(object sender, EventArgs e)
-        {
+        protected void diaText_TextChanged(object sender, EventArgs e) {
 
         }
 
-        protected int calcularEdad(DateTime fechaNacimiento)
-        {
+        protected int calcularEdad(DateTime fechaNacimiento) {
             return DateTime.Today.AddTicks(-fechaNacimiento.Ticks).Year - 1;
         }
     }

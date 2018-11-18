@@ -6,49 +6,41 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
-namespace UI
-{
-    public partial class InicioDeSesion : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+namespace UI {
+    public partial class InicioDeSesion : System.Web.UI.Page {
+        protected void Page_Load(object sender, EventArgs e) {
             Page.Master.FindControl("linkCerrarSesion").Visible = false;
-            Session["iEmpleado"] = "";
-            Session["rolEmpleado"] = "";
-            Session["cedula"] = "";
-            Session["idConsulta"] = "";
+            cerrarSesion();
             lblError.Visible = false;
         }
 
-        protected void entrarBtn_Click(object sender, EventArgs e)
-        {
+        private void cerrarSesion() {
+            Session["empleado"] = null;
+            Session["cedula"] = "";
+            Session["idConsulta"] = "";
+            Session["idDoctor"] = null;
+        }
+
+        protected void entrarBtn_Click(object sender, EventArgs e) {
             String idUsuario = txtId.Text;
             String contra = txtContra.Text;
 
             BLEmpleado empleado = new BLManejadorEmpleado().buscarEmpleado(idUsuario, contra);
 
-            try
-            {
-                if (empleado.id != null && !empleado.id.Equals(""))
-                {
-                    Session["iEmpleado"] = empleado.id;
-                    Session["rolEmpleado"] = empleado.rol;
-                    if (empleado.rol.Equals("Admin"))
-                    {
+            try {
+                if (empleado.id != null && !empleado.id.Equals("")) {
+                    //Session["iEmpleado"] = empleado.id;
+                    //Session["rolEmpleado"] = empleado.rol;
+                    Session["empleado"] = empleado;
+                    if (empleado.rol.Equals("Admin")) {
                         Response.Redirect("Administrador.aspx");
-                    }
-                    else
-                    {
+                    } else {
                         Response.Redirect("PaginaPrincipal.aspx");
                     }
-                }
-                else
-                {
+                } else {
                     lblError.Visible = true;
                 }
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 lblError.Text = "Error. Recargue la página";
                 lblError.Visible = true;
             }

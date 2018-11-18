@@ -6,46 +6,50 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
-namespace UI
-{
-    public partial class WebForm1 : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+namespace UI {
+    public partial class WebForm1 : System.Web.UI.Page {
+        protected void Page_Load(object sender, EventArgs e) {
+            revisarLogin();
+
             Session["cedula"] = "";
             Session["idConsulta"] = "";
             lblNoBusqCedula.Visible = false;
             lblNoBusqNombre.Visible = false;
         }
 
-        protected void btnNuevoExp_Click(object sender, EventArgs e)
-        {
+        private void revisarLogin() {
+            BLEmpleado emp = (BLEmpleado)Session["empleado"];
+            if (emp == null) {
+                Response.Redirect("InicioDeSesion.aspx");
+            } else {
+                if ((!emp.rol.Equals("Secretaria")) && (!emp.rol.Equals("Doctor")) && (!emp.rol.Equals("Paramedico"))) {
+                    Response.Redirect("InicioDeSesion.aspx");
+                }
+            }
+        }
+
+        protected void btnNuevoExp_Click(object sender, EventArgs e) {
             Response.Redirect("expediente.aspx");
         }
 
-        protected void buscarCedula_Click(object sender, EventArgs e)
-        {
+        protected void buscarCedula_Click(object sender, EventArgs e) {
             //try
             //{
-                if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim())))
-                {
-                    BLManejadorExpediente manejador = new BLManejadorExpediente();
-                    BLExpediente expediente = manejador.consultarExpediente(txtbusqCedula.Text);
-                    if (String.IsNullOrEmpty(expediente.cedula) || (String.IsNullOrWhiteSpace(expediente.cedula)))
-                    {
-                        lblNoBusqCedula.Visible = true;
-                        tblBuscar.Visible = false;
-                    }
-                    else
-                    {
-                        List<BLExpediente> lista = new List<BLExpediente>();
-                        lista.Add(expediente);
-                        tblBuscar.DataSource = lista;
-                        tblBuscar.DataBind();
-                        crearTabla();
-                        tblBuscar.Visible = true;
-                    }
+            if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim()))) {
+                BLManejadorExpediente manejador = new BLManejadorExpediente();
+                BLExpediente expediente = manejador.consultarExpediente(txtbusqCedula.Text);
+                if (String.IsNullOrEmpty(expediente.cedula) || (String.IsNullOrWhiteSpace(expediente.cedula))) {
+                    lblNoBusqCedula.Visible = true;
+                    tblBuscar.Visible = false;
+                } else {
+                    List<BLExpediente> lista = new List<BLExpediente>();
+                    lista.Add(expediente);
+                    tblBuscar.DataSource = lista;
+                    tblBuscar.DataBind();
+                    crearTabla();
+                    tblBuscar.Visible = true;
                 }
+            }
             //} catch (Exception)
             //{
             //    lblError.Visible = true;
@@ -53,45 +57,36 @@ namespace UI
             //}
         }
 
-        protected void listaBusq_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        protected void listaBusq_SelectedIndexChanged(object sender, EventArgs e) {
             string id = tblBuscar.SelectedRow.Cells[1].Text.Trim();
             Response.Write(id);
             Session["cedula"] = id;
             Response.Redirect("expediente.aspx");
         }
 
-        protected void buscarNombre_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!String.IsNullOrEmpty(txtbusqNombre.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqNombre.Text.Trim())))
-                {
+        protected void buscarNombre_Click(object sender, EventArgs e) {
+            try {
+                if (!String.IsNullOrEmpty(txtbusqNombre.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqNombre.Text.Trim()))) {
                     BLManejadorExpediente manejador = new BLManejadorExpediente();
                     List<BLExpediente> listaExpediente = manejador.consultarListaExpedNombre(txtbusqNombre.Text);
-                    if (listaExpediente.Count > 0)
-                    {
+                    if (listaExpediente.Count > 0) {
                         tblBuscar.Visible = true;
                         tblBuscar.DataSource = listaExpediente;
                         tblBuscar.DataBind();
                         crearTabla();
 
-                    }
-                    else
-                    {
+                    } else {
                         lblNoBusqNombre.Visible = true;
                         tblBuscar.Visible = false;
                     }
                 }
-            } catch (Exception)
-            {
+            } catch (Exception) {
                 lblError.Visible = true;
                 lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
             }
         }
 
-        private void crearTabla()
-        {
+        private void crearTabla() {
             tblBuscar.HeaderRow.Cells[1].Text = "Cédula";
             tblBuscar.HeaderRow.Cells[2].Text = "Primer Nombre";
             tblBuscar.HeaderRow.Cells[3].Text = "Segundo Nombre";
@@ -104,8 +99,7 @@ namespace UI
             tblBuscar.HeaderRow.Cells[10].Text = "Trabajo";
             tblBuscar.HeaderRow.Cells[11].Text = "Sexo";
 
-            foreach (GridViewRow row in tblBuscar.Rows)
-            {
+            foreach (GridViewRow row in tblBuscar.Rows) {
                 LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
                 lb.Text = "Agregar";
             }

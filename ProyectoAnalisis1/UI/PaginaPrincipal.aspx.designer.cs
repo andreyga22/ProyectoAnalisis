@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace UI {
-    
-    
+
+
     public partial class WebForm1 {
-        
+
         /// <summary>
         /// lblError control.
         /// </summary>
@@ -20,7 +20,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblError;
-        
+
         /// <summary>
         /// btnNuevoExp control.
         /// </summary>
@@ -29,7 +29,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNuevoExp;
-        
+
         /// <summary>
         /// txtbusqCedula control.
         /// </summary>
@@ -38,7 +38,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbusqCedula;
-        
+
         /// <summary>
         /// buscarCedula control.
         /// </summary>
@@ -47,7 +47,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buscarCedula;
-        
+
         /// <summary>
         /// lblNoBusqCedula control.
         /// </summary>
@@ -56,7 +56,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoBusqCedula;
-        
+
         /// <summary>
         /// RequiredFieldValidator1 control.
         /// </summary>
@@ -65,7 +65,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// txtbusqNombre control.
         /// </summary>
@@ -74,7 +74,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbusqNombre;
-        
+
         /// <summary>
         /// buscarNombre control.
         /// </summary>
@@ -83,7 +83,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button buscarNombre;
-        
+
         /// <summary>
         /// lblNoBusqNombre control.
         /// </summary>
@@ -92,7 +92,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNoBusqNombre;
-        
+
         /// <summary>
         /// RequiredFieldValidator2 control.
         /// </summary>
@@ -101,7 +101,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
         /// <summary>
         /// tblBuscar control.
         /// </summary>

@@ -6,16 +6,19 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
-namespace UI
-{
-    public partial class FichaParamedico : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!IsPostBack)
-                {
+namespace UI {
+    public partial class FichaParamedico : System.Web.UI.Page {
+        protected void Page_Load(object sender, EventArgs e) {
+            revisarLogin();
+
+            BLEmpleado emp = (BLEmpleado)Session["empleado"];
+            if ((!emp.rol.Equals("Doctor"))) {
+                observacionesText.Enabled = false;
+            }
+
+
+            try {
+                if (!IsPostBack) {
                     Response.Write(Session["idConsulta"]);
                     BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
                     BLFichaParamedico param = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
@@ -40,8 +43,18 @@ namespace UI
             }
         }
 
-        protected void guardarBtn_Click(object sender, EventArgs e)
-        {
+        private void revisarLogin() {
+            BLEmpleado emp = (BLEmpleado)Session["empleado"];
+            if (emp == null) {
+                Response.Redirect("InicioDeSesion.aspx");
+            } else {
+                if ((!emp.rol.Equals("Doctor")) && (!emp.rol.Equals("Paramedico"))) {
+                    Response.Redirect("InicioDeSesion.aspx");
+                }
+            }
+        }
+
+        protected void guardarBtn_Click(object sender, EventArgs e) {
             try {
                 BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
 
@@ -52,9 +65,7 @@ namespace UI
                     observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
                     Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()),
                     PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 errorLbl.Visible = true;
                 errorLbl.Text = "Error al guardar los datos de la ficha paramédico. Verifique que los datos sean correctos.";
             }

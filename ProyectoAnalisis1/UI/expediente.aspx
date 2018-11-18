@@ -4,11 +4,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Expediente</li>
-  </ol>
-</nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Expediente</li>
+        </ol>
+    </nav>
 
 
     <div class="container">
@@ -90,17 +90,18 @@
             </div>
         </div>--%>
 
-          <div class="form-row">
-                  <div class="form-group col-sm-6">
-            <label for="idText">Cédula</label>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="idText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-           <br /> <asp:TextBox type="text" class="form-control" ID="idText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
-                      </div>
-                  <div class="form-group col-sm-6">
-                      <label for="edadTxt">Edad</label>
-                      <br />
-                      <asp:TextBox type="text" class="form-control" ID="txtEdad" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" Enabled="False"></asp:TextBox>
-                      </div>
+        <div class="form-row">
+            <div class="form-group col-sm-6">
+                <label for="idText">Cédula</label>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="idText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
+                <br />
+                <asp:TextBox type="text" class="form-control" ID="idText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="edadTxt">Edad</label>
+                <br />
+                <asp:TextBox type="text" class="form-control" ID="txtEdad" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" Enabled="False"></asp:TextBox>
+            </div>
         </div>
 
         <%--<div class="form-group">
@@ -141,25 +142,25 @@
             <asp:Label ID="phoneLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
         <div>
-        <div class="form-row">
-            <div class="form-group col-sm-4">
-                <label for="provinciaText">Provincia</label>
-                <asp:TextBox type="text" class="form-control" ID="provinciaText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <div class="form-row">
+                <div class="form-group col-sm-4">
+                    <label for="provinciaText">Provincia</label>
+                    <asp:TextBox type="text" class="form-control" ID="provinciaText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="cantonText">Cantón</label>
+                    <asp:TextBox type="text" class="form-control" ID="cantonText" runat="server" OnTextChanged="cantonText_TextChanged" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="distritoText">Distrito</label>
+                    <asp:TextBox type="text" class="form-control" ID="distritoText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+
+                </div>
             </div>
-            <div class="form-group col-sm-4">
-                <label for="cantonText">Cantón</label>
-                <asp:TextBox type="text" class="form-control" ID="cantonText" runat="server" OnTextChanged="cantonText_TextChanged" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
-            </div>
-            <div class="form-group col-sm-4">
-                <label for="distritoText">Distrito</label>
-                <asp:TextBox type="text" class="form-control" ID="distritoText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
-
-            </div>
-        </div>
-
-        <%--<div class="form-row">
+            <%--<div class="form-row">
             <div class="form-group col-sm-4">
                 <asp:Label ID="provinciaLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
             </div>
@@ -171,41 +172,42 @@
             </div>
         </div>--%>
 
-        <div class="form-group ">
-            <label for="otrasText">Otras Señas</label>
-            <asp:TextBox type="text" class="form-control" ID="otrasText" runat="server" TextMode="MultiLine" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <div class="form-group ">
+                <label for="otrasText">Otras Señas</label>
+                <asp:TextBox type="text" class="form-control" ID="otrasText" runat="server" TextMode="MultiLine" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
-        </div>
+            </div>
 
-        <%--<div class="form-group">
+            <%--<div class="form-group">
             <asp:Label ID="otrasLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
-        <div>
-            <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Fecha de Nacimiento"></asp:Label>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-sm-4">
-                <label for="diaText">Día</label><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="diaText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="diaText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
-                &nbsp;<asp:TextBox type="text" class="form-control" ID="diaText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid" OnTextChanged="diaText_TextChanged"></asp:TextBox>
+            <div>
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Fecha de Nacimiento"></asp:Label>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-4">
+                    <label for="diaText">Día</label><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="diaText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="diaText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
+                    &nbsp;<asp:TextBox type="text" class="form-control" ID="diaText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid" OnTextChanged="diaText_TextChanged"></asp:TextBox>
 
+                </div>
+
+                <div class="form-group col-sm-4">
+                    <label for="mesText">Mes</label><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="mesText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
+                    &nbsp;<label for="mesText"><asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="mesText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
+                    </label>
+                    <asp:TextBox type="text" class="form-control" ID="mesText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+
+                </div>
+                <div class="form-group col-sm-4">
+                    <label for="annoText">Año</label><asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="AnnoText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
+                    &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="AnnoText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
+                    <asp:TextBox type="text" class="form-control" ID="AnnoText" runat="server" MaxLength="4" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+
+                </div>
             </div>
 
-            <div class="form-group col-sm-4">
-                <label for="mesText">Mes</label><asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="mesText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                &nbsp;<label for="mesText"><asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="mesText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
-                </label><asp:TextBox type="text" class="form-control" ID="mesText" runat="server" MaxLength="2" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
-
-            </div>
-            <div class="form-group col-sm-4">
-                <label for="annoText">Año</label><asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="AnnoText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
-                &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ControlToValidate="AnnoText" ErrorMessage="RegularExpressionValidator" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardar">Únicamente números</asp:RegularExpressionValidator>
-                <asp:TextBox type="text" class="form-control" ID="AnnoText" runat="server" MaxLength="4" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
-
-            </div>
-        </div>
-
-        <%--<div class="form-row">
+            <%--<div class="form-row">
             <div class="form-group col-sm-4">
                 <asp:Label ID="diaLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
             </div>
@@ -217,57 +219,57 @@
             </div>
         </div>--%>
 
-        <div class="form-group">
-            <label for="religionText">Religión</label>
-            <asp:TextBox type="text" class="form-control" ID="religionText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <div class="form-group">
+                <label for="religionText">Religión</label>
+                <asp:TextBox type="text" class="form-control" ID="religionText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
-        </div>
+            </div>
 
-        <%--<div class="form-group">
+            <%--<div class="form-group">
             <asp:Label ID="religionLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
 
-        <div class="form-group">
-            <label for="estadoCivilText">Estado Civil</label>
-            <asp:TextBox type="text" class="form-control" ID="estadoCivilText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <div class="form-group">
+                <label for="estadoCivilText">Estado Civil</label>
+                <asp:TextBox type="text" class="form-control" ID="estadoCivilText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
-        </div>
+            </div>
 
-        <%--<div class="form-group">
+            <%--<div class="form-group">
             <asp:Label ID="estadoCivilLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
 
-        <div class="form-group">
-            <label for="trabajoText">Tipo de trabajo</label>
-            <asp:TextBox type="text" class="form-control" ID="trabajoText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <div class="form-group">
+                <label for="trabajoText">Tipo de trabajo</label>
+                <asp:TextBox type="text" class="form-control" ID="trabajoText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
 
-        </div>
+            </div>
 
-        <%--<div class="form-group">
+            <%--<div class="form-group">
             <asp:Label ID="trabajoLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
 
-        <div class="form-group col-sm-4">
-            <label for="sexoText">Sexo</label>
-            <asp:DropDownList ID="sexoText" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" runat="server">
-                <asp:ListItem>M</asp:ListItem>
-                <asp:ListItem>F</asp:ListItem>
-            </asp:DropDownList>
+            <div class="form-group col-sm-4">
+                <label for="sexoText">Sexo</label>
+                <asp:DropDownList ID="sexoText" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" runat="server">
+                    <asp:ListItem>M</asp:ListItem>
+                    <asp:ListItem>F</asp:ListItem>
+                </asp:DropDownList>
 
-        </div>
+            </div>
 
-        <%--<div class="form-group">
+            <%--<div class="form-group">
             <asp:Label ID="sexoLabel" runat="server" Font-Bold="True" ForeColor="#0000CC"></asp:Label>
         </div>--%>
 
-        <div class="form-group offset-sm-6">
-            <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardar" />
+            <div class="form-group offset-sm-6">
+                <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardar" />
+            </div>
         </div>
-    </div>
-    <br />
+        <br />
 
 
-    <br />
-    <br />
-    <br />
+        <br />
+        <br />
+        <br />
 </asp:Content>

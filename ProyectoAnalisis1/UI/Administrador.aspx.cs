@@ -6,25 +6,34 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
 
-namespace UI
-{
-    public partial class Administrador : System.Web.UI.Page
-    {
-        protected void Page_Load(object sender, EventArgs e)
-        {
+namespace UI {
+    public partial class Administrador : System.Web.UI.Page {
+        protected void Page_Load(object sender, EventArgs e) {
+
             //crearEncabezado();
             //List<BLEmpleado> listEmpleado = new BLManejadorEmpleado().listaEmpleado();
             //foreach (BLEmpleado blEmp in listEmpleado)
             //{
             //    agregarFilaEmpleado(blEmp.id, blEmp.contrasenna, blEmp.rol, blEmp.nombreEmpleado, blEmp.estado);
             //}
+
+            revisarLogin();
             cargarGrid();
         }
 
-        private void cargarGrid()
-        {
-            try
-            {
+        private void revisarLogin() {
+            BLEmpleado emp = (BLEmpleado)Session["empleado"];
+            if (emp == null) {
+                Response.Redirect("InicioDeSesion.aspx");
+            } else {
+                if (!emp.rol.Equals("Admin")) {
+                    Response.Redirect("InicioDeSesion.aspx");
+                }
+            }
+        }
+
+        private void cargarGrid() {
+            try {
                 List<BLEmpleado> listEmpleado = new BLManejadorEmpleado().listaEmpleado();
 
                 //listaConsultaGV.Columns[1].Visible = false;
@@ -37,36 +46,30 @@ namespace UI
                 gridEmpl.HeaderRow.Cells[4].Text = "Nombre";
                 gridEmpl.HeaderRow.Cells[5].Text = "Estado";
 
-                foreach (GridViewRow row in gridEmpl.Rows)
-                {
+                foreach (GridViewRow row in gridEmpl.Rows) {
                     LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
                     lb.Text = "Modificar";
                 }
 
                 gridEmpl.HeaderRow.Cells[2].Visible = false;
-                for (int i = 0; i < gridEmpl.Rows.Count; i++)
-                {
+                for (int i = 0; i < gridEmpl.Rows.Count; i++) {
                     gridEmpl.Rows[i].Cells[2].Visible = false;
                 }
-            }
-            catch (Exception)
-            {
+            } catch (Exception) {
                 //errorLbl.Visible = true;
                 //errorLbl.Text = "Error al cargar los datos de la lista. Por favor recargue la página o vuelva a la página principal";
             }
 
         }
 
-        protected void idGuardar_Click(object sender, EventArgs e)
-        {
+        protected void idGuardar_Click(object sender, EventArgs e) {
             BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
             manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
 
             Response.Redirect("Administrador.aspx");
         }
 
-        protected void gridEmpl_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        protected void gridEmpl_SelectedIndexChanged(object sender, EventArgs e) {
             string id = gridEmpl.SelectedRow.Cells[1].Text;
             BLEmpleado empleado = new BLManejadorEmpleado().obtenerEmpleado(id);
             txtId.Text = empleado.id;

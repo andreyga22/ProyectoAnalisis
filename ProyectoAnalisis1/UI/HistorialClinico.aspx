@@ -3,14 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
-      <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Historial Clínico</li>
-  </ol>
-</nav>
- 
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="PaginaPrincipal.aspx">Principal</a></li>
+            <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Historial Clínico</li>
+        </ol>
+    </nav>
+
 
     <div class="container">
 
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <br />
-                <br />
+            <br />
             <div class="form-row">
                 <div class="form-group col-sm-6">
                     <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="asmaCheck" runat="server" Text="Asma" />
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <br />
-                <br />
+            <br />
             <div class="form-row">
                 <div class="form-group">
                     <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="displidemiaCheck" runat="server" Text="Displidemias" />

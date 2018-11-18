@@ -5,12 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="Principal.aspx">Principal</a></li>
-       <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Consultas</li>
-  </ol>
-</nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="Principal.aspx">Principal</a></li>
+            <li class="breadcrumb-item"><a href="expediente.aspx">Expediente</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Consultas</li>
+        </ol>
+    </nav>
 
     <div class="container">
         <br />
@@ -18,7 +18,7 @@
         <br />
         <asp:Label ID="errorLbl" runat="server" Text="" Visible="false" ForeColor="Red"></asp:Label>
         <div class="row">
-            
+
             <div class="offset-sm-5">
                 <asp:Button ID="agregarBtn" type="button" class="btn btn-danger" runat="server" Text="Agregar" OnClick="agregarBtn_Click" />
             </div>

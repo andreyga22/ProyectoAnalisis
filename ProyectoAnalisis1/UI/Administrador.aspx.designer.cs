@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace UI {
-    
-    
+
+
     public partial class Administrador {
-        
+
         /// <summary>
         /// Control lblTitulo.
         /// </summary>
@@ -20,7 +20,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitulo;
-        
+
         /// <summary>
         /// Control txtId.
         /// </summary>
@@ -29,7 +29,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtId;
-        
+
         /// <summary>
         /// Control lblContra.
         /// </summary>
@@ -38,7 +38,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblContra;
-        
+
         /// <summary>
         /// Control contraText.
         /// </summary>
@@ -47,7 +47,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox contraText;
-        
+
         /// <summary>
         /// Control RegularExpressionValidator3.
         /// </summary>
@@ -56,7 +56,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
-        
+
         /// <summary>
         /// Control nombreText.
         /// </summary>
@@ -65,7 +65,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox nombreText;
-        
+
         /// <summary>
         /// Control chckEstado.
         /// </summary>
@@ -74,7 +74,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chckEstado;
-        
+
         /// <summary>
         /// Control listRol.
         /// </summary>
@@ -83,7 +83,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList listRol;
-        
+
         /// <summary>
         /// Control idGuardar.
         /// </summary>
@@ -92,7 +92,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button idGuardar;
-        
+
         /// <summary>
         /// Control Label1.
         /// </summary>
@@ -101,7 +101,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label1;
-        
+
         /// <summary>
         /// Control gridEmpl.
         /// </summary>

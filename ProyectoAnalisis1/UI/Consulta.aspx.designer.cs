@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace UI {
-    
-    
+
+
     public partial class Consulta {
-        
+
         /// <summary>
         /// errorLbl control.
         /// </summary>
@@ -20,7 +20,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorLbl;
-        
+
         /// <summary>
         /// titulo control.
         /// </summary>
@@ -29,7 +29,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label titulo;
-        
+
         /// <summary>
         /// fecha control.
         /// </summary>
@@ -38,7 +38,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label fecha;
-        
+
         /// <summary>
         /// entrarDoctor control.
         /// </summary>
@@ -47,7 +47,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button entrarDoctor;
-        
+
         /// <summary>
         /// entrarParamedico control.
         /// </summary>
@@ -56,7 +56,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button entrarParamedico;
-        
+
         /// <summary>
         /// RegularExpressionValidator1 control.
         /// </summary>
@@ -65,7 +65,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-        
+
         /// <summary>
         /// priceFieldRequiredValidator control.
         /// </summary>
@@ -74,7 +74,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator priceFieldRequiredValidator;
-        
+
         /// <summary>
         /// precioText control.
         /// </summary>
@@ -83,7 +83,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox precioText;
-        
+
         /// <summary>
         /// guardarBtn control.
         /// </summary>

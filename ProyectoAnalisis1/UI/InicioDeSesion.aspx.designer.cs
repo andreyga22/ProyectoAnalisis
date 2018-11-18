@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace UI {
-    
-    
+
+
     public partial class InicioDeSesion {
-        
+
         /// <summary>
         /// Control lblInicioSesion.
         /// </summary>
@@ -20,7 +20,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInicioSesion;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator1.
         /// </summary>
@@ -29,7 +29,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
+
         /// <summary>
         /// Control txtId.
         /// </summary>
@@ -38,7 +38,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtId;
-        
+
         /// <summary>
         /// Control RequiredFieldValidator2.
         /// </summary>
@@ -47,7 +47,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
+
         /// <summary>
         /// Control txtContra.
         /// </summary>
@@ -56,7 +56,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContra;
-        
+
         /// <summary>
         /// Control btnEntrar.
         /// </summary>
@@ -65,7 +65,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEntrar;
-        
+
         /// <summary>
         /// Control lblError.
         /// </summary>
