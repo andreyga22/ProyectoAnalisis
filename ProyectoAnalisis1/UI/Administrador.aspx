@@ -56,12 +56,13 @@
      <div class="form-group offset-sm-4"">
          <asp:Button ID="idGuardar" class="btn btn-info" runat="server" Text="Guardar" OnClick="idGuardar_Click" style="height: 40px" ValidationGroup="admin" />
          </div>--%>
-      <br />  <br />  <br />
+      <br />  <br />  
         <div class="form-group col-sm-6" style="left: 150px; top: -2px">
     <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8" Text="Empleados"></asp:Label>
         </div>
-      <div class="table-responsive">
-          <asp:GridView ID="gridEmpl" class="table table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gridEmpl_SelectedIndexChanged"></asp:GridView>
+    <br />
+      <div id="popup" style="max-height: 500px; overflow-y: scroll;">
+          <asp:GridView ID="gridEmpl" class="table table-striped table-bordered table-responsive-lg" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gridEmpl_SelectedIndexChanged"></asp:GridView>
     <%--<asp:Table ID="" runat="server"></asp:Table>--%>
         <%--<asp:GridView ID="gridEmpl" runat="server" AutoGenerateSelectButton="True">
         </asp:GridView>--%>

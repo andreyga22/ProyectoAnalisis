@@ -35,8 +35,10 @@
         <div class="row justify-content-center">
             <asp:Button ID="btnEntrar" type="button" class="btn btn-info" runat="server" Text="Entrar" OnClick="entrarBtn_Click" ValidationGroup="entrar" />
         </div>
-        <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Usuario o contraseña incorrecta"></asp:Label>
 
+         <div class="row justify-content-center">
+        <asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Usuario o contraseña incorrecta"></asp:Label>
+             </div>
 
 
     </div>
