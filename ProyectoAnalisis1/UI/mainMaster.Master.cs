@@ -14,5 +14,10 @@ namespace UI {
         protected void linkCerrarSesion_Click(object sender, EventArgs e) {
             Response.Redirect("InicioDeSesion.aspx");
         }
+
+        protected void linkConfigEmplea_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ConfigEmplead.aspx");
+        }
     }
 }
