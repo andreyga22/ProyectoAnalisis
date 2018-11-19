@@ -19,7 +19,7 @@ namespace UI
             //{
             //    agregarFilaEmpleado(blEmp.id, blEmp.contrasenna, blEmp.rol, blEmp.nombreEmpleado, blEmp.estado);
             //}
-
+            lblError.Visible = false;
             revisarLogin();
             cargarGrid();
         }
@@ -52,8 +52,8 @@ namespace UI
                 gridEmpl.DataBind();
                 gridEmpl.HeaderRow.Cells[1].Text = "Identificador";
                 gridEmpl.HeaderRow.Cells[2].Text = "Contraseña";
-                gridEmpl.HeaderRow.Cells[3].Text = "Rol";
-                gridEmpl.HeaderRow.Cells[4].Text = "Nombre";
+                gridEmpl.HeaderRow.Cells[3].Text = "Nombre";
+                gridEmpl.HeaderRow.Cells[4].Text = "Rol";
                 gridEmpl.HeaderRow.Cells[5].Text = "Estado";
 
                 foreach (GridViewRow row in gridEmpl.Rows)
@@ -78,30 +78,46 @@ namespace UI
 
         protected void idGuardar_Click(object sender, EventArgs e)
         {
-            //BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
-            //manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
+            try
+            {
+                BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
+                manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
 
-            //Response.Redirect("Administrador.aspx");
+                Response.Redirect("Administrador.aspx");
+            }
+            catch (Exception)
+            {
+                lblError.Text = "No se pudo guardar el nuevo empleado";
+                lblError.Visible = true;
+            }
+       
         }
 
         protected void gridEmpl_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string id = gridEmpl.SelectedRow.Cells[1].Text;
-            BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
-            BLEmpleado empleado = manejEmpleado.obtenerEmpleado(id);
-            manejEmpleado.crearActualizarEmpleado(new BLEmpleado(empleado.id, empleado.contrasenna, empleado.rol, empleado.nombreEmpleado, !empleado.estado));
-            Response.Redirect("Administrador.aspx");
-            //txtId.Text = empleado.id;
-            ////Response.Write(empleado.id);
-            //contraText.Text = empleado.contrasenna;
-            //listRol.SelectedValue = empleado.rol;
-            //chckEstado.Checked = empleado.estado;
-            //nombreText.Text = empleado.nombreEmpleado;
-            //txtId.Enabled = false;
-            //listRol.Enabled = false;
-            //nombreText.Enabled = false;
-            //contraText.Visible = false;
-            //lblContra.Visible = false;
+            try
+            {
+                string id = gridEmpl.SelectedRow.Cells[1].Text;
+                BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
+                BLEmpleado empleado = manejEmpleado.obtenerEmpleado(id);
+                manejEmpleado.crearActualizarEmpleado(new BLEmpleado(empleado.id, empleado.contrasenna, empleado.rol, empleado.nombreEmpleado, !empleado.estado));
+                Response.Redirect("Administrador.aspx");
+                //BLEmpleado empleado = new BLEmpleado();
+                //txtId.Text = empleado.id;
+                ////Response.Write(empleado.id);
+                //contraText.Text = empleado.contrasenna;
+                //listRol.SelectedValue = empleado.rol;
+                //chckEstado.Checked = empleado.estado;
+                //nombreText.Text = empleado.nombreEmpleado;
+                //txtId.Enabled = false;
+                //listRol.Enabled = false;
+                //nombreText.Enabled = false;
+                //contraText.Visible = false;
+                //lblContra.Visible = false;
+            } catch (Exception)
+            {
+
+            }
         }
 
     }
