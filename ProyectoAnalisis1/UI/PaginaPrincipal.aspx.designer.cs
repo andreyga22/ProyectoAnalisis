@@ -22,15 +22,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
-        /// btnNuevoExp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNuevoExp;
-        
-        /// <summary>
         /// lblTablaDia control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView tablaDia;
+        
+        /// <summary>
+        /// btnNuevoExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNuevoExp;
         
         /// <summary>
         /// lblBuscar control.

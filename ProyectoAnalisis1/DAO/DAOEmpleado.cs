@@ -11,7 +11,6 @@ namespace DAO
 {
     public class DAOEmpleado
     {
-
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
 
         public TOEmpleado buscarEmpleado(string idEmpleado, string contra)
