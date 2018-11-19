@@ -23,12 +23,12 @@ namespace UI {
         }
 
         protected void entrarBtn_Click(object sender, EventArgs e) {
-            String idUsuario = txtId.Text;
-            String contra = txtContra.Text;
-
-            BLEmpleado empleado = new BLManejadorEmpleado().buscarEmpleado(idUsuario, contra);
-
+            
             try {
+                String idUsuario = txtId.Text.Trim();
+                String contra = txtContra.Text.Trim();
+                BLEmpleado empleado = new BLManejadorEmpleado().buscarEmpleado(idUsuario, contra);
+
                 if (empleado.id != null && !empleado.id.Equals("")) {
                     //Session["iEmpleado"] = empleado.id;
                     //Session["rolEmpleado"] = empleado.rol;

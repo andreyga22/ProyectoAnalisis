@@ -13,7 +13,7 @@ namespace DAO
     public class DAOExpediente
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
-
+        SqlConnection conexion2 = new SqlConnection(Properties.Settings.Default.conection);
        
         public TOExpediente consultar(string expId)
         {
@@ -189,6 +189,104 @@ namespace DAO
             }
         }
 
+        public List<TOExpediente> consultarDia() {
+            try {
+                string select = "select * from Lista_dia;";
+                SqlCommand sentencia = new SqlCommand(select, conexion);
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(table);
+                List<TOExpediente> lista = new List<TOExpediente>();
+                List<String> cedulas = new List<String>();
+
+                for (int x = 0; x < table.Rows.Count; x++) {
+                    cedulas.Add( Convert.ToString(table.Rows[x]["CEDULA"]));
+                }
+
+                //conexion.Close();
+
+                for (int i = 0; i < cedulas.Count; i++) {
+                    TOExpediente exp = consultarConAlergia(cedulas[i]);
+                    if (exp != null) {
+                        lista.Add(exp);
+                    }
+                }
+
+                return lista;
+            } catch (SqlException) {
+                throw;
+            } catch (Exception) {
+                throw;
+            } finally {
+                conexion.Close();
+            }
+        }
+
+        private TOExpediente consultarConAlergia(string expId) {
+            try {
+                TOExpediente to = new TOExpediente();
+
+                string select = "select a.cedula  , a.alergias, a.NOMBRE1, a.NOMBRE2, a.APELLIDO1, a.APELLIDO2 from (select expe.cedula  , historial.alergias, expe.NOMBRE1, expe.NOMBRE2, expe.APELLIDO1, expe.APELLIDO2 from (EXPEDIENTE expe join LISTA_DIA lista on expe.CEDULA = lista.CEDULA) left join HISTORIAL_CLINICO historial on lista.CEDULA = historial.CEDULA ) as a where CEDULA = @expid;";
+                SqlCommand sentencia = new SqlCommand(select, conexion2);
+                sentencia.Parameters.AddWithValue("@expid", expId);
+
+                if (conexion2.State != ConnectionState.Open) {
+                    conexion2.Open();
+                }
+
+                SqlDataReader reader = sentencia.ExecuteReader();
+                if (reader.HasRows) {
+                    while (reader.Read()) {
+                        to.cedula = reader.GetString(0);
+                        if (reader.IsDBNull(1) || reader.GetString(1).Equals("")) {
+                            to.alergias = "N/A";
+                        } else {
+                            to.alergias = reader.GetString(1);
+                        }
+                        to.primer_nombre = reader.GetString(2);
+                        to.segundo_nombre = reader.GetString(3);
+                        to.primer_apellido = reader.GetString(4);
+                        to.segundo_apellido = reader.GetString(5);
+                    }
+                }
+
+                if (conexion2.State != ConnectionState.Closed) {
+                    conexion2.Close();
+                }
+                return to;
+            } catch (SqlException) {
+                throw;
+            } catch (Exception) {
+                throw;
+            } finally {
+                conexion2.Close();
+            }
+        }
+
+        public void insertarDia(TOExpediente to) {
+            try {
+                string insert = "insert into Lista_dia (cedula) values (@cedula)";
+                SqlCommand insertar = new SqlCommand(insert, conexion);
+                insertar.Parameters.AddWithValue("@cedula", to.cedula);
+
+                if (conexion.State != System.Data.ConnectionState.Open) {
+                    conexion.Open();
+                }
+
+                insertar.ExecuteNonQuery();
+
+                if (conexion.State != System.Data.ConnectionState.Closed) {
+                    conexion.Close();
+                }
+            } catch (SqlException) {
+                throw;
+            } catch (Exception) {
+                throw;
+            } finally {
+                conexion.Close();
+            }
+        }
 
 
 
@@ -197,12 +295,7 @@ namespace DAO
 
 
 
-
-
-
-
-
-        public void pruebaConexion()
+            public void pruebaConexion()
         {
 
             SqlCommand insertar = new SqlCommand("Insert into DIRECCION values (2, 'alajuela', 'san ramon', 'san ramon', 'porahi')", conexion);

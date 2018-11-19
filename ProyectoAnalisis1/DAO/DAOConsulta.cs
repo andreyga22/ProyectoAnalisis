@@ -159,7 +159,7 @@ namespace DAO
         {
             try
             {
-                string select = "select * from Consulta where cedula = @id;";
+            string select = "select * from Consulta where cedula = @id;";
             SqlCommand sentencia = new SqlCommand(select, conexion);
             sentencia.Parameters.AddWithValue("@id", cedula);
             DataTable table = new DataTable();

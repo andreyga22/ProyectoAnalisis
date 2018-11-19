@@ -22,6 +22,25 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lblError;
         
         /// <summary>
+        /// lblTablaDia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTablaDia;
+        
+        /// <summary>
+        /// tablaDia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView tablaDia;
+        
+        /// <summary>
+        /// btnNuevoExp control.
         /// Control btnNuevoExp.
         /// </summary>
         /// <remarks>
@@ -31,7 +50,16 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Button btnNuevoExp;
         
         /// <summary>
-        /// Control txtbusqCedula.
+        /// lblBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBuscar;
+        
+        /// <summary>
+        /// txtbusqCedula control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

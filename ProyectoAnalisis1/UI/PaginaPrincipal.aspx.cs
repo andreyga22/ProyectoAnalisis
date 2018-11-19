@@ -15,6 +15,22 @@ namespace UI {
             Session["idConsulta"] = "";
             lblNoBusqCedula.Visible = false;
             lblNoBusqNombre.Visible = false;
+            //if (!IsPostBack) {
+            //    cargarDia();
+            //}
+            cargarDia();
+        }
+
+        private void cargarDia() {
+            BLManejadorExpediente ble = new BLManejadorExpediente();
+            List<BLExpediente>  lista = ble.consultarListaDia();
+
+            if (lista.Count > 0) {
+                tablaDia.DataSource = lista;
+                tablaDia.DataBind();
+                invisible();
+                crearTabla2();
+            }
         }
 
         private void revisarLogin() {
@@ -47,6 +63,7 @@ namespace UI {
                     tblBuscar.DataSource = lista;
                     tblBuscar.DataBind();
                     crearTabla();
+                    invisible2();
                     tblBuscar.Visible = true;
                 }
             }
@@ -74,7 +91,7 @@ namespace UI {
                         tblBuscar.DataSource = listaExpediente;
                         tblBuscar.DataBind();
                         crearTabla();
-
+                        invisible2();
                     } else {
                         lblNoBusqNombre.Visible = true;
                         tblBuscar.Visible = false;
@@ -98,6 +115,7 @@ namespace UI {
             tblBuscar.HeaderRow.Cells[9].Text = "Estado Civil";
             tblBuscar.HeaderRow.Cells[10].Text = "Trabajo";
             tblBuscar.HeaderRow.Cells[11].Text = "Sexo";
+            tblBuscar.HeaderRow.Cells[16].Text = "Alergias";
 
             foreach (GridViewRow row in tblBuscar.Rows) {
                 LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
@@ -109,6 +127,63 @@ namespace UI {
             //{
             //    listaConsultaGV.Rows[i].Cells[1].Visible = false;
             //}
+        }
+
+        private void crearTabla2() {
+            tablaDia.HeaderRow.Cells[1].Text = "Cédula";
+            tablaDia.HeaderRow.Cells[2].Text = "Primer Nombre";
+            tablaDia.HeaderRow.Cells[3].Text = "Segundo Nombre";
+            tablaDia.HeaderRow.Cells[4].Text = "Primer Apellido";
+            tablaDia.HeaderRow.Cells[5].Text = "Segundo Apellido";
+            tablaDia.HeaderRow.Cells[6].Text = "Fecha Nacimiento";
+            tablaDia.HeaderRow.Cells[7].Text = "Teléfono";
+            tablaDia.HeaderRow.Cells[8].Text = "Religión";
+            tablaDia.HeaderRow.Cells[9].Text = "Estado Civil";
+            tablaDia.HeaderRow.Cells[10].Text = "Trabajo";
+            tablaDia.HeaderRow.Cells[11].Text = "Sexo";
+            tablaDia.HeaderRow.Cells[16].Text = "Alergias";
+
+            foreach (GridViewRow row in tblBuscar.Rows) {
+                LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
+                lb.Text = "Agregar";
+            }
+
+            //listaContblBuscarsultaGV.HeaderRow.Cells[1].Visible = false;
+            //for (int i = 0; i < listaConsultaGV.Rows.Count; i++)
+            //{
+            //    listaConsultaGV.Rows[i].Cells[1].Visible = false;
+            //}
+        }
+
+        private void invisible() {
+            for (int i = 6; i < 16; i++) {
+                tablaDia.HeaderRow.Cells[i].Visible = false;
+                for (int x = 0; x < tablaDia.Rows.Count; x++) {
+                    tablaDia.Rows[x].Cells[i].Visible = false;
+                }
+            }
+        }
+
+        public void invisible2() {
+            for (int i = 9; i < 16; i++) {
+                tblBuscar.HeaderRow.Cells[i].Visible = false;
+                for (int x = 0; x < tblBuscar.Rows.Count; x++) {
+                    tblBuscar.Rows[x].Cells[i].Visible = false;
+                }
+
+            }
+        }
+
+        protected void tblBuscar_RowEditing(object sender, GridViewEditEventArgs e) {
+            try {
+                BLManejadorExpediente blm = new BLManejadorExpediente();
+                int selected = e.NewEditIndex;
+                tblBuscar.SelectedIndex = selected;
+                blm.insertarDia(new BLExpediente(tblBuscar.SelectedRow.Cells[1].Text.Trim()));
+                Response.Redirect("PaginaPrincipal.aspx");
+            } catch (Exception) {
+                lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
+            }
         }
     }
 }

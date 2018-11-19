@@ -29,6 +29,7 @@ namespace TO
         public String tel3 { get; set; }
         public String descripcion_tel2 { get; set; }
         public String descripcion_tel3 { get; set; }
+        public String alergias { get; set; }
 
         public TOExpediente(string cedula, string primer_nombre, string segundo_nombre, string primer_apellido, string segundo_apellido, DateTime fecha_nacimiento, string num_telefono, string religion, string estado_civil, string tipo_trabajo, String sexo, string tel2, string tel3, string descripcion_tel2, string descripcion_tel3)
         {
@@ -51,6 +52,10 @@ namespace TO
 
         public TOExpediente()
         {
+        }
+
+        public TOExpediente(String cedula) {
+            this.cedula = cedula;
         }
     }
 
