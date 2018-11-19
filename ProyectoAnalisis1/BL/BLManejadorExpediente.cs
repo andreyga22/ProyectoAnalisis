@@ -9,9 +9,6 @@ namespace BL
 {
     public class BLManejadorExpediente
     {
-        public void modificarExpediente() {
-
-        }
 
         public void insertarExpediente(BLExpediente bl) {
             DAOExpediente dao = new DAOExpediente();
@@ -54,7 +51,29 @@ namespace BL
             }
         }
 
-        
+        public List<BLExpediente> consultarListaDia() {
+            try {
+                DAOExpediente dao = new DAOExpediente();
+                List<TOExpediente> listaTO = dao.consultarDia();
+                List<BLExpediente> listaBL = new List<BLExpediente>();
+                foreach (TOExpediente consulta in listaTO) {
+                    listaBL.Add(convertAlergia(consulta));
+                }
+                return listaBL;
+            } catch (Exception) {
+                throw;
+            }
+        }
+
+        public void insertarDia(BLExpediente bl) {
+            try {
+                DAOExpediente dao = new DAOExpediente();
+                dao.insertarDia(convertAlergia(bl));
+            } catch (Exception) {
+                throw;
+            }
+        }
+
 
         private TOExpediente convert(BLExpediente exp) {
             return new TOExpediente(exp.cedula, 
@@ -70,6 +89,25 @@ namespace BL
                 exp.fecha_nacimiento, exp.num_telefono, exp.religion, exp.estado_civil,
                 exp.tipo_trabajo, exp.sexo, exp.tel2, exp.tel3, exp.descripcion_tel2, exp.descripcion_tel3);
         }
+
+        private TOExpediente convertAlergia(BLExpediente exp) {
+            TOExpediente e = new TOExpediente(exp.cedula,
+                exp.primer_nombre, exp.segundo_nombre, exp.primer_apellido, exp.segundo_apellido,
+                exp.fecha_nacimiento, exp.num_telefono, exp.religion, exp.estado_civil,
+                exp.tipo_trabajo, exp.sexo, exp.tel2, exp.tel3, exp.descripcion_tel2, exp.descripcion_tel3);
+            e.alergias = exp.alergias;
+            return e;
+        }
+
+        private BLExpediente convertAlergia(TOExpediente exp) {
+            BLExpediente e = new BLExpediente(exp.cedula,
+                exp.primer_nombre, exp.segundo_nombre, exp.primer_apellido, exp.segundo_apellido,
+                exp.fecha_nacimiento, exp.num_telefono, exp.religion, exp.estado_civil,
+                exp.tipo_trabajo, exp.sexo, exp.tel2, exp.tel3, exp.descripcion_tel2, exp.descripcion_tel3);
+            e.alergias = exp.alergias;
+            return e;
+        }
+
 
         public void prueba() {
             DAOExpediente dao = new DAOExpediente();

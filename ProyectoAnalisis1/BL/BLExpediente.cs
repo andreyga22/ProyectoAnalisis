@@ -29,6 +29,7 @@ namespace BL
         public String tel3 { get; set; }
         public String descripcion_tel2 { get; set; }
         public String descripcion_tel3 { get; set; }
+        public String alergias { get; set; }
 
         public BLExpediente(string cedula, string primer_nombre, string segundo_nombre, string primer_apellido, string segundo_apellido, DateTime fecha_nacimiento, string num_telefono, string religion, string estado_civil, string tipo_trabajo, String sexo, string tel2, string tel3, string descripcion_tel2, string descripcion_tel3)
         {
@@ -47,6 +48,10 @@ namespace BL
             this.tel3 = tel3;
             this.descripcion_tel2 = descripcion_tel2;
             this.descripcion_tel3 = descripcion_tel3;
+        }
+
+        public BLExpediente(String cedula) {
+            this.cedula = cedula;
         }
     }
 }
