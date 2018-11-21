@@ -39,6 +39,11 @@ namespace UI {
                         PupilasText.Text = param.pupilas;
                         PielText.Text = param.piel;
                         NotasParamText.Text = param.nota_param;
+                        if (param.peso != 0 && param.estatura != 0) {
+                            calcularIMC(param);
+                        } else {
+                            imcText.Visible = false;
+                        }
                         lblEmpleado.Text = "Paramédico Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(param.idEmpleado).nombreEmpleado;
                     }
                 }
@@ -65,21 +70,25 @@ namespace UI {
 
                 String a = presionText.Text;
                 blm.insertar(new BLFichaParamedico(0, Convert.ToInt32(Session["idConsulta"]), ((BLEmpleado)Session["empleado"]).id, presionText.Text.Trim(),
-                    Convert.ToInt32(temperaturaText.Text.Trim()), Convert.ToInt32(estaturaText.Text.Trim()),
-                    Convert.ToInt32(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(),
+                    Convert.ToInt32(temperaturaText.Text.Trim()), Convert.ToDouble(estaturaText.Text.Trim()),
+                    Convert.ToDouble(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(),
                     observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
                     Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()),
                     PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
-            } catch (Exception) {
+                Response.Redirect("Consulta.aspx");
+        } catch (Exception) {
                 errorLbl.Visible = true;
                 errorLbl.Text = "Error al guardar los datos de la ficha paramédico. Verifique que los datos sean correctos.";
             }
-        }
+}
 
-        protected void calcularIMC()
+        protected void calcularIMC(BLFichaParamedico ex)
         {
-            int imc = Convert.ToInt32(pesoText.Text.Trim()) / (Convert.ToInt32(estaturaText.Text.Trim()) ^ 2);
-            
+            double esta = ex.estatura / 100;
+            double peso = ex.peso;
+            double elevado = esta * esta;
+            double imc = peso / elevado;
+            imcText.Text = Convert.ToString(imc);
         }
 
     }
