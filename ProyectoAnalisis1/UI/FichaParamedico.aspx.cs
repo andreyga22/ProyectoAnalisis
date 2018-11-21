@@ -70,11 +70,16 @@ namespace UI {
                     observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
                     Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()),
                     PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
-                Response.Redirect("Consulta.aspx");
             } catch (Exception) {
                 errorLbl.Visible = true;
                 errorLbl.Text = "Error al guardar los datos de la ficha paramédico. Verifique que los datos sean correctos.";
             }
+        }
+
+        protected void calcularIMC()
+        {
+            int imc = Convert.ToInt32(pesoText.Text.Trim()) / (Convert.ToInt32(estaturaText.Text.Trim()) ^ 2);
+            
         }
 
     }
