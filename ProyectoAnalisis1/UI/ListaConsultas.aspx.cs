@@ -55,7 +55,7 @@ namespace UI {
                 } else
                 {
                     errorLbl.Visible = true;
-                    errorLbl.Text = "No hay consultas existentes";
+                    errorLbl.Text = "Este expediente no tiene consultas.";
                 }
             
 

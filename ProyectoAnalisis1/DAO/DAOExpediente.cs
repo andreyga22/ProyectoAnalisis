@@ -21,7 +21,7 @@ namespace DAO
             {
                 TOExpediente to = new TOExpediente();
 
-            string select = "select * from expediente where cedula = @ced;";
+            string select = "select distinct * from expediente where lower(cedula) like @ced + '%';";
             SqlCommand sentencia = new SqlCommand(select, conexion);
             sentencia.Parameters.AddWithValue("@ced", expId);
 
@@ -134,8 +134,8 @@ namespace DAO
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 for (int i = 0; i < vectorNombreCompleto.Length; i++)
                 {
-                    select = "select * from expediente where lower(Nombre1) like @nomb or lower(Nombre2) like @nomb or lower(Apellido1) like @nomb or " +
-                      "lower(Apellido2) like @nomb;";
+                    select = "select distinct * from expediente where lower(Nombre1) like @nomb +'%' or lower(Nombre2) like @nomb +'%' or lower(Apellido1) like @nomb +'%'or " +
+                      "lower(Apellido2) like @nomb+'%';";
                     sentencia = new SqlCommand(select, conexion);
                     sentencia.Parameters.AddWithValue("@nomb", vectorNombreCompleto[i]);
                     adapter.SelectCommand = sentencia;
@@ -161,20 +161,20 @@ namespace DAO
                         expediente.tel3 = Convert.ToString(table.Rows[x]["TEL3"]);
                         
 
-                        if (lista.Count == 0)
-                        {
+                        //if (lista.Count == 0)
+                        //{
                             lista.Add(expediente);
-                        }
-                        else
-                        {
-                            for (int j = 0; j < lista.Count; j++)
-                            {
-                                if (!lista[j].cedula.Equals(expediente.cedula))
-                                {
-                                    lista.Add(expediente);
-                                }
-                            }
-                        }
+                        //}
+                        //else
+                        //{
+                        //    for (int j = 0; j < lista.Count; j++)
+                        //    {
+                        //        if (!lista[j].cedula.Equals(expediente.cedula))
+                        //        {
+                        //            lista.Add(expediente);
+                        //        }
+                        //    }
+                        //}
                     }
                 }
                 return lista;
