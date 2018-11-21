@@ -41,12 +41,12 @@
 
         <div class="form-group col-sm-3">
             <label for="lblContra">Nombre:</label>
-            <asp:TextBox ID="txtNombre" runat="server" BorderColor="#16ACB8"></asp:TextBox>
+            <asp:TextBox ID="txtNombre" runat="server" BorderColor="#16ACB8" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Obligatorio" ForeColor="Red" ValidationGroup="entrar"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group col-sm-3">
             <label for="lblContra">Contraseña:</label>
-            <asp:TextBox ID="txtContra" runat="server" BorderColor="#16ACB8"></asp:TextBox>
+            <asp:TextBox ID="txtContra" runat="server" BorderColor="#16ACB8" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtContra" ErrorMessage="Campo obligatorio" ForeColor="Red" ValidationGroup="entrar"></asp:RequiredFieldValidator>
         </div>
     </div>

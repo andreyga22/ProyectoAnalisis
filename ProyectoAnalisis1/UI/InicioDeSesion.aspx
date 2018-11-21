@@ -20,14 +20,14 @@
             <div class="form-group col-sm-5">
                 <label for="txtId">Identificador</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtId" ErrorMessage="RequiredFieldValidator" Font-Bold="True" ForeColor="Red" ValidationGroup="entrar">Espacio necesario</asp:RequiredFieldValidator>
-                <asp:TextBox type="text" class="form-control" ID="txtId" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="txtId" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) {return false;}"></asp:TextBox>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="form-group col-sm-5">
                 <label for="txtContra">Contraseña</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtContra" ErrorMessage="RequiredFieldValidator" Font-Bold="True" ForeColor="Red" ValidationGroup="entrar">Espacio necesario</asp:RequiredFieldValidator>
-                <asp:TextBox type="text" class="form-control" ID="txtContra" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" TextMode="Password"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="txtContra" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}" TextMode="Password"></asp:TextBox>
             </div>
         </div>
         <br />
