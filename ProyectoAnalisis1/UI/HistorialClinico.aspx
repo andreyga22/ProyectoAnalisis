@@ -27,7 +27,7 @@
         <br />
         <div class="form-group">
             <asp:Label ID="lblGrupoSanguineo" runat="server" Text="Grupo Sanguíneo"></asp:Label>
-            <asp:TextBox ID="txtGrupoSanguineo" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox ID="txtGrupoSanguineo" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <br />
         <div class="form-row">
@@ -37,31 +37,31 @@
         <div class="container">
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="htaCheck" runat="server" Text="HTA" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="htaCheck" runat="server" Text="HTA" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
                 <br />
                 <br />
                 <div class="form-group col-sm-6">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="dMCheck" runat="server" Text="DM" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="dMCheck" runat="server" Text="DM" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
             </div>
             <br />
             <br />
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="asmaCheck" runat="server" Text="Asma" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="asmaCheck" runat="server" Text="Asma" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
                 <br />
                 <br />
                 <div class="form-group col-sm-6">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="epilepsiaCheck" runat="server" Text="Epilepsia" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="epilepsiaCheck" runat="server" Text="Epilepsia" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
             </div>
             <br />
             <br />
             <div class="form-row">
                 <div class="form-group">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="displidemiaCheck" runat="server" Text="Displidemias" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="displidemiaCheck" runat="server" Text="Displidemias" onkeypress="if (event.keyCode == 13) { return false;}" />
                 </div>
             </div>
         </div>
@@ -71,17 +71,17 @@
         <div class="form-group">
             <label for="cardiacaText">Enfermedades cardíacas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="txtenfCardiacas" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="txtenfCardiacas" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="psiquiatricasText">Enfermedades psiquiátricas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="txtpsiquiatricas" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="txtpsiquiatricas" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="otrasPatologicasText">Otras enfermedades personales patológicas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="txtOtraspatolog" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="txtOtraspatolog" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <br />
@@ -93,17 +93,17 @@
         <div class="container">
             <div class="form-row">
                 <div class="form-group col-sm-4">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="licorCheck" runat="server" Text="Licor" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="licorCheck" runat="server" Text="Licor" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
                 <br />
                 <br />
                 <div class="form-group col-sm-4">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="drogasCheck" runat="server" Text="Drogas" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="drogasCheck" runat="server" Text="Drogas" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
                 <br />
                 <br />
                 <div class="form-group col-sm-4">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="fumaCheck" runat="server" Text="Fuma" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="fumaCheck" runat="server" Text="Fuma" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
             </div>
         </div>
@@ -111,13 +111,13 @@
         <div class="form-group">
             <label for="alergiasText">Alergias</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lastNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="Textalergias" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="Textalergias" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="otrasPatologicasText">Otras enfermedades personales no patológicas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="secondNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="TextotrasNoPatologicas" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="TextotrasNoPatologicas" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
 
@@ -138,12 +138,12 @@
 
             <div class="form-row">
                 <div class="form-group col-sm-4">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="menarcaCheck" runat="server" Text="Menarca" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="menarcaCheck" runat="server" Text="Menarca" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
                 <br />
                 <br />
                 <div class="form-group col-sm-4">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="endometriosisCheck" runat="server" Text="Endometriosis" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="endometriosisCheck" runat="server" Text="Endometriosis" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
             </div>
         </div>
@@ -153,7 +153,7 @@
             <label for="embarazos">Embarazos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="idText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="embarazosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
-            <asp:TextBox type="text" class="form-control" ID="embarazosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="embarazosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
 
@@ -163,23 +163,23 @@
             <label for="abortosText">Abortos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="abortosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
-            <asp:TextBox type="text" class="form-control" ID="abortosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="abortosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="quistesOvaricosText">Quistes Ováricos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="provinciaText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="quistesOvaricosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
-            <asp:TextBox type="text" class="form-control" ID="quistesOvaricosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="quistesOvaricosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="otrosGinecobstetricoText">Otras enfermedades ginecobstétricos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="cantonText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="otrosGinecobstetricoText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="otrosGinecobstetricoText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <div class="form-group offset-md-4 col-sm-4">
             <label for="furText">FUR</label>
-            <asp:Calendar ID="furCalend" runat="server"></asp:Calendar>
+            <asp:Calendar ID="furCalend" runat="server" onkeypress="if (event.keyCode == 13) { return false;}"></asp:Calendar>
         </div>
 
         <br />
@@ -194,12 +194,12 @@
         <div class="container">
             <div class="form-row">
                 <div class="form-group col-sm-6">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="cordalesCheck" runat="server" Text="Cordales" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="cordalesCheck" runat="server" Text="Cordales" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
                 <br />
                 <br />
                 <div class="form-group col-sm-6">
-                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="apendiceCheck" runat="server" Text="Apéndice" />
+                    <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="apendiceCheck" runat="server" Text="Apéndice" onkeypress="if (event.keyCode == 13) { return false;}"/>
                 </div>
             </div>
         </div>
@@ -207,29 +207,29 @@
         <div class="form-group">
             <label for="fracturasText">Fracturas</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="religionText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="fracturasText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="fracturasText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="vesiculaText">Vesícula</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="estadoCivilText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="vesiculaText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="vesiculaText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="litiasisText">Litiásis</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="litiasisText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="litiasisText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="columnaText">Columna</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="columnaText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="columnaText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="otrosQuirugicosText">Otros Quirúgicos</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="otrosQuirugicosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="otrosQuirugicosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
         <br />
 
@@ -240,49 +240,49 @@
         <div class="form-group">
             <label for="dMFamText">DM Familiar</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="dMFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="dMFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="HTAFamText">HTA Familiar</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="HTAFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="HTAFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="asmaFamText">Asma Familiar</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="asmaFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="asmaFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="cancerFamText">Cáncer Familiar</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="cancerFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="cancerFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="epilepsiaFamText">Epilepsia Familiar</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="epilepsiaFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="epilepsiaFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="demenciasFamText">Demencias Familiar</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="demenciasFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="demenciasFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="psicofamiliaresText">Enfermedades Psicofamiliares</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="psicofamiliaresText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="psicofamiliaresText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="otrosFamText">Otras enfermedades Familiares</label>
             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="trabajoText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
-            <asp:TextBox type="text" class="form-control" ID="otrosFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <asp:TextBox type="text" class="form-control" ID="otrosFamText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
 
         <br />
