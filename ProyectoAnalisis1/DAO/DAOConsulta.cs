@@ -46,7 +46,7 @@ namespace DAO
             try
             {
 
-                string select = "select id_consulta from consulta where cedula = @cedula;";
+                string select = "select id_consulta from consulta where cedula = @cedula order by fecha;";
                 SqlCommand sentencia = new SqlCommand(select, conexion);
                 sentencia.Parameters.AddWithValue("@cedula", cedula);
                 int to = -1;

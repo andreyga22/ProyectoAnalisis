@@ -11,7 +11,7 @@ namespace UI {
     public partial class WebForm1 : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             revisarLogin();
-
+            Response.Write(((BLEmpleado)Session["empleado"]).id);
             Session["cedula"] = "";
             Session["idConsulta"] = "";
             lblNoBusqCedula.Visible = false;
@@ -208,7 +208,6 @@ namespace UI {
                 tablaDia.SelectedIndex = selected;
                 ble.borrarDia(tablaDia.SelectedRow.Cells[2].Text.Trim());
                 Response.Redirect("PaginaPrincipal.aspx");
-
             } catch (Exception) {
                 lblError.Text = "Error al borrar el expediente de la lista de consultas del día.";
             }

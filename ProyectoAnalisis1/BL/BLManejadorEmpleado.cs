@@ -35,11 +35,13 @@ namespace BL
             {
                 DAOEmpleado daoEmplead = new DAOEmpleado();
                 TOEmpleado empleadoTO = daoEmplead.obtenerEmpleado(idEmpleado);
-                if (empleadoTO == null)
-                {
-                    return null;
-                }
-                return new BLEmpleado(empleadoTO.id, empleadoTO.contrasenna, empleadoTO.rol, empleadoTO.nombreEmpleado, empleadoTO.estado);
+                //if (empleadoTO == null)
+                //{
+                //    return null;
+                //}
+
+
+                return convert(empleadoTO);
             }
             catch (Exception)
             {

@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace UI {
-
-
+    
+    
     public partial class FichaParamedico {
-
+        
         /// <summary>
         /// errorLbl control.
         /// </summary>
@@ -20,7 +20,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorLbl;
-
+        
         /// <summary>
         /// titulo control.
         /// </summary>
@@ -29,7 +29,16 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label titulo;
-
+        
+        /// <summary>
+        /// lblEmpleado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEmpleado;
+        
         /// <summary>
         /// presionText control.
         /// </summary>
@@ -38,7 +47,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox presionText;
-
+        
         /// <summary>
         /// RegularExpressionValidator1 control.
         /// </summary>
@@ -47,7 +56,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-
+        
         /// <summary>
         /// temperaturaText control.
         /// </summary>
@@ -56,7 +65,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox temperaturaText;
-
+        
         /// <summary>
         /// RegularExpressionValidator2 control.
         /// </summary>
@@ -65,7 +74,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
-
+        
         /// <summary>
         /// estaturaText control.
         /// </summary>
@@ -74,7 +83,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox estaturaText;
-
+        
         /// <summary>
         /// RegularExpressionValidator3 control.
         /// </summary>
@@ -83,7 +92,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
-
+        
         /// <summary>
         /// pesoText control.
         /// </summary>
@@ -92,7 +101,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox pesoText;
-
+        
         /// <summary>
         /// glicemiaText control.
         /// </summary>
@@ -101,7 +110,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox glicemiaText;
-
+        
         /// <summary>
         /// oximetriaText control.
         /// </summary>
@@ -110,7 +119,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox oximetriaText;
-
+        
         /// <summary>
         /// RegularExpressionValidator4 control.
         /// </summary>
@@ -119,7 +128,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
-
+        
         /// <summary>
         /// GlasgowText control.
         /// </summary>
@@ -128,7 +137,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox GlasgowText;
-
+        
         /// <summary>
         /// RegularExpressionValidator5 control.
         /// </summary>
@@ -137,7 +146,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
-
+        
         /// <summary>
         /// Frec_CardText control.
         /// </summary>
@@ -146,7 +155,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Frec_CardText;
-
+        
         /// <summary>
         /// RegularExpressionValidator6 control.
         /// </summary>
@@ -155,7 +164,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
-
+        
         /// <summary>
         /// Frec_RespText control.
         /// </summary>
@@ -164,7 +173,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Frec_RespText;
-
+        
         /// <summary>
         /// PupilasText control.
         /// </summary>
@@ -173,7 +182,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PupilasText;
-
+        
         /// <summary>
         /// PielText control.
         /// </summary>
@@ -182,7 +191,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PielText;
-
+        
         /// <summary>
         /// observacionesText control.
         /// </summary>
@@ -191,7 +200,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox observacionesText;
-
+        
         /// <summary>
         /// NotasParamText control.
         /// </summary>
@@ -200,7 +209,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox NotasParamText;
-
+        
         /// <summary>
         /// guardarBtn control.
         /// </summary>

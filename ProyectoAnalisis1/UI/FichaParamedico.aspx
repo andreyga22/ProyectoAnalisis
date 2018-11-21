@@ -24,6 +24,8 @@
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Ficha de Paramédico" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
         </div>
+        <asp:Label ID="lblEmpleado" runat="server" Text=""></asp:Label>
+
 
         <div class="form-group offset-sm-11">
         </div>
