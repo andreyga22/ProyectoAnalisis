@@ -74,6 +74,16 @@ namespace BL
             }
         }
 
+        public void borrarDia(string ced) {
+            try {
+                new DAOExpediente().borrarDia(ced);
+            } catch (Exception) {
+                throw;
+            }
+        }
+
+
+
 
         private TOExpediente convert(BLExpediente exp) {
             return new TOExpediente(exp.cedula, 
