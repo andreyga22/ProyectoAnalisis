@@ -18,16 +18,18 @@ namespace UI {
                 if (!IsPostBack) {
                     BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
                     BLFichaDoctor doc = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
-                    motivoText.Text = doc.motivoConsulta;
-                    examenText.Text = doc.examenFisico;
-                    planText.Text = doc.plan;
-                    BLManejadorFoto blf = new BLManejadorFoto();
-                    BLFoto foto = blf.consultar(Convert.ToInt32(Session["idConsulta"]));
-                    image.ImageUrl = foto.url;
-                    image.Visible = true;
-                    //lblEmpleado.Text = "Doctor Encargado: " + blEmplea.obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
-                } else {
-                    //lblEmpleado.Text = "Doctor Encargado: " + blEmplea.obtenerEmpleado(Convert.ToString(Session["iEmpleado"])).nombreEmpleado;
+                    if (doc.idDoctor == 0) {
+                        lblEmpleado.Visible = false;
+                    } else {
+                        motivoText.Text = doc.motivoConsulta;
+                        examenText.Text = doc.examenFisico;
+                        planText.Text = doc.plan;
+                        BLManejadorFoto blf = new BLManejadorFoto();
+                        BLFoto foto = blf.consultar(Convert.ToInt32(Session["idConsulta"]));
+                        image.ImageUrl = foto.url;
+                        image.Visible = true;
+                        lblEmpleado.Text = "Doctor Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
+                    }
                 }
             } catch (Exception) {
                 errorLbl.Visible = true;
@@ -47,10 +49,9 @@ namespace UI {
         }
 
         protected void guardarBtn_Click(object sender, EventArgs e) {
-            //try
-            //{
-            BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
-            blm.insertar(new BLFichaDoctor(Convert.ToInt32(Session["idConsulta"]), Convert.ToInt32(Session["idConsulta"]), Convert.ToString(Session["iEmpleado"]), motivoText.Text.Trim(), examenText.Text.Trim(), planText.Text.Trim()));
+            try {
+                BLManejadorFichaDoctor blm = new BLManejadorFichaDoctor();
+            blm.insertar(new BLFichaDoctor(Convert.ToInt32(Session["idConsulta"]), Convert.ToInt32(Session["idConsulta"]), ((BLEmpleado)Session["empleado"]).id, Convert.ToString(motivoText.Text.Trim()), Convert.ToString(examenText.Text.Trim()), Convert.ToString(planText.Text.Trim())));
 
 
             if (foto.HasFile) {
@@ -62,12 +63,12 @@ namespace UI {
                     errorLbl.Text = "No se pudo guardar la foto en el servidor";
                 }
             }
-            //}
-            //catch (Exception)
-            //{
-            //    errorLbl.Visible = true;
-            //    errorLbl.Text = "Error al guardar los datos de la ficha doctor. Verifique que los datos sean correctos.";
-            //}
+
+                Response.Redirect("Consulta.aspx");
+            } catch (Exception) {
+                errorLbl.Visible = true;
+                errorLbl.Text = "Error al guardar los datos de la ficha doctor. Verifique que los datos sean correctos.";
+            }
         }
 
 

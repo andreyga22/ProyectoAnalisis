@@ -227,7 +227,7 @@ namespace DAO
             try {
                 TOExpediente to = new TOExpediente();
 
-                string select = "select a.cedula  , a.alergias, a.NOMBRE1, a.NOMBRE2, a.APELLIDO1, a.APELLIDO2 from (select expe.cedula  , historial.alergias, expe.NOMBRE1, expe.NOMBRE2, expe.APELLIDO1, expe.APELLIDO2 from (EXPEDIENTE expe join LISTA_DIA lista on expe.CEDULA = lista.CEDULA) left join HISTORIAL_CLINICO historial on lista.CEDULA = historial.CEDULA ) as a where CEDULA = @expid;";
+                string select = "select a.cedula  , a.alergias, a.NOMBRE1, a.NOMBRE2, a.APELLIDO1, a.APELLIDO2, a.numero_telefono from (select expe.cedula  , historial.alergias, expe.NOMBRE1, expe.NOMBRE2, expe.APELLIDO1, expe.APELLIDO2, expe.numero_telefono from (EXPEDIENTE expe join LISTA_DIA lista on expe.CEDULA = lista.CEDULA) left join HISTORIAL_CLINICO historial on lista.CEDULA = historial.CEDULA ) as a where CEDULA = @expid;";
                 SqlCommand sentencia = new SqlCommand(select, conexion2);
                 sentencia.Parameters.AddWithValue("@expid", expId);
 
@@ -248,6 +248,7 @@ namespace DAO
                         to.segundo_nombre = reader.GetString(3);
                         to.primer_apellido = reader.GetString(4);
                         to.segundo_apellido = reader.GetString(5);
+                        to.num_telefono = reader.GetString(6);
                     }
                 }
 
@@ -288,7 +289,30 @@ namespace DAO
             }
         }
 
+        public void borrarDia(string cedula) {
+            try {
+                String qry = "DELETE FROM lista_dia WHERE cedula = @ced; ";
+                SqlCommand comando = new SqlCommand(qry, conexion);
+                comando.Parameters.AddWithValue("@ced", cedula);
 
+                if (conexion.State != System.Data.ConnectionState.Open) {
+                    conexion.Open();
+                }
+
+                comando.ExecuteNonQuery();
+
+                if (conexion.State != System.Data.ConnectionState.Closed) {
+                    conexion.Close();
+                }
+
+            } catch (SqlException) {
+                throw;
+            } catch (Exception) {
+                throw;
+            } finally {
+                conexion.Close();
+            }
+        }
 
 
 
