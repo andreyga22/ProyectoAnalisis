@@ -11,7 +11,6 @@ namespace UI {
     public partial class WebForm1 : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             revisarLogin();
-            Response.Write(((BLEmpleado)Session["empleado"]).id);
             Session["cedula"] = "";
             Session["idConsulta"] = "";
             lblNoBusqCedula.Visible = false;
@@ -53,28 +52,26 @@ namespace UI {
         }
 
         protected void buscarCedula_Click(object sender, EventArgs e) {
-            try {
+            //try {
                 if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim()))) {
                 BLManejadorExpediente manejador = new BLManejadorExpediente();
-                BLExpediente expediente = manejador.consultarExpediente(txtbusqCedula.Text);
-                if (String.IsNullOrEmpty(expediente.cedula) || (String.IsNullOrWhiteSpace(expediente.cedula))) {
-                    lblNoBusqCedula.Visible = true;
-                    tblBuscar.Visible = false;
-                } else {
-                    List<BLExpediente> lista = new List<BLExpediente>();
-                    lista.Add(expediente);
-                    tblBuscar.DataSource = lista;
-                    tblBuscar.DataBind();
-                    crearTabla();
-                    invisible2();
-                    tblBuscar.Visible = true;
+                List<BLExpediente> expediente = manejador.consultarListaCedula(txtbusqCedula.Text.Trim());
+                    if (expediente.Count > 0) {
+                        tblBuscar.Visible = true;
+                        tblBuscar.DataSource = expediente;
+                        tblBuscar.DataBind();
+                        crearTabla();
+                        invisible2();
+                    } else {
+                        lblNoBusqCedula.Visible = true;
+                        tblBuscar.Visible = false;
+                    }
                 }
-            }
-            } catch (Exception) {
-                lblError.Visible = true;
-                lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
-            }
-        }
+        //} catch (Exception) {
+        //        lblError.Visible = true;
+        //        lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
+        //    }
+}
 
         protected void listaBusq_SelectedIndexChanged(object sender, EventArgs e) {
             string id = tblBuscar.SelectedRow.Cells[2].Text.Trim();
@@ -185,7 +182,7 @@ namespace UI {
                 BLManejadorExpediente blm = new BLManejadorExpediente();
                 int selected = e.NewEditIndex;
                 tblBuscar.SelectedIndex = selected;
-                blm.insertarDia(new BLExpediente(tblBuscar.SelectedRow.Cells[2].Text.Trim()));
+                blm.insertarDia(tblBuscar.SelectedRow.Cells[2].Text.Trim());
                 Response.Redirect("PaginaPrincipal.aspx");
             } catch (Exception) {
                 lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";

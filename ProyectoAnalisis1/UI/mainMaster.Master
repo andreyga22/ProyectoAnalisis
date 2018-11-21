@@ -31,7 +31,8 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-info">
             <a class="navbar-brand" href="PaginaPrincipal.aspx">
-                <img src="img/logo.png" height="50" class="d-inline-block align-top" alt="">
+                <%--<img src="img/logo.png" height="50" class="d-inline-block align-top" alt="">--%>
+                <asp:Image ID="logo" src="img/logo.png" height="50" class="d-inline-block align-top" alt="" OnClick="cambiar" runat="server" />
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

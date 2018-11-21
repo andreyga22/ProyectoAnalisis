@@ -14,16 +14,62 @@ namespace DAO
     {
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
         SqlConnection conexion2 = new SqlConnection(Properties.Settings.Default.conection);
-       
+
+        public List<TOExpediente> consultarListaCedula(string expId) {
+
+            try {
+                string select = "select distinct * from expediente where cedula like @ced +'%';";
+                SqlCommand sentencia = new SqlCommand(select, conexion);
+                sentencia.Parameters.AddWithValue("@ced", expId);
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(table);
+                List<TOExpediente> lista = new List<TOExpediente>();
+
+                for (int x = 0; x < table.Rows.Count; x++) {
+                    TOExpediente expediente = new TOExpediente();
+                    expediente.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
+                    expediente.primer_nombre = Convert.ToString(table.Rows[x]["Nombre1"]);
+                    expediente.segundo_nombre = Convert.ToString(table.Rows[x]["Nombre2"]);
+                    expediente.primer_apellido = Convert.ToString(table.Rows[x]["Apellido1"]);
+                    expediente.segundo_apellido = Convert.ToString(table.Rows[x]["Apellido2"]);
+                    expediente.fecha_nacimiento = Convert.ToDateTime(table.Rows[x]["FECHA_NACIMIENTO"]);
+                    expediente.num_telefono = Convert.ToString(table.Rows[x]["NUMERO_TELEFONO"]);
+                    expediente.religion = Convert.ToString(table.Rows[x]["RELIGION"]);
+                    expediente.estado_civil = Convert.ToString(table.Rows[x]["ESTADO_CIVIL"]);
+                    expediente.tipo_trabajo = Convert.ToString(table.Rows[x]["TIPO_TRABAJO"]);
+                    expediente.sexo = Convert.ToString(table.Rows[x]["SEXO"]);
+                    expediente.descripcion_tel2 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL2"]);
+                    expediente.descripcion_tel3 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL3"]);
+                    expediente.tel2 = Convert.ToString(table.Rows[x]["TEL2"]);
+                    expediente.tel3 = Convert.ToString(table.Rows[x]["TEL3"]);
+
+                    lista.Add(expediente);
+                }
+
+                return lista;
+            } catch (SqlException) {
+                throw;
+            } catch (Exception) {
+                throw;
+            } finally {
+                conexion.Close();
+            }
+
+
+
+        }
+
         public TOExpediente consultar(string expId)
         {
             try
             {
                 TOExpediente to = new TOExpediente();
 
-            string select = "select distinct * from expediente where lower(cedula) like @ced + '%';";
+            string select = "select * from expediente where CEDULA = @expid;";
             SqlCommand sentencia = new SqlCommand(select, conexion);
-            sentencia.Parameters.AddWithValue("@ced", expId);
+            sentencia.Parameters.AddWithValue("@expid", expId);
 
             if (conexion.State != ConnectionState.Open)
             {
@@ -50,7 +96,6 @@ namespace DAO
                         to.descripcion_tel3 = reader.GetString(12);
                         to.tel2 = reader.GetString(13);
                         to.tel3 = reader.GetString(14);
-                        
                     }
             }
 
@@ -265,11 +310,11 @@ namespace DAO
             }
         }
 
-        public void insertarDia(TOExpediente to) {
+        public void insertarDia(string cedula) {
             try {
                 string insert = "insert into Lista_dia (cedula) values (@cedula)";
                 SqlCommand insertar = new SqlCommand(insert, conexion);
-                insertar.Parameters.AddWithValue("@cedula", to.cedula);
+                insertar.Parameters.AddWithValue("@cedula", cedula);
 
                 if (conexion.State != System.Data.ConnectionState.Open) {
                     conexion.Open();

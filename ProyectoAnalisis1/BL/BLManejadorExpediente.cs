@@ -42,6 +42,20 @@ namespace BL
             }
         }
 
+        public List<BLExpediente> consultarListaCedula(string cedula) {
+            try {
+                DAOExpediente dao = new DAOExpediente();
+                List<TOExpediente> listaTO = dao.consultarListaCedula(cedula);
+                List<BLExpediente> listaBL = new List<BLExpediente>();
+                foreach (TOExpediente consulta in listaTO) {
+                    listaBL.Add(convert(consulta));
+                }
+                return listaBL;
+            } catch (Exception) {
+                throw;
+            }
+        }
+
         public BLExpediente consultarExpediente(string cedula) {
             try {
                 DAOExpediente dao = new DAOExpediente();
@@ -65,10 +79,10 @@ namespace BL
             }
         }
 
-        public void insertarDia(BLExpediente bl) {
+        public void insertarDia(string cedula) {
             try {
                 DAOExpediente dao = new DAOExpediente();
-                dao.insertarDia(convertAlergia(bl));
+                dao.insertarDia(cedula);
             } catch (Exception) {
                 throw;
             }

@@ -85,10 +85,22 @@ namespace UI {
                 //int idConsultaNueva = manejador.consultarUltimo(Convert.ToString(Session["cedula"]));
                 int idConsultaNueva = manejador.consultarUltimoConsultaID();
                 Session["idConsulta"] = idConsultaNueva;
-                Response.Redirect("Consulta.aspx");
+
             } catch (Exception) {
                 errorLbl.Visible = true;
                 errorLbl.Text = "Error al guardar los datos de la consulta. Verifique que los datos sean correctos.";
+            }
+            guardarEnListaDia();
+}
+
+        public void guardarEnListaDia() {
+            try {
+                BLManejadorExpediente blme = new BLManejadorExpediente();
+                blme.insertarDia(Convert.ToString(Session["cedula"]));
+                Response.Redirect("Consulta.aspx");
+            } catch (Exception) {
+                errorLbl.Visible = true;
+                errorLbl.Text = "Error al agregar el expediente a la lista de consultas del día.";
             }
         }
 

@@ -8,7 +8,7 @@ using BL;
 namespace UI {
     public partial class expediente : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            try {
+            //try {
                 revisarLogin();
 
                 BLEmpleado emp = (BLEmpleado)(Session["empleado"]);
@@ -78,13 +78,14 @@ namespace UI {
                     btnHistorialClinico.Enabled = false;
                 }
                 //}
-            } catch (Exception) {
-                errorlbl.Visible = true;
-                errorlbl.Text = "Error al cargar los datos del expediente. Verifique su conexion a internet y regrese a la página principal";
-            }
+            //} catch (Exception) {
+            //    errorlbl.Visible = true;
+            //    errorlbl.Text = "Error al cargar los datos del expediente. Verifique su conexion a internet y regrese a la página principal";
+            //}
 
 
         }
+
         private void revisarLogin() {
             BLEmpleado emp = (BLEmpleado)Session["empleado"];
             if (emp == null) {

@@ -62,7 +62,7 @@
             <div class="form-group col-sm-6">
                 <label for="imcText">IMC</label>
                 <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Campo Requerido" ControlToValidate="lastNameText2"></asp:RequiredFieldValidator>--%>
-                <asp:TextBox type="text" class="form-control" ID="imcText"  runat="server" BorderColor="#16ACB8" BorderStyle="Solid" Enabled="False"></asp:TextBox>
+                <%--<asp:TextBox type="text" class="form-control" ID="imcText"  runat="server" BorderColor="#16ACB8" BorderStyle="Solid" Enabled="False"></asp:TextBox>--%>
                 <asp:TextBox type="text" class="form-control" ID="imcText"  runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}" Enabled="false"></asp:TextBox>
             </div>
         </div>
