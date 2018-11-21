@@ -129,8 +129,8 @@ namespace DAO
                 {
                     to.presionArterial = reader.GetString(0);
                     to.temperatura = reader.GetInt32(1);
-                    to.estatura = reader.GetInt32(2);
-                    to.peso = reader.GetInt32(3);
+                    to.estatura = reader.GetDouble(2);
+                    to.peso = reader.GetDouble(3);
                     to.glicemia = reader.GetString(4);
                     to.oximetria_Pulso = reader.GetString(5);
                     to.id_Paramedico = reader.GetInt32(6);

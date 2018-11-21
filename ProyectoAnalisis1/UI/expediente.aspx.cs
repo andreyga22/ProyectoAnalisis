@@ -115,6 +115,7 @@ namespace UI {
                     btnHistorialClinico.Enabled = true;
                     historialBtn.Visible = true;
                     historialBtn.Enabled = true;
+                    ultimaBtn.Enabled = false;
                 }
 
                 //firstNameText.Visible = false;
