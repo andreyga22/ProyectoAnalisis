@@ -30,25 +30,34 @@ namespace UI {
                 BLManejadorConsulta manejador = new BLManejadorConsulta();
                 List<BLConsulta> lista = manejador.listaConsultasOrdenado(Convert.ToString(Session["cedula"]));
 
-                //listaConsultaGV.Columns[1].Visible = false;
-                listaConsultaGV.DataSource = lista;
+                if (lista.Count > 0)
+                {
+                    //listaConsultaGV.Columns[1].Visible = false;
+                    listaConsultaGV.DataSource = lista;
 
-                listaConsultaGV.DataBind();
-                listaConsultaGV.HeaderRow.Cells[1].Text = "Numero";
-                listaConsultaGV.HeaderRow.Cells[2].Text = "Fecha";
-                listaConsultaGV.HeaderRow.Cells[3].Text = "Cédula";
-                listaConsultaGV.HeaderRow.Cells[4].Text = "Precio";
+                    listaConsultaGV.DataBind();
+                    listaConsultaGV.HeaderRow.Cells[1].Text = "Numero";
+                    listaConsultaGV.HeaderRow.Cells[2].Text = "Fecha";
+                    listaConsultaGV.HeaderRow.Cells[3].Text = "Cédula";
+                    listaConsultaGV.HeaderRow.Cells[4].Text = "Precio";
 
-                foreach (GridViewRow row in listaConsultaGV.Rows) {
-                    LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
-                    lb.Text = "Seleccionar";
+                    foreach (GridViewRow row in listaConsultaGV.Rows)
+                    {
+                        LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
+                        lb.Text = "Seleccionar";
+                    }
+
+                    listaConsultaGV.HeaderRow.Cells[1].Visible = false;
+                    for (int i = 0; i < listaConsultaGV.Rows.Count; i++)
+                    {
+                        listaConsultaGV.Rows[i].Cells[1].Visible = false;
+                    }
+                } else
+                {
+                    errorLbl.Visible = true;
+                    errorLbl.Text = "No hay consultas existentes";
                 }
-
-                listaConsultaGV.HeaderRow.Cells[1].Visible = false;
-                for (int i = 0; i < listaConsultaGV.Rows.Count; i++) {
-                    listaConsultaGV.Rows[i].Cells[1].Visible = false;
-                }
-
+            
 
                 //listaConsultaGV.Columns[0].Visible = false;
             } catch (Exception) {
