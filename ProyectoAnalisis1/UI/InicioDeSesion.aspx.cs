@@ -32,11 +32,17 @@ namespace UI {
                 if (empleado.id != null && !empleado.id.Equals("")) {
                     //Session["iEmpleado"] = empleado.id;
                     //Session["rolEmpleado"] = empleado.rol;
-                    Session["empleado"] = empleado;
-                    if (empleado.rol.Equals("Admin")) {
-                        Response.Redirect("Administrador.aspx");
-                    } else {
-                        Response.Redirect("PaginaPrincipal.aspx");
+                    if (empleado.estado == true) {
+                        Session["empleado"] = empleado;
+                        if (empleado.rol.Equals("Admin")) {
+                            Response.Redirect("Administrador.aspx");
+                        } else {
+                            Response.Redirect("PaginaPrincipal.aspx");
+                        }
+                    } else
+                    {
+                        lblError.Text = "El usuario se encuentra deshabilitado";
+                        lblError.Visible = true;
                     }
                 } else {
                     lblError.Visible = true;
