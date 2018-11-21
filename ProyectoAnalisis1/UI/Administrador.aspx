@@ -28,18 +28,20 @@
         <br />
         <br />
         <div class="form-group">
-            <label for="txtId">Identificador</label>
-            <br />
+            <label for="txtId">Identificador<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtId" ErrorMessage="Campo Obligatorio" ForeColor="Red" ValidationGroup="admin"></asp:RequiredFieldValidator>
+            </label>
+            &nbsp;<br />
             <asp:TextBox type="text" class="form-control" ID="txtId" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
         </div>
 
         <div class="form-group">
-            <label for="contraText">Contraseña</label>
-            <asp:TextBox type="text" class="form-control" ID="contraText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
+            <label for="contraText">Contraseña</label><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="contraText" ErrorMessage="Campo obligatorio" ForeColor="Red" ValidationGroup="admin"></asp:RequiredFieldValidator>
+&nbsp;<asp:TextBox type="text" class="form-control" ID="contraText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
         </div>
 
         <div class="form-group">
             <label for="nombreText">Nombre</label>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="nombreText" ErrorMessage="Campo obligatorio" ForeColor="Red" ValidationGroup="admin"></asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="nombreText" ErrorMessage="Solo se permiten letras" ValidationExpression="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" ValidationGroup="admin" ForeColor="Red"></asp:RegularExpressionValidator>
             <br />
             <asp:TextBox type="text" class="form-control" ID="nombreText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
