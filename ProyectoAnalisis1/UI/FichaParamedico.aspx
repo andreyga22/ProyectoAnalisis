@@ -101,7 +101,7 @@
         <div class="form-row">
             <div class="form-group col-sm-6">
                 <label for="Frec_RespText">
-                    Frecuencia Respiratoria<asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="Frec_RespText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam" ForeColor="Red"></asp:RegularExpressionValidator>
+                    Frecuencia Respiratoria<asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="Frec_RespText" ErrorMessage="Solo se permiten números" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarParam" ForeColor="Red" placeholder="RPM"></asp:RegularExpressionValidator>
                 </label>
                 &nbsp;<%--<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="phoneText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%><asp:TextBox type="text" class="form-control" ID="Frec_RespText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
             </div>

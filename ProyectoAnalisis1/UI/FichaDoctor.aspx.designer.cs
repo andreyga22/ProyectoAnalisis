@@ -8,10 +8,10 @@
 //------------------------------------------------------------------------------
 
 namespace UI {
-
-
+    
+    
     public partial class HistorialClinico {
-
+        
         /// <summary>
         /// errorLbl control.
         /// </summary>
@@ -20,7 +20,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label errorLbl;
-
+        
         /// <summary>
         /// titulo control.
         /// </summary>
@@ -29,7 +29,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label titulo;
-
+        
         /// <summary>
         /// lblEmpleado control.
         /// </summary>
@@ -38,7 +38,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEmpleado;
-
+        
         /// <summary>
         /// motivoText control.
         /// </summary>
@@ -47,7 +47,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox motivoText;
-
+        
         /// <summary>
         /// examenText control.
         /// </summary>
@@ -56,7 +56,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox examenText;
-
+        
         /// <summary>
         /// planText control.
         /// </summary>
@@ -65,7 +65,16 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox planText;
-
+        
+        /// <summary>
+        /// linkImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkImg;
+        
         /// <summary>
         /// image control.
         /// </summary>
@@ -74,7 +83,16 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image image;
-
+        
+        /// <summary>
+        /// image2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image image2;
+        
         /// <summary>
         /// foto control.
         /// </summary>
@@ -83,7 +101,7 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload foto;
-
+        
         /// <summary>
         /// guardarBtn control.
         /// </summary>

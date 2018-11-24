@@ -46,7 +46,7 @@
                 <label for="firstNameText">Primer Nombre</label>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo obligatorio" ValidationGroup="guardar" ForeColor="Red"></asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Únicamente letras" ValidationExpression="[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+" ValidationGroup="guardar" ForeColor="#FF3131"></asp:RegularExpressionValidator>
-                <asp:TextBox type="text" class="form-control" ID="firstNameText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
+                <asp:TextBox type="text" class="form-control" ID="firstNameText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}" ></asp:TextBox>
 
             </div>
             <div class="form-group col-sm-6">

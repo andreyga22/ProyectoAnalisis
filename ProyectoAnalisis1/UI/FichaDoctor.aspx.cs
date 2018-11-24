@@ -27,6 +27,7 @@ namespace UI {
                         BLManejadorFoto blf = new BLManejadorFoto();
                         BLFoto foto = blf.consultar(Convert.ToInt32(Session["idConsulta"]));
                         image.ImageUrl = foto.url;
+                        image2.ImageUrl = foto.url;
                         image.Visible = true;
                         lblEmpleado.Text = "Doctor Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
                     }
@@ -110,5 +111,7 @@ namespace UI {
             }
             return "";
         }
+        
+
     }
 }
