@@ -14,6 +14,7 @@ namespace UI
         {
             revisarLogin();
             cargarGrid();
+            lblErrorExpedientes.Visible = false;
         }
 
         private void cargarGrid()
@@ -94,6 +95,24 @@ namespace UI
             catch (Exception)
             {
                 //lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
+            }
+        }
+
+        protected void btnFiltrarFecha_Click(object sender, EventArgs e)
+        {
+            BLManejadorExpediente manejExpediente = new BLManejadorExpediente();
+            List<BLExpediente> lista = manejExpediente.filtrarFecha(CalendFechaIni.SelectedDate, calendFechaFin.SelectedDate);
+            if (lista.Count > 0)
+            {
+                tablaExpedi.DataSource = lista;
+                tablaExpedi.DataBind();
+                invisible();
+                crearTabla2();
+            } else
+            {
+                tablaExpedi.Visible = false;
+                lblErrorExpedientes.Text = "No se encontraron expedientes con consultas en ese rango de fechas";
+                lblErrorExpedientes.Visible = true;
             }
         }
     }

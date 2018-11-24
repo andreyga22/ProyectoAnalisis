@@ -115,7 +115,71 @@ namespace BL
             }
         }
 
+        public List<BLExpediente> filtrarFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            DAOConsulta consult = new DAOConsulta();
+            List<TOConsulta> listConsultFiltradTO = new List<TOConsulta>();
+            List<TOConsulta> listConsultas = consult.listaConsultas();
+            if (listConsultas.Count > 0)
+            {
+                foreach (TOConsulta consultaTO in listConsultas)
+                {
+                    consultaTO.fecha = new DateTime(consultaTO.fecha.Year, consultaTO.fecha.Month, consultaTO.fecha.Day);
+                    int resultado1 = DateTime.Compare(fechaInicio, consultaTO.fecha);
+                    int resultado2 = DateTime.Compare(fechaFin, consultaTO.fecha);
+                    if (resultado1 <= 0 && resultado2 >= 0)
+                    {
+                        listConsultFiltradTO.Add(new TOConsulta(consultaTO.idConsulta, consultaTO.fecha, consultaTO.cedula, consultaTO.precio_Consulta));
+                    }
+                }
+            }
 
+            DAOExpediente daoExp = new DAOExpediente();
+            List<TOExpediente> todosExped = daoExp.consultarExpedientes();
+            List<TOExpediente> expedFiltrad = new List<TOExpediente>();
+            if (todosExped.Count > 0)
+            {
+                foreach (TOExpediente ex in todosExped)
+                {
+                    foreach (TOConsulta con in listConsultFiltradTO)
+                    {
+                        if (ex.cedula.Equals(con.cedula))
+                        {
+                             expedFiltrad.Add(ex);
+                        }
+                    }
+                }
+            }
+            List<TOExpediente> listaFinalExped = new List<TOExpediente>();
+            for (int i = 0; i < expedFiltrad.Count; i++)
+            {
+                if (listaFinalExped.Count <= 0 && expedFiltrad.Count > 0)
+                {
+                    listaFinalExped.Add(expedFiltrad[i]);
+                }
+                else
+                {
+                    Boolean esta = false;
+                    for (int j = 0; j < listaFinalExped.Count; j++)
+                    {
+                        if (listaFinalExped[j].cedula.Equals(expedFiltrad[i].cedula))
+                        {
+                            esta = true;
+                        }
+                    }
+                    if(esta == false)
+                    {
+                        listaFinalExped.Add(expedFiltrad[i]);
+                    }
+                }
+            }
+            List<BLExpediente> blExped = new List<BLExpediente>();
+            foreach(TOExpediente exp in listaFinalExped)
+            {
+                blExped.Add(convert(exp));
+            }
+            return blExped;
+        }
 
 
         private TOExpediente convert(BLExpediente exp) {

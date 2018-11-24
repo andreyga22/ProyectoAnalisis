@@ -462,6 +462,25 @@ namespace DAO
             }
         }
 
+        //public List<TOExpediente> expedientesFiltradFechas(DateTime fechaIni, DateTime fechaFin)
+        //{
+        //    List<TOExpediente> lista = new List<TOExpediente>();
+        //    SqlCommand sentencia;
+        //    DataTable table = new DataTable();
+        //    SqlDataAdapter adapter = new SqlDataAdapter();
+
+        //    string select = "select * from expediente order by APELLIDO1";
+        //    sentencia = new SqlCommand(select, conexion);
+        //    adapter.SelectCommand = sentencia;
+        //    adapter.Fill(table);
+        //}
+
+
+
+
+
+
+
 
 
         public void pruebaConexion()
@@ -555,5 +574,7 @@ namespace DAO
                 conexion.Close();
             }
         }
+
+    
     }
 }
