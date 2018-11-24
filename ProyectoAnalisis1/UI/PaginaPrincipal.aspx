@@ -32,8 +32,12 @@
         <br />
         <div class="row justify-content-center">
             <asp:Button type="button" class="btn btn-info" ID="btnNuevoExp" runat="server" Text="Crear Nuevo Expediente" OnClick="btnNuevoExp_Click" />
+                                          
         </div>
         <br />
+        <div class="row justify-content-center">
+             <asp:Button type="button" class="btn btn-light" ID="btnListaExpedientes" runat="server" OnClick="btnExpedientes_Click" Text="Expedientes" />
+            </div>
         <br />
         <br />
         <br />

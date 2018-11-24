@@ -15,9 +15,11 @@ namespace DAO
         SqlConnection conexion = new SqlConnection(Properties.Settings.Default.conection);
         SqlConnection conexion2 = new SqlConnection(Properties.Settings.Default.conection);
 
-        public List<TOExpediente> consultarListaCedula(string expId) {
+        public List<TOExpediente> consultarListaCedula(string expId)
+        {
 
-            try {
+            try
+            {
                 string select = "select distinct * from expediente where cedula like @ced +'%';";
                 SqlCommand sentencia = new SqlCommand(select, conexion);
                 sentencia.Parameters.AddWithValue("@ced", expId);
@@ -27,7 +29,8 @@ namespace DAO
                 adapter.Fill(table);
                 List<TOExpediente> lista = new List<TOExpediente>();
 
-                for (int x = 0; x < table.Rows.Count; x++) {
+                for (int x = 0; x < table.Rows.Count; x++)
+                {
                     TOExpediente expediente = new TOExpediente();
                     expediente.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
                     expediente.primer_nombre = Convert.ToString(table.Rows[x]["Nombre1"]);
@@ -49,11 +52,17 @@ namespace DAO
                 }
 
                 return lista;
-            } catch (SqlException) {
+            }
+            catch (SqlException)
+            {
                 throw;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 throw;
-            } finally {
+            }
+            finally
+            {
                 conexion.Close();
             }
 
@@ -67,43 +76,43 @@ namespace DAO
             {
                 TOExpediente to = new TOExpediente();
 
-            string select = "select * from expediente where CEDULA = @expid;";
-            SqlCommand sentencia = new SqlCommand(select, conexion);
-            sentencia.Parameters.AddWithValue("@expid", expId);
+                string select = "select * from expediente where CEDULA = @expid;";
+                SqlCommand sentencia = new SqlCommand(select, conexion);
+                sentencia.Parameters.AddWithValue("@expid", expId);
 
-            if (conexion.State != ConnectionState.Open)
-            {
-                conexion.Open();
-            }
-
-            SqlDataReader reader = sentencia.ExecuteReader();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
+                if (conexion.State != ConnectionState.Open)
                 {
-                    to.cedula = reader.GetString(0);
-                    to.primer_nombre = reader.GetString(1);
-                    to.segundo_nombre = reader.GetString(2);
-                    to.primer_apellido = reader.GetString(3);
-                    to.segundo_apellido = reader.GetString(4);
-                    to.fecha_nacimiento = reader.GetDateTime(5);
-                    to.num_telefono = reader.GetString(6);
-                    to.religion = reader.GetString(7);
-                    to.estado_civil = reader.GetString(8);
-                    to.tipo_trabajo = reader.GetString(9);
-                    to.sexo = reader.GetString(10);
+                    conexion.Open();
+                }
+
+                SqlDataReader reader = sentencia.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        to.cedula = reader.GetString(0);
+                        to.primer_nombre = reader.GetString(1);
+                        to.segundo_nombre = reader.GetString(2);
+                        to.primer_apellido = reader.GetString(3);
+                        to.segundo_apellido = reader.GetString(4);
+                        to.fecha_nacimiento = reader.GetDateTime(5);
+                        to.num_telefono = reader.GetString(6);
+                        to.religion = reader.GetString(7);
+                        to.estado_civil = reader.GetString(8);
+                        to.tipo_trabajo = reader.GetString(9);
+                        to.sexo = reader.GetString(10);
                         to.descripcion_tel2 = reader.GetString(11);
                         to.descripcion_tel3 = reader.GetString(12);
                         to.tel2 = reader.GetString(13);
                         to.tel3 = reader.GetString(14);
                     }
-            }
+                }
 
-            if (conexion.State != ConnectionState.Closed)
-            {
-                conexion.Close();
-            }
-            return to;
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+                return to;
             }
             catch (SqlException)
             {
@@ -200,15 +209,15 @@ namespace DAO
                         expediente.estado_civil = Convert.ToString(table.Rows[x]["ESTADO_CIVIL"]);
                         expediente.tipo_trabajo = Convert.ToString(table.Rows[x]["TIPO_TRABAJO"]);
                         expediente.sexo = Convert.ToString(table.Rows[x]["SEXO"]);
-                    expediente.descripcion_tel2 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL2"]);
-                    expediente.descripcion_tel3 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL3"]);
-                    expediente.tel2 = Convert.ToString(table.Rows[x]["TEL2"]);
+                        expediente.descripcion_tel2 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL2"]);
+                        expediente.descripcion_tel3 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL3"]);
+                        expediente.tel2 = Convert.ToString(table.Rows[x]["TEL2"]);
                         expediente.tel3 = Convert.ToString(table.Rows[x]["TEL3"]);
-                        
+
 
                         //if (lista.Count == 0)
                         //{
-                            lista.Add(expediente);
+                        lista.Add(expediente);
                         //}
                         //else
                         //{
@@ -234,8 +243,10 @@ namespace DAO
             }
         }
 
-        public List<TOExpediente> consultarDia() {
-            try {
+        public List<TOExpediente> consultarDia()
+        {
+            try
+            {
                 string select = "select * from Lista_dia;";
                 SqlCommand sentencia = new SqlCommand(select, conexion);
                 DataTable table = new DataTable();
@@ -245,48 +256,65 @@ namespace DAO
                 List<TOExpediente> lista = new List<TOExpediente>();
                 List<String> cedulas = new List<String>();
 
-                for (int x = 0; x < table.Rows.Count; x++) {
-                    cedulas.Add( Convert.ToString(table.Rows[x]["CEDULA"]));
+                for (int x = 0; x < table.Rows.Count; x++)
+                {
+                    cedulas.Add(Convert.ToString(table.Rows[x]["CEDULA"]));
                 }
 
                 //conexion.Close();
 
-                for (int i = 0; i < cedulas.Count; i++) {
+                for (int i = 0; i < cedulas.Count; i++)
+                {
                     TOExpediente exp = consultarConAlergia(cedulas[i]);
-                    if (exp != null) {
+                    if (exp != null)
+                    {
                         lista.Add(exp);
                     }
                 }
 
                 return lista;
-            } catch (SqlException) {
+            }
+            catch (SqlException)
+            {
                 throw;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 throw;
-            } finally {
+            }
+            finally
+            {
                 conexion.Close();
             }
         }
 
-        private TOExpediente consultarConAlergia(string expId) {
-            try {
+        private TOExpediente consultarConAlergia(string expId)
+        {
+            try
+            {
                 TOExpediente to = new TOExpediente();
 
                 string select = "select a.cedula  , a.alergias, a.NOMBRE1, a.NOMBRE2, a.APELLIDO1, a.APELLIDO2, a.numero_telefono from (select expe.cedula  , historial.alergias, expe.NOMBRE1, expe.NOMBRE2, expe.APELLIDO1, expe.APELLIDO2, expe.numero_telefono from (EXPEDIENTE expe join LISTA_DIA lista on expe.CEDULA = lista.CEDULA) left join HISTORIAL_CLINICO historial on lista.CEDULA = historial.CEDULA ) as a where CEDULA = @expid;";
                 SqlCommand sentencia = new SqlCommand(select, conexion2);
                 sentencia.Parameters.AddWithValue("@expid", expId);
 
-                if (conexion2.State != ConnectionState.Open) {
+                if (conexion2.State != ConnectionState.Open)
+                {
                     conexion2.Open();
                 }
 
                 SqlDataReader reader = sentencia.ExecuteReader();
-                if (reader.HasRows) {
-                    while (reader.Read()) {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
                         to.cedula = reader.GetString(0);
-                        if (reader.IsDBNull(1) || reader.GetString(1).Equals("")) {
+                        if (reader.IsDBNull(1) || reader.GetString(1).Equals(""))
+                        {
                             to.alergias = "N/A";
-                        } else {
+                        }
+                        else
+                        {
                             to.alergias = reader.GetString(1);
                         }
                         to.primer_nombre = reader.GetString(2);
@@ -297,74 +325,146 @@ namespace DAO
                     }
                 }
 
-                if (conexion2.State != ConnectionState.Closed) {
+                if (conexion2.State != ConnectionState.Closed)
+                {
                     conexion2.Close();
                 }
                 return to;
-            } catch (SqlException) {
+            }
+            catch (SqlException)
+            {
                 throw;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 throw;
-            } finally {
+            }
+            finally
+            {
                 conexion2.Close();
             }
         }
 
-        public void insertarDia(string cedula) {
-            try {
+        public void insertarDia(string cedula)
+        {
+            try
+            {
                 string insert = "insert into Lista_dia (cedula) values (@cedula)";
                 SqlCommand insertar = new SqlCommand(insert, conexion);
                 insertar.Parameters.AddWithValue("@cedula", cedula);
 
-                if (conexion.State != System.Data.ConnectionState.Open) {
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
                     conexion.Open();
                 }
 
                 insertar.ExecuteNonQuery();
 
-                if (conexion.State != System.Data.ConnectionState.Closed) {
+                if (conexion.State != System.Data.ConnectionState.Closed)
+                {
                     conexion.Close();
                 }
-            } catch (SqlException) {
+            }
+            catch (SqlException)
+            {
                 throw;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 throw;
-            } finally {
+            }
+            finally
+            {
                 conexion.Close();
             }
         }
 
-        public void borrarDia(string cedula) {
-            try {
+        public void borrarDia(string cedula)
+        {
+            try
+            {
                 String qry = "DELETE FROM lista_dia WHERE cedula = @ced; ";
                 SqlCommand comando = new SqlCommand(qry, conexion);
                 comando.Parameters.AddWithValue("@ced", cedula);
 
-                if (conexion.State != System.Data.ConnectionState.Open) {
+                if (conexion.State != System.Data.ConnectionState.Open)
+                {
                     conexion.Open();
                 }
 
                 comando.ExecuteNonQuery();
 
-                if (conexion.State != System.Data.ConnectionState.Closed) {
+                if (conexion.State != System.Data.ConnectionState.Closed)
+                {
                     conexion.Close();
                 }
 
-            } catch (SqlException) {
+            }
+            catch (SqlException)
+            {
                 throw;
-            } catch (Exception) {
+            }
+            catch (Exception)
+            {
                 throw;
-            } finally {
+            }
+            finally
+            {
                 conexion.Close();
+            }
+        }
+
+        public List<TOExpediente> consultarExpedientes()
+        {
+            try
+            {
+                List<TOExpediente> lista = new List<TOExpediente>();
+                string select;
+                SqlCommand sentencia;
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+
+                select = "select * from expediente order by APELLIDO1";
+                sentencia = new SqlCommand(select, conexion);
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(table);
+
+                for (int x = 0; x < table.Rows.Count; x++)
+                {
+                    TOExpediente expediente = new TOExpediente();
+                    expediente.cedula = Convert.ToString(table.Rows[x]["CEDULA"]);
+                    expediente.primer_nombre = Convert.ToString(table.Rows[x]["Nombre1"]);
+                    expediente.segundo_nombre = Convert.ToString(table.Rows[x]["Nombre2"]);
+                    expediente.primer_apellido = Convert.ToString(table.Rows[x]["Apellido1"]);
+                    expediente.segundo_apellido = Convert.ToString(table.Rows[x]["Apellido2"]);
+                    expediente.fecha_nacimiento = Convert.ToDateTime(table.Rows[x]["FECHA_NACIMIENTO"]);
+                    expediente.num_telefono = Convert.ToString(table.Rows[x]["NUMERO_TELEFONO"]);
+                    expediente.religion = Convert.ToString(table.Rows[x]["RELIGION"]);
+                    expediente.estado_civil = Convert.ToString(table.Rows[x]["ESTADO_CIVIL"]);
+                    expediente.tipo_trabajo = Convert.ToString(table.Rows[x]["TIPO_TRABAJO"]);
+                    expediente.sexo = Convert.ToString(table.Rows[x]["SEXO"]);
+                    expediente.descripcion_tel2 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL2"]);
+                    expediente.descripcion_tel3 = Convert.ToString(table.Rows[x]["DESCRIPCION_TEL3"]);
+                    expediente.tel2 = Convert.ToString(table.Rows[x]["TEL2"]);
+                    expediente.tel3 = Convert.ToString(table.Rows[x]["TEL3"]);
+
+                    lista.Add(expediente);
+                }
+                return lista;
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
 
 
 
-
-
-
-            public void pruebaConexion()
+        public void pruebaConexion()
         {
 
             SqlCommand insertar = new SqlCommand("Insert into DIRECCION values (2, 'alajuela', 'san ramon', 'san ramon', 'porahi')", conexion);

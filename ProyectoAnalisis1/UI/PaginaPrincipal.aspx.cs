@@ -207,5 +207,10 @@ namespace UI {
                 lblError.Text = "Error al borrar el expediente de la lista de consultas del día.";
             }
         }
+
+        protected void btnExpedientes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ListaExpedientes.aspx");
+        }
     }
 }

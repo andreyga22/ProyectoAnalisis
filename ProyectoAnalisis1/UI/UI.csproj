@@ -87,6 +87,7 @@
     <Content Include="img\paramedicos.png" />
     <Content Include="InicioDeSesion.aspx" />
     <Content Include="ListaConsultas.aspx" />
+    <Content Include="ListaExpedientes.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="ListaConsultas.aspx.designer.cs">
       <DependentUpon>ListaConsultas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListaExpedientes.aspx.cs">
+      <DependentUpon>ListaExpedientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListaExpedientes.aspx.designer.cs">
+      <DependentUpon>ListaExpedientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="mainMaster.Master.cs">
       <DependentUpon>mainMaster.Master</DependentUpon>

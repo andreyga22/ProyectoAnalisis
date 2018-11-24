@@ -271,6 +271,8 @@ namespace UI {
             Response.Redirect("HistorialClinico.aspx");
         }
 
+   
+
         protected void diaText_TextChanged(object sender, EventArgs e) {
 
         }

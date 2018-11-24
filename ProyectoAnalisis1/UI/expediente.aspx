@@ -20,6 +20,7 @@
             <div class="form-group col-sm-11">
                 <asp:Button ID="ultimaBtn" type="button" class="btn btn-info" runat="server" Text="Ultima Consulta" OnClick="ultimaBtn_Click" />
                 <asp:Button type="button" class="btn btn-light" ID="btnHistorialClinico" runat="server" OnClick="btnHistorialClinico_Click" Text="Historial Clínico" />
+ 
             </div>
             <div class="form-group col-sm-1">
                 <asp:Button type="button" class="btn btn-light" ID="historialBtn" runat="server" Text="Consultas" OnClick="historialBtn_Click" />

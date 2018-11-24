@@ -79,6 +79,25 @@ namespace BL
             }
         }
 
+        public List<BLExpediente> consultarListaExpedientes()
+        {
+            try
+            {
+                DAOExpediente dao = new DAOExpediente();
+                List<TOExpediente> listaTO = dao.consultarExpedientes();
+                List<BLExpediente> listaBL = new List<BLExpediente>();
+                foreach (TOExpediente consulta in listaTO)
+                {
+                    listaBL.Add(convertAlergia(consulta));
+                }
+                return listaBL;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void insertarDia(string cedula) {
             try {
                 DAOExpediente dao = new DAOExpediente();
