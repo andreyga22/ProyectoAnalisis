@@ -48,8 +48,10 @@ namespace UI {
                     }
                 }
             } catch (Exception) {
-                errorLbl.Visible = true;
-                errorLbl.Text = "Error al cargar los datos de la ficha paramédico. Por favor vuelva a la pagina principal.";
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar los datos de la ficha paramédico </strong>Por favor vuelva a la página principal.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
+                //errorLbl.Visible = true;
+                //errorLbl.Text = "Error al cargar los datos de la ficha paramédico. Por favor vuelva a la pagina principal.";
             }
         }
 
@@ -75,10 +77,14 @@ namespace UI {
                     observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
                     Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()),
                     PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
-                Response.Redirect("Consulta.aspx");
-        } catch (Exception) {
-                errorLbl.Visible = true;
-                errorLbl.Text = "Error al guardar los datos de la ficha paramédico. Verifique que los datos sean correctos.";
+                //Response.Redirect("Consulta.aspx");
+                lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos de la ficha paramédico han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
+            } catch (Exception) {
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al guardar los datos de la ficha paramédico </strong>Verifique que los datos sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
+                //errorLbl.Visible = true;
+                //errorLbl.Text = "Error al guardar los datos de la ficha paramédico. Verifique que los datos sean correctos.";
             }
 }
 

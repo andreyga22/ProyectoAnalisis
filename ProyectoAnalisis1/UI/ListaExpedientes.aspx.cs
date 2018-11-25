@@ -14,7 +14,7 @@ namespace UI
         {
             revisarLogin();
             cargarGrid();
-            lblErrorExpedientes.Visible = false;
+            //lblErrorExpedientes.Visible = false;
             //CalendFechaIni.SelectedDate = Convert.ToDateTime(DateTime.Now.Date);
             //calendFechaFin.SelectedDate = Convert.ToDateTime(DateTime.Now.Date);
         }
@@ -92,10 +92,14 @@ namespace UI
                 int selected = e.NewEditIndex;
                 tablaExpedi.SelectedIndex = selected;
                 blm.insertarDia(tablaExpedi.SelectedRow.Cells[2].Text.Trim());
-                Response.Redirect("ListaExpedientes.aspx");
+                lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Expediente agregado correctamente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+                //Response.Redirect("ListaExpedientes.aspx");
             }
             catch (Exception)
             {
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo agregar el expediente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
                 //lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
             }
         }
@@ -111,15 +115,17 @@ namespace UI
                     crearTabla2();
                 } else {
                     tablaExpedi.Visible = false;
-                    lblErrorExpedientes.Text = "No se encontraron expedientes con consultas en ese rango de fechas";
-                    lblErrorExpedientes.Visible = true;
-                }
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se encontraron expedientes con consultas en ese rango de fechas.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+                //lblErrorExpedientes.Text = "No se encontraron expedientes con consultas en ese rango de fechas";
+                //lblErrorExpedientes.Visible = true;
+            }
         }
 
         protected void btnTodosExped_Click(object sender, EventArgs e)
         {
             cargarGrid();
-            lblErrorExpedientes.Visible = false;
+            //lblErrorExpedientes.Visible = false;
         }
     }
 }

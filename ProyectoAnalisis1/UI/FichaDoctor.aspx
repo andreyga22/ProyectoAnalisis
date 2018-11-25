@@ -17,7 +17,8 @@
 
         <br />
         <br />
-        <asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
+        <%--<asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>--%>
+        <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
         <br />
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Ficha Doctor" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>

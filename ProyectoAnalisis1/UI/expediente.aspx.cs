@@ -208,13 +208,22 @@ namespace UI {
             try {
                 new BLManejadorExpediente().insertarModificar(createBl());
                 new BLManejadorDireccion().guardarModificar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(), cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
+                mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeError.Visible = true;
             } catch (System.ArgumentOutOfRangeException) {
                 //Response.Write("<script>alert('Error al ingresar los datos del expediente. Revise que los datos ingresados tengan el formato correcto')</script>");
-                errorlbl.Visible = true;
-                errorlbl.Text = "Error al ingresar la fecha de nacimiento. Verifique que los datos ingresados sean correctos";
+
+                mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al ingresar la fecha de nacimiento </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeError.Visible = true;
+
+                //errorlbl.Visible = true;
+                //errorlbl.Text = "Error al ingresar la fecha de nacimiento. Verifique que los datos ingresados sean correctos";
             } catch (Exception) {
-                errorlbl.Visible = true;
-                errorlbl.Text = "Error al ingresar los datos de expediente. Verifique que los datos ingresados sean correctos";
+                mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeError.Visible = true;
+
+                //errorlbl.Visible = true;
+                //errorlbl.Text = "Error al ingresar los datos de expediente. Verifique que los datos ingresados sean correctos";
             }
             //if (!new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(),
             //    cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim())))

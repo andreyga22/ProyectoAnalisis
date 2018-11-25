@@ -33,8 +33,10 @@ namespace UI {
                     fecha.Text = Convert.ToString(con.fecha);
                     precioText.Text = Convert.ToString(con.precio_Consulta);
                 } catch (Exception) {
-                    errorLbl.Visible = true;
-                    errorLbl.Text = "Error al cargar los datos de la consulta. Regrese a la página principal";
+                    //errorLbl.Visible = true;
+                    //errorLbl.Text = "Error al cargar los datos de la consulta. Regrese a la página principal";
+                    lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar los datos de la consulta. </strong> Regrese a la página principal.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    lblError.Visible = true;
                 }
             }
         }
@@ -56,9 +58,13 @@ namespace UI {
                 BLManejadorConsulta blm = new BLManejadorConsulta();
                 string precio = precioText.Text.Trim();
                 blm.modificar(Convert.ToInt32(Session["idConsulta"]), Convert.ToInt32(precioText.Text.Trim()));
+                lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Información de la consulta guardada exitosamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
             } catch (Exception) {
-                errorLbl.Visible = true;
-                errorLbl.Text = "Error al guardar los datos de la consulta. Verifique que los datos sean correctos.";
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al guardar los datos de la consulta. </strong>Verifique que los datos sean correctos..<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+                //errorLbl.Visible = true;
+                //errorLbl.Text = "Error al guardar los datos de la consulta. Verifique que los datos sean correctos.";
             }
         }
 

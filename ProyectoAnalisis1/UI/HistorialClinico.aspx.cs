@@ -59,8 +59,10 @@ namespace UI {
 
                 }
             } catch (Exception) {
-                errorLbl.Visible = true;
-                errorLbl.Text = "Error al cargar los datos del historial clínico. Regrese a la página principal";
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar los datos del historial clínico </strong>Regrese a la página principal.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
+                //errorLbl.Visible = true;
+                //errorLbl.Text = "Error al cargar los datos del historial clínico. Regrese a la página principal";
             }
         }
 
@@ -78,10 +80,14 @@ namespace UI {
         protected void guardarBtn_Click(object sender, EventArgs e) {
             try {
                 new BLManejadorHistoriaClinica().insertarActualizarHistorialClinico(createBl());
-                Response.Write("<script>alert('Cambio Realizado')</script>");
+                //Response.Write("<script>alert('Cambio Realizado')</script>");
+                lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Cambio realizado correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
             } catch (Exception) {
-                errorLbl.Visible = true;
-                errorLbl.Text = "Error al guardar los datos del historial clínico. Verifique su conexión y que los datos sean correctos.";
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar los datos del historial clínico </strong>Verifique su conexión y que los datos sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
+                //errorLbl.Visible = true;
+                //errorLbl.Text = "Error al guardar los datos del historial clínico. Verifique su conexión y que los datos sean correctos.";
             }
         }
 
