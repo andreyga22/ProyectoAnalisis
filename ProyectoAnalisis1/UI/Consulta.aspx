@@ -34,7 +34,7 @@
             <div class="form-group col-sm-6">
 
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/doctor.jpg" alt="Doctor">
+                    <img class="card-img-top" src="img/doc.jpeg" height="250" width="250" alt="Doctor">
                     <div class="card-body">
                         <h5 class="card-title">Ficha Doctor</h5>
                         <p class="card-text">Ficha con el formulario del doctor(a).</p>
@@ -44,7 +44,7 @@
             </div>
             <div class="form-group col-sm-6">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="img/paramedicos.jpg" alt="Paramedicos">
+                    <img class="card-img-top" src="img/param.jpeg" height="250" width="250" alt="Paramedicos">
                     <div class="card-body">
                         <h5 class="card-title">Ficha Paramédicos</h5>
                         <p class="card-text">Ficha con el formulario del paramédico(a).</p>

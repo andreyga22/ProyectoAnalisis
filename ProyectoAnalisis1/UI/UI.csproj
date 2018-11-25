@@ -80,9 +80,11 @@
     <Content Include="FichaDoctor.aspx" />
     <Content Include="FichaParamedico.aspx" />
     <Content Include="HistorialClinico.aspx" />
+    <Content Include="img\doc.jpeg" />
     <Content Include="img\doctor.jpg" />
     <Content Include="img\doctor.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\param.jpeg" />
     <Content Include="img\paramedicos.jpg" />
     <Content Include="img\paramedicos.png" />
     <Content Include="InicioDeSesion.aspx" />
