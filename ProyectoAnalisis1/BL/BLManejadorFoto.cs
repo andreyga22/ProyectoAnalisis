@@ -14,11 +14,18 @@ namespace BL
             new DAOFichaDoctor().insertarFoto(convert(foto));
         }
 
-        public BLFoto consultar (int idDoctor) {
-            return convert(new DAOFichaDoctor().consultarFoto(idDoctor));
+        public List<BLFoto> consultar (int idDoctor) {
+            List<TOFoto> lista = new DAOFichaDoctor().consultarFoto(idDoctor);
+            List<BLFoto> lista2 = new List<BLFoto>();
+            foreach (TOFoto foto in lista) {
+                lista2.Add(convert(foto));
+            }
+            return lista2;
         }
 
-
+        public void borrarFoto(BLFoto foto) {
+            new DAOFichaDoctor().borrarFoto(convert(foto));
+        }
 
         public BLFoto convert(TOFoto foto) {
             return new BLFoto(foto.url, foto.idDoctor);

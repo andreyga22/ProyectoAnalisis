@@ -50,16 +50,17 @@
 
         <div class="form-group">
 
-
-            <asp:LinkButton ID="linkImg" data-toggle="modal" data-target="#exampleModal" runat="server">
-
-                <asp:Image ID="image" runat="server" Visible="False" Height="25%" Width="25%" />
-                <%--<asp:Image runat="server" ID="panImg" BorderStyle="Ridge" BorderColor="Turquoise"
+                <asp:LinkButton ID="linkImg" data-toggle="modal" data-target="#exampleModal" runat="server">
+                    <asp:Image ID="image" runat="server" Visible="False" Height="25%" Width="25%" />
+                    <%--<asp:Image runat="server" ID="panImg" BorderStyle="Ridge" BorderColor="Turquoise"
                     Width="130px" Height="100px" ImageUrl="~/img/glyphicons-halflings.png" />--%>
-            </asp:LinkButton>
+                </asp:LinkButton>
 
-
-
+                <asp:LinkButton ID="linkImg2" data-toggle="modal" data-target="#exampleModal2" runat="server">
+                    <asp:Image ID="image3" runat="server" Visible="False" Height="25%" Width="25%" />
+                    <%--<asp:Image runat="server" ID="panImg" BorderStyle="Ridge" BorderColor="Turquoise"
+                    Width="130px" Height="100px" ImageUrl="~/img/glyphicons-halflings.png" />--%>
+                </asp:LinkButton>
 
             <!-- Button trigger modal -->
             <%--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -78,27 +79,54 @@
                         </div>
                         <div class="modal-body">
                             <div class="row row justify-content-center">
-                            <%--<div class="col-sm-12">--%>
-                            <asp:Image ID="image2" Height="90%" Width="90%" runat="server" ImageAlign="Middle" />
+                                <%--<div class="col-sm-12">--%>
+                                <asp:Image ID="image2" Height="90%" Width="90%" runat="server" ImageAlign="Middle" />
                                 <%--</div>--%>
-                                </div>
+                            </div>
                         </div>
                         <%--<div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                             <%--<button type="button" class="btn btn-primary">Save changes</button>--%>
-                        </div>--%>
                     </div>
                 </div>
             </div>
 
-
-
-
-            <%--<asp:Image ID="image" runat="server" Visible="False" Height="200" Width="200" />--%>
-            <label for="foto">Foto</label>
-            <asp:FileUpload ID="foto" runat="server" AllowMultiple="False" />
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="img">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <%--<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>--%>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row row justify-content-center">
+                                <%--<div class="col-sm-12">--%>
+                                <asp:Image ID="image4" Height="90%" Width="90%" runat="server" ImageAlign="Middle" />
+                                <%--</div>--%>
+                            </div>
+                        </div>
+                        <%--<div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <%--<button type="button" class="btn btn-primary">Save changes</button>--%>
+                    </div>
+                </div>
+            </div>
         </div>
 
+
+
+
+        <%--<asp:Image ID="image" runat="server" Visible="False" Height="200" Width="200" />--%>
+        <div class="col">
+            <label for="foto">Foto 1</label>
+            <asp:FileUpload ID="foto" runat="server" AllowMultiple="False" />
+        </div>
+        <div class="col">
+            <label for="foto2">Foto 2</label>
+            <asp:FileUpload ID="foto2" runat="server" AllowMultiple="False" />
+        </div>
         <div class="form-group offset-sm-6">
             <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" />
         </div>

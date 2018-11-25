@@ -85,6 +85,25 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Image image;
         
         /// <summary>
+        /// linkImg2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton linkImg2;
+        
+        /// <summary>
+        /// image3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image image3;
+        
+        /// <summary>
+        /// image2 control.
         /// Control image2.
         /// </summary>
         /// <remarks>
@@ -95,6 +114,16 @@ namespace UI {
         
         /// <summary>
         /// Control foto.
+        /// image4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image image4;
+        
+        /// <summary>
+        /// foto control.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -103,6 +132,16 @@ namespace UI {
         protected global::System.Web.UI.WebControls.FileUpload foto;
         
         /// <summary>
+        /// foto2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload foto2;
+        
+        /// <summary>
+        /// guardarBtn control.
         /// Control guardarBtn.
         /// </summary>
         /// <remarks>

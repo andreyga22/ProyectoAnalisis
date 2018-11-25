@@ -25,10 +25,13 @@ namespace UI {
                         examenText.Text = doc.examenFisico;
                         planText.Text = doc.plan;
                         BLManejadorFoto blf = new BLManejadorFoto();
-                        BLFoto foto = blf.consultar(Convert.ToInt32(Session["idConsulta"]));
-                        image.ImageUrl = foto.url;
-                        image2.ImageUrl = foto.url;
+                        List<BLFoto> fotos = blf.consultar(Convert.ToInt32(Session["idConsulta"]));
+                        image.ImageUrl = fotos[0].url;
+                        image2.ImageUrl = fotos[0].url;
+                        image3.ImageUrl = fotos[1].url;
+                        image4.ImageUrl = fotos[1].url;
                         image.Visible = true;
+                        image3.Visible = true;
                         lblEmpleado.Text = "Doctor Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
                     }
                 }
@@ -61,6 +64,7 @@ namespace UI {
                 BLManejadorFoto blf = new BLManejadorFoto();
                 String nombre = guardarFoto();
                 if (!nombre.Equals("")) {
+                        blf.borrarFoto(new BLFoto(image.ImageUrl, Convert.ToInt32(Session["idConsulta"])));
                     blf.insertar(new BLFoto("~/fotos/" + nombre, Convert.ToInt32(Session["idConsulta"])));
                 } else {
                         lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se pudo guardar la información en el servidor.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
@@ -68,6 +72,17 @@ namespace UI {
                         //errorLbl.Text = "No se pudo guardar la foto en el servidor";
                     }
             }
+
+                if (foto2.HasFile) {
+                    BLManejadorFoto blf = new BLManejadorFoto();
+                    String nombre = guardarFoto2();
+                    if (!nombre.Equals("")) {
+                        blf.borrarFoto(new BLFoto(image3.ImageUrl, Convert.ToInt32(Session["idConsulta"])));
+                        blf.insertar(new BLFoto("~/fotos/" + nombre, Convert.ToInt32(Session["idConsulta"])));
+                    } else {
+                        errorLbl.Text = "No se pudo guardar la foto en el servidor";
+                    }
+                }
 
                 Response.Redirect("Consulta.aspx");
             } catch (Exception) {
@@ -121,7 +136,47 @@ namespace UI {
             }
             return "";
         }
-        
+
+
+        private String guardarFoto2() {
+            if (IsPostBack) {
+                string fileExtension = "";
+                Boolean fileOK = false;
+                String path = Server.MapPath("~/fotos/");
+                if (foto2.HasFile) {
+                    fileExtension =
+                        System.IO.Path.GetExtension(foto2.FileName).ToLower();
+                    String[] allowedExtensions =
+                        {".png", ".jpeg", ".jpg"};
+                    for (int i = 0; i < allowedExtensions.Length; i++) {
+                        if (fileExtension == allowedExtensions[i]) {
+                            fileOK = true;
+                        }
+                    }
+                }
+
+                if (fileOK) {
+                    try {
+                        Guid newGuid = Guid.NewGuid();
+                        string imageName = newGuid.ToString();
+
+                        //foto. = imageName;
+                        foto2.PostedFile.SaveAs(path
+                            + imageName + fileExtension);
+                        //Label1.Text = "File uploaded!";
+                        return imageName + fileExtension;
+                    } catch (Exception) {
+                        errorLbl.Text = "No se pudo guardar la foto en el servidor. (Las extensiones permitidas son: jpeg, jpg, png)";
+                        errorLbl.Visible = true;
+                    }
+                } else {
+                    errorLbl.Text = "No se acepta esta extensión de archivo. (Las extensiones permitidas son: jpeg, jpg, png)";
+                    errorLbl.Visible = true;
+                }
+            }
+            return "";
+        }
+
 
     }
 }

@@ -176,7 +176,7 @@ namespace DAO
             }
         }
 
-        public TOFoto consultarFoto(int idConsulta) {
+        public List<TOFoto> consultarFoto(int idConsulta) {
             try
             {
                 TOFoto to = new TOFoto();
@@ -184,27 +184,23 @@ namespace DAO
                 string select = "select * from foto_ficha_doctor where id_Consulta = @idConsulta;";
                 SqlCommand sentencia = new SqlCommand(select, conexion);
                 sentencia.Parameters.AddWithValue("@idConsulta", idConsulta);
+              
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                adapter.SelectCommand = sentencia;
+                adapter.Fill(table);
+                List<TOFoto> lista = new List<TOFoto>();
 
-                if (conexion.State != ConnectionState.Open)
-                {
-                    conexion.Open();
+                for (int x = 0; x < table.Rows.Count; x++) {
+                    TOFoto foto = new TOFoto();
+                    foto.url = Convert.ToString(table.Rows[x]["URLFOTO"]);
+                    foto.idDoctor = Convert.ToInt32(table.Rows[x]["ID_CONSULTA"]);
+
+                    lista.Add(foto);
                 }
 
-                SqlDataReader reader = sentencia.ExecuteReader();
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        to.url = reader.GetString(0);
-                        to.idDoctor= reader.GetInt32(1);
-                    }
-                }
+                return lista;
 
-                if (conexion.State != ConnectionState.Closed)
-                {
-                    conexion.Close();
-                }
-                return to;
             }
             catch (SqlException)
             {
@@ -216,6 +212,32 @@ namespace DAO
             }
             finally
             {
+                conexion.Close();
+            }
+        }
+
+        public void borrarFoto(TOFoto foto) {
+            try {
+                string insert = "delete from foto_ficha_doctor where urlfoto = @url and id_consulta = @id";
+
+                SqlCommand insertar = new SqlCommand(insert, conexion);
+                insertar.Parameters.AddWithValue("@url", foto.url);
+                insertar.Parameters.AddWithValue("@id", foto.idDoctor);
+
+                if (conexion.State != System.Data.ConnectionState.Open) {
+                    conexion.Open();
+                }
+
+                insertar.ExecuteNonQuery();
+
+                if (conexion.State != System.Data.ConnectionState.Closed) {
+                    conexion.Close();
+                }
+            } catch (SqlException) {
+                throw;
+            } catch (Exception) {
+                throw;
+            } finally {
                 conexion.Close();
             }
         }
