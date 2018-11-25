@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="Administrador.aspx.cs" Inherits="UI.Administrador" %>
+﻿<%@ Page Title="" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="Administrador.aspx.cs" Inherits="UI.Administrador" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -68,7 +68,8 @@
         <br />
         <div class="row justify-content-center">
             <asp:Button ID="idGuardar" class="btn btn-info" runat="server" Text="Guardar" OnClick="idGuardar_Click" Style="height: 40px" ValidationGroup="admin" />
-            <asp:Label ID="lblError" runat="server" Text="Label" Visible="False"></asp:Label>
+            <%--<asp:Label ID="lblError" runat="server" Text="Label" Visible="False"></asp:Label>--%>
+              <asp:Literal ID="lblMensaje" runat="server" Visible="false"></asp:Literal>
         </div>
 
         <br />

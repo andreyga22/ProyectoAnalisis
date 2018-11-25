@@ -80,7 +80,8 @@
         <div class="form-group">
             <asp:Label ID="lblExpedientes" runat="server" Text="Expedientes" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
         </div>
-        <asp:Label ID="lblErrorExpedientes" runat="server" ForeColor="Red" Text="No se encontraron expedientes" Visible="False"></asp:Label>
+        <%--<asp:Label ID="lblErrorExpedientes" runat="server" ForeColor="Red" Text="No se encontraron expedientes" Visible="False"></asp:Label>--%>
+         <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
         <br />
         <div id="popup" style="max-height: 500px; overflow-y: scroll;">
             <asp:GridView ID="tablaExpedi" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnSelectedIndexChanged="tablaExpedi_SelectedIndexChanged" AutoGenerateEditButton="False" OnRowEditing="tablaExpedi_RowEditing" ViewStateMode="Disabled">

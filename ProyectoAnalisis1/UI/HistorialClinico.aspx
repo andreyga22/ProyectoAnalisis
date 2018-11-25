@@ -15,7 +15,8 @@
     <div class="container">
 
         <br />
-        <asp:Label ID="errorLbl" runat="server" Text="" Visible="False" ForeColor="Red"></asp:Label>
+        <%--<asp:Label ID="errorLbl" runat="server" Text="" Visible="False" ForeColor="Red"></asp:Label>--%>
+         <asp:Literal ID="lblMensaje" runat="server" Visible="false"></asp:Literal>
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Historial Clínico" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
         </div>

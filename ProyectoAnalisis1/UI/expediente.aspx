@@ -18,7 +18,7 @@
         <br />
         <div class="form-row">
             <div class="form-group col-sm-11">
-                <asp:Button ID="ultimaBtn" type="button" class="btn btn-info" runat="server" Text="Ultima Consulta" OnClick="ultimaBtn_Click" />
+                <asp:Button ID="ultimaBtn" type="button" class="btn btn-info" runat="server" Text="Última Consulta" OnClick="ultimaBtn_Click" />
                 <asp:Button type="button" class="btn btn-light" ID="btnHistorialClinico" runat="server" OnClick="btnHistorialClinico_Click" Text="Historial Clínico" />
  
             </div>
@@ -28,7 +28,8 @@
         </div>
         <br />
 
-        <asp:Label ID="errorlbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>
+        <%--<asp:Label ID="errorlbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>--%>
+        <asp:Literal ID="mensajeError" runat="server" Visible="false"></asp:Literal>
         <br />
 
         <div class="form-row">

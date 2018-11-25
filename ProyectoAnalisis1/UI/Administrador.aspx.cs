@@ -19,7 +19,7 @@ namespace UI
             //{
             //    agregarFilaEmpleado(blEmp.id, blEmp.contrasenna, blEmp.rol, blEmp.nombreEmpleado, blEmp.estado);
             //}
-            lblError.Visible = false;
+            //lblError.Visible = false;
             revisarLogin();
             cargarGrid();
         }
@@ -70,6 +70,8 @@ namespace UI
             }
             catch (Exception)
             {
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar los datos de la lista. </strong>Por favor recargue la página o vuelva a la página principal.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
                 //errorLbl.Visible = true;
                 //errorLbl.Text = "Error al cargar los datos de la lista. Por favor recargue la página o vuelva a la página principal";
             }
@@ -82,13 +84,16 @@ namespace UI
             {
                 BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
                 manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
-
-                Response.Redirect("Administrador.aspx");
+                lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Empleado creado exitosamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
+                //Response.Redirect("Administrador.aspx");
             }
             catch (Exception)
             {
-                lblError.Text = "No se pudo guardar el nuevo empleado";
-                lblError.Visible = true;
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se pudo guardar el empleado.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
+                //lblError.Text = "No se pudo guardar el nuevo empleado";
+                //lblError.Visible = true;
             }
        
         }
@@ -116,7 +121,8 @@ namespace UI
                 //lblContra.Visible = false;
             } catch (Exception)
             {
-
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se pudo seleccionar el empleado.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Visible = true;
             }
         }
 

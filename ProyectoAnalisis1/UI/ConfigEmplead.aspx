@@ -18,6 +18,7 @@
             <asp:Label ID="lblConfigur" runat="server" Text="CONFIGURACIÓN DE LA CUENTA" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
         </div>
         <br />
+        <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
         <br />
 
 

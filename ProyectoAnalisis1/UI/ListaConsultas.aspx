@@ -16,7 +16,8 @@
         <br />
         <br />
         <br />
-        <asp:Label ID="errorLbl" runat="server" Text="" Visible="false" ForeColor="Red"></asp:Label>
+        <%--<asp:Label ID="errorLbl" runat="server" Text="" Visible="false" ForeColor="Red"></asp:Label>--%>
+         <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
         <div class="row">
 
             <div class="offset-sm-5">

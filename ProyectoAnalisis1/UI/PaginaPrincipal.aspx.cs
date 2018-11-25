@@ -97,8 +97,10 @@ namespace UI {
                     }
                 }
             } catch (Exception) {
-                lblError.Visible = true;
-                lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
+                mensajeBuscar.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeBuscar.Visible = true;
+                //lblError.Visible = true;
+                //lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
             }
         }
 
@@ -187,7 +189,10 @@ namespace UI {
                 mensajeBuscar.Visible = true;
                 cargarDia();
             } catch (Exception) {
-                lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
+                mensajeBuscar.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo agregar el expediente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeBuscar.Visible = true;
+
+                //lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
             }
         }
 
@@ -208,7 +213,10 @@ namespace UI {
                 mensajeDia.Visible = true;
                 cargarDia();
             } catch (Exception) {
-                lblError.Text = "Error al borrar el expediente de la lista de consultas del día.";
+                mensajeDia.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo eliminar el expediente de la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeDia.Visible = true;
+
+                //lblError.Text = "Error al borrar el expediente de la lista de consultas del día.";
             }
         }
 

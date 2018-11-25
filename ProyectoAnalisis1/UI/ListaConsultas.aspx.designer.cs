@@ -13,13 +13,13 @@ namespace UI {
     public partial class ListaConsultas {
         
         /// <summary>
-        /// Control errorLbl.
+        /// Control lblError.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLbl;
+        protected global::System.Web.UI.WebControls.Literal lblError;
         
         /// <summary>
         /// Control agregarBtn.

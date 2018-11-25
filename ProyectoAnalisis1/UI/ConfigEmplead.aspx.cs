@@ -35,13 +35,23 @@ namespace UI
 
         protected void guardarBtn_Click(object sender, EventArgs e)
         {
-            BLManejadorEmpleado manej = new BLManejadorEmpleado();
-            Boolean est = false;
-            if (estado.Text.Equals("Habilitado"))
+            try
             {
-                est = true;
+                BLManejadorEmpleado manej = new BLManejadorEmpleado();
+                Boolean est = false;
+                if (estado.Text.Equals("Habilitado"))
+                {
+                    est = true;
+                }
+                manej.crearActualizarEmpleado(new BLEmpleado(id.Text.Trim(), txtContra.Text.Trim(), rol.Text.Trim(), txtNombre.Text, est));
+                lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Información almacenada correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
             }
-            manej.crearActualizarEmpleado(new BLEmpleado(id.Text.Trim(), txtContra.Text.Trim(), rol.Text.Trim(), txtNombre.Text, est));
+            catch (Exception)
+            {
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se guardó la información del empleado.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+            }
         }
     }
 }
