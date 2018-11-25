@@ -28,10 +28,12 @@ namespace UI {
                         List<BLFoto> fotos = blf.consultar(Convert.ToInt32(Session["idConsulta"]));
                         image.ImageUrl = fotos[0].url;
                         image2.ImageUrl = fotos[0].url;
-                        image3.ImageUrl = fotos[1].url;
-                        image4.ImageUrl = fotos[1].url;
                         image.Visible = true;
-                        image3.Visible = true;
+                        if (fotos.Count > 1) {
+                            image3.ImageUrl = fotos[1].url;
+                            image4.ImageUrl = fotos[1].url;
+                            image3.Visible = true;
+                        }
                         lblEmpleado.Text = "Doctor Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
                     }
                 }

@@ -85,6 +85,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Image image;
         
         /// <summary>
+        /// foto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload foto;
+        
+        /// <summary>
         /// linkImg2 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Image image3;
         
         /// <summary>
+        /// foto2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload foto2;
+        
+        /// <summary>
         /// image2 control.
         /// </summary>
         /// <remarks>
@@ -119,24 +137,6 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image image4;
-        
-        /// <summary>
-        /// foto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload foto;
-        
-        /// <summary>
-        /// foto2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload foto2;
         
         /// <summary>
         /// guardarBtn control.
