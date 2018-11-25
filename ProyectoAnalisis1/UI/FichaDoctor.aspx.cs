@@ -82,7 +82,9 @@ namespace UI {
                         blf.borrarFoto(new BLFoto(image3.ImageUrl, Convert.ToInt32(Session["idConsulta"])));
                         blf.insertar(new BLFoto("~/fotos/" + nombre, Convert.ToInt32(Session["idConsulta"])));
                     } else {
-                        errorLbl.Text = "No se pudo guardar la foto en el servidor";
+                        //errorLbl.Text = "No se pudo guardar la foto en el servidor";
+                        lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se pudo guardar la foto en el servidor.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                        lblError.Visible = true;
                     }
                 }
 
@@ -168,12 +170,16 @@ namespace UI {
                         //Label1.Text = "File uploaded!";
                         return imageName + fileExtension;
                     } catch (Exception) {
-                        errorLbl.Text = "No se pudo guardar la foto en el servidor. (Las extensiones permitidas son: jpeg, jpg, png)";
-                        errorLbl.Visible = true;
+                        //errorLbl.Text = "No se pudo guardar la foto en el servidor. (Las extensiones permitidas son: jpeg, jpg, png)";
+                        //errorLbl.Visible = true;
+                        lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se pudo guardar la foto en el servidor. (Las extensiones permitidas son: jpeg, jpg, png)<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                        lblError.Visible = true;
                     }
                 } else {
-                    errorLbl.Text = "No se acepta esta extensión de archivo. (Las extensiones permitidas son: jpeg, jpg, png)";
-                    errorLbl.Visible = true;
+                    //errorLbl.Text = "No se acepta esta extensión de archivo. (Las extensiones permitidas son: jpeg, jpg, png)";
+                    //errorLbl.Visible = true;
+                    lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se acepta esta extensión de archivo. (Las extensiones permitidas son: jpeg, jpg, png)<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    lblError.Visible = true;
                 }
             }
             return "";
