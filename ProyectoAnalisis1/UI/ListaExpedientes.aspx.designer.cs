@@ -22,6 +22,24 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lblFiltrar;
         
         /// <summary>
+        /// scriptmng control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scriptmng;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// CalendFechaIni control.
         /// </summary>
         /// <remarks>
@@ -29,6 +47,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Calendar CalendFechaIni;
+        
+        /// <summary>
+        /// UpdatePanel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
         /// calendFechaFin control.
@@ -49,17 +76,16 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Button btnFiltrarFecha;
         
         /// <summary>
-        /// lblExpedientes control.
-        /// Control btnTodosExped.
+        /// btnTodosExped control.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnTodosExped;
         
         /// <summary>
-        /// Control lblExpedientes.
+        /// lblExpedientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

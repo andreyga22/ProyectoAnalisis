@@ -15,6 +15,8 @@ namespace UI
             revisarLogin();
             cargarGrid();
             lblErrorExpedientes.Visible = false;
+            //CalendFechaIni.SelectedDate = Convert.ToDateTime(DateTime.Now.Date);
+            //calendFechaFin.SelectedDate = Convert.ToDateTime(DateTime.Now.Date);
         }
 
         private void cargarGrid()
@@ -100,20 +102,18 @@ namespace UI
 
         protected void btnFiltrarFecha_Click(object sender, EventArgs e)
         {
-            BLManejadorExpediente manejExpediente = new BLManejadorExpediente();
-            List<BLExpediente> lista = manejExpediente.filtrarFecha(CalendFechaIni.SelectedDate, calendFechaFin.SelectedDate);
-            if (lista.Count > 0)
-            {
-                tablaExpedi.DataSource = lista;
-                tablaExpedi.DataBind();
-                invisible();
-                crearTabla2();
-            } else
-            {
-                tablaExpedi.Visible = false;
-                lblErrorExpedientes.Text = "No se encontraron expedientes con consultas en ese rango de fechas";
-                lblErrorExpedientes.Visible = true;
-            }
+                BLManejadorExpediente manejExpediente = new BLManejadorExpediente();
+                List<BLExpediente> lista = manejExpediente.filtrarFecha(CalendFechaIni.SelectedDate, calendFechaFin.SelectedDate);
+                if (lista.Count > 0) {
+                    tablaExpedi.DataSource = lista;
+                    tablaExpedi.DataBind();
+                    invisible();
+                    crearTabla2();
+                } else {
+                    tablaExpedi.Visible = false;
+                    lblErrorExpedientes.Text = "No se encontraron expedientes con consultas en ese rango de fechas";
+                    lblErrorExpedientes.Visible = true;
+                }
         }
 
         protected void btnTodosExped_Click(object sender, EventArgs e)

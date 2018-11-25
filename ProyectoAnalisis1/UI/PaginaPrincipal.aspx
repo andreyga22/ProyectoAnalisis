@@ -36,7 +36,7 @@
         </div>
         <br />
         <div class="row justify-content-center">
-             <asp:Button type="button" class="btn btn-light" ID="btnListaExpedientes" runat="server" OnClick="btnExpedientes_Click" Text="Expedientes" />
+             <asp:Button type="button" class="btn btn-light" ID="btnListaExpedientes" runat="server" OnClick="btnExpedientes_Click" Text="Ver todos los expedientes" />
             </div>
         <br />
         <br />
