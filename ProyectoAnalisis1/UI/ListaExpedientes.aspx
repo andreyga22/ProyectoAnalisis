@@ -54,8 +54,13 @@
             
                   <div class="row justify-content-center">
             <asp:Button type="button" class="btn btn-info" ID="btnFiltrarFecha" runat="server" Text="Filtrar" OnClick="btnFiltrarFecha_Click" />
-                                          
+                                     
         </div>
+             <br />
+              <div class="row justify-content-center">
+              <asp:Button type="button" class="btn btn-light" ID="btnTodosExped" runat="server" Text="Todos Expedientes" OnClick="btnTodosExped_Click" />  
+
+              </div>                 
 </div>
           <br />
                <div class="form-group col-6">

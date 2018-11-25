@@ -115,5 +115,11 @@ namespace UI
                 lblErrorExpedientes.Visible = true;
             }
         }
+
+        protected void btnTodosExped_Click(object sender, EventArgs e)
+        {
+            cargarGrid();
+            lblErrorExpedientes.Visible = false;
+        }
     }
 }
