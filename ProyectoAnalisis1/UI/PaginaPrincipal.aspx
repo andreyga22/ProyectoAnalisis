@@ -19,25 +19,26 @@
         </div>
         <br />
         <br />
+        <asp:Literal ID="mensajeDia" runat="server" Visible="false"></asp:Literal>
         <div id="popup" style="max-height: 500px; overflow-y: scroll;">
             <%--<div class="row justify-content-center">--%>
-            <asp:GridView ID="tablaDia" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnRowDeleting="tablaDia_RowDeleting" OnSelectedIndexChanged="tablaDia_SelectedIndexChanged" ViewStateMode="Disabled">
-                <Columns>
-                    <asp:CommandField ShowSelectButton="True" SelectText="Abrir"/>
-                    <asp:CommandField ShowDeleteButton="True" DeleteText="Eliminar" />
-                </Columns>
-            </asp:GridView>
+                    <asp:GridView ID="tablaDia" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnRowDeleting="tablaDia_RowDeleting" OnSelectedIndexChanged="tablaDia_SelectedIndexChanged" ViewStateMode="Disabled">
+                        <Columns>
+                            <asp:CommandField ShowSelectButton="True" SelectText="Abrir" />
+                            <asp:CommandField ShowDeleteButton="True" DeleteText="Eliminar" />
+                        </Columns>
+                    </asp:GridView>
             <%--  </div>--%>
         </div>
         <br />
         <div class="row justify-content-center">
             <asp:Button type="button" class="btn btn-info" ID="btnNuevoExp" runat="server" Text="Crear Nuevo Expediente" OnClick="btnNuevoExp_Click" />
-                                          
+
         </div>
         <br />
         <div class="row justify-content-center">
-             <asp:Button type="button" class="btn btn-light" ID="btnListaExpedientes" runat="server" OnClick="btnExpedientes_Click" Text="Ver todos los expedientes" />
-            </div>
+            <asp:Button type="button" class="btn btn-light" ID="btnListaExpedientes" runat="server" OnClick="btnExpedientes_Click" Text="Ver todos los expedientes" />
+        </div>
         <br />
         <br />
         <br />
@@ -64,6 +65,9 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="RequiredFieldValidator" ControlToValidate="txtbusqNombre" ForeColor="Red" ValidationGroup="nombre">El espacio no debe estar vacio</asp:RequiredFieldValidator>
             </div>
         </div>
+
+        <asp:Literal ID="mensajeBuscar" runat="server" Visible="false"></asp:Literal>
+
         <div id="popup" style="max-height: 500px; overflow-y: scroll;">
             <%--<div class="row justify-content-center">--%>
             <asp:GridView ID="tblBuscar" class="table table-striped table-bordered table-responsive-lg" runat="server" AutoGenerateSelectButton="False" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged" AutoGenerateEditButton="False" OnRowEditing="tblBuscar_RowEditing">

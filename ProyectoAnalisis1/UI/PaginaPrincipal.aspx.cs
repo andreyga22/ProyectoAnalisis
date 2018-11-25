@@ -21,7 +21,7 @@ namespace UI {
             if (!IsPostBack) {
                 cargarDia();
             }
-        
+
             cargarDia();
         }
 
@@ -53,25 +53,25 @@ namespace UI {
 
         protected void buscarCedula_Click(object sender, EventArgs e) {
             //try {
-                if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim()))) {
+            if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim()))) {
                 BLManejadorExpediente manejador = new BLManejadorExpediente();
                 List<BLExpediente> expediente = manejador.consultarListaCedula(txtbusqCedula.Text.Trim());
-                    if (expediente.Count > 0) {
-                        tblBuscar.Visible = true;
-                        tblBuscar.DataSource = expediente;
-                        tblBuscar.DataBind();
-                        crearTabla();
-                        invisible2();
-                    } else {
-                        lblNoBusqCedula.Visible = true;
-                        tblBuscar.Visible = false;
-                    }
+                if (expediente.Count > 0) {
+                    tblBuscar.Visible = true;
+                    tblBuscar.DataSource = expediente;
+                    tblBuscar.DataBind();
+                    crearTabla();
+                    invisible2();
+                } else {
+                    lblNoBusqCedula.Visible = true;
+                    tblBuscar.Visible = false;
                 }
-        //} catch (Exception) {
-        //        lblError.Visible = true;
-        //        lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
-        //    }
-}
+            }
+            //} catch (Exception) {
+            //        lblError.Visible = true;
+            //        lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
+            //    }
+        }
 
         protected void listaBusq_SelectedIndexChanged(object sender, EventArgs e) {
             string id = tblBuscar.SelectedRow.Cells[2].Text.Trim();
@@ -183,7 +183,9 @@ namespace UI {
                 int selected = e.NewEditIndex;
                 tblBuscar.SelectedIndex = selected;
                 blm.insertarDia(tblBuscar.SelectedRow.Cells[2].Text.Trim());
-                Response.Redirect("PaginaPrincipal.aspx");
+                mensajeBuscar.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>El expediente se agregó a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeBuscar.Visible = true;
+                cargarDia();
             } catch (Exception) {
                 lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
             }
@@ -202,14 +204,15 @@ namespace UI {
                 int selected = e.RowIndex;
                 tablaDia.SelectedIndex = selected;
                 ble.borrarDia(tablaDia.SelectedRow.Cells[2].Text.Trim());
-                Response.Redirect("PaginaPrincipal.aspx");
+                mensajeDia.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>El expediente se eliminó de la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeDia.Visible = true;
+                cargarDia();
             } catch (Exception) {
                 lblError.Text = "Error al borrar el expediente de la lista de consultas del día.";
             }
         }
 
-        protected void btnExpedientes_Click(object sender, EventArgs e)
-        {
+        protected void btnExpedientes_Click(object sender, EventArgs e) {
             Response.Redirect("ListaExpedientes.aspx");
         }
     }

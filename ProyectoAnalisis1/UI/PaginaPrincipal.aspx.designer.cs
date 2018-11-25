@@ -31,6 +31,15 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Label lblTablaDia;
         
         /// <summary>
+        /// mensajeDia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal mensajeDia;
+        
+        /// <summary>
         /// tablaDia control.
         /// </summary>
         /// <remarks>
@@ -137,6 +146,15 @@ namespace UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// mensajeBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal mensajeBuscar;
         
         /// <summary>
         /// tblBuscar control.
