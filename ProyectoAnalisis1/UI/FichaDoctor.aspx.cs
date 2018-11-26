@@ -40,6 +40,7 @@ namespace UI {
                             }
                         }
                         lblEmpleado.Text = "Doctor Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
+                        lblEmpleado.Visible = true;
                     }
                 }
             } catch (Exception) {
