@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-row">
-            <asp:Label ID="lblEmpleado" runat="server" Text="Label" Font-Bold="True"></asp:Label>
+            <asp:Label ID="lblEmpleado" runat="server" Text="" Font-Bold="True" Visible="False"></asp:Label>
         </div>
         <br />
         <br />

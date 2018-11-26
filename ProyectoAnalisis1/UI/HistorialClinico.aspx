@@ -61,7 +61,7 @@
             <br />
             <br />
             <div class="form-row">
-                <div class="form-group">
+                <div class="form-group col-sm-6">
                     <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="displidemiaCheck" runat="server" Text="Displidemias" onkeypress="if (event.keyCode == 13) { return false;}" />
                 </div>
             </div>

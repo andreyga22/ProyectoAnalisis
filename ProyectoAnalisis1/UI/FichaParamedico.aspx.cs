@@ -23,8 +23,16 @@ namespace UI {
                     BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
                     BLFichaParamedico param = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
                     if (param.id_Paramedico == 0) {
-                        lblEmpleado.Visible = false;
-                    } else {
+                        //lblEmpleado.Visible = false;
+                        temperaturaText.Text = "0";
+                        estaturaText.Text = "0";
+                        pesoText.Text = "0";
+                        GlasgowText.Text = "0";
+                        Frec_CardText.Text = "0";
+                        Frec_RespText.Text = "0";
+
+                    }
+                    else {
                         NotasParamText.Text = param.nota_param;
                         presionText.Text = param.presionArterial;
                         temperaturaText.Text = Convert.ToString(param.temperatura);

@@ -89,8 +89,9 @@ namespace UI {
                 //int idConsultaNueva = manejador.consultarUltimo(Convert.ToString(Session["cedula"]));
                 int idConsultaNueva = manejador.consultarUltimoConsultaID();
                 Session["idConsulta"] = idConsultaNueva;
-                lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Consulta agregada correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                lblError.Visible = true;
+                Response.Redirect("Consulta.aspx");
+                //lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Consulta agregada correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                //lblError.Visible = true;
             } catch (Exception) {
                 //errorLbl.Visible = true;
                 //errorLbl.Text = "Error al guardar los datos de la consulta. Verifique que los datos sean correctos.";

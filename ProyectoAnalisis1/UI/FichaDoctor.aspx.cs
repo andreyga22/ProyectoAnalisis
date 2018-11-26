@@ -26,13 +26,18 @@ namespace UI {
                         planText.Text = doc.plan;
                         BLManejadorFoto blf = new BLManejadorFoto();
                         List<BLFoto> fotos = blf.consultar(Convert.ToInt32(Session["idConsulta"]));
-                        image.ImageUrl = fotos[0].url;
-                        image2.ImageUrl = fotos[0].url;
-                        image.Visible = true;
-                        if (fotos.Count > 1) {
-                            image3.ImageUrl = fotos[1].url;
-                            image4.ImageUrl = fotos[1].url;
-                            image3.Visible = true;
+                        if (fotos.Count > 0)
+                        {
+
+                            image.ImageUrl = fotos[0].url;
+                            image2.ImageUrl = fotos[0].url;
+                            image.Visible = true;
+                            if (fotos.Count > 1)
+                            {
+                                image3.ImageUrl = fotos[1].url;
+                                image4.ImageUrl = fotos[1].url;
+                                image3.Visible = true;
+                            }
                         }
                         lblEmpleado.Text = "Doctor Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(doc.idEmpleado).nombreEmpleado;
                     }
