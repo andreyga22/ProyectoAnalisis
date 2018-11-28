@@ -53,7 +53,7 @@
             <asp:LinkButton ID="linkImg" data-toggle="modal" data-target="#exampleModal" runat="server">
                 <asp:Image ID="image" runat="server" Visible="False" Height="25%" Width="25%" />
             </asp:LinkButton>
-            <asp:FileUpload ID="foto" runat="server" AllowMultiple="False" />
+            <asp:FileUpload ID="foto" runat="server"  AllowMultiple="False" />
         </div>
 
         <br />

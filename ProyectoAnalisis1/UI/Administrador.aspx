@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="Administrador.aspx.cs" Inherits="UI.Administrador" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .auto-style1 {
+            left: 15px;
+            top: 8px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -60,8 +66,9 @@
         </div>
         <br />
         <div class="col-sm-6">
-            <label for="chckEstado">Estado</label><br />
-            <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="chckEstado" runat="server" Text="Habilitado" />
+            <label for="chckEstado">Estado</label>
+            <br />
+            <asp:CheckBox class="form-check-input" type="checkbox" value="" ID="chckEstado" runat="server" Text="Habilitado" CssClass="auto-style1" />
         </div>
 
         <br />

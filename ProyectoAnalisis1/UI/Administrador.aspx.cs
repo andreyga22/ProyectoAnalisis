@@ -86,6 +86,7 @@ namespace UI
                 manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
                 lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Empleado creado exitosamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
+                cargarGrid();
                 //Response.Redirect("Administrador.aspx");
             }
             catch (Exception)

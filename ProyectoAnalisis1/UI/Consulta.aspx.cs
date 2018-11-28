@@ -30,6 +30,7 @@ namespace UI {
                 try {
                     BLManejadorConsulta blm = new BLManejadorConsulta();
                     BLConsulta con = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
+                    //fecha.Text = Convert.ToString((con.fecha).Day) + "/" + Convert.ToString((con.fecha).Month) + "/" + Convert.ToString((con.fecha).Year);
                     fecha.Text = Convert.ToString(con.fecha);
                     precioText.Text = Convert.ToString(con.precio_Consulta);
                 } catch (Exception) {

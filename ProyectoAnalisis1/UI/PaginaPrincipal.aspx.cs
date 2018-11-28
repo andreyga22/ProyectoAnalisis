@@ -26,13 +26,26 @@ namespace UI {
         }
 
         private void cargarDia() {
-            BLManejadorExpediente ble = new BLManejadorExpediente();
-            List<BLExpediente> lista = ble.consultarListaDia();
-            if (lista.Count > 0) {
-                tablaDia.DataSource = lista;
-                tablaDia.DataBind();
-                invisible();
-                crearTabla2();
+            try
+            {
+                BLManejadorExpediente ble = new BLManejadorExpediente();
+                List<BLExpediente> lista = ble.consultarListaDia();
+                if (lista.Count > 0)
+                {
+                    tablaDia.DataSource = lista;
+                    tablaDia.DataBind();
+                    invisible();
+                    crearTabla2();
+                }
+                else
+                {
+                    mensajeDia.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\">No existen consultas pendientes.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    mensajeDia.Visible = true;
+                }
+            } catch (Exception)
+            {
+                mensajeDia.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeDia.Visible = true;
             }
         }
 
@@ -52,8 +65,9 @@ namespace UI {
         }
 
         protected void buscarCedula_Click(object sender, EventArgs e) {
-            //try {
-            if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim()))) {
+            try
+            {
+                if (!String.IsNullOrEmpty(txtbusqCedula.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqCedula.Text.Trim()))) {
                 BLManejadorExpediente manejador = new BLManejadorExpediente();
                 List<BLExpediente> expediente = manejador.consultarListaCedula(txtbusqCedula.Text.Trim());
                 if (expediente.Count > 0) {
@@ -67,10 +81,14 @@ namespace UI {
                     tblBuscar.Visible = false;
                 }
             }
-            //} catch (Exception) {
-            //        lblError.Visible = true;
-            //        lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
-            //    }
+            }
+            catch (Exception)
+            {
+                mensajeBuscar.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeBuscar.Visible = true;
+                //lblError.Visible = true;
+                //lblError.Text = "Error al cargar la información. Verifique su conexión a internet";
+            }
         }
 
         protected void listaBusq_SelectedIndexChanged(object sender, EventArgs e) {
