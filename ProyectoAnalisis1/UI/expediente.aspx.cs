@@ -8,15 +8,15 @@ using BL;
 namespace UI {
     public partial class expediente : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            //try {
+            try {
                 revisarLogin();
-
                 BLEmpleado emp = (BLEmpleado)(Session["empleado"]);
                 if ((emp.rol.Equals("Secretaria"))) {
                     btnHistorialClinico.Visible = false;
                 }
+
                 if (!IsPostBack) {
-                    if (!Convert.ToString(Session["cedula"]).Equals("")) {
+                    if (!String.IsNullOrEmpty(Convert.ToString(Session["cedula"])) || (!String.IsNullOrWhiteSpace(Convert.ToString(Session["cedula"])))) {
                         BLManejadorExpediente man = new BLManejadorExpediente();
                         BLExpediente exp = man.consultarExpediente(Convert.ToString(Session["cedula"]));
                         idText.Text = exp.cedula;
@@ -37,53 +37,31 @@ namespace UI {
                         descripcionTel2.Text = exp.descripcion_tel2;
                         descripcionTel3.Text = exp.descripcion_tel3;
                         txtEdad.Text = Convert.ToString(calcularEdad(exp.fecha_nacimiento));
-
-                        //idLabel.Text = exp.cedula;
-                        //firstNameLabel.Text = exp.primer_nombre;
-                        //secondNameLabel.Text = exp.segundo_nombre;
-                        //lastNameLabel.Text = exp.primer_apellido;
-                        //lastNameLabel2.Text = exp.segundo_apellido;
-                        //diaLabel.Text = Convert.ToString(exp.fecha_nacimiento.Day);
-                        //mesLabel.Text = Convert.ToString(exp.fecha_nacimiento.Month);
-                        //AnnoLabel.Text = Convert.ToString(exp.fecha_nacimiento.Year);
-                        //phoneLabel.Text = exp.num_telefono;
-                        //religionLabel.Text = exp.religion;
-                        //estadoCivilLabel.Text = exp.estado_civil;
-                        //trabajoLabel.Text = exp.tipo_trabajo;
-                        //sexoLabel.Text = exp.sexo;
-
+                        
                         BLManejadorDireccion dir = new BLManejadorDireccion();
                         BLDireccion bl = dir.consultar(Convert.ToString(Session["cedula"]));
                         provinciaText.Text = bl.provincia;
                         cantonText.Text = bl.canton;
                         distritoText.Text = bl.distrito;
                         otrasText.Text = bl.otrasSenas;
-
-                        //provinciaLabel.Text = bl.provincia;
-                        //cantonLabel.Text = bl.canton;
-                        //distritoLabel.Text = bl.distrito;
-                        //otrasLabel.Text = bl.otrasSenas;
+                        
                     }
                 }
-                //if (!IsPostBack) {
-                desactivarCampos();
-                if (String.IsNullOrEmpty(idText.Text) || (String.IsNullOrWhiteSpace(idText.Text))) {
-                    //modificarBtn.Visible = false;
-                    //modificarBtn.Enabled = false;
-                    ultimaBtn.Visible = false;
-                    ultimaBtn.Enabled = false;
-                    historialBtn.Visible = false;
-                    historialBtn.Enabled = false;
-                    btnHistorialClinico.Visible = false;
-                    btnHistorialClinico.Enabled = false;
-                }
-                //}
-            //} catch (Exception) {
-            //    errorlbl.Visible = true;
-            //    errorlbl.Text = "Error al cargar los datos del expediente. Verifique su conexion a internet y regrese a la página principal";
-            //}
+            } catch (Exception) {
+                mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>¡Error al cargar los datos del expediente!</strong> Verifique su conexion a internet y regrese a la página principal<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeError.Visible = true;
+            }
 
 
+            if (String.IsNullOrEmpty(idText.Text.Trim()) || (String.IsNullOrWhiteSpace(idText.Text.Trim()))) {
+                ultimaBtn.Visible = false;
+                ultimaBtn.Enabled = false;
+                historialBtn.Visible = false;
+                historialBtn.Enabled = false;
+                btnHistorialClinico.Visible = false;
+                btnHistorialClinico.Enabled = false;
+            }
+            desactivarCampos();
         }
 
         private void revisarLogin() {
@@ -98,72 +76,35 @@ namespace UI {
         }
 
         private void desactivarCampos() {
-            if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text))) {
-                BLEmpleado emp = (BLEmpleado)(Session["empleado"]);
-                idText.Enabled = false;
-                if ((!emp.rol.Equals("Secretaria"))) {
-                    btnHistorialClinico.Visible = true;
+            if (!String.IsNullOrEmpty(Convert.ToString(Session["cedula"])) || (!String.IsNullOrWhiteSpace(Convert.ToString(Session["cedula"])))) {
+                if (!String.IsNullOrEmpty(idText.Text) || (!String.IsNullOrWhiteSpace(idText.Text))) {
+                    BLEmpleado emp = (BLEmpleado)(Session["empleado"]);
+                    idText.Enabled = false;
+                    if ((!emp.rol.Equals("Secretaria"))) {
+                        btnHistorialClinico.Visible = true;
+                    }
+                    BLManejadorConsulta man = new BLManejadorConsulta();
+                    List<BLConsulta> bl = man.listaConsultas(idText.Text.Trim());
+                    if (bl.Count > 0) {
+                        ultimaBtn.Visible = true;
+                        btnHistorialClinico.Enabled = true;
+                        ultimaBtn.Enabled = true;
+                        historialBtn.Visible = true;
+                        historialBtn.Enabled = true;
+                    } else {
+                        btnHistorialClinico.Enabled = true;
+                        historialBtn.Visible = true;
+                        historialBtn.Enabled = true;
+                        ultimaBtn.Enabled = false;
+                        ultimaBtn.Visible = false;
+                    }
                 }
-                BLManejadorConsulta man = new BLManejadorConsulta();
-                List<BLConsulta> bl = man.listaConsultas(idText.Text.Trim());
-                if (bl.Count > 0) {
-                    ultimaBtn.Visible = true;
-                    btnHistorialClinico.Enabled = true;
-                    ultimaBtn.Enabled = true;
-                    historialBtn.Visible = true;
-                    historialBtn.Enabled = true;
-                } else {
-                    btnHistorialClinico.Enabled = true;
-                    historialBtn.Visible = true;
-                    historialBtn.Enabled = true;
-                    ultimaBtn.Enabled = false;
-                }
-
-                //firstNameText.Visible = false;
-                //secondNameText.Visible = false;
-                //lastNameText.Visible = false;
-                //lastNameText2.Visible = false;
-                //diaText.Visible = false;
-                //mesText.Visible = false;
-                //AnnoText.Visible = false;
-                //phoneText.Visible = false;
-                //religionText.Visible = false;
-                //estadoCivilText.Visible = false;
-                //trabajoText.Visible = false;
-                //sexoText.Visible = false;
-                //provinciaText.Visible = false;
-                //cantonText.Visible = false;
-                //distritoText.Visible = false;
-                //otrasText.Visible = false;
-                //guardarBtn.Visible = false;
-                //guardarBtn.Visible = false;
-                //modificarBtn.Visible = true;
-                //modificarBtn.Visible = true;
-
-                //idLabel.Visible = true;
-                //firstNameLabel.Visible = true;
-                //secondNameLabel.Visible = true;
-                //lastNameLabel.Visible = true;
-                //lastNameLabel2.Visible = true;
-                //diaLabel.Visible = true;
-                //mesLabel.Visible = true;
-                //AnnoLabel.Visible = true;
-                //phoneLabel.Visible = true;
-                //religionLabel.Visible = true;
-                //estadoCivilLabel.Visible = true;
-                //trabajoLabel.Visible = true;
-                //sexoLabel.Visible = true;
-                //provinciaLabel.Visible = true;
-                //cantonLabel.Visible = true;
-                //distritoLabel.Visible = true;
-                //otrasLabel.Visible = true;
             }
         }
 
         private void activarCampos() {
             idText.Visible = true;
             idText.Enabled = false;
-            //txtEdad.Enabled = false;
             firstNameText.Visible = true;
             secondNameText.Visible = true;
             lastNameText.Visible = true;
@@ -183,53 +124,39 @@ namespace UI {
             txtEdad.Visible = true;
             guardarBtn.Visible = true;
             guardarBtn.Visible = true;
-            //modificarBtn.Visible = false;
-
-            //idLabel.Visible = false;
-            //firstNameLabel.Visible = false;
-            //secondNameLabel.Visible = false;
-            //lastNameLabel.Visible = false;
-            //lastNameLabel2.Visible = false;
-            //diaLabel.Visible = false;
-            //mesLabel.Visible = false;
-            //AnnoLabel.Visible = false;
-            //phoneLabel.Visible = false;
-            //religionLabel.Visible = false;
-            //estadoCivilLabel.Visible = false;
-            //trabajoLabel.Visible = false;
-            //sexoLabel.Visible = false;
-            //provinciaLabel.Visible = false;
-            //cantonLabel.Visible = false;
-            //distritoLabel.Visible = false;
-            //otrasLabel.Visible = false;
         }
 
         protected void guardarBtn_Click(object sender, EventArgs e) {
-            try {
-                new BLManejadorExpediente().insertarModificar(createBl());
-                new BLManejadorDireccion().guardarModificar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(), cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
-                mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                mensajeError.Visible = true;
-            } catch (System.ArgumentOutOfRangeException) {
-                //Response.Write("<script>alert('Error al ingresar los datos del expediente. Revise que los datos ingresados tengan el formato correcto')</script>");
 
-                mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al ingresar la fecha de nacimiento </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                mensajeError.Visible = true;
+            if (String.IsNullOrEmpty(Convert.ToString(Session["cedula"])) || (String.IsNullOrWhiteSpace(Convert.ToString(Session["cedula"])))) {
+                try {
+                    new BLManejadorExpediente().insertarExpediente(createBl());
+                    mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    mensajeError.Visible = true;
+                    Session["cedula"] = idText.Text.Trim();
+                    desactivarCampos();
+                } catch (Exception) {
+                    mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>¡Error!</strong>El expediente ya existe en el sistema o los datos son incorrectos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    mensajeError.Visible = true;
+                    idText.Text = "";
+                }
+            } else {
+                try {
+                    new BLManejadorExpediente().insertarModificar(createBl());
+                    new BLManejadorDireccion().guardarModificar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(), cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
+                    mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    mensajeError.Visible = true;
+                } catch (System.ArgumentOutOfRangeException) {
 
-                //errorlbl.Visible = true;
-                //errorlbl.Text = "Error al ingresar la fecha de nacimiento. Verifique que los datos ingresados sean correctos";
-            } catch (Exception) {
-                mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                mensajeError.Visible = true;
-
-                //errorlbl.Visible = true;
-                //errorlbl.Text = "Error al ingresar los datos de expediente. Verifique que los datos ingresados sean correctos";
+                    mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al ingresar la fecha de nacimiento </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    mensajeError.Visible = true;
+                    
+                } catch (Exception) {
+                    mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    mensajeError.Visible = true;
+                    
+                }
             }
-            //if (!new BLManejadorDireccion().insertar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(),
-            //    cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim())))
-            //{
-            //    Response.Write("<script>alert('ERROR! Dirección no ha sido almacenada exitosamente')</script>");
-            //}
 
         }
 
@@ -243,17 +170,7 @@ namespace UI {
         }
 
         protected void modificarBtn_Click(object sender, EventArgs e) {
-            //if (Convert.ToBoolean(ViewState["listoParaGuardar"]) == true)
-            //{
-            //    new BLManejadorExpediente().actualizarExpediente(createBl());
-            //    ViewState["listoParaGuardar"] = false;
-            //}
-            //else
-            //{
             activarCampos();
-            //    ViewState["listoParaGuardar"] = true;
-            //    modificarBtn.Text = "Guardar";
-            //}
         }
 
         private BLExpediente createBl() {
@@ -280,7 +197,7 @@ namespace UI {
             Response.Redirect("HistorialClinico.aspx");
         }
 
-   
+
 
         protected void diaText_TextChanged(object sender, EventArgs e) {
 

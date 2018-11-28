@@ -11,8 +11,12 @@ namespace BL
     {
 
         public void insertarExpediente(BLExpediente bl) {
-            DAOExpediente dao = new DAOExpediente();
-            dao.insertar(convert(bl));
+            try {
+                DAOExpediente dao = new DAOExpediente();
+                dao.insertar(convert(bl));
+            } catch (Exception) {
+                throw;
+            }
         }
 
         public void insertarModificar(BLExpediente bl) {
