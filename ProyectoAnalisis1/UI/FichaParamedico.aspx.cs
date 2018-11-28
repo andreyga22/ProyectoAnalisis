@@ -10,7 +10,7 @@ namespace UI {
     public partial class FichaParamedico : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
             revisarLogin();
-            Response.Write(((BLEmpleado)Session["empleado"]).id);
+            //Response.Write(((BLEmpleado)Session["empleado"]).id);
             BLEmpleado emp = (BLEmpleado)Session["empleado"];
             if ((!emp.rol.Equals("Doctor"))) {
                 observacionesText.Enabled = false;
@@ -53,6 +53,7 @@ namespace UI {
                             imcText.Visible = false;
                         }
                         lblEmpleado.Text = "Paramédico Encargado: " + new BLManejadorEmpleado().obtenerEmpleado(param.idEmpleado).nombreEmpleado;
+                        lblEmpleado.Visible = true;
                     }
                 }
             } catch (Exception) {
@@ -87,6 +88,7 @@ namespace UI {
                     PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
                 lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos de la ficha paramédico han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
+                Response.Redirect("Consulta.aspx");
             } catch (Exception) {
                 lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al guardar los datos de la ficha paramédico </strong>Verifique que los datos sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;

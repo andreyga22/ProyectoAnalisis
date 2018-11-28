@@ -37,14 +37,14 @@ namespace UI {
                         descripcionTel2.Text = exp.descripcion_tel2;
                         descripcionTel3.Text = exp.descripcion_tel3;
                         txtEdad.Text = Convert.ToString(calcularEdad(exp.fecha_nacimiento));
-                        
+
                         BLManejadorDireccion dir = new BLManejadorDireccion();
                         BLDireccion bl = dir.consultar(Convert.ToString(Session["cedula"]));
                         provinciaText.Text = bl.provincia;
                         cantonText.Text = bl.canton;
                         distritoText.Text = bl.distrito;
                         otrasText.Text = bl.otrasSenas;
-                        
+
                     }
                 }
             } catch (Exception) {
@@ -102,39 +102,21 @@ namespace UI {
             }
         }
 
-        private void activarCampos() {
-            idText.Visible = true;
-            idText.Enabled = false;
-            firstNameText.Visible = true;
-            secondNameText.Visible = true;
-            lastNameText.Visible = true;
-            lastNameText2.Visible = true;
-            diaText.Visible = true;
-            mesText.Visible = true;
-            AnnoText.Visible = true;
-            phoneText.Visible = true;
-            religionText.Visible = true;
-            estadoCivilText.Visible = true;
-            trabajoText.Visible = true;
-            sexoText.Visible = true;
-            provinciaText.Visible = true;
-            cantonText.Visible = true;
-            distritoText.Visible = true;
-            otrasText.Visible = true;
-            txtEdad.Visible = true;
-            guardarBtn.Visible = true;
-            guardarBtn.Visible = true;
-        }
-
         protected void guardarBtn_Click(object sender, EventArgs e) {
 
             if (String.IsNullOrEmpty(Convert.ToString(Session["cedula"])) || (String.IsNullOrWhiteSpace(Convert.ToString(Session["cedula"])))) {
                 try {
-                    new BLManejadorExpediente().insertarExpediente(createBl());
-                    mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                    mensajeError.Visible = true;
-                    Session["cedula"] = idText.Text.Trim();
-                    desactivarCampos();
+                    BLExpediente exp = createBl();
+                    if (DateTime.Compare(exp.fecha_nacimiento, DateTime.Now) == -1) {
+                        new BLManejadorExpediente().insertarExpediente(exp);
+                        mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                        mensajeError.Visible = true;
+                        Session["cedula"] = idText.Text.Trim();
+                        desactivarCampos();
+                    } else {
+                        mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>¡Error!</strong> La fecha de nacimiento esta incorrecta.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                        mensajeError.Visible = true;
+                    }
                 } catch (Exception) {
                     mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>¡Error!</strong>El expediente ya existe en el sistema o los datos son incorrectos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                     mensajeError.Visible = true;
@@ -142,19 +124,25 @@ namespace UI {
                 }
             } else {
                 try {
-                    new BLManejadorExpediente().insertarModificar(createBl());
-                    new BLManejadorDireccion().guardarModificar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(), cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
-                    mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                    mensajeError.Visible = true;
+                    BLExpediente exp = createBl();
+                    if (DateTime.Compare(exp.fecha_nacimiento, DateTime.Now) == -1) {
+                        new BLManejadorExpediente().insertarModificar(exp);
+                        new BLManejadorDireccion().guardarModificar(new BLDireccion(0, idText.Text.Trim(), provinciaText.Text.Trim(), cantonText.Text.Trim(), distritoText.Text.Trim(), otrasText.Text.Trim()));
+                        mensajeError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                        mensajeError.Visible = true;
+                    } else {
+                        mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>¡Error!</strong> La fecha de nacimiento esta incorrecta.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                        mensajeError.Visible = true;
+                    }
                 } catch (System.ArgumentOutOfRangeException) {
 
                     mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al ingresar la fecha de nacimiento </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                     mensajeError.Visible = true;
-                    
+
                 } catch (Exception) {
                     mensajeError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>Verifique que los datos ingresados sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                     mensajeError.Visible = true;
-                    
+
                 }
             }
 
@@ -170,7 +158,6 @@ namespace UI {
         }
 
         protected void modificarBtn_Click(object sender, EventArgs e) {
-            activarCampos();
         }
 
         private BLExpediente createBl() {

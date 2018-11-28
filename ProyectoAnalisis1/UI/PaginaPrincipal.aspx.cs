@@ -93,6 +93,7 @@ namespace UI {
 
         protected void listaBusq_SelectedIndexChanged(object sender, EventArgs e) {
             string id = tblBuscar.SelectedRow.Cells[2].Text.Trim();
+            tblBuscar.Rows.
             //Response.Write(id);
             Session["cedula"] = id;
             Response.Redirect("expediente.aspx");
