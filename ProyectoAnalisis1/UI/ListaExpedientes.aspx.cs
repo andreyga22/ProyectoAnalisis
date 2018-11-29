@@ -12,39 +12,50 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            revisarLogin();
-            cargarGrid();
-            //lblErrorExpedientes.Visible = false;
-            //CalendFechaIni.SelectedDate = Convert.ToDateTime(DateTime.Now.Date);
-            //calendFechaFin.SelectedDate = Convert.ToDateTime(DateTime.Now.Date);
+            try {
+                revisarLogin();
+                cargarGrid();
+            } catch (Exception) {
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+            }
         }
 
         private void cargarGrid()
         {
-            BLManejadorExpediente ble = new BLManejadorExpediente();
-            List<BLExpediente> lista = ble.consultarListaExpedientes();
-            if (lista.Count > 0)
-            {
-                tablaExpedi.DataSource = lista;
-                tablaExpedi.DataBind();
-                invisible();
-                crearTabla2();
+            try {
+                BLManejadorExpediente ble = new BLManejadorExpediente();
+                List<BLExpediente> lista = ble.consultarListaExpedientes();
+                if (lista.Count > 0) {
+                    tablaExpedi.DataSource = lista;
+                    tablaExpedi.DataBind();
+                    invisible();
+                    crearTabla2();
+                }
+            } catch (Exception) {
+                lblError2.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError2.Visible = true;
             }
         }
         private void crearTabla2()
         {
-            tablaExpedi.HeaderRow.Cells[2].Text = "Cédula";
-            tablaExpedi.HeaderRow.Cells[3].Text = "Primer Nombre";
-            tablaExpedi.HeaderRow.Cells[4].Text = "Segundo Nombre";
-            tablaExpedi.HeaderRow.Cells[5].Text = "Primer Apellido";
-            tablaExpedi.HeaderRow.Cells[6].Text = "Segundo Apellido";
-            //tablaDia.HeaderRow.Cells[7].Text = "Fecha Nacimiento";
-            tablaExpedi.HeaderRow.Cells[8].Text = "Teléfono";
-            //tablaExpedi.HeaderRow.Cells[9].Text = "Religión";
-            //tablaDia.HeaderRow.Cells[10].Text = "Estado Civil";
-            //tablaDia.HeaderRow.Cells[11].Text = "Trabajo";
-            //tablaDia.HeaderRow.Cells[12].Text = "Sexo";
-            //tablaDia.HeaderRow.Cells[17].Text = "Alergias";
+            try {
+                tablaExpedi.HeaderRow.Cells[2].Text = "Cédula";
+                tablaExpedi.HeaderRow.Cells[3].Text = "Primer Nombre";
+                tablaExpedi.HeaderRow.Cells[4].Text = "Segundo Nombre";
+                tablaExpedi.HeaderRow.Cells[5].Text = "Primer Apellido";
+                tablaExpedi.HeaderRow.Cells[6].Text = "Segundo Apellido";
+                //tablaDia.HeaderRow.Cells[7].Text = "Fecha Nacimiento";
+                tablaExpedi.HeaderRow.Cells[8].Text = "Teléfono";
+                //tablaExpedi.HeaderRow.Cells[9].Text = "Religión";
+                //tablaDia.HeaderRow.Cells[10].Text = "Estado Civil";
+                //tablaDia.HeaderRow.Cells[11].Text = "Trabajo";
+                //tablaDia.HeaderRow.Cells[12].Text = "Sexo";
+                //tablaDia.HeaderRow.Cells[17].Text = "Alergias";
+            } catch (Exception) {
+                lblError2.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError2.Visible = true;
+            }
         }
         private void invisible()
         {

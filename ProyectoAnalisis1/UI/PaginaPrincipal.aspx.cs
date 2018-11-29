@@ -10,24 +10,25 @@ using BL;
 namespace UI {
     public partial class WebForm1 : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            revisarLogin();
-            Session["cedula"] = "";
-            Session["idConsulta"] = "";
-            lblNoBusqCedula.Visible = false;
-            lblNoBusqNombre.Visible = false;
-            //if (!IsPostBack) {
-            //    cargarDia();
-            //}
-            if (!IsPostBack) {
-                cargarDia();
-            }
+            try {
+                revisarLogin();
+                Session["cedula"] = "";
+                Session["idConsulta"] = "";
+                lblNoBusqCedula.Visible = false;
+                lblNoBusqNombre.Visible = false;
+                if (!IsPostBack) {
+                    cargarDia();
+                }
 
-            cargarDia();
+                cargarDia();
+            } catch (Exception) {
+                mensajeDia.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeDia.Visible = true;
+            }
         }
 
         private void cargarDia() {
-            //try
-            //{
+            try {
                 BLManejadorExpediente ble = new BLManejadorExpediente();
                 List<BLExpediente> lista = ble.consultarListaDia();
                 if (lista.Count > 0)
@@ -43,11 +44,10 @@ namespace UI {
                     mensajeDia.Visible = true;
                 }
 
-            //} catch (Exception)
-            //{
-            //    mensajeDia.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-            //    mensajeDia.Visible = true;
-            //}
+            } catch (Exception) {
+                mensajeDia.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeDia.Visible = true;
+            }
         }
 
         private void revisarLogin() {
@@ -99,7 +99,7 @@ namespace UI {
         }
 
         protected void buscarNombre_Click(object sender, EventArgs e) {
-            //try {
+            try {
                 if (!String.IsNullOrEmpty(txtbusqNombre.Text.Trim()) || (!String.IsNullOrWhiteSpace(txtbusqNombre.Text.Trim()))) {
                     BLManejadorExpediente manejador = new BLManejadorExpediente();
                     List<BLExpediente> listaExpediente = manejador.consultarListaExpedNombre(txtbusqNombre.Text);
@@ -114,10 +114,10 @@ namespace UI {
                         tblBuscar.Visible = false;
                     }
                 }
-            //} catch (Exception) {
-            //    mensajeBuscar.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-            //    mensajeBuscar.Visible = true;
-            //}
+            } catch (Exception) {
+                mensajeBuscar.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                mensajeBuscar.Visible = true;
+            }
         }
 
         private void crearTabla() {
@@ -126,24 +126,7 @@ namespace UI {
             tblBuscar.HeaderRow.Cells[4].Text = "Segundo Nombre";
             tblBuscar.HeaderRow.Cells[5].Text = "Primer Apellido";
             tblBuscar.HeaderRow.Cells[6].Text = "Segundo Apellido";
-            //tblBuscar.HeaderRow.Cells[7].Text = "Fecha Nacimiento";
             tblBuscar.HeaderRow.Cells[8].Text = "Teléfono";
-            //tblBuscar.HeaderRow.Cells[9].Text = "Religión";
-            //tblBuscar.HeaderRow.Cells[10].Text = "Estado Civil";
-            //tblBuscar.HeaderRow.Cells[11].Text = "Trabajo";
-            //tblBuscar.HeaderRow.Cells[12].Text = "Sexo";
-            //tblBuscar.HeaderRow.Cells[17].Text = "Alergias";
-
-            //foreach (GridViewRow row in tblBuscar.Rows) {
-            //    LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
-            //    lb.Text = "Agregar";
-            //}
-
-            //listaContblBuscarsultaGV.HeaderRow.Cells[1].Visible = false;
-            //for (int i = 0; i < listaConsultaGV.Rows.Count; i++)
-            //{
-            //    listaConsultaGV.Rows[i].Cells[1].Visible = false;
-            //}
         }
 
         private void crearTabla2() {
@@ -158,25 +141,6 @@ namespace UI {
             tablaDia.HeaderRow.Cells[7].Text = "Segundo Apellido";
             tablaDia.HeaderRow.Cells[9].Text = "Teléfono";
             tablaDia.HeaderRow.Cells[18].Text = "Alergias";
-            //tablaDia.HeaderRow.Cells[7].Text = "Fecha Nacimiento";
-            //tablaDia.HeaderRow.Cells[9].Text = "Religión";
-            //tablaDia.HeaderRow.Cells[10].Text = "Estado Civil";
-            //tablaDia.HeaderRow.Cells[11].Text = "Trabajo";
-            //tablaDia.HeaderRow.Cells[12].Text = "Sexo";
-
-            //foreach (GridViewRow row in tablaDia.Rows) {
-            //    LinkButton lb = (LinkButton)row.Cells[0].Controls[0];
-            //    lb.Text = "Eliminar";
-            //}
-
-            //listaContblBuscarsultaGV.HeaderRow.Cells[1].Visible = false;
-            //for (int i = 0; i < listaConsultaGV.Rows.Count; i++)
-            //{
-            //    listaConsultaGV.Rows[i].Cells[1].Visible = false;
-            //}
-
-
-
         }
 
         private void invisible() {
@@ -202,26 +166,8 @@ namespace UI {
             }
         }
 
-        //protected void tblBuscar_RowEditing(object sender, GridViewEditEventArgs e) {
-        //    try {
-        //        BLManejadorExpediente blm = new BLManejadorExpediente();
-        //        int selected = e.NewEditIndex;
-        //        tblBuscar.SelectedIndex = selected;
-        //        blm.insertarDia(tblBuscar.SelectedRow.Cells[2].Text.Trim());
-        //        mensajeBuscar.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>El expediente se agregó a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-        //        mensajeBuscar.Visible = true;
-        //        cargarDia();
-        //    } catch (Exception) {
-        //        mensajeBuscar.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo agregar el expediente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-        //        mensajeBuscar.Visible = true;
-
-        //        //lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
-        //    }
-        //}
-
         protected void tablaDia_SelectedIndexChanged(object sender, EventArgs e) {
             string id = tablaDia.SelectedRow.Cells[3].Text.Trim();
-            //Response.Write(id);
             Session["cedula"] = id;
             Response.Redirect("expediente.aspx");
         }
@@ -238,8 +184,6 @@ namespace UI {
             } catch (Exception) {
                 mensajeDia.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo eliminar el expediente de la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 mensajeDia.Visible = true;
-
-                //lblError.Text = "Error al borrar el expediente de la lista de consultas del día.";
             }
         }
 
@@ -259,8 +203,6 @@ namespace UI {
             } catch (Exception) {
                 mensajeBuscar.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo agregar el expediente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 mensajeBuscar.Visible = true;
-
-                //lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
             }
         }
     }

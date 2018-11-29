@@ -17,6 +17,7 @@
         <div class="form-group col-sm-6">
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8" Text="Empleados"></asp:Label>
         </div>
+        <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
         <br />
         <div id="popup" style="max-height: 500px; overflow-y: scroll;" overflow-x: scroll;">
                 <asp:GridView ID="gridEmpl" class="table table-striped table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gridEmpl_SelectedIndexChanged"></asp:GridView>
@@ -73,7 +74,6 @@
         <br />
         <div class="row justify-content-center">
             <asp:Button ID="idGuardar" class="btn btn-info" runat="server" Text="Guardar" OnClick="idGuardar_Click" Style="height: 40px" ValidationGroup="admin" />
-            <%--<asp:Label ID="lblError" runat="server" Text="Label" Visible="False"></asp:Label>--%>
               <asp:Literal ID="lblMensaje" runat="server" Visible="false"></asp:Literal>
         </div>
 

@@ -12,16 +12,13 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //crearEncabezado();
-            //List<BLEmpleado> listEmpleado = new BLManejadorEmpleado().listaEmpleado();
-            //foreach (BLEmpleado blEmp in listEmpleado)
-            //{
-            //    agregarFilaEmpleado(blEmp.id, blEmp.contrasenna, blEmp.rol, blEmp.nombreEmpleado, blEmp.estado);
-            //}
-            //lblError.Visible = false;
-            revisarLogin();
-            cargarGrid();
+            try {
+                revisarLogin();
+                cargarGrid();
+            } catch (Exception) {
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+            }
         }
 
         private void revisarLogin()
@@ -108,18 +105,6 @@ namespace UI
                 BLEmpleado empleado = manejEmpleado.obtenerEmpleado(id);
                 manejEmpleado.crearActualizarEmpleado(new BLEmpleado(empleado.id, empleado.contrasenna, empleado.rol, empleado.nombreEmpleado, !empleado.estado));
                 Response.Redirect("Administrador.aspx");
-                //BLEmpleado empleado = new BLEmpleado();
-                //txtId.Text = empleado.id;
-                ////Response.Write(empleado.id);
-                //contraText.Text = empleado.contrasenna;
-                //listRol.SelectedValue = empleado.rol;
-                //chckEstado.Checked = empleado.estado;
-                //nombreText.Text = empleado.nombreEmpleado;
-                //txtId.Enabled = false;
-                //listRol.Enabled = false;
-                //nombreText.Enabled = false;
-                //contraText.Visible = false;
-                //lblContra.Visible = false;
             } catch (Exception)
             {
                 lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se pudo seleccionar el empleado.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";

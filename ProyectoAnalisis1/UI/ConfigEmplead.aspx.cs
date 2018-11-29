@@ -12,24 +12,25 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                BLManejadorEmpleado manejEmpl = new BLManejadorEmpleado();
-                BLEmpleado emplead = new BLEmpleado();
-                emplead = (BLEmpleado)Session["empleado"];
-                emplead = manejEmpl.obtenerEmpleado(emplead.id);
-                id.Text = emplead.id;
-                txtContra.Text = emplead.contrasenna;
-                rol.Text = emplead.rol;
-                txtNombre.Text = emplead.nombreEmpleado;
-                if (emplead.estado == true)
-                {
-                    estado.Text = "Habilitado";
+            try {
+                if (!IsPostBack) {
+                    BLManejadorEmpleado manejEmpl = new BLManejadorEmpleado();
+                    BLEmpleado emplead = new BLEmpleado();
+                    emplead = (BLEmpleado)Session["empleado"];
+                    emplead = manejEmpl.obtenerEmpleado(emplead.id);
+                    id.Text = emplead.id;
+                    txtContra.Text = emplead.contrasenna;
+                    rol.Text = emplead.rol;
+                    txtNombre.Text = emplead.nombreEmpleado;
+                    if (emplead.estado == true) {
+                        estado.Text = "Habilitado";
+                    } else {
+                        estado.Text = "Deshabilitado";
+                    }
                 }
-                else
-                {
-                    estado.Text = "Deshabilitado";
-                }
+            } catch (Exception) {
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
             }
         }
 

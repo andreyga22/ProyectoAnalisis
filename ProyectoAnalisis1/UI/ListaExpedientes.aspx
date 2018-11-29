@@ -17,6 +17,8 @@
         <div class="form-group col-6">
             <asp:Label ID="lblFiltrar" runat="server" Text="Filtrar Expediente por Rango de Fecha de Consultas" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
         </div>
+
+        <asp:Literal ID="lblError2" runat="server" Visible="false"></asp:Literal>
         <br />
         <br />
         <div class="row">

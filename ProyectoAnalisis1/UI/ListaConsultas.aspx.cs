@@ -8,10 +8,15 @@ using BL;
 namespace UI {
     public partial class ListaConsultas : System.Web.UI.Page {
         protected void Page_Load(object sender, EventArgs e) {
-            revisarLogin();
+            try {
+                revisarLogin();
 
-            //Response.Write(Convert.ToString(Session["cedula"]).Trim());
-            cargarGrid();
+                //Response.Write(Convert.ToString(Session["cedula"]).Trim());
+                cargarGrid();
+            } catch (Exception) {
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar la información. </strong>Verifique su conexión a internet.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+            }
         }
 
         private void revisarLogin() {

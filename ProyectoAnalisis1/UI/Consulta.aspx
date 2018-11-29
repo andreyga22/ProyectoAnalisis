@@ -17,13 +17,10 @@
         <br />
         <br />
         <br />
-        <%--<asp:Label ID="errorLbl" runat="server" Text="" ForeColor="Red" Visible="False"></asp:Label>--%>
         <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
-        <%--<div class="form-row">--%>
         <div class="form-group col-sm-6">
             <asp:Label ID="titulo" runat="server" Text="Consulta" Font-Bold="True" Font-Size="X-Large"></asp:Label>
         </div>
-        <%--</div>--%>
         <div class="form-group col-sm-6">
             <asp:Label ID="fecha" runat="server" Text="15-10-2018" Font-Bold="True" Font-Size="Larger"></asp:Label>
         </div>
@@ -56,7 +53,6 @@
 
         <div class="form-group">
             <label for="precioText">Precio de consulta</label>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="firstNameText" ErrorMessage="Campo Requerido"></asp:RequiredFieldValidator>--%>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="precioText" ErrorMessage="**Solo números permitidos en este campo**" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarPrecioVal"></asp:RegularExpressionValidator>
             <asp:RequiredFieldValidator ID="priceFieldRequiredValidator" runat="server" ControlToValidate="precioText" ErrorMessage="**Información incompleta**" ForeColor="Red" ValidationGroup="guardarPrecioVal"></asp:RequiredFieldValidator>
             <br />
