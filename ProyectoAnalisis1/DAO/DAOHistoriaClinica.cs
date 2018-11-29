@@ -111,7 +111,7 @@ namespace DAO
                         to.Alergias = reader.GetString(13);
                         to.Otros_Person_No_Patologic = reader.GetString(14);
                         to.Menarca = reader.GetBoolean(15);
-                        to.FUR = reader.GetDateTime(16);
+                        to.FUR = reader.GetString(16);
                         to.Embarazos = reader.GetInt32(17);
                         to.Abortos = reader.GetInt32(18);
                         to.QuistesOvaricos = reader.GetInt32(19);

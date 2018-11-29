@@ -15,7 +15,6 @@
     <div class="container">
 
         <br />
-        <%--<asp:Label ID="errorLbl" runat="server" Text="" Visible="False" ForeColor="Red"></asp:Label>--%>
          <asp:Literal ID="lblMensaje" runat="server" Visible="false"></asp:Literal>
         <div class="form-row">
             <asp:Label ID="titulo" runat="server" Text="Historial Clínico" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8"></asp:Label>
@@ -115,20 +114,10 @@
             <label for="otrasPatologicasText">Otras enfermedades personales no patológicas</label>
             <asp:TextBox type="text" class="form-control" ID="TextotrasNoPatologicas" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
-
-
         <br />
-
-
-
-
-
-
         <div class="form-row">
             <asp:Label ID="Label3" runat="server" Text="Antecedentes Ginecobstétricos" Font-Bold="True" Font-Size="Larger" ForeColor="#16ACB8"></asp:Label>
         </div>
-
-
         <br />
         <div class="container">
 
@@ -144,22 +133,16 @@
             </div>
         </div>
         <br />
-
         <div class="form-group">
             <label for="embarazos">Embarazos</label>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="embarazosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
             <asp:TextBox type="text" class="form-control" ID="embarazosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
-
-
-
-
         <div class="form-group">
             <label for="abortosText">Abortos</label>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="abortosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
             <asp:TextBox type="text" class="form-control" ID="abortosText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
-
         <div class="form-group">
             <label for="quistesOvaricosText">Quistes Ováricos</label>
             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ControlToValidate="quistesOvaricosText" ErrorMessage="Se permiten solo números" ForeColor="Red" ValidationExpression="\d*\.?\d*" ValidationGroup="guardarHist"></asp:RegularExpressionValidator>
@@ -169,33 +152,11 @@
             <label for="otrosGinecobstetricoText">Otras enfermedades ginecobstétricos</label>
             <asp:TextBox type="text" class="form-control" ID="otrosGinecobstetricoText" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
-        <br />
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <div class="form-group offset-md-4 col-sm-4">
+        <div class="form-group">
             <label for="furCalend">FUR</label>
-            <div style="text-align: center">
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                        <ContentTemplate>
-                            <asp:Calendar ID="furCalend" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px" SelectedDate="11/25/2018 12:21:25" onkeypress="if (event.keyCode == 13) { return false;}">
-                                <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                                <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                                <OtherMonthDayStyle ForeColor="#999999" />
-                                <SelectedDayStyle BackColor="#16ACB8" ForeColor="White" />
-                                <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#16ACB8" />
-                                <TodayDayStyle BackColor="#CCCCCC" />
-                            </asp:Calendar>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                    <br />
-                    <br />
-                </div>
+            <asp:TextBox type="text" class="form-control" ID="furCalend" runat="server" BorderColor="#16ACB8" BorderStyle="Solid" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
         </div>
-
         <br />
-
-
-
-
         <div class="form-row">
             <asp:Label ID="Label4" runat="server" Text="Antecedentes Quirúrgicos" Font-Bold="True" Font-Size="Larger" ForeColor="#16ACB8"></asp:Label>
         </div>
@@ -294,20 +255,17 @@
             <label for="otrosMedicamentosText">Explicación medicamentos</label>
             <asp:TextBox type="text" class="form-control" ID="otrosMedicamentosText" runat="server" TextMode="MultiLine" BorderColor="#16ACB8" BorderStyle="Solid"></asp:TextBox>
         </div>
-
         <br />
-
-
-
-
-
         <div class="form-group offset-sm-6">
             <asp:Button ID="guardarBtn" type="button" class="btn btn-danger" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="guardarHist" />
         </div>
+        <br />
+        <br />
+        <br />
 
-        <br />
-        <br />
-        <br />
+
+
+
 
     </div>
 

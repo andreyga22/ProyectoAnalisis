@@ -25,7 +25,7 @@ namespace BL
         public string Alergias { get; set; }
         public string Otros_Person_No_Patologic { get; set; }
         public bool Menarca { get; set; }
-        public DateTime FUR { get; set; }
+        public String FUR { get; set; }
         public int Embarazos { get; set; }
         public int Abortos { get; set; }
         public int QuistesOvaricos { get; set; }
@@ -57,7 +57,7 @@ namespace BL
         public BLHistoriaClinica(int id_Historial, string cedula, string grupo_Sanguineo, bool hTA, bool dM, bool asma, bool epilepsia, 
             string enferm_Cardiacas, bool displidemias, string enferm_Psiquiatricas, string otros_Person_Patologic,
             bool fuma, bool licor, bool drogas, string alergias, string otros_Person_No_Patologic, bool menarca, 
-            DateTime fUR, int embarazos, int abortos, int quistesOvaricos, bool endometriosis, 
+            string fUR, int embarazos, int abortos, int quistesOvaricos, bool endometriosis, 
             string otros_Ginecobstetrico, string medicamentos, string indicacionesMedicamentos, string fracturas, 
             string vesicula, bool apendice, bool cordales, string litiasis, string columna, string otros_Quirurgico,
             string dM_Fam, string hTA_Fam, string asma_Fam, string cancer_Fam, string epilepsia_Fam,

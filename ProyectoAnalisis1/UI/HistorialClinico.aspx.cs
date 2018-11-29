@@ -32,7 +32,7 @@ namespace UI {
                         Textalergias.Text = histClinica.Alergias;
                         TextotrasNoPatologicas.Text = histClinica.Otros_Person_No_Patologic;
                         menarcaCheck.Checked = histClinica.Menarca;
-                        furCalend.SelectedDate = histClinica.FUR;
+                        furCalend.Text = histClinica.FUR;
                         embarazosText.Text = Convert.ToString(histClinica.Embarazos);
                         abortosText.Text = Convert.ToString(histClinica.Abortos);
                         quistesOvaricosText.Text = Convert.ToString(histClinica.QuistesOvaricos);
@@ -56,13 +56,10 @@ namespace UI {
                         psicofamiliaresText.Text = histClinica.Enferm_Psiq_Fam;
                         psicofamiliaresText.Text = histClinica.Otros_Fam;
                     }
-
                 }
             } catch (Exception) {
                 lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar los datos del historial clínico </strong>Regrese a la página principal.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
-                //errorLbl.Visible = true;
-                //errorLbl.Text = "Error al cargar los datos del historial clínico. Regrese a la página principal";
             }
         }
 
@@ -79,26 +76,20 @@ namespace UI {
 
         protected void guardarBtn_Click(object sender, EventArgs e) {
             try {
-                new BLManejadorHistoriaClinica().insertarActualizarHistorialClinico(createBl());
-                //Response.Write("<script>alert('Cambio Realizado')</script>");
-                lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Cambio realizado correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                lblMensaje.Visible = true;
+                    new BLManejadorHistoriaClinica().insertarActualizarHistorialClinico(createBl());
+                    lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Cambio realizado correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    lblMensaje.Visible = true;
             } catch (Exception) {
                 lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al cargar los datos del historial clínico </strong>Verifique su conexión y que los datos sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
-                //errorLbl.Visible = true;
-                //errorLbl.Text = "Error al guardar los datos del historial clínico. Verifique su conexión y que los datos sean correctos.";
             }
         }
 
         private BLHistoriaClinica createBl() {
-            if (furCalend.SelectedDate.Year == 0001 && furCalend.SelectedDate.Month == 1 && furCalend.SelectedDate.Year == 1) {
-                furCalend.SelectedDate = new DateTime(1800, 01, 01);
-            }
             return new BLHistoriaClinica(0, Convert.ToString(Session["cedula"]), txtGrupoSanguineo.Text.Trim(), htaCheck.Checked, dMCheck.Checked, asmaCheck.Checked,
             epilepsiaCheck.Checked, txtenfCardiacas.Text.Trim(), displidemiaCheck.Checked, txtpsiquiatricas.Text.Trim(),
             txtOtraspatolog.Text.Trim(), fumaCheck.Checked, licorCheck.Checked, drogasCheck.Checked, Textalergias.Text.Trim(),
-            TextotrasNoPatologicas.Text.Trim(), menarcaCheck.Checked, furCalend.SelectedDate, Convert.ToInt32(embarazosText.Text.Trim()),
+            TextotrasNoPatologicas.Text.Trim(), menarcaCheck.Checked, furCalend.Text.Trim(), Convert.ToInt32(embarazosText.Text.Trim()),
             Convert.ToInt32(abortosText.Text.Trim()), Convert.ToInt32(quistesOvaricosText.Text.Trim()), endometriosisCheck.Checked, otrosGinecobstetricoText.Text.Trim(),
             medicamentosText.Text.Trim(), otrosMedicamentosText.Text.Trim(), fracturasText.Text.Trim(), vesiculaText.Text.Trim(),
             apendiceCheck.Checked, cordalesCheck.Checked, litiasisText.Text.Trim(), columnaText.Text.Trim(), otrosQuirugicosText.Text.Trim(),
