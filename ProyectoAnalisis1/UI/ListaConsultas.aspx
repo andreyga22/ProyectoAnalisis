@@ -25,8 +25,8 @@
             </div>
         </div>
         <br />
-        <div class="table-responsive">
-            <asp:GridView ID="listaConsultaGV" class="table table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="listaConsultaGV_SelectedIndexChanged"></asp:GridView>
+        <div id="popup" style="max-height: 500px; overflow-y: scroll;" overflow-x: scroll;">
+            <asp:GridView ID="listaConsultaGV"  class="table table-striped table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="listaConsultaGV_SelectedIndexChanged"></asp:GridView>
         </div>
         <br />
         <asp:Table ID="TablaConsultas" runat="server">
