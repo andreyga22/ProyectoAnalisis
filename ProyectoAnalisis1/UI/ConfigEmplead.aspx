@@ -22,45 +22,46 @@
         <br />
 
 
-    </div>
 
-    <div class="row justify-content-center">
-        <div class="form-group col-sm-3">
-            <label for="lblID">Identificador:</label>
-            <asp:Label ID="id" runat="server" Text="Label"></asp:Label>
+        <div class="row justify-content-center">
+            <div class="form-group col-sm-3">
+                <label for="lblID">Identificador:</label>
+                <asp:Label ID="id" runat="server" Text="Label"></asp:Label>
+            </div>
+
+            <div class="form-group col-sm-3">
+                <label for="lblID">Rol:</label>
+                <asp:Label ID="rol" runat="server" Text="Label"></asp:Label>
+            </div>
         </div>
 
-        <div class="form-group col-sm-3">
-            <label for="lblID">Rol:</label>
-            <asp:Label ID="rol" runat="server" Text="Label"></asp:Label>
-        </div>
-    </div>
+        <br />
 
-    <br />
+        <div class="row justify-content-center">
 
-    <div class="row justify-content-center">
+            <div class="form-group col-sm-3">
+                <label for="txtNombre">Nombre:</label>
+                <asp:TextBox ID="txtNombre" type="text" class="form-control" runat="server" BorderColor="#16ACB8" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Obligatorio" ForeColor="Red" ValidationGroup="entrar"></asp:RequiredFieldValidator>
+            </div>
+            <div class="form-group col-sm-3">
+                <label for="lblContra">Contraseña:</label>
+                <asp:TextBox ID="txtContra" type="text" class="form-control" runat="server" BorderColor="#16ACB8" onkeypress="if (event.keyCode == 13) { return false;}" TextMode="Password"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtContra" ErrorMessage="Campo obligatorio" ForeColor="Red" ValidationGroup="entrar"></asp:RequiredFieldValidator>
+            </div>
+        </div>
+        <br />
+        <div class="row justify-content-center">
+            <div class="form-group col-sm-3">
+                <label for="lblEstado">Estado:</label>
+                <asp:Label ID="estado" runat="server" Text="Label"></asp:Label>
+            </div>
+            <div class="form-group col-sm-3">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <asp:Button ID="btnConfig" type="button" class="btn btn-info" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="entrar" />
+        </div>
 
-        <div class="form-group col-sm-3">
-            <label for="txtNombre">Nombre:</label>
-            <asp:TextBox ID="txtNombre" type="text" class="form-control" runat="server" BorderColor="#16ACB8" onkeypress="if (event.keyCode == 13) { return false;}"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtNombre" ErrorMessage="Campo Obligatorio" ForeColor="Red" ValidationGroup="entrar"></asp:RequiredFieldValidator>
-        </div>
-        <div class="form-group col-sm-3">
-            <label for="lblContra">Contraseña:</label>
-            <asp:TextBox ID="txtContra" type="text" class="form-control" runat="server" BorderColor="#16ACB8" onkeypress="if (event.keyCode == 13) { return false;}" TextMode="Password"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtContra" ErrorMessage="Campo obligatorio" ForeColor="Red" ValidationGroup="entrar"></asp:RequiredFieldValidator>
-        </div>
-    </div>
-    <br />
-    <div class="row justify-content-center">
-        <div class="form-group col-sm-3">
-            <label for="lblEstado">Estado:</label>
-            <asp:Label ID="estado" runat="server" Text="Label"></asp:Label>
-        </div>
-        <div class="form-group col-sm-3">
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <asp:Button ID="btnConfig" type="button" class="btn btn-info" runat="server" Text="Guardar" OnClick="guardarBtn_Click" ValidationGroup="entrar" />
     </div>
 </asp:Content>
