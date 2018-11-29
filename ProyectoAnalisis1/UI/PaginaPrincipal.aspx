@@ -20,8 +20,8 @@
         <br />
         <br />
         <asp:Literal ID="mensajeDia" runat="server" Visible="false"></asp:Literal>
-        <div id="popup" style="max-height: 500px; overflow-y: scroll;">
-            <asp:GridView ID="tablaDia" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnRowDeleting="tablaDia_RowDeleting" OnSelectedIndexChanged="tablaDia_SelectedIndexChanged" ViewStateMode="Disabled">
+        <div id="popup" style="max-height: 500px; overflow-y: scroll;" overflow-x: scroll;">
+            <asp:GridView ID="tablaDia" class="table table-striped table-bordered" BorderStyle="None" runat="server" OnRowDeleting="tablaDia_RowDeleting" OnSelectedIndexChanged="tablaDia_SelectedIndexChanged" ViewStateMode="Disabled">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" SelectText="Abrir" />
                     <asp:CommandField ShowDeleteButton="True" DeleteText="Eliminar" />
@@ -67,8 +67,8 @@
 
         <asp:Literal ID="mensajeBuscar" runat="server" Visible="false"></asp:Literal>
 
-        <div id="popup" style="max-height: 500px; overflow-y: scroll;">
-            <asp:GridView ID="tblBuscar" class="table table-striped table-bordered table-responsive-lg" runat="server" AutoGenerateSelectButton="False" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged" AutoGenerateEditButton="False" OnRowDeleting="tblBuscar_RowDeleting">
+        <div id="popup" style="max-height: 500px; overflow-y: scroll;" overflow-x: scroll;">
+            <asp:GridView ID="tblBuscar" class="table table-striped table-bordered" runat="server" AutoGenerateSelectButton="False" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged" AutoGenerateEditButton="False" OnRowDeleting="tblBuscar_RowDeleting">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" SelectText="Abrir" />
                     <asp:CommandField ShowDeleteButton="True" DeleteText="Agregar" />
