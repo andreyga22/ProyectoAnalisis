@@ -178,20 +178,19 @@ namespace DAO {
                         expediente.tel3 = Convert.ToString(table.Rows[x]["TEL3"]);
 
 
-                        //if (lista.Count == 0)
-                        //{
-                        lista.Add(expediente);
-                        //}
-                        //else
-                        //{
-                        //    for (int j = 0; j < lista.Count; j++)
-                        //    {
-                        //        if (!lista[j].cedula.Equals(expediente.cedula))
-                        //        {
-                        //            lista.Add(expediente);
-                        //        }
-                        //    }
-                        //}
+                        if (lista.Count == 0) {
+                            lista.Add(expediente);
+                        } else {
+                            Boolean existe = false;
+                            for (int j = 0; j < lista.Count; j++) {
+                                if (lista[j].cedula.Equals(expediente.cedula)) {
+                                    existe = true;
+                                }
+                            }
+                            if (!existe) {
+                                lista.Add(expediente);
+                            }
+                        }
                     }
                 }
                 return lista;

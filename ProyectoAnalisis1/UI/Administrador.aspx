@@ -18,10 +18,8 @@
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#16ACB8" Text="Empleados"></asp:Label>
         </div>
         <br />
-        <div id="popup" style="max-height: 500px; overflow-y: scroll;">
-            <div class="offset-1 col-10">
-                <asp:GridView ID="gridEmpl" class="table table-striped table-bordered table-responsive-lg" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gridEmpl_SelectedIndexChanged"></asp:GridView>
-            </div>
+        <div id="popup" style="max-height: 500px; overflow-y: scroll;" overflow-x: scroll;">
+                <asp:GridView ID="gridEmpl" class="table table-striped table-bordered" runat="server" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gridEmpl_SelectedIndexChanged"></asp:GridView>
         </div>
 
 
