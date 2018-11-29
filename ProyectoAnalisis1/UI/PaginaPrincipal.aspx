@@ -11,8 +11,7 @@
     <div class="container">
 
         <br />
-        <%--<asp:Label ID="lblError" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>--%>
-          <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
+        <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
         <br />
 
         <div class="form-group col-6">
@@ -22,14 +21,13 @@
         <br />
         <asp:Literal ID="mensajeDia" runat="server" Visible="false"></asp:Literal>
         <div id="popup" style="max-height: 500px; overflow-y: scroll;">
-            <%--<div class="row justify-content-center">--%>
-                    <asp:GridView ID="tablaDia" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnRowDeleting="tablaDia_RowDeleting" OnSelectedIndexChanged="tablaDia_SelectedIndexChanged" ViewStateMode="Disabled">
-                        <Columns>
-                            <asp:CommandField ShowSelectButton="True" SelectText="Abrir" />
-                            <asp:CommandField ShowDeleteButton="True" DeleteText="Eliminar" />
-                        </Columns>
-                    </asp:GridView>
-            <%--  </div>--%>
+            <asp:GridView ID="tablaDia" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnRowDeleting="tablaDia_RowDeleting" OnSelectedIndexChanged="tablaDia_SelectedIndexChanged" ViewStateMode="Disabled">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" SelectText="Abrir" />
+                    <asp:CommandField ShowDeleteButton="True" DeleteText="Eliminar" />
+                    <asp:CommandField SelectText=""/>
+                </Columns>
+            </asp:GridView>
         </div>
         <br />
         <div class="row justify-content-center">
@@ -70,15 +68,12 @@
         <asp:Literal ID="mensajeBuscar" runat="server" Visible="false"></asp:Literal>
 
         <div id="popup" style="max-height: 500px; overflow-y: scroll;">
-            <%--<div class="row justify-content-center">--%>
-            <asp:GridView ID="tblBuscar" class="table table-striped table-bordered table-responsive-lg" runat="server" AutoGenerateSelectButton="False" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged" AutoGenerateEditButton="False" OnRowEditing="tblBuscar_RowEditing">
+            <asp:GridView ID="tblBuscar" class="table table-striped table-bordered table-responsive-lg" runat="server" AutoGenerateSelectButton="False" OnSelectedIndexChanged="listaBusq_SelectedIndexChanged" AutoGenerateEditButton="False" OnRowDeleting="tblBuscar_RowDeleting">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" SelectText="Abrir" />
-                    <asp:CommandField ShowEditButton="True" EditText="Agregar" />
+                    <asp:CommandField ShowDeleteButton="True" DeleteText="Agregar" />
                 </Columns>
             </asp:GridView>
-
-            <%--</div>--%>
         </div>
         <br />
         <br />

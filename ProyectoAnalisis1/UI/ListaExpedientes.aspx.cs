@@ -83,26 +83,7 @@ namespace UI
             Session["cedula"] = id;
             Response.Redirect("expediente.aspx");
         }
-
-        protected void tablaExpedi_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            try
-            {
-                BLManejadorExpediente blm = new BLManejadorExpediente();
-                int selected = e.NewEditIndex;
-                tablaExpedi.SelectedIndex = selected;
-                blm.insertarDia(tablaExpedi.SelectedRow.Cells[2].Text.Trim());
-                lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Expediente agregado correctamente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                lblError.Visible = true;
-                //Response.Redirect("ListaExpedientes.aspx");
-            }
-            catch (Exception)
-            {
-                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo agregar el expediente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                lblError.Visible = true;
-                //lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
-            }
-        }
+        
 
         protected void btnFiltrarFecha_Click(object sender, EventArgs e)
         {
@@ -126,6 +107,22 @@ namespace UI
         {
             cargarGrid();
             //lblErrorExpedientes.Visible = false;
+        }
+
+        protected void tablaExpedi_RowDeleting(object sender, GridViewDeleteEventArgs e) {
+            try {
+                BLManejadorExpediente blm = new BLManejadorExpediente();
+                int selected = e.RowIndex;
+                tablaExpedi.SelectedIndex = selected;
+                blm.insertarDia(tablaExpedi.SelectedRow.Cells[2].Text.Trim());
+                lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Expediente agregado correctamente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+                //Response.Redirect("ListaExpedientes.aspx");
+            } catch (Exception) {
+                lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>No se pudo agregar el expediente a la lista del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblError.Visible = true;
+                //lblError.Text = "Error no se pudo agregar el expediente a la lista del día.";
+            }
         }
     }
 }

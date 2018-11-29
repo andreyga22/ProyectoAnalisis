@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="ListaExpedientes.aspx.cs" Inherits="UI.ListaExpedientes" %>
+﻿<%@ Page Title="" Language="C#" MaintainScrollPositionOnPostback="true" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="ListaExpedientes.aspx.cs" Inherits="UI.ListaExpedientes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -84,10 +84,10 @@
          <asp:Literal ID="lblError" runat="server" Visible="false"></asp:Literal>
         <br />
         <div id="popup" style="max-height: 500px; overflow-y: scroll;">
-            <asp:GridView ID="tablaExpedi" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnSelectedIndexChanged="tablaExpedi_SelectedIndexChanged" AutoGenerateEditButton="False" OnRowEditing="tablaExpedi_RowEditing" ViewStateMode="Disabled">
+            <asp:GridView ID="tablaExpedi" class="table table-striped table-bordered table-responsive-lg" BorderStyle="None" runat="server" OnSelectedIndexChanged="tablaExpedi_SelectedIndexChanged" AutoGenerateEditButton="False" ViewStateMode="Disabled" OnRowDeleting="tablaExpedi_RowDeleting">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" SelectText="Abrir" />
-                    <asp:CommandField ShowEditButton="True" EditText="Agregar" />
+                    <asp:CommandField ShowDeleteButton="True" DeleteText="Agregar" />
                 </Columns>
             </asp:GridView>
         </div>

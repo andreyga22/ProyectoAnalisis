@@ -204,7 +204,7 @@ namespace DAO {
 
         public List<TOExpediente> consultarDia() {
             try {
-                string select = "select * from Lista_dia;";
+                string select = "select * from Lista_dia order by fecha_ingreso;";
                 SqlCommand sentencia = new SqlCommand(select, conexion);
                 DataTable table = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter();
@@ -280,9 +280,10 @@ namespace DAO {
 
         public void insertarDia(string cedula) {
             try {
-                string insert = "insert into Lista_dia (cedula) values (@cedula)";
+                string insert = "insert into Lista_dia (cedula, fecha_ingreso) values (@cedula, @fecha)";
                 SqlCommand insertar = new SqlCommand(insert, conexion);
                 insertar.Parameters.AddWithValue("@cedula", cedula);
+                insertar.Parameters.AddWithValue("@fecha", DateTime.Now);
 
                 if (conexion.State != System.Data.ConnectionState.Open) {
                     conexion.Open();
@@ -367,20 +368,7 @@ namespace DAO {
                 throw;
             }
         }
-
-        //public List<TOExpediente> expedientesFiltradFechas(DateTime fechaIni, DateTime fechaFin)
-        //{
-        //    List<TOExpediente> lista = new List<TOExpediente>();
-        //    SqlCommand sentencia;
-        //    DataTable table = new DataTable();
-        //    SqlDataAdapter adapter = new SqlDataAdapter();
-
-        //    string select = "select * from expediente order by APELLIDO1";
-        //    sentencia = new SqlCommand(select, conexion);
-        //    adapter.SelectCommand = sentencia;
-        //    adapter.Fill(table);
-        //}
-
+        
 
 
 
