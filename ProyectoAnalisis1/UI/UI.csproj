@@ -80,6 +80,7 @@
     <Content Include="expediente.aspx" />
     <Content Include="FichaDoctor.aspx" />
     <Content Include="FichaParamedico.aspx" />
+    <Content Include="fotos\085a53b1-30f5-4ad3-98ee-944ca1e394e2.jpg" />
     <Content Include="fotos\08621d86-8a0f-4a3b-a1e3-f983de3e11f1.jpg" />
     <Content Include="fotos\08e9124c-b259-4eaa-8708-88fdd3da82ff.jpg" />
     <Content Include="fotos\17dcfa42-d91b-4ceb-aafc-6436a722d3f9.png" />
