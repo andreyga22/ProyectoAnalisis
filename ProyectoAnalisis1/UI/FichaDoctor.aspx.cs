@@ -92,7 +92,7 @@ namespace UI {
                     }
                 }
 
-                Response.Redirect("Consulta.aspx");
+                Response.Redirect("FichaDoctor.aspx");
             } catch (Exception) {
                 lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al guardar los datos de la ficha doctor. </strong>Verifique que los datos sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblError.Visible = true;

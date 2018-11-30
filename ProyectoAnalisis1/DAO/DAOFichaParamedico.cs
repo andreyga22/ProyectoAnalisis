@@ -66,14 +66,14 @@ namespace DAO
             {
 
                 SqlCommand insertar = new SqlCommand("begin tran if exists(select * from ficha_paramedico with (updlock, serializable) " +
-                    "where id_paramedico = @idParamedico) begin update ficha_paramedico set presion_arterial = @presion, temperatura = @temperatura, estatura = @estatura, peso = @peso, glicemia = @glicemia, oximetria_pulso = @oximetria_pulso, id_consulta = @id_consulta, " +
+                    "where id_consulta = @idConsulta) begin update ficha_paramedico set presion_arterial = @presion, temperatura = @temperatura, estatura = @estatura, peso = @peso, glicemia = @glicemia, oximetria_pulso = @oximetria_pulso, id_consulta = @idConsulta, " +
                     "observaciones = @observaciones, glasgow = @glasgow, pupilas = @pupilas, piel = @piel, frec_card = @frec_card, frec_resp = @frec_resp, notas_param = @notas, id_cuenta = @idEmpleado " +
-                    "where id_paramedico = @idParamedico; end else begin insert into ficha_paramedico (id_consulta, presion_arterial, " +
+                    "where id_consulta = @idConsulta; end else begin insert into ficha_paramedico (id_consulta, presion_arterial, " +
              "temperatura, estatura, peso, glicemia, oximetria_pulso, observaciones, glasgow, pupilas, piel, frec_card, frec_resp, notas_param, id_cuenta) " +
-             "values (@id_consulta, @presion, @temperatura, @estatura, @peso, @glicemia, @oximetria_pulso, " +
+             "values (@idConsulta, @presion, @temperatura, @estatura, @peso, @glicemia, @oximetria_pulso, " +
              "@observaciones, @glasgow, @pupilas, @piel, @frec_card, @frec_resp, @notas, @idEmpleado); end commit tran", conexion);
                 insertar.Parameters.AddWithValue("@idParamedico", ficha.id_Paramedico);
-                insertar.Parameters.AddWithValue("@id_consulta", ficha.idConsulta);
+                insertar.Parameters.AddWithValue("@idConsulta", ficha.idConsulta);
                 insertar.Parameters.AddWithValue("@presion", ficha.presionArterial);
                 insertar.Parameters.AddWithValue("@glicemia", ficha.glicemia);
                 insertar.Parameters.AddWithValue("@temperatura", ficha.temperatura);
@@ -128,9 +128,9 @@ namespace DAO
                 while (reader.Read())
                 {
                     to.presionArterial = reader.GetString(0);
-                    to.temperatura = reader.GetInt32(1);
-                    to.estatura = reader.GetDouble(2);
-                    to.peso = reader.GetDouble(3);
+                    to.temperatura = reader.GetDecimal(1);
+                    to.estatura = reader.GetDecimal(2);
+                    to.peso = reader.GetDecimal(3);
                     to.glicemia = reader.GetString(4);
                     to.oximetria_Pulso = reader.GetString(5);
                     to.id_Paramedico = reader.GetInt32(6);
@@ -140,7 +140,7 @@ namespace DAO
                     to.pupilas = reader.GetString(10);
                     to.piel = reader.GetString(11);
                     to.frec_card = reader.GetInt32(12);
-                    to.frec_resp = reader.GetInt32(13);
+                    to.frec_resp = reader.GetString(13);
                     to.nota_param = reader.GetString(14);
                     to.idEmpleado = reader.GetString(15);
                 }

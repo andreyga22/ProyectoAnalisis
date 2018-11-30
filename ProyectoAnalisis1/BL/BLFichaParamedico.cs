@@ -11,15 +11,15 @@ namespace BL
         public int id_Paramedico { get; set; }
         public int idConsulta { get; set; }
         public String presionArterial { get; set; }
-        public int temperatura { get; set; }
-        public double estatura { get; set; }
-        public double peso { get; set; }
+        public decimal temperatura { get; set; }
+        public decimal estatura { get; set; }
+        public decimal peso { get; set; }
         public String glicemia { get; set; }
         public String oximetria_Pulso { get; set; }
         public String observacion { get; set; }
         public int glasgow { get; set; }
         public int frec_card { get; set; }
-        public int frec_resp { get; set; }
+        public String frec_resp { get; set; }
         public String pupilas { get; set; }
         public String piel { get; set; }
         public String nota_param { get; set; }
@@ -30,8 +30,8 @@ namespace BL
 
         }
 
-        public BLFichaParamedico(int id_Paramedico, int idConsulta, String idEmpleado, String presionArterial, int temperatura, double estatura,
-            double peso, String glicemia, String oximetria_Pulso, String observacion, int glasgow, int frec_card, int frec_resp, 
+        public BLFichaParamedico(int id_Paramedico, int idConsulta, String idEmpleado, String presionArterial, decimal temperatura, decimal estatura,
+            decimal peso, String glicemia, String oximetria_Pulso, String observacion, int glasgow, int frec_card, String frec_resp, 
             String pupilas, String piel, String nota_param)
         {
             this.id_Paramedico = id_Paramedico;

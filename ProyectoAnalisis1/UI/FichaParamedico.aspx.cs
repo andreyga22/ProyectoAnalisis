@@ -19,7 +19,7 @@ namespace UI {
 
             try {
                 if (!IsPostBack) {
-                    
+
                     BLManejadorFichaParamedico blm = new BLManejadorFichaParamedico();
                     BLFichaParamedico param = blm.consultar(Convert.ToInt32(Session["idConsulta"]));
                     if (param.id_Paramedico == 0) {
@@ -31,8 +31,7 @@ namespace UI {
                         Frec_CardText.Text = "0";
                         Frec_RespText.Text = "0";
 
-                    }
-                    else {
+                    } else {
                         NotasParamText.Text = param.nota_param;
                         presionText.Text = param.presionArterial;
                         temperaturaText.Text = Convert.ToString(param.temperatura);
@@ -43,7 +42,7 @@ namespace UI {
                         observacionesText.Text = param.observacion;
                         GlasgowText.Text = Convert.ToString(param.glasgow);
                         Frec_CardText.Text = Convert.ToString(param.frec_card);
-                        Frec_RespText.Text = Convert.ToString(param.frec_resp);
+                        Frec_RespText.Text = param.frec_resp;
                         PupilasText.Text = param.pupilas;
                         PielText.Text = param.piel;
                         NotasParamText.Text = param.nota_param;
@@ -81,26 +80,25 @@ namespace UI {
 
                 String a = presionText.Text;
                 blm.insertar(new BLFichaParamedico(0, Convert.ToInt32(Session["idConsulta"]), ((BLEmpleado)Session["empleado"]).id, presionText.Text.Trim(),
-                    Convert.ToInt32(temperaturaText.Text.Trim()), Convert.ToDouble(estaturaText.Text.Trim()),
-                    Convert.ToDouble(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(),
+                    Convert.ToDecimal(temperaturaText.Text.Trim()), Convert.ToDecimal(estaturaText.Text.Trim()),
+                    Convert.ToDecimal(pesoText.Text.Trim()), glicemiaText.Text.Trim(), oximetriaText.Text.Trim(),
                     observacionesText.Text.Trim(), Convert.ToInt32(GlasgowText.Text.Trim()),
-                    Convert.ToInt32(Frec_CardText.Text.Trim()), Convert.ToInt32(Frec_RespText.Text.Trim()),
+                    Convert.ToInt32(Frec_CardText.Text.Trim()), Frec_RespText.Text.Trim(),
                     PupilasText.Text.Trim(), PielText.Text.Trim(), NotasParamText.Text.Trim()));
                 lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Los datos de la ficha paramédico han sido guardados correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
-                Response.Redirect("Consulta.aspx");
+                Response.Redirect("FichaParamedico.aspx");
             } catch (Exception) {
                 lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error al guardar los datos de la ficha paramédico </strong>Verifique que los datos sean correctos.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
             }
-}
+        }
 
-        protected void calcularIMC(BLFichaParamedico ex)
-        {
-            double esta = ex.estatura / 100;
-            double peso = ex.peso;
-            double elevado = esta * esta;
-            double imc = peso / elevado;
+        protected void calcularIMC(BLFichaParamedico ex) {
+            decimal esta = ex.estatura / 100;
+            decimal peso = ex.peso;
+            decimal elevado = esta * esta;
+            decimal imc = peso / elevado;
             imcText.Text = Convert.ToString(imc);
         }
 
