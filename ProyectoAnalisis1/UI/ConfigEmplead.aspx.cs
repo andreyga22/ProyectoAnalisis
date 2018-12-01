@@ -19,7 +19,7 @@ namespace UI
                     emplead = (BLEmpleado)Session["empleado"];
                     emplead = manejEmpl.obtenerEmpleado(emplead.id);
                     id.Text = emplead.id;
-                    txtContra.Text = emplead.contrasenna;
+                    //txtContra.Text = emplead.contrasenna;
                     rol.Text = emplead.rol;
                     txtNombre.Text = emplead.nombreEmpleado;
                     if (emplead.estado == true) {
@@ -38,15 +38,23 @@ namespace UI
         {
             try
             {
-                BLManejadorEmpleado manej = new BLManejadorEmpleado();
-                Boolean est = false;
-                if (estado.Text.Equals("Habilitado"))
+                BLEmpleado emplead = (BLEmpleado)Session["empleado"];
+                if (txtContra.Text.Trim().Equals(emplead.contrasenna.Trim()))
                 {
-                    est = true;
+                    BLManejadorEmpleado manej = new BLManejadorEmpleado();
+                    Boolean est = false;
+                    if (estado.Text.Equals("Habilitado"))
+                    {
+                        est = true;
+                    }
+                    manej.crearActualizarEmpleado(new BLEmpleado(id.Text.Trim(), txtContraNueva.Text.Trim(), rol.Text.Trim(), txtNombre.Text, est));
+                    lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Información almacenada correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    lblError.Visible = true;
+                } else
+                {
+                    lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error </strong>La contraseña actual no coincide.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                    lblError.Visible = true;
                 }
-                manej.crearActualizarEmpleado(new BLEmpleado(id.Text.Trim(), txtContra.Text.Trim(), rol.Text.Trim(), txtNombre.Text, est));
-                lblError.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Información almacenada correctamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
-                lblError.Visible = true;
             }
             catch (Exception)
             {
