@@ -11,14 +11,11 @@ namespace pruebasProyectoTasiste
     {
         [TestMethod]
         [ExpectedException(typeof(NullReferenceException))]
-        public void pruebaInsertarFicha_Doct_ThrowsNull()
+        public void pruebaInsertarFicha_Param_ThrowsNull()
         {
-            //Arrange
-
             BLFichaParamedico ficha_null = null;
             BLManejadorFichaParamedico manejador_prueba = new BLManejadorFichaParamedico();
 
-            //Act
             manejador_prueba.insertar(ficha_null);
         }
 
@@ -27,7 +24,7 @@ namespace pruebasProyectoTasiste
         public void pruebaInsertarFicha_Param_ThrowsSqlException()
         {
 
-            BLFichaParamedico ficha_prueba = new BLFichaParamedico(1, 1, "120/60", "1", 1, 1, 1, "ddddddddddd", "f", "1", 2, 3, 1, "d", "f", "g");
+            BLFichaParamedico ficha_prueba = new BLFichaParamedico(1, 1, "idEmpleado", "120/60", 1, 165, 65, "glicemiaaaaaa", "ddddddddddd", "obs", 1, 2, "78", "pupilas", "piel", "notasparam");
             BLManejadorFichaParamedico manejador_prueba = new BLManejadorFichaParamedico();
 
             manejador_prueba.insertar(ficha_prueba);
@@ -37,16 +34,22 @@ namespace pruebasProyectoTasiste
         public void pruebaInsertarFicha_Param()
         { 
 
-            BLFichaParamedico ficha_prueba = new BLFichaParamedico(1, 1, "120/60", "1", 1, 1, 1, "d", "f", "1", 2, 3, 1, "d", "f", "g");
+            BLFichaParamedico ficha_prueba = new BLFichaParamedico(1, 1, "doc01", "120/60", 1, 165, 65, "glicemia", "oxi", "obs", 1, 2, "78", "pupilas", "piel", "notasparam");
             BLManejadorFichaParamedico manejador_prueba = new BLManejadorFichaParamedico();
 
-
-            //Act
             manejador_prueba.insertar(ficha_prueba);
 
-            //Assert
-
             Assert.AreEqual(ficha_prueba.idConsulta, (manejador_prueba.consultar(ficha_prueba.idConsulta).idConsulta));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void pruebaConsultarFicha_Param_ThrowsNull()
+        {
+            BLFichaParamedico ficha_null = null;
+            BLManejadorFichaParamedico manejador_prueba = new BLManejadorFichaParamedico();
+
+            manejador_prueba.consultar(ficha_null.idConsulta);
         }
     }
 }
