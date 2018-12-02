@@ -5,10 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <br />
     <div class="container">
+        <br />
         <div class="form-group">
             <asp:Label ID="Label1" runat="server" ForeColor="#16ACB8" Text="Ayuda del sistema" Font-Size="XX-Large"></asp:Label>
         </div>
-
+        <br />
+        <br />
 
 
         <div class="accordion" id="accordionExample">
@@ -353,7 +355,8 @@
 
         </div>
 
-
+        <br />
+        <br />
 
 
 
