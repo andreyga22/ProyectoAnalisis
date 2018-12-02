@@ -27,5 +27,9 @@ namespace UI {
                 Response.Redirect("PaginaPrincipal.aspx");
             }
         }
+
+        protected void linkAyuda_Click(object sender, EventArgs e) {
+            Response.Redirect("Ayuda.aspx");
+        }
     }
 }

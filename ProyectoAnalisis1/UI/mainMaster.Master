@@ -51,6 +51,10 @@
                         <asp:LinkButton ID="linkCerrarSesion" class="nav-link" runat="server" OnClick="linkCerrarSesion_Click">Cerrar Sesión</asp:LinkButton>
                         <%--<a class="nav-link" href="IniciarSesion.aspx">Cerrar Sesión</a>--%>
                     </li>
+                    <li class="nav-item">
+                        <asp:LinkButton ID="linkAyuda" class="nav-link" runat="server" OnClick="linkAyuda_Click">Ayuda</asp:LinkButton>
+                        <%--<a class="nav-link" href="IniciarSesion.aspx">Cerrar Sesión</a>--%>
+                    </li>
                     <%--<li class="nav-item">
                         <a class="nav-link disabled" href="#">Disabled</a>
                     </li>--%>

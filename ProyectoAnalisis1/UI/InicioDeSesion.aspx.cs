@@ -11,6 +11,7 @@ namespace UI {
         protected void Page_Load(object sender, EventArgs e) {
             Page.Master.FindControl("linkCerrarSesion").Visible = false;
             Page.Master.FindControl("linkConfigEmplea").Visible = false;
+            Page.Master.FindControl("linkAyuda").Visible = false;
             cerrarSesion();
             lblError.Visible = false;
         }

@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Administrador.aspx" />
+    <Content Include="Ayuda.aspx" />
     <Content Include="ConfigEmplead.aspx" />
     <Content Include="Consulta.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -91,6 +92,7 @@
     <Content Include="fotos\555d12e0-ff9b-4348-b7ce-3ca33d27b6a0.jpg" />
     <Content Include="fotos\5d648741-bfca-4fb7-ad9b-7d74f126b4c9.png" />
     <Content Include="fotos\73944343-b9de-442c-a47d-22500f581c7e.jpg" />
+    <Content Include="fotos\7db1b2e6-0ddc-4853-bbe6-09b6f79d8b37.png" />
     <Content Include="fotos\83980f72-ae5b-4fd1-a568-698e39da8e4f.jpg" />
     <Content Include="fotos\941eb586-ae4d-4c42-8425-1ea355a4cf07.png" />
     <Content Include="fotos\c6dc15c0-eb0d-4089-992c-9a1fd0f7d33d.jpg" />
@@ -158,6 +160,13 @@
     </Compile>
     <Compile Include="Administrador.aspx.designer.cs">
       <DependentUpon>Administrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ayuda.aspx.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ayuda.aspx.designer.cs">
+      <DependentUpon>Ayuda.aspx</DependentUpon>
     </Compile>
     <Compile Include="ConfigEmplead.aspx.cs">
       <DependentUpon>ConfigEmplead.aspx</DependentUpon>
