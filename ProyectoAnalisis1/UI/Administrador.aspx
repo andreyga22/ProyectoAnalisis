@@ -74,9 +74,12 @@
         <br />
         <div class="row justify-content-center">
             <asp:Button ID="idGuardar" class="btn btn-info" runat="server" Text="Guardar" OnClick="idGuardar_Click" Style="height: 40px" ValidationGroup="admin" />
-              <asp:Literal ID="lblMensaje" runat="server" Visible="false"></asp:Literal>
+        
         </div>
-
+         <br />
+        <div class="row justify-content-center">
+                <asp:Literal ID="lblMensaje" runat="server" Visible="false"></asp:Literal>
+            </div>
         <br />
         <br />
 

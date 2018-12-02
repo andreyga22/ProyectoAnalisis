@@ -63,6 +63,19 @@ namespace BL
 
         }
 
+        public void crearNuevoEmpleado(BLEmpleado empleado)
+        {
+               DAOEmpleado dao = new DAOEmpleado();
+                try
+                {
+                    dao.insertarNuevoEmpleado(convert(empleado));
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+        }
+
         public List<BLEmpleado> listaEmpleado()
         {
             try

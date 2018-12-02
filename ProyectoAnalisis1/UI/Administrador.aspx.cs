@@ -80,7 +80,7 @@ namespace UI
             try
             {
                 BLManejadorEmpleado manejEmpleado = new BLManejadorEmpleado();
-                manejEmpleado.crearActualizarEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
+                manejEmpleado.crearNuevoEmpleado(new BLEmpleado(txtId.Text.Trim(), contraText.Text.Trim(), listRol.SelectedValue, nombreText.Text.Trim(), chckEstado.Checked));
                 lblMensaje.Text = "<div class=\"alert alert-success alert - dismissible fade show\" role=\"alert\"> <strong>¡Éxito! </strong>Empleado creado exitosamente.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
                 cargarGrid();
@@ -88,10 +88,8 @@ namespace UI
             }
             catch (Exception)
             {
-                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>No se pudo guardar el empleado.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
+                lblMensaje.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>El usuario ya existe. <button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
                 lblMensaje.Visible = true;
-                //lblError.Text = "No se pudo guardar el nuevo empleado";
-                //lblError.Visible = true;
             }
        
         }

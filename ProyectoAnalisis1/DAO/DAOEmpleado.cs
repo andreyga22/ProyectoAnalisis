@@ -170,6 +170,44 @@ namespace DAO
             
         }
 
+        public void insertarNuevoEmpleado(TOEmpleado empleado)
+        {
+            try
+            {
+                string update = "insert into cuenta_empleado(id_Cuenta, contrasenna, rol, nombre, estado) values(@idCuenta, @contra, @rol, @nombre, @estado);";
+                SqlCommand sentencia = new SqlCommand(update, conexion);
+                sentencia.Parameters.AddWithValue("@idCuenta", empleado.id);
+                sentencia.Parameters.AddWithValue("@contra", empleado.contrasenna);
+                sentencia.Parameters.AddWithValue("@rol", empleado.rol);
+                sentencia.Parameters.AddWithValue("@nombre", empleado.nombreEmpleado);
+                sentencia.Parameters.AddWithValue("@estado", empleado.estado);
+
+                if (conexion.State != ConnectionState.Open)
+                {
+                    conexion.Open();
+                }
+
+                sentencia.ExecuteNonQuery();
+
+                if (conexion.State != ConnectionState.Closed)
+                {
+                    conexion.Close();
+                }
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+
 
     }
 }
