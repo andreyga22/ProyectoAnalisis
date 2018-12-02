@@ -3,10 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+<br />
     <div class="container">
         <div class="form-group">
-            <asp:Label ID="Label1" runat="server" Text="Ayuda del sistema" Font-Size="XX-Large"></asp:Label>
+            <asp:Label ID="Label1" runat="server" ForeColor="#16ACB8" Text="Ayuda del sistema" Font-Size="XX-Large"></asp:Label>
         </div>
 
 
@@ -124,6 +124,233 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-header" id="headingSeven">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                            Ver lista de consultas de un expediente
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                            <li>Seleccionar el expediente al que se desea consultar la lista de consultas</li>
+                            <li>Darle click al botón de "Consultas" donde se pueden observar las consultas que tiene al momento el paciente</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+             <div class="card">
+                <div class="card-header" id="headingEight">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                            Crear/Modificar el historial clínico
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                            <li>Seleccionar el expediente al que pertenece el historial clínico</li>
+                            <li>Dar clicl en el botón "Historial clínico"</li>
+                             <li>Realizar los cambios en el historial clínico</li>
+                             <li>Dar click en el botón "Guardar" para guardar los datos del historial clínico</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+              <div class="card">
+                <div class="card-header" id="headingNine">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                            Eliminar un expediente de la lista del día
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                            <li>Ir a la página principal</li>
+                            <li>En la tabla de la sección "Consultas del día" seleccionar el botón eliminar</li>
+                             <li>Se elimina el expediente de la tabla de consultas del día</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+             <div class="card">
+                <div class="card-header" id="headingTen">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                            Ver la última consulta creada en el expediente
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                            <li>Buscar y selecciona el expediente</li>
+                            <li>Si el expediente no tiene consultas el botón no se va a ver, en caso contrario dar click al botón "Última Consulta"</li>
+                             <li>Se muestra la página de la última consulta de dicho expediente</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingEleven">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                            Modificar un expediente
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseEleven" class="collapse" aria-labelledby="headingEleven" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                            <li>Buscar y selecciona el expediente que se desea modificar</li>
+                            <li>Modificar los datos del formulario de "Datos Personales"</li>
+                             <li>Dar click en el botón "Guardar"</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+             <div class="card">
+                <div class="card-header" id="headingTwelve">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                            Guardar el precio de una consulta
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwelve" class="collapse" aria-labelledby="headingTwelve" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                             <li>Únicamente los usuarios con el rol de doctor pueden realizar este cambio</li>
+                            <li>Dirigirse a la página de la consulta que tiene el precio que se desea guardar</li>
+                            <li>Escribir en el espacio de "Precio de consulta" el precio que se desea</li>
+                             <li>Dar click en el botón "Guardar"</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThirteen">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+                            Guardar/Modificar ficha doctor
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThirteen" class="collapse" aria-labelledby="headingThirteen" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                             <li>Únicamente los usuarios con el rol de doctor pueden realizar estos cambios</li>
+                            <li>Dirigirse a la página de la consulta que tiene la ficha de doctor</li>
+                            <li>Dar click en el botón "Entrar" de la ficha de doctor</li>
+                             <li>Realizar los cambios que se quieran en cada uno de los espacios</li>
+                             <li>Se pueden añadir imágenes al final de la ficha dando click en seleccionar archivo, luego seleccionar una imagen que se encuentre en la computadora</li>
+                             <li>Dar click en el botón de guardar</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+             <div class="card">
+                <div class="card-header" id="headingFourteen">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+                            Guardar/Modificar ficha de paramédico
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFourteen" class="collapse" aria-labelledby="headingFourteen" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                             <li>Únicamente los usuarios con el rol de doctor y paramédico pueden realizar estos cambios</li>
+                            <li>Dirigirse a la página de la consulta que tiene la ficha del paramédico</li>
+                            <li>Dar click en el botón "Entrar" de la ficha de paramédico</li>
+                             <li>Realizar los cambios que se quieran en cada uno de los espacios</li>
+                             <li>Dar click en el botón de guardar</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFifteen">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFifteen" aria-expanded="false" aria-controls="collapseFifteen">
+                            Configuración de la cuenta de usuario
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFifteen" class="collapse" aria-labelledby="headingFifteen" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                             <li>En la barra de navegación seleccionar la opción de "Configuración"</li>
+                            <li>Tiene la opción de ver su información básica, además de poder modificar la contraseña y el nombre de usuario</li>
+                            <li>Si desea modificar la contraseña debe de escribir su contraseña actual y la nueva</li>
+                             <li>Seleccionar el botón de guardar, si la contraseña actual no coincide con la digitada no se va a realizar el cambio de contraseña</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingSixteen">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSixteen" aria-expanded="false" aria-controls="collapseSixteen">
+                            Cerrar sesión
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseSixteen" class="collapse" aria-labelledby="headingSixteen" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                             <li>En la barra de navegación seleccionar la opción de "Cerrar sesión"</li>
+                            <li>Se cierra sesión y se redirige a la página de inicio de sesión</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingSeventeen">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeventeen" aria-expanded="false" aria-controls="collapseSeventeen">
+                            Crear un nuevo usuario para el sistema
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseSeventeen" class="collapse" aria-labelledby="headingSeventeen" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                             <li>Únicamente los usuarios con el rol de administrador pueden realizar esta acción</li>
+                             <li>Iniciar sesión</li>
+                            <li>Ir a la sección de "Administrador de Empleados"</li>
+                            <li>Llenar los espacios del formulario</li>
+                             <li>Dar click en guardar</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingEighteen">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEighteen" aria-expanded="false" aria-controls="collapseEighteen">
+                            Habilitar/Deshabilitar un usuario del sistema
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseEighteen" class="collapse" aria-labelledby="headingEighteen" data-parent="#accordionExample">
+                    <div class="card-body">
+                         <ol type="1">
+                             <li>Únicamente los usuarios con el rol de administrador pueden realizar esta acción</li>
+                             <li>Iniciar sesión</li>
+                            <li>Ir a la sección de "Empleados"</li>
+                            <li>Dar click en el botón "Cambiar Estado" de la fila donde se encuentra el usuario que se desea cambiar el estado</li>
+                             <li>El cambio se ve reflejado de manera automática en la tabla "Empleados"</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
 
