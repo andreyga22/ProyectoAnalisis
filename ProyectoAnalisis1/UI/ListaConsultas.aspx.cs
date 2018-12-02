@@ -112,6 +112,7 @@ namespace UI {
                 blme.insertarDia(Convert.ToString(Session["cedula"]));
                 Response.Redirect("Consulta.aspx");
             } catch (Exception) {
+                Response.Redirect("Consulta.aspx");
                 //errorLbl.Visible = true;
                 //errorLbl.Text = "Error al agregar el expediente a la lista de consultas del día.";
                 //lblError.Text = "<div class=\"alert alert-danger alert - dismissible fade show\" role=\"alert\"> <strong>Error. </strong>El expediente no se pudo agregar a la lista de consultas del día.<button type = \"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"> <span aria-hidden=\"true\">&times;</span> </button> </div>";
